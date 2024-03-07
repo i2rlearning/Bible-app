@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/scripture.css" rel="stylesheet" />
+    <title>Bible API Example Application</title>
+  </head>
+  <body class="index">
+    <header>
+      <div class="container">
+        <h1>
+          <a class="flex" href="/">
+            <span class="logo" title="American Bible Society">ABS</span>
+            <span>API Demo App</span>
+          </a>
+        </h1>
+      </div>
+    </header>
+    <div class="subheader">
+      <div class="container flex">
+        <div class="subheadings">
+          <h2>Viewing:</h2>
+          <h3 id="viewing"></h3>
+        </div>
+        <div class="search-area flex">
+          <button onclick="searchButton()">🔎</button>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="ex. 'John 3:16-19' OR 'kingdom'"
+            size="30"
+            onkeydown="if (event.keyCode == 13) searchButton()"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container crumbs">
+      <div id="breadcrumbs"></div>
+    </div>
+    <main class="container">
+      <h4 class="list-heading"><span>Select a Verse</span></h4>
+      <div id="verse-list" class="list-container numeric-list"></div>
+      <div class="eb-container" id="chapter-text"></div>
+    </main>
 
+    <!-- returns a list of sections -->
+    <h4 id="select-prompt" class="list-heading"><span>Select a Section</span></h4>
+    <div id="section-list" class="list-container section-list"></div>
+    
+    <script src="js/my_key.js"></script>
+    <script src="http://cdn.scripture.api.bible/fums/fumsv2.min.js"></script>
+    <script>
+
+      function getParameterByName(name) {
+        const url = window.location.href;
+        name = name.replace(/[\[\]]/g, `\\$&`);
+        const regex = new RegExp(`[?&]` + name + `(=([^&#]*)|&|#|$)`),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return ``;
+        return decodeURIComponent(results[2].replace(/\+/g, ` `));
+      }
+      
+      function searchButton() {
+        const searchInput = document.querySelector(`#search-input`);
+        window.location.href = `./search.html?&version=${bibleVersionID}&abbr=${abbreviation}&query=${searchInput.value}`;
+      }
+    </script>
+  </body>
+</html>
