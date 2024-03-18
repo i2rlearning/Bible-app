@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/main.css" rel="stylesheet" />
+    <title>Branch of Israel - Bible App</title>
+  </head>
+
+  <body class="index">
+    <header>
+      <div class="container">
+          <a class="flex" href="index.html">
+            <span class="logo" title="Branch of Israel"></span>
+          </a>
+        <div class="search-area flex">
+          <button onclick="searchButton()"><h1>🔎</h1></button>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="ex. 'John 3:16-19' OR 'kingdom'"
+            size="30"
+            onkeydown="if (event.keyCode == 13) searchButton()"
+          />
+        </div>
+      </div>
+    </header>
+    <div class="subheader">
+      <div class="container">
+        <div id="breadcrumbs"></div>
+      </div>
+    </div>
+        <!--<div class="container crumbs">
+          <strong>Bible version: </strong> 
+             <div id="breadcrumbs"></div>
+        </div> -->
+
+
+    <main class="container">
+      <h4 class="list-heading"><span>Select a Book</span></h4>
+      <div id="book-list" class="list-container"></div>
+    </main>
+    
+    <script src="js/my_key.js"></script>
+    
+    <script>
+      const bibleBookList = document.querySelector(`#book-list`);
+      const breadcrumbs = document.querySelector(`#breadcrumbs`);
+      const bibleVersionID = getParameterByName(`version`);
+      const abbreviation = getParameterByName(`abbr`);
+
+
+      let bookHTML = ``;
+
+      if (!bibleVersionID) {
+        window.location.href = `./index.html`;
+      }
+
+      getBooks(bibleVersionID).then((bookList) => {
+        bookHTML += `<ul>`;
+        for (let book of bookList) {
+          bookHTML += `<li><a href="chapter.html?version=${bibleVersionID}&abbr=${abbreviation}&book=${book.id}&name=${book.name}"> ${book.name} </a></li>`;
+        }
+        bookHTML += `</ul>`;
+        bibleBookList.innerHTML = bookHTML;
+      });
+
+      //document.querySelector(`#viewing`).innerHTML = `${abbreviation}`;
+      const breadcrumbsHTML = `
+          ${abbreviation}
+      `;
+      breadcrumbs.innerHTML = breadcrumbsHTML;  
+
+      function getBooks(bibleVersionID) {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.withCredentials = false;
+
+          xhr.addEventListener(`readystatechange`, function () {
+            if (this.readyState === this.DONE) {
+              const { data } = JSON.parse(this.responseText);
+              const books = data.map(({ name, id }) => {
+                return { name, id };
+              });
+
+              resolve(books);
+            }
+          });
+
+          xhr.open(
+            `GET`,
+            `https://api.scripture.api.bible/v1/bibles/${bibleVersionID}/books`
+          );
+          xhr.setRequestHeader(`api-key`, API_KEY);
+
+          xhr.onerror = () => reject(xhr.statusText);
+
+          xhr.send();
+        });
+      }
+
+
+      function getParameterByName(name) {
+        const url = window.location.href;
+        name = name.replace(/[\[\]]/g, `\\$&`);
+        const regex = new RegExp(`[?&]` + name + `(=([^&#]*)|&|#|$)`),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return ``;
+        return decodeURIComponent(results[2].replace(/\+/g, ` `));
+      }
+
+    function searchButton() {
+      const searchInput = document.querySelector(`#search-input`);
+      window.location.href = `./search.html?&version=${bibleVersionID}&abbr=${abbreviation}&query=${searchInput.value}`;
+    }
+    </script>
+  </body>
+</html>
