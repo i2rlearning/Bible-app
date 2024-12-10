@@ -1,131 +1,190 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="css/menu.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <title>Branch of Israel - Bible App</title>
-
   </head>
+
   <body class="index">
-    <header>
-      <div class="container">
-          <a class="flex" href="index.html">
-            <span class="logo" title="Branch of Israel"></span>   
-          </a>
-      </div>
-    </header>
-    <div class="subheader">
-      <div class="container flex">
-        <div class="subheadings">
-          <h3>Select a Bible</h3>
+      <div class="subheader" id="stickyHeader">
+        <div class="container flex">
+          <div class="subheadings">
+            <div class="column">
+              <span style="font-size:25px;cursor:pointer;" onclick="openNav()">&#9776;</span><!-- show foo foo bar --> 
+            </div>
+            <div class="column">
+              <span style="color:lightgray;">Bible</span>
+            </div>
+            <div class="column">
+              <span style="color:lightgray;">Book & Chapter</span>
+            </div>
+            <div class="column">
+              <div class="custom-select" style="width:12vw;"  onclick="getOption()">  
+                <select id="optVal">  
+                  <option value="language">Bibles</option>
+                  <option value='https://api.scripture.api.bible/v1/bibles?language=eng&include-full-details=false'>English</option>
+                  <option value="https://api.scripture.api.bible/v1/bibles?language=grc&include-full-details=false">Greek</option>
+                  <option value='https://api.scripture.api.bible/v1/bibles?ids=a8a97eebae3c98e4-01%2C%202c500771ea16da93-01%2C%200b262f1ed7f084a6-01&include-full-details=false'>Hebrew</option>
+                  <option value="https://api.scripture.api.bible/v1/bibles?include-full-details=false">All</option>              
+                </select>
+              </div>          
+            </div>
+            <div class="column">
+              <div class="align-group">
+                <label for="font-size-slider">Font size: </label>&nbsp;
+                <input type="range" id="font-size-slider" min="18" max="35" value="18">
+              </div>
+            </div>                
+          </div>
         </div>
       </div>
-    </div>
-    <main class="container">
-      <div id="bible-version-list" class="list-container bible-list"></div>
+
+    <header>
+      <div id="menuNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" style="color:red" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#" class="current">Home</a>
+          <a href="#" class="disabled">Books</a>
+          <a href="#" class="disabled">Chapter</a>
+          <a href="./search.html">Search</a>
+           <a href="#">Settings</a>
+        </div>
+      </div>
+    </header>   
+
+    <main class="container" style="font-size: 18px;">
+      <div id="bible-version-list">
+        <!-- <div class="list-container bible-list" ></div> -->   
+      </div>
+      <div class="leftcol">
+          <a id="prevURL" >
+            <img id="imgleft" class="left-button" src="./img/orig_left_stamp.png" />
+          </a>
+      </div>      
+          <a id="nextURL">
+      
+      <div class="rightcol">
+            <img id="imgright" class="right-button" src="./img/orig_right_stamp.png"  />
+      <div class="bottom-spacer"></div> 
     </main>
+          </a>
+      </div>
     
     <script src="js/my_key.js"></script>
+    <script src="js/misc.js"></script>
     
-    <script>
-      const versionList = document.querySelector(`#bible-version-list`);
-      
-      let versionHTML = ``;
-      
-      getBibleVersions().then((bibleVersionList) => {
-        const sortedVersions = sortVersionsByLanguage(bibleVersionList);
-      
-      for (let languageGroup in sortedVersions) {
-        const language = languageGroup;
-        versionHTML += `<h4 class="list-heading"><span>${language}</span></h4><ul>`;
-        const versions = sortedVersions[languageGroup];
-        for (let version of versions) {
-          versionHTML += `<li class="bible">
-                            <a href="book.html?version=${version.id}&abbr=${
-            version.name //changed version.abbreviation to version.name to pass the fullname to book.html - RH 3/11/24
-          }">
-                              <span>
-                                <span class="bible-version-name">${
-                                  version.name
-                                }</span>
-                                ${
-                                  version.description
-                                    ? '<span class="bible-version-desc">' +
-                                      version.description +
-                                      "</span>"
-                                    : ""
-                                }
-                              </span>
-                            </a>
-                          </li>`;
+      <script>
+        function getOption() {
+          window.location.reload();
+           selectElement = document.querySelector('#optVal').value;
         }
-        versionHTML += `</ul>`;
-      }
-      versionList.innerHTML = versionHTML; 
-    });
-    
-    function getBibleVersions() {
-      return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.withCredentials = false;
-    
-        xhr.addEventListener(`readystatechange`, function () {
-          if (this.readyState === this.DONE) {
-            const { data } = JSON.parse(this.responseText);
-            const versions = data.map((data) => {
-              return {
-                name: data.name,
-                id: data.id,
-                abbreviation: data.abbreviation,
-                description: data.description,
-                language: data.language.name,
-              };
+
+
+        // ************* Side Menu **************
+        function openNav() {
+          document.getElementById("menuNav").style.width = "225px";
+        }
+
+        function closeNav() {
+          document.getElementById("menuNav").style.width = "0px";
+        } 
+        // ************* Side Menu End **************
+
+
+        // ************* Dropdown Menu **************
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        l = x.length;
+        for (i = 0; i < l; i++) {
+          selElmnt = x[i].getElementsByTagName("select")[0];
+          ll = selElmnt.length;
+          /*for each element, create a new DIV that will act as the selected item:*/
+          a = document.createElement("DIV");
+          a.setAttribute("class", "select-selected");
+          a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+          x[i].appendChild(a);
+          
+          /*for each element, create a new DIV that will contain the option list:*/
+          b = document.createElement("DIV");
+          b.setAttribute("class", "select-items select-hide");
+          for (j = 1; j < ll; j++) {
+            /*for each option in the original select element,
+            create a new DIV that will act as an option item:*/
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                var y, i, k, s, h, sl, yl;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                sl = s.length;
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < sl; i++) {
+                  if (s.options[i].innerHTML == this.innerHTML) {
+                    s.selectedIndex = i;
+                    h.innerHTML = this.innerHTML;
+                    y = this.parentNode.getElementsByClassName("same-as-selected");
+                    yl = y.length;
+                    for (k = 0; k < yl; k++) {
+                      y[k].removeAttribute("class");
+                    }
+                    this.setAttribute("class", "same-as-selected");
+                    break;
+                  }
+                }
+                h.click();
             });
-    
-            resolve(versions);
+            b.appendChild(c);
           }
-        });
-    
-        //******* The below 3 URLs may be configured on this page: https://scripture.api.bible/livedocs#/Bibles/getBible  *******  
-        xhr.open(`GET`, `https://api.scripture.api.bible/v1/bibles?language=eng&include-full-details=false`); //English 
-      //  xhr.open(`GET`, `https://api.scripture.api.bible/v1/bibles?language=eng&include-full-details=false`); //Greek
-      //  xhr.open(`GET`, `https://api.scripture.api.bible/v1/bibles?ids=a8a97eebae3c98e4-01%2C%202c500771ea16da93-01%2C%200b262f1ed7f084a6-01&include-full-details=false`); //Hebrew
-        xhr.setRequestHeader(`api-key`, API_KEY);
-    
-        xhr.onerror = () => reject(xhr.statusText);
-    
-        xhr.send();
-      });
-    }
-    
-   //************************************************************************
-   // The below function is a helper to sort the Bible versions by language. 
-   // This is by no means required, but it is a good demonstration of 
-   //    how the API data can be sorted for different purposes. 
-   //************************************************************************
-   function sortVersionsByLanguage(bibleVersionList) {
-    let sortedVersions = {};
-  
-    for (const version of bibleVersionList) {
-      if (!sortedVersions[version.language]) {
-        sortedVersions[version.language] = [];
-      }
-      sortedVersions[version.language].push(version);
-    }
-    for (const version in sortedVersions) {
-      sortedVersions[version].sort((a, b) => {
-        const nameA = a.abbreviation.toUpperCase();
-        const nameB = b.abbreviation.toUpperCase();
-        if (nameA < nameB) {
-          return -1;
+          x[i].appendChild(b);
+          a.addEventListener("click", function(e) {
+              /*when the select box is clicked, close any other select boxes,
+              and open/close the current select box:*/
+              e.stopPropagation();
+              closeAllSelect(this);
+              this.nextSibling.classList.toggle("select-hide");
+              this.classList.toggle("select-arrow-active");
+            });
         }
-        if (nameA > nameB) {
-          return 1;
+
+        function closeAllSelect(elmnt) {
+          /*a function that will close all select boxes in the document,
+          except the current select box:*/
+          var x, y, i, xl, yl, arrNo = [];
+          x = document.getElementsByClassName("select-items");
+          y = document.getElementsByClassName("select-selected");
+          xl = x.length;
+          yl = y.length;
+          for (i = 0; i < yl; i++) {
+            if (elmnt == y[i]) {
+              arrNo.push(i)
+            } else {
+              y[i].classList.remove("select-arrow-active");
+            }
+          }
+          for (i = 0; i < xl; i++) {
+            if (arrNo.indexOf(i)) {
+              x[i].classList.add("select-hide");
+            }
+          }
         }
-        return 0;
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+
+      
+      //******************* Font resize slider *********************
+      const fontSizeSlider = document.getElementById("font-size-slider");
+      const displayText = document.getElementById("bible-version-list");
+      
+      fontSizeSlider.addEventListener("input", () => {
+        const fontSize = fontSizeSlider.value;
+        displayText.style.fontSize = `${fontSize}px`;
       });
-    }
-    return sortedVersions;
-  }  
+      //******************************************************  
+
     </script>
   </body>
 </html>
