@@ -1,37 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="css/menu.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <title>Branch of Israel - Bible App</title>
   </head>
+
    <body class="index">
+      <div class="subheader" id="stickyHeader">
+        <div class="container flex">
+          <div class="subheadings">
+            <div class="column">
+              <span style="font-size:25px;cursor:pointer;" onclick="openNav()">&#9776;</span><!-- show foo foo bar --> 
+            </div>
+            <div class="column">
+              <span class="tooltip"> <span id="bible"></span>
+                  <span class="tooltiptext  tooltip-bottom"><span id="biblefullname"></span></span>
+              </span>
+            </div>
+            <div class="column">
+              <span id="bookName" style=></span><span style="color:lightgray;"> Chapter</span>
+            </div>    
+          </div>
+        </div>
+      </div>
+                  
     <header>
-      <div class="container">
-          <a class="flex" href="index.html">
-            <span class="logo" title="Branch of Israel"></span>
-          </a>
-       <div class="search-area flex">
-          <button onclick="searchButton()"><h1>🔎</h1></button>
-          <input
-            type="text"
-            id="search-input"
-            placeholder="ex. 'John 3:16-19' OR 'kingdom'"
-            size="30"
-            onkeydown="if (event.keyCode == 13) searchButton()"
-          />
+      <div id="menuNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" style="color:red" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="./index.html">Home</a>
+          <a id="bookurl">Books</a>
+          <a href="#" class="current">Chapter</a>
+          <a href="./search.html">Search</a>
         </div>
       </div>
     </header>
 
-     <div class="subheader" id="stickyHeader">
-      <div class="container">
-        <div id="breadcrumbs"></div>
-      </div>
-    </div>
-
     <main class="container">
-      <h4 class="list-heading"><span>Select a Chapter</span></h4>
+      <!--<h4 class="list-heading"><span>Select a Chapter</span></h4>-->
       <div id="chapter-list" class="list-container numeric-list"></div>
+      <div class="leftcol">
+          <a id="prevURL" >
+            <img id="imgleft" class="left-button" src="./img/orig_left_stamp.png" />
+          </a>
+      </div>      
+      
+      <div class="rightcol">
+          <a id="nextURL">
+            <img id="imgright" class="right-button" src="./img/orig_right_stamp.png"  />
+          </a>
+      </div>
     </main>
 
     
@@ -43,7 +62,7 @@
       const abbreviation = getParameterByName(`abbr`);
       const bibleName = getParameterByName(`name`);
       const bibleSectionList = document.querySelector(`#section-list`);
-      
+
       let chapterHTML = ``;
       
       if (!bibleVersionID || !bibleBookID) {
@@ -55,9 +74,13 @@
         for (let chapter of chapterList) {
           chapterHTML += `<li class="grid"><a class="grid-link" href="verse.html?version=${bibleVersionID}&name=${bibleName}&abbr=${abbreviation}&chapter=${chapter.id}"> ${chapter.number} </a></li>`;
         }
+
         chapterHTML += `</ol>`;
         bibleChapterList.innerHTML = chapterHTML;
-        //window.prompt(bibleName);
+        var last = chapterHTML.substring(chapterHTML.length - 17);
+
+        //sets max chapters - used for arrows in verse.html
+        sessionStorage.setItem("maxchapnum", last.slice(0, 2));
       });
 
       getSections(bibleVersionID, bibleBookID).then((sectionList) => {
@@ -73,12 +96,27 @@
         bibleSectionList.innerHTML = sectionHTML;
       });
       
+      //************ subheader content ***********
+      const bibleHTML = `${abbreviation}`; 
+      const bookNameHTML  = `${bibleName}`;
+      
+      bible.innerHTML = bibleHTML;
+      bookName.innerHTML = bookNameHTML;
+
+      //sets chapter url for next screen
+      sessionStorage.setItem("chapter", window.location.href);
+
+      //gets fullbookname for tooltip
+      var fbookname = sessionStorage.getItem("fullbookname");
+      document.getElementById("biblefullname").innerHTML = fbookname; 
+
+      //************ subheader content ***********
       //document.querySelector(`#viewing`).innerHTML = `${bibleBookID}`;
-      const breadcrumbsHTML = `
-          <a href="book.html?version=${bibleVersionID}&abbr=${abbreviation}&name=${bibleName}">${abbreviation}</a><br />
-          ${bibleName}
-      `;
-      breadcrumbs.innerHTML = breadcrumbsHTML;
+      //const breadcrumbsHTML = `
+          <!-- <a href="book.html?version=${bibleVersionID}&abbr=${abbreviation}&name=${bibleName}" -->
+          //${abbreviation} / ${bibleName}`;
+     //breadcrumbs.innerHTML = breadcrumbsHTML;
+      //window.prompt(breadcrumbsHTML);
 
       function getChapters(bibleVersionID, bibleBookID) {
         return new Promise((resolve, reject) => {
@@ -91,6 +129,7 @@
               const chapters = data.map(({ number, id }) => {
                 return { number, id };
               });
+
               resolve(chapters);
             }
           });
@@ -142,10 +181,6 @@
         return decodeURIComponent(results[2].replace(/\+/g, ` `));
       }
       
-      function searchButton() {
-        const searchInput = document.querySelector(`#search-input`);
-        window.location.href = `./search.html?&version=${bibleVersionID}&abbr=${abbreviation}&query=${searchInput.value}`;
-      }
 
       // ****************  STICKY HEADER  ****************
       // When the user scrolls the page, execute myFunction
@@ -165,6 +200,19 @@
           header.classList.remove("sticky");
         }
       } 
+
+      // ************* Menu **************
+      function openNav() {
+        document.getElementById("menuNav").style.width = "225px";
+
+        //inserts book.html url into the <a> tag for the menu
+        var bookLink = sessionStorage.getItem("bookabbr");
+        document.getElementById("bookurl").setAttribute("href",bookLink);  
+      }
+
+      function closeNav() {
+        document.getElementById("menuNav").style.width = "0px";
+      }  
     </script>
   </body>
 </html>
