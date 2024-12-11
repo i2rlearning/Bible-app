@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Roboto:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Arima:400,500,700");
 html,
 body {
   margin: 0;
@@ -22,7 +22,7 @@ html *:after {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arima";
   font-weight: 300;
 }
 
@@ -61,6 +61,8 @@ ul, ol {
   padding: 0 10px;
   margin: auto;
 }
+
+
 @media only screen and (min-width: 600px) {
   .container {
     padding: 0 20px;
@@ -68,6 +70,12 @@ ul, ol {
 }
 .container *, .container *:before, .container *:after {
   box-sizing: border-box;
+}
+
+
+.container .inside {
+  background-color: white;
+  text-align: center;
 }
 
 header {
@@ -96,14 +104,15 @@ header .container {
 header .logo {
   text-indent: 99999px;
   overflow: hidden;
-  width: 7rem;
-  height: 7rem;
+  width: 10rem;
+  height: 8rem;
   margin-left: 0px;
   margin-right: 50px;
   margin-bottom: .5rem;
   background: url("../img/logo.png") center no-repeat;
-  background-size: 125px auto;
+  /*background-size: 125px auto;*/
 }
+
 header h1 {
   text-align: right;
   /*background: #fff; - color behind logo */
@@ -117,21 +126,30 @@ header h1 a {
   line-height: 2.75rem;
 }
 
+
 .subheader {
   background: #F6FBFF;
-  background: rgba(246,251,255); //4th param is for opacity
-  padding: .5rem 0;
+  background: rgba(246,251,255); /* 4th param is for opacity ex: 0.3 (30% opaque) */
+ /* padding: .5rem 0;*/
   position: relative;
-  margin-bottom: 3.125rem;
+  text-align: center;
+  /*margin-bottom: 3.125rem;*/
 }
 
 .subheader .container {
   flex-wrap: wrap;
-  font-size: 1.75rem;
+  font-size: 1.75vw;  /* font for top heading */
   line-height: 2.25rem;
   font-weight: 600;
-  text-align: center;
+  /*text-align: center;*/
 }
+
+/*@media only screen and (max-width: 600px) {
+  .subheader .container  {
+    font-size: 8px;
+  }
+}*/
+
 .subheader .subheadings {
   margin-right: 2rem;
 }
@@ -147,9 +165,6 @@ header h1 a {
   font-size: 1.75rem;
   line-height: 2.25rem;
   font-weight: 700;
-}
-.subheader .subheadings h3 i {
-  font-style: normal;
 }
 
 .crumbs {
@@ -182,84 +197,6 @@ header h1 a {
   border-color: transparent;
 }
 
-/*  overall search box */
-.search-area {
-  background: #fff;
-  border: 1px solid lightgray;
-  border-radius: 50px;
-  margin-left:auto;
-  width: 100%;
-}
-
-@media only screen and (min-width: 500px) {
-  .search-area {
-    width: auto;
-  }
-}
-.search-area button,
-.search-area input {
-  font-size: 0.875rem;
-  height: 3em;
-  line-height: 3em;
-  border: 0;
-  background: none;
-  margin-right: .75em;
-}
-.search-area button {
-  text-align: center;
-  padding: 0 3em 0 1em;
-  cursor: pointer;
-  width: 2.8rem;
-  border-right: 1px solid lightgray;
-}
-
-.search-area input {
-  width: calc(100% - 2.8rem);
-  padding: 0 0.5em 0 0;
-}
-body.basic_index .search-area {
-  display: none;
-}
-
-.search-nav {
-  margin-bottom: 2rem;
-}
-.search-nav > * {
-  display: block;
-}
-
-.search-nav .results-current-page {
-  margin-bottom: 1rem;
-}
-.search-nav .results-nav button {
-  font-size: 1rem;
-  line-height: 2em;
-  cursor: pointer;
-  border: 1px solid lightgray;
-  background: #fff;
-}
-.search-nav .results-nav button:hover {
-  border-color: #31ACFF;
-  color: #31ACFF;
-}
-.search-nav .results-nav button + button {
-  margin-left: 1rem;
-}
-.search-nav.search-nav-top {
-  margin-bottom: 2rem;
-}
-.search-nav.search-nav-top .results-count {
-  padding-bottom: 2rem;
-  border-bottom: 1px solid lightgray;
-}
-.search-nav.search-nav-top .results-current-page,
-.search-nav.search-nav-top .results-nav {
-  display: none;
-}
-.search-nav.search-nav-bottom .results-count {
-  display: none;
-}
-
 body.basic_index #select-prompt, body.basic_verse-selected #select-prompt, body.basic_section #select-prompt {
   display: none;
 }
@@ -283,7 +220,7 @@ body.basic_index #select-prompt, body.basic_verse-selected #select-prompt, body.
 
 .list-container > ul,
 .list-container > ol {
-  margin-bottom: 4.375rem;
+  margin-bottom: 3rem;   /* 4.375rem; */
 }
 .list-container li {
   font-size: 2rem;
@@ -291,10 +228,11 @@ body.basic_index #select-prompt, body.basic_verse-selected #select-prompt, body.
   padding: 0.25em 0;
 }
 .list-container li a:hover {
-  color: #31ACFF;
+  color: #015d9b;
 }
+
 .list-container.bible-list li, .list-container.section-list li {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5625rem;
   padding: 0.3em 0;
 }
@@ -311,43 +249,12 @@ body.basic_index #select-prompt, body.basic_verse-selected #select-prompt, body.
   text-decoration: none;
   margin-right: 1.3em;
 }
+
 .list-container.bible-list li .bible-version-desc:before, .list-container.section-list li .bible-version-desc:before {
   content: "- ";
 }
-.list-container.search-results-list li {
-  padding: 0 0 2.5rem;
-  border-bottom: 1px solid lightgray;
-  margin-bottom: 2.75rem;
-}
-.list-container.search-results-list li:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.list-container.search-results-list li > * {
-  line-height: 1.5rem;
-  margin-bottom: 0.3em;
-}
-.list-container.search-results-list li h5 {
-  font-size: 1.125rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.list-container.search-results-list li .text {
-  font-size: 1.125rem;
-  font-weight: 300;
-}
-.list-container.search-results-list li > a {
-  float: left;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #31ACFF;
-  border-bottom: solid 1px #31ACFF;
-}
-.list-container.search-results-list li > a:hover {
-  border-color: transparent;
-}
+
+
 .list-container.numeric-list ol {
   display: flex;
   flex-wrap: wrap;
@@ -384,14 +291,173 @@ body.basic_index #select-prompt, body.basic_verse-selected #select-prompt, body.
 }
 
 
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
+#stickyHeader {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
   top: 0;
-  width: 100%
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 102px;
+
+/**** columns for subheader *****/
+* {
+  box-sizing: border-box;
 }
+
+/* Creates columns */
+.column {
+  float: left;
+  border-right: 2px solid lightgray;
+  padding: 3px 10px 0 10px;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/**** Column End *****/
+
+
+/**** Next-Prev buttons *****/
+.right-button {
+position: fixed;
+top: 50%;
+right: 30px;
+width: 5vw;
+Height: auto;
+}
+
+.left-button {
+position: fixed;
+top: 50%;
+left: 30px;
+width: 5vw;
+Height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .left-button {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .right-button {
+    display: none;
+  }
+}
+/*** Next-Prev buttons End*****/
+
+
+/*** Columns for scrolls with stamp overlayed  *****/
+ .leftcol {
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  background-image: url('../img/scrollbarleft.png');
+  background-repeat: no-repeat;
+  background-size: 150px 97vh;
+  top: 35px;
+  left: 0;
+}
+
+ .rightcol {
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  background-image: url('../img/scrollbar.png');
+  background-repeat: no-repeat;
+  background-size: 150px 97vh;
+  top: 35px;
+  right: -50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .leftcol {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .rightcol {
+    display: none;
+  }
+}
+
+/***************************************/
+
+/* aligns two objects horiozontally (text and slider bar) */
+  .align-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+/* centers image */
+ .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bottom-spacer {
+  padding-bottom: 30px;
+}
+
+
+
+/* tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    color: #006080;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    width: 150px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    font-size: 11px;
+    line-height: normal;
+    padding: 5px 5px 5px 5px;
+    border-radius: 6px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-bottom {
+  top: 135%;
+  left: 50%;  
+  margin-left: -70px;
+}
+
+.tooltip-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.saveButton {
+  position: relative;
+  top: -25px;
+  left: 15px;
+}
+
