@@ -1,7 +1,7 @@
 .eb-container {
   /* HTML5 display-role reset for older browsers */
   font-size: 18px;
-  font-family: "CharisSIL", serif;
+  font-family: "Arima", serif;
   line-height: 1.5;
   color: #333;
 }
@@ -90,11 +90,12 @@
 .eb-container .v {
   color: #474747;
   font-size: .7em;
-  letter-spacing: -.03em;
+  letter-spacing: .02em;
+  padding-right: .55em; /* adding for spacing between chars*/
   vertical-align: 0.40em;
   line-height: 0;
   font-family: "Helvetica", sans-serif;
-  /*font-weight: bold;*/
+  font-weight: bold;
   top: inherit;
 }
 
@@ -662,6 +663,7 @@
   font-size: inherit;
   letter-spacing: normal;
 }
+
 
 /*  SCRIPTURE REFERENCES */
 .eb-container .r {
