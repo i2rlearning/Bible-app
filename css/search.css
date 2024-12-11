@@ -1,0 +1,126 @@
+/*  overall search box */
+.search-area {
+  background: #fff;
+  border: 1px solid lightgray;
+  border-radius: 50px;
+  margin-left:auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-area {
+    width: 40%;
+  }
+}
+.search-area input {
+  font-size: 0.875rem;
+
+  border: 0;
+  margin-left: .75em;
+}
+
+.search-area button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  width: 2.8rem;
+  border-right: 1px solid lightgray; /*vertical bar between button and text */
+}
+
+.search-area input {
+  width: calc(100% - 2.8rem);
+  padding: 0 0.5em 0 0;
+}
+body.basic_index .search-area {
+  display: none;
+}
+
+.search-nav {
+  margin-bottom: 2rem;
+}
+.search-nav > * {
+  display: block;
+}
+
+.search-nav .results-current-page {
+  margin-bottom: 1rem;
+}
+.search-nav .results-nav button {
+  font-size: 1rem;
+  line-height: 2em;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  background: #fff;
+}
+.search-nav .results-nav button:hover {
+  border-color: #31ACFF;
+  color: #31ACFF;
+}
+.search-nav .results-nav button + button {
+  margin-left: 1rem;
+}
+.search-nav.search-nav-top {
+  margin-bottom: 2rem;
+}
+.search-nav.search-nav-top .results-count {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid lightgray;
+}
+.search-nav.search-nav-top .results-current-page,
+.search-nav.search-nav-top .results-nav {
+  display: none;
+}
+.search-nav.search-nav-bottom .results-count {
+  display: none;
+}
+
+.search-area
+.subheader .subheadings h3 i {
+  font-style: normal;
+}
+
+.list-container.search-results-list li {
+  padding: 0 0 2.5rem;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 2.75rem;
+}
+.list-container.search-results-list li:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.list-container.search-results-list li > * {
+  line-height: 1.5rem;
+  margin-bottom: 0.3em;
+}
+.list-container.search-results-list li h5 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.list-container.search-results-list li .text {
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+.list-container.search-results-list li > a {
+  float: left;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #31ACFF;
+  border-bottom: solid 1px #31ACFF;
+}
+.list-container.search-results-list li > a:hover {
+  border-color: transparent;
+}
+
+
+
+/***** Clear button for search section "X" located inside search bar *****/
+.clearbtn {
+  position: relative;
+  top: 4px;
+  right: 15px;
+  font-size: 40px;
+  z-index: 1;
+}
+
