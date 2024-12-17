@@ -4,7 +4,7 @@
     <link href="css/menu.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/scripture.css" rel="stylesheet" />
-    <script src="https://cdn.tiny.cloud/1/w6y451zn8qbjvaanpckryx95l4w132sbip37qieh1ggjz2a2/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
 
     <title>Branch of Israel - Bible App</title>
   </head>
@@ -66,14 +66,14 @@
 
       <div class="bottom-spacer" ></div>
 
-      <texteditor></texteditor>
-      <!--<button class ="saveButton" onclick="saveMe()">Save</button>-->
+      <div id="editor"></div>
 
     </main>
    
 
     <script src="js/my_key.js"></script>
-    <script src="https://cdn.scripture.api.bible/fums/fumsv2.min.js"></script>
+    <script src="https://cdn.scripture.api.bible/fums/fumsv2.min.js"></script
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script> <!-- Quill library -->
 
     
     <script>
@@ -345,31 +345,12 @@
   });
  
  
-  //******************* tinyMCE editor *******************  
-  tinymce.init({
-    selector: 'texteditor',
-    plugins: 'autolink image link lists media searchreplace visualblocks linkchecker',
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media | align lineheight | removeformat',
-    forced_root_block: false,
-    menubar: false,
-    elementpath: false,
-    placeholder: 'Notes...'
-
+ <!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#editor', {
+    theme: 'snow'
   });
-
-
- //https://www.tiny.cloud/blog/how-to-get-content-and-set-content-in-tinymce/
- //https://stackoverflow.com/questions/77344990/insert-custom-button-on-insert-edit-link-dialog-box-tinymce-6-7-0 
- function saveMe (){
-  var myContent = tinymce.activeEditor.getContent();
-  
-  if (myContent){
-    window.prompt (myContent);
-  }
-  //var myFile = new File([myContent], "bible.txt", {type: "text/plain;charset=utf-8"});
-  //saveAs(myFile);
-
- }
+</script>
   </script>
 
 </body>
