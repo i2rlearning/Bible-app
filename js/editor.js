@@ -1,6 +1,6 @@
 //https://quilljs.com/docs/modules/toolbar
 const toolbarOptions = [
- 'Size:' [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+ ['Size:' { 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
   [{ 'align': [] }],
  // [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
  // [{ 'font': [] }],
