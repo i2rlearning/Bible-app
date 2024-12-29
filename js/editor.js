@@ -6,14 +6,15 @@ const toolbarOptions = [
   
   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
  // ['blockquote', 'code-block'],
-  ['link', 'image', 'video'],
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme  
+
 
   [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
   [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
   [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
   [{ 'direction': 'rtl' }],                         // text direction
 
-  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  ['link', 'image', 'video'],
 
 
   ['clean']                                         // remove formatting button
