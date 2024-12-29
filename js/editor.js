@@ -15,7 +15,7 @@ const toolbarOptions = [
   [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
   [{ 'direction': 'rtl' }],                         // text direction
 
-  ['link', 'image', 'video'],
+  ['link', 'image'],
 
 
   ['clean']                                         // remove formatting button
