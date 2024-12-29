@@ -1,10 +1,11 @@
 const toolbarOptions = [
   [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-  [{ 'font': [] }],
+  [{ 'align': [] }],
+ // [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+ // [{ 'font': [] }],
   
   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-  ['blockquote', 'code-block'],
+ // ['blockquote', 'code-block'],
   ['link', 'image', 'video'],
 
   [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
@@ -13,7 +14,7 @@ const toolbarOptions = [
   [{ 'direction': 'rtl' }],                         // text direction
 
   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-  [{ 'align': [] }],
+
 
   ['clean']                                         // remove formatting button
 ];
