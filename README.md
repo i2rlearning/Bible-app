@@ -1,1 +1,1 @@
-This file app is made to allow you to read the Bible virtually just like a physical Bible.
+Read the Bible in multiple languages and versions like a physical Bible and add in your notes.
