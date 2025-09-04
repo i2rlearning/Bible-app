@@ -1,191 +1,191 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/menu.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-    <title>Branch of Israel - Bible App</title>
-  </head>
-
-  <body class="index">
-      <div class="subheader" id="stickyHeader">
-        <div class="container flex">
-          <div class="subheadings">
-            <div class="column">
-              <span style="font-size:25px;cursor:pointer;" onclick="openNav()">&#9776;</span><!-- show foo foo bar --> 
-            </div>
-            <div class="column">
-              <span style="color:lightgray;">Bible</span>
-            </div>
-            <div class="column">
-              <span style="color:lightgray;">Book & Chapter</span>
-            </div>
-            <div class="column">
-              <div class="custom-select" style="width:12vw;"  onclick="getOption()">  
-                <select id="optVal">  
-                  <option value="language">Bibles</option>
-                  <option value='https://api.scripture.api.bible/v1/bibles?language=eng&include-full-details=false'>English</option>
-                  <option value="https://api.scripture.api.bible/v1/bibles?language=grc&include-full-details=false">Greek</option>
-                  <option value='https://api.scripture.api.bible/v1/bibles?ids=a8a97eebae3c98e4-01%2C%202c500771ea16da93-01%2C%200b262f1ed7f084a6-01&include-full-details=false'>Hebrew</option>
-                  <option value="https://api.scripture.api.bible/v1/bibles?include-full-details=false">All</option>              
-                </select>
-              </div>          
-            </div>
-            <div class="column">
-              <div class="align-group">
-                <label for="font-size-slider">Font size: </label>&nbsp;
-                <input type="range" id="font-size-slider" min="18" max="35" value="18">
-              </div>
-            </div>                
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="css/menu.css" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <title>Branch of Israel - Bible App</title>
+  <style>
+    /* Optional minimal styles to make native select look ok */
+    .subheader .custom-select select { width: 12vw; min-width: 180px; }
+    .leftcol, .rightcol { position: fixed; top: 50%; transform: translateY(-50%); }
+    .leftcol { left: 10px; }
+    .rightcol { right: 10px; }
+    .left-button, .right-button { width: 48px; height: auto; cursor: pointer; }
+    .bottom-spacer { height: 64px; }
+    .disabled { opacity: 0.4; pointer-events: none; }
+    .list-container { display: grid; gap: 8px; margin-top: 12px; }
+    .list-item { padding: 8px 10px; border: 1px solid #ddd; border-radius: 8px; }
+    .align-group { display: inline-flex; align-items: center; gap: 6px; }
+  </style>
+</head>
+<body class="index">
+  <div class="subheader" id="stickyHeader">
+    <div class="container flex">
+      <div class="subheadings">
+        <div class="column">
+          <button type="button" aria-label="Open menu" style="font-size:25px;cursor:pointer;background:none;border:none;color:inherit" id="openMenuBtn">&#9776;</button>
+        </div>
+        <div class="column">
+          <span style="color:lightgray;">Bible</span>
+        </div>
+        <div class="column">
+          <span style="color:lightgray;">Book &amp; Chapter</span>
+        </div>
+        <div class="column">
+          <div class="custom-select">
+            <label for="optVal" class="visually-hidden">Choose language</label>
+            <select id="optVal">
+              <option value="">Bibles</option>
+              <option value="https://api.scripture.api.bible/v1/bibles?language=eng&include-full-details=false">English</option>
+              <option value="https://api.scripture.api.bible/v1/bibles?language=grc&include-full-details=false">Greek</option>
+              <option value="https://api.scripture.api.bible/v1/bibles?ids=a8a97eebae3c98e4-01%2C2c500771ea16da93-01%2C0b262f1ed7f084a6-01&include-full-details=false">Hebrew</option>
+              <option value="https://api.scripture.api.bible/v1/bibles?include-full-details=false">All</option>
+            </select>
+          </div>
+        </div>
+        <div class="column">
+          <div class="align-group">
+            <label for="font-size-slider">Font size:</label>
+            <input type="range" id="font-size-slider" min="18" max="35" value="18">
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-    <header>
-      <div id="menuNav" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" style="color:red" onclick="closeNav()">&times;</a>
-        <div class="overlay-content">
-          <a href="#" class="current">Home</a>
-          <a href="#" class="disabled">Books</a>
-          <a href="#" class="disabled">Chapter</a>
-          <a href="./search.html">Search</a>
-           <a href="#">Settings</a>
-        </div>
-      </div>
-    </header>   
+  <header>
+    <div id="menuNav" class="overlay" aria-hidden="true">
+      <button type="button" class="closebtn" style="color:red" id="closeMenuBtn" aria-label="Close menu">&times;</button>
+      <nav class="overlay-content">
+        <a href="#" class="current">Home</a>
+        <a href="#" class="disabled" aria-disabled="true">Books</a>
+        <a href="#" class="disabled" aria-disabled="true">Chapter</a>
+        <a href="./search.html">Search</a>
+        <a href="#">Settings</a>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container" style="font-size: 18px;">
-      <div id="bible-version-list">
-        <!-- <div class="list-container bible-list" ></div> -->   
-      </div>
-      <div class="leftcol">
-          <a id="prevURL" >
-            <img id="imgleft" class="left-button" src="./img/orig_left_stamp.png" />
-          </a>
-      </div>      
-          <a id="nextURL">
-      
-      <div class="rightcol">
-            <img id="imgright" class="right-button" src="./img/orig_right_stamp.png"  />
-      <div class="bottom-spacer"></div> 
-    </main>
-          </a>
-      </div>
-    
-    <script src="js/my_key.js"></script>
-    <script src="js/misc.js"></script>
-    
-      <script>
-        function getOption() {
-          window.location.reload();
-           selectElement = document.querySelector('#optVal').value;
-        }
+  <main class="container" id="main" style="font-size: 18px;">
+    <div id="bible-version-list" class="list-container"></div>
 
+    <div class="leftcol">
+      <a id="prevURL" href="#">
+        <img id="imgleft" class="left-button" src="./img/orig_left_stamp.png" alt="Previous" />
+      </a>
+    </div>
 
-        // ************* Side Menu **************
-        function openNav() {
-          document.getElementById("menuNav").style.width = "225px";
-        }
+    <div class="rightcol">
+      <a id="nextURL" href="#">
+        <img id="imgright" class="right-button" src="./img/orig_right_stamp.png" alt="Next" />
+      </a>
+    </div>
 
-        function closeNav() {
-          document.getElementById("menuNav").style.width = "0px";
-        } 
-        // ************* Side Menu End **************
+    <div class="bottom-spacer"></div>
+  </main>
 
+  <script src="js/my_key.js"></script>
+  <script>
+    // ======= Side Menu =======
+    const menu = document.getElementById('menuNav');
+    document.getElementById('openMenuBtn').addEventListener('click', () => {
+      menu.style.width = '225px';
+      menu.setAttribute('aria-hidden', 'false');
+    });
+    document.getElementById('closeMenuBtn').addEventListener('click', () => {
+      menu.style.width = '0px';
+      menu.setAttribute('aria-hidden', 'true');
+    });
 
-        // ************* Dropdown Menu **************
-        var x, i, j, l, ll, selElmnt, a, b, c;
-        /*look for any elements with the class "custom-select":*/
-        x = document.getElementsByClassName("custom-select");
-        l = x.length;
-        for (i = 0; i < l; i++) {
-          selElmnt = x[i].getElementsByTagName("select")[0];
-          ll = selElmnt.length;
-          /*for each element, create a new DIV that will act as the selected item:*/
-          a = document.createElement("DIV");
-          a.setAttribute("class", "select-selected");
-          a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-          x[i].appendChild(a);
-          
-          /*for each element, create a new DIV that will contain the option list:*/
-          b = document.createElement("DIV");
-          b.setAttribute("class", "select-items select-hide");
-          for (j = 1; j < ll; j++) {
-            /*for each option in the original select element,
-            create a new DIV that will act as an option item:*/
-            c = document.createElement("DIV");
-            c.innerHTML = selElmnt.options[j].innerHTML;
-            c.addEventListener("click", function(e) {
-                /*when an item is clicked, update the original select box,
-                and the selected item:*/
-                var y, i, k, s, h, sl, yl;
-                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                sl = s.length;
-                h = this.parentNode.previousSibling;
-                for (i = 0; i < sl; i++) {
-                  if (s.options[i].innerHTML == this.innerHTML) {
-                    s.selectedIndex = i;
-                    h.innerHTML = this.innerHTML;
-                    y = this.parentNode.getElementsByClassName("same-as-selected");
-                    yl = y.length;
-                    for (k = 0; k < yl; k++) {
-                      y[k].removeAttribute("class");
-                    }
-                    this.setAttribute("class", "same-as-selected");
-                    break;
-                  }
-                }
-                h.click();
-            });
-            b.appendChild(c);
-          }
-          x[i].appendChild(b);
-          a.addEventListener("click", function(e) {
-              /*when the select box is clicked, close any other select boxes,
-              and open/close the current select box:*/
-              e.stopPropagation();
-              closeAllSelect(this);
-              this.nextSibling.classList.toggle("select-hide");
-              this.classList.toggle("select-arrow-active");
-            });
-        }
+    // ======= Font resize slider =======
+    const fontSizeSlider = document.getElementById("font-size-slider");
+    const main = document.getElementById("main");
+    fontSizeSlider.addEventListener("input", () => {
+      main.style.fontSize = fontSizeSlider.value + "px";
+    });
 
-        function closeAllSelect(elmnt) {
-          /*a function that will close all select boxes in the document,
-          except the current select box:*/
-          var x, y, i, xl, yl, arrNo = [];
-          x = document.getElementsByClassName("select-items");
-          y = document.getElementsByClassName("select-selected");
-          xl = x.length;
-          yl = y.length;
-          for (i = 0; i < yl; i++) {
-            if (elmnt == y[i]) {
-              arrNo.push(i)
-            } else {
-              y[i].classList.remove("select-arrow-active");
-            }
-          }
-          for (i = 0; i < xl; i++) {
-            if (arrNo.indexOf(i)) {
-              x[i].classList.add("select-hide");
-            }
-          }
-        }
-        /*if the user clicks anywhere outside the select box,
-        then close all select boxes:*/
-        document.addEventListener("click", closeAllSelect);
+    // ======= Fetch helper (AJAX) =======
+    async function fetchJSON(url) {
+      const headers = { 'accept': 'application/json' };
+      if (window.SCRIPTURE_API_KEY) {
+        headers['api-key'] = window.SCRIPTURE_API_KEY;
+      }
+      const resp = await fetch(url, { headers, cache: 'no-store' });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      return resp.json();
+    }
 
-      
-      //******************* Font resize slider *********************
-      const fontSizeSlider = document.getElementById("font-size-slider");
-      const displayText = document.getElementById("bible-version-list");
-      
-      fontSizeSlider.addEventListener("input", () => {
-        const fontSize = fontSizeSlider.value;
-        displayText.style.fontSize = `${fontSize}px`;
-      });
-      //******************************************************  
+    // ======= Populate list =======
+    const listEl = document.getElementById('bible-version-list');
+    function renderList(items) {
+      listEl.innerHTML = '';
+      if (!items || !items.length) {
+        listEl.innerHTML = '<div class="list-item">No results.</div>';
+        return;
+      }
+      for (const b of items) {
+        const div = document.createElement('div');
+        div.className = 'list-item';
+        div.innerHTML = `
+          <strong>${b.name || 'Untitled'}</strong><br>
+          <small>${b.language?.name || ''}${b.abbreviation ? ' • ' + b.abbreviation : ''}</small>
+        `;
+        listEl.appendChild(div);
+      }
+    }
 
-    </script>
-  </body>
+    function renderError(message) {
+      listEl.innerHTML = `<div class="list-item" style="border-color:#f2b; background:#fff5fa;">Error: ${message}</div>`;
+    }
+
+    async function loadBibles(url) {
+      if (!url) { listEl.innerHTML = ''; return; }
+      try {
+        listEl.innerHTML = '<div class="list-item">Loading…</div>';
+        const data = await fetchJSON(url);
+        // API returns { data: [bibles…] }
+        renderList(Array.isArray(data?.data) ? data.data : []);
+      } catch (e) {
+        renderError(e.message || 'Failed to load');
+      }
+    }
+
+    // ======= Select change handler =======
+    const select = document.getElementById('optVal');
+    select.addEventListener('change', (e) => {
+      const value = e.target.value;
+      if (value && value.startsWith('http')) {
+        loadBibles(value);
+      } else {
+        listEl.innerHTML = '';
+      }
+    });
+
+    // Optionally: auto-load default selection if it’s preset
+    if (select.value && select.value.startsWith('http')) {
+      loadBibles(select.value);
+    }
+
+    // ======= Prev/Next handlers (stubbed) =======
+    document.getElementById('prevURL').addEventListener('click', (e) => {
+      e.preventDefault();
+      // TODO: implement previous navigation logic
+    });
+    document.getElementById('nextURL').addEventListener('click', (e) => {
+      e.preventDefault();
+      // TODO: implement next navigation logic
+    });
+
+    // ======= Click outside to close menu (optional) =======
+    document.addEventListener('click', (e) => {
+      if (menu.style.width === '225px' && !menu.contains(e.target) && e.target.id !== 'openMenuBtn') {
+        menu.style.width = '0px';
+        menu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
 </html>
