@@ -65,6 +65,7 @@ ul, ol {
 
 @media only screen and (min-width: 600px) {
   .container {
+    max-width: calc(100vw - 400px); /* Screen width minus leftcol (200px) + rightcol (200px) */
     padding: 0 20px;
   }
 }
