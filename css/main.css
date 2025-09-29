@@ -57,7 +57,7 @@ ul, ol {
 
 .container {
   box-sizing: content-box;
-  max-width: 1060px;
+  /* max-width: 1060px;*/
   padding: 0 10px;
   margin: auto;
 }
