@@ -9,6 +9,11 @@ body {
   background-size:cover;
 }
 
+.modal {
+  display: none;
+  /* other styles for modal */
+}
+
 html {
   box-sizing: border-box;
   font-size: 12.8px;
