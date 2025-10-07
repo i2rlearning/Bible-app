@@ -101,8 +101,9 @@
 /* Form fields */
 .modal-content label {
   font-weight: bold;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   display: block;
+  font-size: 1.1rem;
 }
 .modal-content input[type="text"],
 .modal-content input[type="password"] {
