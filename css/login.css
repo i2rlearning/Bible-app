@@ -73,6 +73,7 @@
   cursor: pointer;
   margin-right: 16px;
   width: auto;
+  text-align: center;
 }
 /* "Forgot password" link */
 .psw {
