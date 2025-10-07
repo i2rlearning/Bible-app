@@ -28,15 +28,13 @@
 
 /* ==== Modal Containers ==== */
 .modal-content .container {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center;
-  gap: 16px;
-  justify-content: flex-start;
-  background-color: #f1f1f1 !important;
-  padding: 16px 24px 16px 24px;
-  border-radius: 0 0 4px 4px;
-  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  background: none;
 }
 
 /* Bottom row: Cancel and Forgot Password */
