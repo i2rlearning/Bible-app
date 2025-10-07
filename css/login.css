@@ -74,7 +74,6 @@
   margin-right: 16px;
   width: auto;
 }
-
 /* "Forgot password" link */
 .psw {
   width: auto;
@@ -88,14 +87,16 @@
   text-decoration: underline;
 }
 
-/* Close button */
+/* Close (X) Button */
 .close {
   color: #000;
-  float: right;
-  font-size: 28px;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 32px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 4px;
+  z-index: 10;
 }
 
 /* Form fields */
@@ -115,18 +116,19 @@
   box-sizing: border-box;
 }
 
-/* Login button */
+/* Login Button */
 .modal-content button[type="submit"] {
   width: 100%;
   background-color: #09b76c;
   color: #fff;
   border: none;
   border-radius: 3px;
-  padding: 12px 0;
-  font-size: 1rem;
-  font-weight: bold;
+  padding: 14px 0;
+  font-size: 1.15rem;
+  font-weight: normal;
   cursor: pointer;
-  margin-bottom: 8px;
+  text-align: center;
+  margin-bottom: 16px;
 }
 
 .modal-content button[type="submit"]:hover {
