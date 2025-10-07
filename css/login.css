@@ -36,7 +36,6 @@
   margin: 0;
   background: none;
 }
-
 /* Bottom row: Cancel and Forgot Password */
 .modal-content .container[style] {
   display: flex !important;
@@ -73,7 +72,6 @@
   cursor: pointer;
   margin-right: 16px;
   width: auto;
-  text-align: center;
 }
 /* "Forgot password" link */
 .psw {
