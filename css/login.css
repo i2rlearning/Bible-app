@@ -1,4 +1,4 @@
-/* Modal overlay */
+/* ==== Modal Overlay ==== */
 .modal {
   display: none; /* Hidden by default */
   position: fixed;
@@ -11,8 +11,12 @@
   background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal content box */
+/* ==== Modal Content ==== */
 .modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
   background-color: #fff;
   margin: 8% auto;
   padding: 32px 24px 0 24px;
@@ -20,9 +24,68 @@
   width: 400px;
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ==== Modal Containers ==== */
+.modal-content .container {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+/* Bottom row: Cancel and Forgot Password */
+.modal-content .container[style] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
   gap: 16px;
+  justify-content: flex-start;
+  background-color: #f1f1f1 !important;
+  padding: 16px 0 0 0;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Ensure labels and inputs stack vertically */
+.modal-content label,
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content button[type="submit"],
+.modal-content .psw,
+.modal-content .cancelbtn {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+/* Cancel button specifics */
+.cancelbtn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 16px;
+  width: auto;
+}
+
+/* "Forgot password" link */
+.psw {
+  width: auto;
+  float: right;
+  font-size: 1rem;
+  margin-left: auto;
+}
+
+.psw a {
+  color: #6c2eb1;
+  text-decoration: underline;
 }
 
 /* Close button */
@@ -68,51 +131,4 @@
 
 .modal-content button[type="submit"]:hover {
   background-color: #078d54;
-}
-
-/* Cancel button */
-.cancelbtn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  padding: 10px 24px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin-right: 8px;
-}
-
-.modal-content .container {
-  padding: 0;
-  margin-bottom: 0;
-  background: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.modal-content .container:first-of-type {
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0;
-  margin-bottom: 0;
-}
-
-.modal-content .container[style] {
-  justify-content: flex-start;
-  background-color: #f1f1f1 !important;
-  padding: 16px 0 0 0;
-  border-radius: 0 0 4px 4px;
-}
-
-/* "Forgot password" link */
-.psw {
-  float: right;
-  font-size: 1rem;
-}
-
-.psw a {
-  color: #6c2eb1;
-  text-decoration: underline;
 }
