@@ -93,11 +93,12 @@
   flex-direction: row;
   align-items: center;
   /*gap: 16px;*/
+  width: 100%;
   justify-content: flex-start;
   background-color: #f1f1f1;
   padding: 12px;  /*add vertical padding */
   border-radius: 0 0 4px 4px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 /* Cancel button specifics */
