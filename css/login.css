@@ -15,7 +15,7 @@
 .modal-content {
   background-color: #fff;
   margin: 8% auto;
-  padding: 16px 16px 16px 16px; /* reduced side padding */
+  padding: 16px 8px 16px 8px; /* reduced side padding */
   border: 1px solid #888;
   width: 350px; /* slightly narrower */
   border-radius: 4px;
@@ -41,7 +41,7 @@
 /* ==== Labels ==== */
 .modal-content label {
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   display: block;
   font-size: 1.1rem;
 }
