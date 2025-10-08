@@ -115,13 +115,19 @@
   margin: 0;
 }
 
-/* Only for the links row */
-.container.bottom-row.auth-actions {
-  background: none;    /* remove grey background for links */
-  border-radius: 0;    /* remove rounded corners for links */
-  gap: 16px;           /* spacing between links */
-  font-size: 1rem;
-  margin-top: 0.5em;   /* small gap above links */
+.auth-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;          /* Separates the links */
+  font-size: 0.95rem; /* Smaller font */
+  margin-top: 0.5em;  /* Optional spacing above */
+  background: none;   /* No background */
+  border-radius: 0;
+  padding: 0;
+  width: 85%;         /* match the Cancel button's width if you want it aligned */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .auth-actions a {
