@@ -120,7 +120,7 @@
   justify-content: center !important;
   align-items: center !important;
   gap: 16px !important;
-  font-size: 1rem !important;
+  font-size: 0.8rem !important;  /* Reduced font size */
   margin-top: 0.5em;
   background: none !important;
   border-radius: 0 !important;
@@ -129,10 +129,10 @@
   margin-left: auto !important;
   margin-right: auto !important;
 }
-}
 
 .auth-actions a {
   color: #6c2eb1;
   text-decoration: underline;
+  font-size: 0.8rem !important;
 }
   
