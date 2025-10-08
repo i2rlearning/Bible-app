@@ -88,7 +88,7 @@
 }
 
 /* ==== Bottom row: Cancel and Forgot Password ==== */
-.container.bottom-row {
+.modal-container.bottom-row {
   width: 85%;
   background-color: #f1f1f1;
   display: flex;
