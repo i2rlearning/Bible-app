@@ -116,18 +116,19 @@
 }
 
 .auth-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;          /* Separates the links */
-  font-size: 5px; 
-  margin-top: 0.5em;  /* Optional spacing above */
-  background: none;   /* No background */
-  border-radius: 0;
-  padding: 0;
-  width: 85%;         /* match the Cancel button's width if you want it aligned */
-  margin-left: auto;
-  margin-right: auto;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 16px !important;
+  font-size: 1rem !important;
+  margin-top: 0.5em;
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: 85% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 }
 
 .auth-actions a {
