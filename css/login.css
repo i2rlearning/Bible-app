@@ -120,7 +120,7 @@
   justify-content: center !important;
   align-items: center !important;
   gap: 16px !important;
-  font-size: 0.8rem !important;  /* Reduced font size */
+  font-size: 0.8rem !important;  /* Smaller font size */
   margin-top: 0.5em;
   background: none !important;
   border-radius: 0 !important;
@@ -128,11 +128,17 @@
   width: 85% !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  text-align: center !important;  /* Ensure text is centered */
 }
 
 .auth-actions a {
-  color: #6c2eb1;
-  text-decoration: underline;
-  font-size: 0.8rem !important;
+  color: #6c2eb1 !important;  /* Ensure link color */
+  text-decoration: underline !important;
+  font-size: 0.8rem !important;  /* Reduced font size for links */
+  text-align: center !important;  /* Ensure links are centered */
 }
-  
+
+.auth-actions span {
+  font-size: 0.8rem !important;  /* Reduced font size for spans */
+  text-align: center !important;  /* Center the spans if necessary */
+}
