@@ -94,9 +94,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 0;         /* match login button vertical padding */
+  padding: 6px 0;         /* match login button vertical padding */
   border-radius: 3px;
-  margin-bottom: 0;
+ /* margin-bottom: 0;*/
   box-sizing: border-box;  /* ensures padding doesn't expand beyond parent width *
 }
 
