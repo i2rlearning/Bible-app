@@ -115,21 +115,6 @@
   margin: 0;
 }
 
-/* "Forgot password" link */
-.auth-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  font-size: 1rem;
-  /*margin-top: 8px;*/
-}
-
-.auth-actions a {
-  color: #6c2eb1;
-  text-decoration: underline;
-}
-
 /* Only for the links row */
 .container.bottom-row.auth-actions {
   background: none;    /* remove grey background for links */
@@ -138,3 +123,9 @@
   font-size: 1rem;
   margin-top: 0.5em;   /* small gap above links */
 }
+
+.auth-actions a {
+  color: #6c2eb1;
+  text-decoration: underline;
+}
+  
