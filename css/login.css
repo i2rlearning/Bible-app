@@ -15,9 +15,9 @@
 .modal-content {
   background-color: #fff;
   margin: 8% auto;
-  padding: 32px 24px 0 24px;
+  padding: 24px 16px 0 16px; /* reduced side padding */
   border: 1px solid #888;
-  width: 350px;
+  width: 320px; /* slightly narrower */
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   display: flex;
@@ -95,9 +95,9 @@
   gap: 16px;
   justify-content: flex-start;
   background-color: #f1f1f1;
-  padding: 16px 0 16px 0;
+  padding: 16px 0; /* keep same vertical padding */
   border-radius: 0 0 4px 4px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 /* Cancel button specifics */
