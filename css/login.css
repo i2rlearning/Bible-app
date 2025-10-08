@@ -89,9 +89,10 @@
 
 /* ==== Bottom row: Cancel and Forgot Password ==== */
 .container.bottom-row {
-  width: 100%;
+  width: 80%;
   background-color: #f1f1f1;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 14px 0;         /* match login button vertical padding */
   border-radius: 3px;
