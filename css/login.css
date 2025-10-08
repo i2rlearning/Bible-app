@@ -94,7 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6px 0;         /* match login button vertical padding */
+  padding: 8px 0;         /* match login button vertical padding */
   border-radius: 3px;
  /* margin-bottom: 0;*/
   box-sizing: border-box;  /* ensures padding doesn't expand beyond parent width *
@@ -128,4 +128,13 @@
 .auth-actions a {
   color: #6c2eb1;
   text-decoration: underline;
+}
+
+/* Only for the links row */
+.container.bottom-row.auth-actions {
+  background: none;    /* remove grey background for links */
+  border-radius: 0;    /* remove rounded corners for links */
+  gap: 16px;           /* spacing between links */
+  font-size: 1rem;
+  margin-top: 0.5em;   /* small gap above links */
 }
