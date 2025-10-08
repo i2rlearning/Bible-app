@@ -120,7 +120,7 @@
   justify-content: center;
   align-items: center;
   gap: 16px;          /* Separates the links */
-  font-size: 0.5rem; /* Smaller font */
+  font-size: 5px; 
   margin-top: 0.5em;  /* Optional spacing above */
   background: none;   /* No background */
   border-radius: 0;
