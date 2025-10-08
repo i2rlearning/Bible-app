@@ -96,10 +96,7 @@
   justify-content: flex-start;
   background-color: #f1f1f1;
   padding: 12px 0;  /*add vertical padding */
-  padding-bottom: 24px;
-  padding-top: 24px;
   border-radius: 0 0 4px 4px;
-  margin-top: 24px;
   margin-bottom: 24px;
 }
 
