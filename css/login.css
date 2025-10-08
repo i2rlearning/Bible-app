@@ -89,12 +89,12 @@
 
 /* ==== Bottom row: Cancel and Forgot Password ==== */
 .container.bottom-row {
-  width: 80%;
+  width: 85%;
   background-color: #f1f1f1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px 0;         /* match login button vertical padding */
+  padding: 10px 0;         /* match login button vertical padding */
   border-radius: 3px;
   margin-bottom: 0;
   box-sizing: border-box;  /* ensures padding doesn't expand beyond parent width *
