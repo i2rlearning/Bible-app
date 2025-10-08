@@ -14,8 +14,8 @@
 /* ==== Modal Content ==== */
 .modal-content {
   background-color: #fff;
-  /*margin: 8% auto;*/
-  padding: 16px 16px 0 16px; /* reduced side padding */
+  margin: 8% auto;
+  padding: 16px 16px 16px 16px; /* reduced side padding */
   border: 1px solid #888;
   width: 350px; /* slightly narrower */
   border-radius: 4px;
