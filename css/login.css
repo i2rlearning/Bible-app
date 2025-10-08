@@ -92,11 +92,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /*gap: 16px;*/
-  width: 100%;
   justify-content: flex-start;
   background-color: #f1f1f1;
-  padding: 12px;  /*add vertical padding */
+  padding: 12px; 
   border-radius: 0 0 4px 4px;
   margin-bottom: 0;
 }
@@ -118,9 +116,12 @@
 
 /* "Forgot password" link */
 .auth-actions {
-  margin-left: auto;
-  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
+  font-size: 1rem;
+  margin-top: 8px;
 }
 
 .auth-actions a {
