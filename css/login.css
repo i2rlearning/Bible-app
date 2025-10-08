@@ -89,14 +89,15 @@
 
 /* ==== Bottom row: Cancel and Forgot Password ==== */
 .container.bottom-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  width: 100%;
   background-color: #f1f1f1;
-  padding: 12px; 
-  border-radius: 0 0 4px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;         /* match login button vertical padding */
+  border-radius: 4px;
   margin-bottom: 0;
+  box-sizing: border-box;  /* ensures padding doesn't expand beyond parent width *
 }
 
 /* Cancel button specifics */
