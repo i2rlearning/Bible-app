@@ -95,7 +95,9 @@
   gap: 16px;
   justify-content: flex-start;
   background-color: #f1f1f1;
-  padding: 12px 0; /* add vertical padding */
+  /*padding: 12px 0;  add vertical padding */
+  padding-top: 12px;
+  padding-bottom: 12px;
   border-radius: 0 0 4px 4px;
   margin-bottom: 24px;
 }
