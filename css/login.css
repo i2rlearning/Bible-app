@@ -94,7 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;         /* match login button vertical padding */
+  padding: 8px 0;         /* match login button vertical padding */
   border-radius: 3px;
   margin-bottom: 0;
   box-sizing: border-box;  /* ensures padding doesn't expand beyond parent width *
@@ -122,7 +122,7 @@
   align-items: center;
   gap: 16px;
   font-size: 1rem;
-  margin-top: 8px;
+  /*margin-top: 8px;*/
 }
 
 .auth-actions a {
