@@ -141,6 +141,6 @@
 }
 
 .auth-actions span {
-  font-size: 0.8rem;  /* Reduced font size for spans */
-  text-align: center;  /* Center the spans if necessary */
+  font-size: 0.8rem  !important;   /* Reduced font size for spans */
+  text-align: center !important;   /* Center the spans if necessary */
 }
