@@ -14,7 +14,6 @@
 /* ==== Modal Content ==== */
 .modal-content {
   background-color: #fff;
-  margin: 8% auto;
   padding: 16px; /* padding arouund edges */
   border: 1px solid #888;
   width: 300px; 
@@ -24,6 +23,11 @@
   flex-direction: column;
   gap: 16px;
   position: relative;
+}
+
+.modal-input-container {
+  /* Set inner padding to 0 so the elements are constrained by the form's padding */
+  padding: 0; 
 }
 
 /* ==== Close (X) Button ==== */
@@ -116,13 +120,19 @@
 
 .auth-actions {
   display: flex !important;
-  /* Use space-evenly to separate and center the two items */
+  /* Uses space to center and separate the two spans */
   justify-content: space-evenly !important; 
   align-items: center !important;
-  width: 100% !important; 
-  margin-top: 0.5em; /* Add some space above it */
-  padding: 0 10px !important; /* Add slight horizontal padding if needed */
+  /* Ensures the container fills the full width inside the modal's padding */
+  width: 100% !important;
+  margin-top: 0.5em; /* Correctly adds space above */
+  /* Ensures no external margins interfere with alignment */
+  margin-left: 0 !important; 
+  margin-right: 0 !important;
+  /* REMOVED the conflicting padding */
+  padding: 0 !important;
   background: none !important;
+  font-size: 0.8rem !important;
 }
 
 .auth-actions a {
