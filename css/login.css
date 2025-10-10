@@ -134,9 +134,9 @@
 }
 
 .auth-actions a {
-  color: #6c2eb1   /* Ensure link color */
-  text-decoration: underline 
-  font-size: 0.8rem   /* Reduced font size for links */
+  color: #6c2eb1 !important; 
+  text-decoration: underline; 
+  font-size: 0.8rem;
   text-align: center   /* Ensure links are centered */
 }
 
