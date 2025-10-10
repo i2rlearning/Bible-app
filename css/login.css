@@ -11,11 +11,11 @@
   background-color: rgba(0,0,0,0.4);
 }
 
-/* ==== Modal Content ==== */
+/* ==== Modal Content (The Login Box) ==== */
 .modal-content {
   background-color: #fff;
-  margin: 8% auto; 
-  padding: 16px; /* padding arouund edges */
+  margin: 8% auto; /* CRITICAL: Centers the modal box horizontally and positions it vertically */
+  padding: 16px; /* Corrected to 16px on all sides for alignment */
   border: 1px solid #888;
   width: 300px; 
   border-radius: 4px;
@@ -27,8 +27,8 @@
 }
 
 .modal-input-container {
-  /* Set inner padding to 0 so the elements are constrained by the form's padding */
-  padding: 0; 
+  /* Targets the renamed container for form inputs (username, password, etc.) */
+  padding: 0; /* Ensures inputs align with the modal's 16px padding */
 }
 
 /* ==== Close (X) Button ==== */
@@ -43,7 +43,7 @@
   z-index: 10;
 }
 
-/* ==== Labels ==== */
+/* ==== Labels, Inputs, Login Button (Unchanged for this issue) ==== */
 .modal-content label {
   font-weight: bold;
   margin-bottom: 4px;
@@ -51,7 +51,6 @@
   font-size: 1.1rem;
 }
 
-/* ==== Inputs ==== */
 .modal-content input[type="text"],
 .modal-content input[type="password"] {
   width: 100%;
@@ -63,7 +62,6 @@
   box-sizing: border-box;
 }
 
-/* ==== Login Button ==== */
 .modal-content button[type="submit"] {
   width: 100%;
   background-color: #09b76c;
@@ -82,7 +80,7 @@
   background-color: #078d54;
 }
 
-/* ==== Checkbox and label ==== */
+/* ==== Checkbox and label (Unchanged for this issue) ==== */
 .checkbox-label {
   display: flex;
   align-items: center;
@@ -92,9 +90,9 @@
   font-size: 1.1rem;
 }
 
-/* ==== Bottom row: Cancel and Forgot Password ==== */
+/* ==== Bottom row: Cancel Button Area ==== */
 .modal-container.bottom-row {
-  width: 100%; 
+  width: 100%; /* Spans the full width of the padded modal */
   background-color: #f1f1f1;
   display: flex;
   justify-content: center; /* Centers the cancel button horizontally */
@@ -104,7 +102,7 @@
   box-sizing: border-box;
 }
 
-/* Cancel button specifics */
+/* Cancel button specifics (Unchanged) */
 .cancelbtn {
   background-color: #f44336;
   color: white;
@@ -119,28 +117,28 @@
   margin: 0;
 }
 
+/* ==== Auth Actions (Forgot Password/Create Account) ==== */
 .auth-actions {
-  display: flex 
-  justify-content: space-evenly  
-  align-items: center 
-  /* Ensures the container fills the full width inside the modal's padding */
-  width: 100% 
-  margin-top: 0.5em; /* Correctly adds space above */
-  margin-left: 0  
-  margin-right: 0 
-  padding: 0 
-  background: none 
-  font-size: 0.8rem 
+  display: flex !important;
+  justify-content: space-evenly !important; 
+  align-items: center !important;   
+  width: 100%; /* Spans the full width of the padded modal */
+  margin-top: 0.5em; 
+  margin-left: 0; 
+  margin-right: 0; 
+  padding: 0; 
+  background: none;
+  font-size: 0.8rem;
 }
 
 .auth-actions a {
   color: #6c2eb1 !important; 
-  text-decoration: underline; 
+  text-decoration: underline;
   font-size: 0.8rem;
-  text-align: center   /* Ensure links are centered */
+  text-align: center; 
 }
 
 .auth-actions span {
-  font-size: 0.8rem  !important;   /* Reduced font size for spans */
-  text-align: center !important;   /* Center the spans if necessary */
+  font-size: 0.8rem;
+  text-align: center;
 }
