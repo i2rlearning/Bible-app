@@ -15,7 +15,7 @@
 .modal-content {
   background-color: #fff;
   margin: 8% auto;
-  padding: 16px 0 16px 0; /* padding arouund edges */
+  padding: 16px; /* padding arouund edges */
   border: 1px solid #888;
   width: 300px; 
   border-radius: 4px;
@@ -89,15 +89,14 @@
 
 /* ==== Bottom row: Cancel and Forgot Password ==== */
 .modal-container.bottom-row {
-  width: 85%;
+  width: 100%; 
   background-color: #f1f1f1;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centers the cancel button horizontally */
   align-items: center;
-  padding: 8px 0;         /* match login button vertical padding */
+  padding: 8px 0; /* Add vertical padding */
   border-radius: 3px;
- /* margin-bottom: 0;*/
-  box-sizing: border-box;  /* ensures padding doesn't expand beyond parent width *
+  box-sizing: border-box;
 }
 
 /* Cancel button specifics */
@@ -117,18 +116,13 @@
 
 .auth-actions {
   display: flex !important;
-  justify-content: center !important;
+  /* Use space-evenly to separate and center the two items */
+  justify-content: space-evenly !important; 
   align-items: center !important;
-  gap: 16px !important;
-  font-size: 0.8rem !important;  /* Smaller font size */
-  margin-top: 0.5em;
+  width: 100% !important; 
+  margin-top: 0.5em; /* Add some space above it */
+  padding: 0 10px !important; /* Add slight horizontal padding if needed */
   background: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  width: 85% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  text-align: center !important;  /* Ensure text is centered */
 }
 
 .auth-actions a {
