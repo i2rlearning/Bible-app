@@ -45,8 +45,8 @@
       </div>
 
      <!-- Modal Login -->
-    <div id="formid" class="modal">
-      <span onclick="document.getElementById('formid').style.display='none'"
+    <div id="loginID" class="modal">
+      <span onclick="document.getElementById('loginID').style.display='none'"
     class="close" title="Close Modal">&times;</span>
     
     <form class="modal-content" action="/action_page.php">
@@ -64,7 +64,7 @@
       </div>
   
       <div class="modal-container bottom-row">
-        <button type="button" onclick="document.getElementById('formid').style.display='none'" class="cancelbtn">Cancel</button>        
+        <button type="button" onclick="document.getElementById('loginID').style.display='none'" class="cancelbtn">Cancel</button>        
       </div>
       
       <div class="auth-actions">
@@ -75,8 +75,8 @@
   </div>
 
 <!-- Modal Sign Up form -->
-<div id="formid" class="signup-modal">
-  <span onclick="document.getElementById('formid').style.display='none'" class="close" title="Close Modal">times;</span>
+<div id="signupID" class="signup-modal">
+  <span onclick="document.getElementById('signupID').style.display='none'" class="close" title="Close Modal">times;</span>
   <form class="modal-signup-content" action="/action_page.php">
     <div class="acct-container">
       <h1>Sign Up</h1>
@@ -98,7 +98,7 @@
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('formid').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('signupID').style.display='none'" class="cancelbtn">Cancel</button>
         <button type="submit" class="signup">Sign Up</button>
       </div>
     </div>
@@ -251,7 +251,7 @@
       //******************************************************  
 
        // Get the modal login
-      var modal = document.getElementById('formid');
+      var modal = document.getElementById(formid);
       
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
