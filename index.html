@@ -22,7 +22,7 @@
               <span style="color:lightgray;">Book & Chapter</span>
             </div>
             <div class="column">
-              <div class="custom-select" style="width:12vw;"  onclick="getOption()">  
+              <div class="custom-select" style="width:12vw;" onclick="getOption()">  
                 <select id="optVal">  
                   <option value="language">Language</option>
                   <option value='https://api.scripture.api.bible/v1/bibles?language=eng&include-full-details=false'>English</option>
@@ -38,16 +38,18 @@
                 <input type="range" id="font-size-slider" min="18" max="35" value="18">
               </div>
             </div>  
-                <button onclick="document.getElementById('formid').style.display='block'">Login</button>
-                <button onclick="document.getElementById('formid').style.display='block'">Sign-up</button>
+                <button type="button" id="login">Login</button>
+                <button type="button" id="signup">Sign-up</button>
           </div>
         </div>
       </div>
 
-     <!-- Modal Login -->
+     <!-- ****** Login ****** -->
     <div id="formid" class="modal">
-      <span onclick="document.getElementById('loginID').style.display='none'"
-    class="close" title="Close Modal">&times;</span>
+      <!-- <span onclick="document.getElementById('loginID').style.display='none'"
+    class="close" title="Close Modal"> -->
+      <span type="button" id="closelogin" class="close" title="Close Modal"> 
+        &times;</span>
     
     <form class="modal-content" action="/action_page.php">
       <div class="modal-input-container">
@@ -64,7 +66,8 @@
       </div>
   
       <div class="modal-container bottom-row">
-        <button type="button" onclick="document.getElementById('loginID').style.display='none'" class="cancelbtn">Cancel</button>        
+        <!-- <button type="button" onclick="document.getElementById('loginID').style.display='none'" class="cancelbtn">Cancel</button> -->        
+        <button type="button" id="cancelLogin" class="cancelbtn">Cancel</button>
       </div>
       
       <div class="auth-actions">
@@ -74,9 +77,10 @@
     </form>
   </div>
 
-<!-- Modal Sign Up form -->
+<!-- ****** Signup Form ****** -->
 <div id="formid" class="signup-modal">
-  <span onclick="document.getElementById('signupID').style.display='none'" class="close" title="Close Modal">times;</span>
+  <span type="button" id="closeSignup" class="close" title="Close Modal">times;</span>
+    
   <form class="modal-signup-content" action="/action_page.php">
     <div class="acct-container">
       <h1>Sign Up</h1>
@@ -98,7 +102,8 @@
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('signupID').style.display='none'" class="cancelbtn">Cancel</button>
+        <!-- <button type="button" onclick="document.getElementById('signupID').style.display='none'" class="cancelbtn">Cancel</button> -->
+        <button type="button" id="cancelSignup" class="cancelbtn">Cancel</button>
         <button type="submit" class="signup">Sign Up</button>
       </div>
     </div>
