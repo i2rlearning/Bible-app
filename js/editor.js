@@ -60,23 +60,30 @@ toolbar.container.querySelector('button.ql-script[value="sub"]')?.setAttribute('
 toolbar.container.querySelector('button.ql-script[value="super"]')?.setAttribute('title', 'Superscript');
 
 // Target the SELECT elements 
-// ALIGN
+// ALIGN 
 const alignSelect = toolbar.container.querySelector('select.ql-align');
 if (alignSelect?.parentElement) {
     alignSelect.parentElement.setAttribute('title', 'Align Text');
 }
 
-// FONT COLOR
-const fontColorSelect = toolbar.container.querySelector('select.ql-color'); // Using unique name 'fontColorSelect'
-if (fontColorSelect?.parentElement) {
-    fontColorSelect.parentElement.setAttribute('title', 'Font Color'); 
-}
+//  COLOR AND BACKGROUND 
+// Get all select elements that Quill uses for color/background within the toolbar
+const colorPickers = toolbar.container.querySelectorAll('select.ql-color, select.ql-background');
 
-// BACKGROUND COLOR
-const backgroundSelect = toolbar.container.querySelector('select.ql-background');
-if (backgroundSelect?.parentElement) {
-    backgroundSelect.parentElement.setAttribute('title', 'Background Color');
-}
+colorPickers.forEach(picker => {
+    // Check if the picker element itself has the ql-background class
+    if (picker.classList.contains('ql-background')) {
+        if (picker.parentElement) {
+            picker.parentElement.setAttribute('title', 'Background Color');
+        }
+    } 
+    // Otherwise, assume it is the font color picker (ql-color)
+    else if (picker.classList.contains('ql-color')) {
+        if (picker.parentElement) {
+            picker.parentElement.setAttribute('title', 'Font Color');
+        }
+    }
+});
 
 // Target the BUTTONS inside the LIST/CHECK group (for list, bullet, and check)
 toolbar.container.querySelector('button.ql-list[value="ordered"]')?.setAttribute('title', 'Ordered List');
