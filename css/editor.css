@@ -1,3 +1,6 @@
+/* Shows "Size" when nothing selected yet */
+.ql-snow .ql-picker.ql-size .ql-picker-label::before { content: "Size"; }
+
 /* Show labels for custom numeric sizes in the Snow theme */
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="8px"]::before  { content: "8px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="10px"]::before { content: "10px"; }
@@ -7,6 +10,3 @@
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="18px"]::before { content: "18px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="24px"]::before { content: "24px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="32px"]::before { content: "32px"; }
-
-/* Shows when nothing selected yet */
-.ql-snow .ql-picker.ql-size .ql-picker-label::before { content: "Size"; }
