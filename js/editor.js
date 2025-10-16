@@ -27,9 +27,10 @@ const toolbarOptions = [
 ];
 
 // Initialize Quill editor //
-// STEP 3: Initialize as usual
 const quill = new Quill('#editor', {
   placeholder: 'Notes...',
   theme: 'snow',
   modules: { toolbar: toolbarOptions }
 });
+
+quill.root.style.fontSize = '12px';
