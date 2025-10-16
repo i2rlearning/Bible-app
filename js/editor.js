@@ -60,9 +60,23 @@ toolbar.container.querySelector('button.ql-script[value="sub"]')?.setAttribute('
 toolbar.container.querySelector('button.ql-script[value="super"]')?.setAttribute('title', 'Superscript');
 
 // Target the SELECT elements 
-toolbar.container.querySelector('select.ql-align')?.setAttribute('title', 'Align Text');
-toolbar.container.querySelector('select.ql-color')?.setAttribute('title', 'Font Color');
-toolbar.container.querySelector('select.ql-background')?.setAttribute('title', 'Background Color');
+// ALIGN
+const alignSelect = toolbar.container.querySelector('select.ql-align');
+if (alignSelect?.parentElement) {
+    alignSelect.parentElement.setAttribute('title', 'Align Text');
+}
+
+// FONT COLOR
+const colorSelect = toolbar.container.querySelector('select.ql-color');
+if (colorSelect?.parentElement) {
+    colorSelect.parentElement.setAttribute('title', 'Font Color');
+}
+
+// BACKGROUND COLOR
+const backgroundSelect = toolbar.container.querySelector('select.ql-background');
+if (backgroundSelect?.parentElement) {
+    backgroundSelect.parentElement.setAttribute('title', 'Background Color');
+}
 
 // Target the BUTTONS inside the LIST/CHECK group (for list, bullet, and check)
 toolbar.container.querySelector('button.ql-list[value="ordered"]')?.setAttribute('title', 'Ordered List');
