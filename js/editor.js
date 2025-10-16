@@ -1,6 +1,11 @@
 //https://quilljs.com/docs/modules/toolbar
+const Size = Quill.import('attributors/style/size');
+Size.whitelist = ['8px', '10px', '12px', '14px', '16px', '18px', '24px', '32px'];
+Quill.register(Size, true);
+
 const toolbarOptions = [
- [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+[{ 'size': Size.whitelist }],  
+ // [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
  // [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
  // [{ 'font': [] }],
   
