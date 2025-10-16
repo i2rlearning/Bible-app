@@ -4,8 +4,6 @@ Quill.register({ 'formats/size': Size }, true);
 
 const toolbarOptions = [
   [{ size: Size.whitelist }],   // numeric dropdown
-  // [{ 'header': [1, 2, 3, 4, 5, 6, false] }], 
-  // [{ 'font': [] }],
   ['bold','italic','underline','strike'],
   [{ color: [] }, { background: [] }],
   [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }],
