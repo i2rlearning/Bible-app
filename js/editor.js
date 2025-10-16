@@ -54,38 +54,38 @@ toolbar.container.querySelector('button.ql-underline')?.setAttribute('title', 'U
 toolbar.container.querySelector('button.ql-strike')?.setAttribute('title', 'Strikethrough');
 toolbar.container.querySelector('button.ql-link')?.setAttribute('title', 'Insert Link');
 toolbar.container.querySelector('button.ql-image')?.setAttribute('title', 'Insert Image');
-toolbar.container.querySelector('button.ql-clean')?.setAttribute('title', 'Clear Format');
 toolbar.container.querySelector('button.ql-direction')?.setAttribute('title', 'Text Direction');
 toolbar.container.querySelector('button.ql-script[value="sub"]')?.setAttribute('title', 'Subscript');
 toolbar.container.querySelector('button.ql-script[value="super"]')?.setAttribute('title', 'Superscript');
+toolbar.container.querySelector('button.ql-clean')?.setAttribute('title', 'Clear Format');
 
 // Target the SELECT elements 
-// 1. ALIGN (Use the working logic for this one)
+// ALIGN
 const alignSelect = toolbar.container.querySelector('select.ql-align');
 if (alignSelect?.parentElement) {
     alignSelect.parentElement.setAttribute('title', 'Align Text');
 }
 
-// 2. FONT COLOR (Target the visible wrapper span)
+// FONT COLOR 
 // The <select class="ql-color"> is hidden. The visible part is the span.ql-picker.ql-color.
 const fontColorWrapper = toolbar.container.querySelector('.ql-picker.ql-color');
 if (fontColorWrapper) {
     fontColorWrapper.setAttribute('title', 'Font Color');
 }
 
-// 3. BACKGROUND COLOR (Target the visible wrapper span)
+// BACKGROUND COLOR
 // The <select class="ql-background"> is hidden. The visible part is the span.ql-picker.ql-background.
 const bgColorWrapper = toolbar.container.querySelector('.ql-picker.ql-background');
 if (bgColorWrapper) {
     bgColorWrapper.setAttribute('title', 'Background Color');
 }
 
-// Target the BUTTONS inside the LIST/CHECK group (for list, bullet, and check)
+// BUTTONS inside the LIST/CHECK group (for list, bullet, and check)
 toolbar.container.querySelector('button.ql-list[value="ordered"]')?.setAttribute('title', 'Ordered List');
 toolbar.container.querySelector('button.ql-list[value="bullet"]')?.setAttribute('title', 'Bullet List');
 toolbar.container.querySelector('button.ql-list[value="check"]')?.setAttribute('title', 'Checkbox List');
 
-// Target the BUTTONS for indent/outdent
+// BUTTONS for indent/outdent
 // Note: You must select by the value attribute for these grouped buttons
 toolbar.container.querySelector('button.ql-indent[value="-1"]')?.setAttribute('title', 'Outdent');
 toolbar.container.querySelector('button.ql-indent[value="+1"]')?.setAttribute('title', 'Indent');
