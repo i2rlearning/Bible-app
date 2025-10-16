@@ -55,12 +55,14 @@ toolbar.container.querySelector('button.ql-strike')?.setAttribute('title', 'Stri
 toolbar.container.querySelector('button.ql-link')?.setAttribute('title', 'Insert Link');
 toolbar.container.querySelector('button.ql-image')?.setAttribute('title', 'Insert Image');
 toolbar.container.querySelector('button.ql-clean')?.setAttribute('title', 'Clear Format');
-toolbar.container.querySelector('button.ql-color')?.setAttribute('title', 'Font Color');
-toolbar.container.querySelector('button.ql-background')?.setAttribute('title', 'Background Color');
 toolbar.container.querySelector('button.ql-direction')?.setAttribute('title', 'Text Direction');
 toolbar.container.querySelector('button.ql-align')?.setAttribute('title', 'Align');
 toolbar.container.querySelector('button.ql-sub')?.setAttribute('title', 'Subscript');
 toolbar.container.querySelector('button.ql-super')?.setAttribute('title', 'Superscript');
+
+// Target the SELECT element for color/background pickers
+toolbar.container.querySelector('select.ql-color')?.setAttribute('title', 'Font Color');
+toolbar.container.querySelector('select.ql-background')?.setAttribute('title', 'Background Color');
 
 // Target the BUTTONS inside the LIST/CHECK group (for list, bullet, and check)
 toolbar.container.querySelector('button.ql-list[value="ordered"]')?.setAttribute('title', 'Ordered List');
