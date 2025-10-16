@@ -1,3 +1,8 @@
+/* Fallback/Default for when no specific size is selected (the state where 'normal' appears) */
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=""]::before {
+    content: "Size";
+}
+
 /* Shows "Size" when nothing selected yet */
 .ql-snow .ql-picker.ql-size .ql-picker-label::before { content: "Size"; }
 
