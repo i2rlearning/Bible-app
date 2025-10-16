@@ -1,18 +1,27 @@
-.ql-snow .ql-picker.ql-size .ql-picker-item:first-child:not([data-value])::before {
-    /* Target the first item only if it doesn't have a data-value (the 'Normal' item) */
-    content: none !important;
-    display: none !important; /* Hides the element completely */
+/* 1. Show "Size" when nothing is applied (unselected state) */
+.ql-snow .ql-picker.ql-size .ql-picker-label::before {
+    content: "Size";
 }
 
-/* Shows "Size" when nothing selected yet */
-.ql-snow .ql-picker.ql-size .ql-picker-label::before { content: "Size"; }
+/* 2. Show the actual data-value for the SELECTED TITLE */
+/* This targets the label when a data-value is present and forces the content to be that value. */
+/* This is the key fix for the "Normal" title. */
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value]::before {
+    content: attr(data-value) !important;
+}
 
-/* Show labels for custom numeric sizes in the Snow theme */
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="8px"]::before  { content: "8px"; }
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="10px"]::before { content: "10px"; }
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="12px"]::before { content: "12px"; }
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="14px"]::before { content: "14px"; }
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="16px"]::before { content: "16px"; }
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="18px"]::before { content: "18px"; }
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="24px"]::before { content: "24px"; }
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="32px"]::before { content: "32px"; } 
+/* 3. Show the actual data-value for the ITEMS inside the dropdown */
+/* This forces the content for ALL list items (including the one that was 'Normal') to be its data-value. */
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value]::before {
+    content: attr(data-value) !important;
+}
+
+/* 4. Ensure the actual size is applied to the text within the dropdown */
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="8px"] { font-size: 8px !important; }
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="10px"] { font-size: 10px !important; }
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="12px"] { font-size: 12px !important; }
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="14px"] { font-size: 14px !important; }
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="16px"] { font-size: 16px !important; }
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="18px"] { font-size: 18px !important; }
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="24px"] { font-size: 24px !important; }
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="32px"] { font-size: 32px !important; }
