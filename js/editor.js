@@ -67,9 +67,9 @@ if (alignSelect?.parentElement) {
 }
 
 // FONT COLOR
-const colorSelect = toolbar.container.querySelector('select.ql-color');
-if (colorSelect?.parentElement) {
-    colorSelect.parentElement.setAttribute('title', 'Font Color');
+const fontColorSelect = toolbar.container.querySelector('select.ql-color'); // Using unique name 'fontColorSelect'
+if (fontColorSelect?.parentElement) {
+    fontColorSelect.parentElement.setAttribute('title', 'Font Color'); 
 }
 
 // BACKGROUND COLOR
