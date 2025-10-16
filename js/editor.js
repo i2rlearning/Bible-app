@@ -56,11 +56,11 @@ toolbar.container.querySelector('button.ql-link')?.setAttribute('title', 'Insert
 toolbar.container.querySelector('button.ql-image')?.setAttribute('title', 'Insert Image');
 toolbar.container.querySelector('button.ql-clean')?.setAttribute('title', 'Clear Format');
 toolbar.container.querySelector('button.ql-direction')?.setAttribute('title', 'Text Direction');
-toolbar.container.querySelector('button.ql-align')?.setAttribute('title', 'Align');
-toolbar.container.querySelector('button.ql-sub')?.setAttribute('title', 'Subscript');
-toolbar.container.querySelector('button.ql-super')?.setAttribute('title', 'Superscript');
+toolbar.container.querySelector('button.ql-script[value="sub"]')?.setAttribute('title', 'Subscript');
+toolbar.container.querySelector('button.ql-script[value="super"]')?.setAttribute('title', 'Superscript');
 
-// Target the SELECT element for color/background pickers
+// Target the SELECT elements 
+toolbar.container.querySelector('select.ql-align')?.setAttribute('title', 'Align Text');
 toolbar.container.querySelector('select.ql-color')?.setAttribute('title', 'Font Color');
 toolbar.container.querySelector('select.ql-background')?.setAttribute('title', 'Background Color');
 
