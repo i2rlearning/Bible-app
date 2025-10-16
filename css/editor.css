@@ -1,12 +1,29 @@
-/* Fallback/Default for when no specific size is selected (the state where 'normal' appears) */
-.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=""]::before {
+/* 1. HIDES the default/unformatted "Normal" option inside the dropdown list */
+.ql-snow .ql-picker.ql-size .ql-picker-item:first-child:not([data-value])::before {
+    /* Target the first item only if it doesn't have a data-value (the 'Normal' item) */
+    content: none !important;
+    display: none !important; /* Hides the element completely */
+}
+
+/* --- OPTION B FIX: Ensures the header label shows the selected size --- */
+
+/* 2. Sets the header label when a specific size is SELECTED (removes "Normal" from the title) */
+.ql-snow .ql-picker.ql-size[data-value="8px"] .ql-picker-label::before  { content: "8px"; }
+.ql-snow .ql-picker.ql-size[data-value="10px"] .ql-picker-label::before { content: "10px"; }
+.ql-snow .ql-picker.ql-size[data-value="12px"] .ql-picker-label::before { content: "12px"; }
+.ql-snow .ql-picker.ql-size[data-value="14px"] .ql-picker-label::before { content: "14px"; }
+.ql-snow .ql-picker.ql-size[data-value="16px"] .ql-picker-label::before { content: "16px"; }
+.ql-snow .ql-picker.ql-size[data-value="18px"] .ql-picker-label::before { content: "18px"; }
+.ql-snow .ql-picker.ql-size[data-value="24px"] .ql-picker-label::before { content: "24px"; }
+.ql-snow .ql-picker.ql-size[data-value="32px"] .ql-picker-label::before { content: "32px"; }
+
+
+/* 3. Your Existing CSS: Shows "Size" when nothing is selected yet */
+.ql-snow .ql-picker.ql-size .ql-picker-label::before {
     content: "Size";
 }
 
-/* Shows "Size" when nothing selected yet */
-.ql-snow .ql-picker.ql-size .ql-picker-label::before { content: "Size"; }
-
-/* Show labels for custom numeric sizes in the Snow theme */
+/* 4. Your Existing CSS: Ensures the items *inside* the dropdown list show the correct labels */
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="8px"]::before  { content: "8px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="10px"]::before { content: "10px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="12px"]::before { content: "12px"; }
