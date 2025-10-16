@@ -55,11 +55,9 @@ toolbar.container.querySelector('button.ql-strike')?.setAttribute('title', 'Stri
 toolbar.container.querySelector('button.ql-link')?.setAttribute('title', 'Insert Link');
 toolbar.container.querySelector('button.ql-image')?.setAttribute('title', 'Insert Image');
 toolbar.container.querySelector('button.ql-clean')?.setAttribute('title', 'Clear Format');
-
-// DROPDOWNS and MULTI-VALUE CONTROLS (Color, List, Align, Indent, etc.) ---
-// Target the SELECT element for color/background pickers
-toolbar.container.querySelector('select.ql-color')?.setAttribute('title', 'Font Color');
-toolbar.container.querySelector('select.ql-background')?.setAttribute('title', 'Background Color');
+toolbar.container.querySelector('button.ql-color')?.setAttribute('title', 'Font Color');
+toolbar.container.querySelector('button.ql-background')?.setAttribute('title', 'Background Color');
+toolbar.container.querySelector('button.ql-direction')?.setAttribute('title', 'Text Direction');
 
 // Target the BUTTONS inside the LIST/CHECK group (for list, bullet, and check)
 toolbar.container.querySelector('button.ql-list[value="ordered"]')?.setAttribute('title', 'Ordered List');
@@ -77,6 +75,3 @@ toolbar.container.querySelector('button.ql-script[value="super"]')?.setAttribute
 // Note: You must select by the value attribute for these grouped buttons
 toolbar.container.querySelector('button.ql-indent[value="-1"]')?.setAttribute('title', 'Outdent');
 toolbar.container.querySelector('button.ql-indent[value="+1"]')?.setAttribute('title', 'Indent');
-
-// Target the SELECT for text direction
-toolbar.container.querySelector('select.ql-direction')?.setAttribute('title', 'Text Direction');
