@@ -27,10 +27,9 @@ const toolbarOptions = [
 ];
 
 // Initialize Quill editor //
-  const quill = new Quill('#editor', {
-      placeholder: 'Notes...',
-      theme: 'snow',
-     modules: {
-    toolbar: toolbarOptions
-  }
-  });
+// STEP 3: Initialize as usual
+const quill = new Quill('#editor', {
+  placeholder: 'Notes...',
+  theme: 'snow',
+  modules: { toolbar: toolbarOptions }
+});
