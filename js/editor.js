@@ -25,14 +25,14 @@ const toolbar = quill.getModule('toolbar');
 const sizeSelect = toolbar?.container.querySelector('select.ql-size');
 
 if (quill.getLength() <= 1) {
-  quill.format('size', '12px');
+  quill.format('size', '14px');
 } else {
   // If content already present, apply once across it
-  quill.formatText(0, quill.getLength(), { size: '12px' });
+  quill.formatText(0, quill.getLength(), { size: '14px' });
 }
 
 // Sync the dropdown’s visible value
 if (sizeSelect) {
-  sizeSelect.value = '12px';
+  sizeSelect.value = '14px';
   sizeSelect.dispatchEvent(new Event('change'));
 }
