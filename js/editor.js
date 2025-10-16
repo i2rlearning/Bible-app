@@ -4,7 +4,7 @@ Size.whitelist = ['8px', '10px', '12px', '14px', '16px', '18px', '24px', '32px']
 Quill.register(Size, true);
 
 const toolbarOptions = [
-[{ 'size': Size.whitelist }],  
+[{ 'size': Size.whitelist }],
  // [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
  // [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
  // [{ 'font': [] }],
