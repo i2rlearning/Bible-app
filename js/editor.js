@@ -58,18 +58,14 @@ toolbar.container.querySelector('button.ql-clean')?.setAttribute('title', 'Clear
 toolbar.container.querySelector('button.ql-color')?.setAttribute('title', 'Font Color');
 toolbar.container.querySelector('button.ql-background')?.setAttribute('title', 'Background Color');
 toolbar.container.querySelector('button.ql-direction')?.setAttribute('title', 'Text Direction');
+toolbar.container.querySelector('button.ql-align')?.setAttribute('title', 'Align');
+toolbar.container.querySelector('button.ql-sub')?.setAttribute('title', 'Subscript');
+toolbar.container.querySelector('button.ql-super')?.setAttribute('title', 'Superscript');
 
 // Target the BUTTONS inside the LIST/CHECK group (for list, bullet, and check)
 toolbar.container.querySelector('button.ql-list[value="ordered"]')?.setAttribute('title', 'Ordered List');
 toolbar.container.querySelector('button.ql-list[value="bullet"]')?.setAttribute('title', 'Bullet List');
 toolbar.container.querySelector('button.ql-list[value="check"]')?.setAttribute('title', 'Checkbox List');
-
-// Target the SELECT for alignment
-toolbar.container.querySelector('select.ql-align')?.setAttribute('title', 'Text Alignment');
-
-// Target the BUTTONS for subscript/superscript
-toolbar.container.querySelector('button.ql-script[value="sub"]')?.setAttribute('title', 'Subscript');
-toolbar.container.querySelector('button.ql-script[value="super"]')?.setAttribute('title', 'Superscript');
 
 // Target the BUTTONS for indent/outdent
 // Note: You must select by the value attribute for these grouped buttons
