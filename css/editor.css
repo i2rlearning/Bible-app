@@ -8,5 +8,5 @@
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="24px"]::before { content: "24px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="32px"]::before { content: "32px"; }
 
-/* Optional: what the label shows when nothing selected yet */
+/* Shows when nothing selected yet */
 .ql-snow .ql-picker.ql-size .ql-picker-label::before { content: "Size"; }
