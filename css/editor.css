@@ -1,27 +1,13 @@
-/* --- FIX Hides the default "Normal" option inside the dropdown list --- */
-/* Quill's Snow theme often injects a default unformatted item. This hides it. */
 .ql-snow .ql-picker.ql-size .ql-picker-item:first-child:not([data-value])::before {
+    /* Target the first item only if it doesn't have a data-value (the 'Normal' item) */
     content: none !important;
-    display: none !important; /* Ensures it's fully hidden and not clickable */
+    display: none !important; /* Hides the element completely */
 }
 
-/* --- FIX #2: Ensures the dropdown header (label) shows the selected size --- */
-/* This targets the parent container when a value is active and sets the label content. */
-.ql-snow .ql-picker.ql-size[data-value="8px"] .ql-picker-label::before  { content: "8px"; }
-.ql-snow .ql-picker.ql-size[data-value="10px"] .ql-picker-label::before { content: "10px"; }
-.ql-snow .ql-picker.ql-size[data-value="12px"] .ql-picker-label::before { content: "12px"; }
-.ql-snow .ql-picker.ql-size[data-value="14px"] .ql-picker-label::before { content: "14px"; }
-.ql-snow .ql-picker.ql-size[data-value="16px"] .ql-picker-label::before { content: "16px"; }
-.ql-snow .ql-picker.ql-size[data-value="18px"] .ql-picker-label::before { content: "18px"; }
-.ql-snow .ql-picker.ql-size[data-value="24px"] .ql-picker-label::before { content: "24px"; }
-.ql-snow .ql-picker.ql-size[data-value="32px"] .ql-picker-label::before { content: "32px"; }
+/* Shows "Size" when nothing selected yet */
+.ql-snow .ql-picker.ql-size .ql-picker-label::before { content: "Size"; }
 
-/* --- EXISTING CSS: Ensures the header shows "Size" when no size is applied --- */
-.ql-snow .ql-picker.ql-size .ql-picker-label::before {
-    content: "Size";
-}
-
-/* --- EXISTING CSS: Ensures the items inside the list show the correct label text --- */
+/* Show labels for custom numeric sizes in the Snow theme */
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="8px"]::before  { content: "8px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="10px"]::before { content: "10px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="12px"]::before { content: "12px"; }
@@ -29,4 +15,4 @@
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="16px"]::before { content: "16px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="18px"]::before { content: "18px"; }
 .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="24px"]::before { content: "24px"; }
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="32px"]::before { content: "32px"; }
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="32px"]::before { content: "32px"; } 
