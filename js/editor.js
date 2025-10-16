@@ -60,30 +60,25 @@ toolbar.container.querySelector('button.ql-script[value="sub"]')?.setAttribute('
 toolbar.container.querySelector('button.ql-script[value="super"]')?.setAttribute('title', 'Superscript');
 
 // Target the SELECT elements 
-// ALIGN 
+// 1. ALIGN (Use the working logic for this one)
 const alignSelect = toolbar.container.querySelector('select.ql-align');
 if (alignSelect?.parentElement) {
     alignSelect.parentElement.setAttribute('title', 'Align Text');
 }
 
-//  COLOR AND BACKGROUND 
-// Get all select elements that Quill uses for color/background within the toolbar
-const colorPickers = toolbar.container.querySelectorAll('select.ql-color, select.ql-background');
+// 2. FONT COLOR (Target the visible wrapper span)
+// The <select class="ql-color"> is hidden. The visible part is the span.ql-picker.ql-color.
+const fontColorWrapper = toolbar.container.querySelector('.ql-picker.ql-color');
+if (fontColorWrapper) {
+    fontColorWrapper.setAttribute('title', 'Font Color');
+}
 
-colorPickers.forEach(picker => {
-    // Check if the picker element itself has the ql-background class
-    if (picker.classList.contains('ql-background')) {
-        if (picker.parentElement) {
-            picker.parentElement.setAttribute('title', 'Background Color');
-        }
-    } 
-    // Otherwise, assume it is the font color picker (ql-color)
-    else if (picker.classList.contains('ql-color')) {
-        if (picker.parentElement) {
-            picker.parentElement.setAttribute('title', 'Font Color');
-        }
-    }
-});
+// 3. BACKGROUND COLOR (Target the visible wrapper span)
+// The <select class="ql-background"> is hidden. The visible part is the span.ql-picker.ql-background.
+const bgColorWrapper = toolbar.container.querySelector('.ql-picker.ql-background');
+if (bgColorWrapper) {
+    bgColorWrapper.setAttribute('title', 'Background Color');
+}
 
 // Target the BUTTONS inside the LIST/CHECK group (for list, bullet, and check)
 toolbar.container.querySelector('button.ql-list[value="ordered"]')?.setAttribute('title', 'Ordered List');
