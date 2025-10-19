@@ -254,16 +254,48 @@
         displayText.style.fontSize = `${fontSize}px`;
       });
       //******************************************************  
-
-       // Get the modal login
-      var modal = document.getElementById(formid);
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-  }
-} 
+   
+    // Login Modal References (using the original ID)
+    var loginModal = document.getElementById('formid'); 
+    var cancelLoginBtn = document.getElementById('cancelLogin');
+    var closeLoginIcon = document.getElementById('closelogin');
+    
+    // Sign Up Modal References (using the new unique ID)
+    var signupModal = document.getElementById('signupModal'); 
+    var cancelSignupBtn = document.getElementById('cancelSignupBtn');
+    var closeSignupIcon = document.getElementById('closeSignup');
+    
+    
+    //Define a function to close each modal
+    function closeLogin() {
+        if (loginModal) loginModal.style.display = 'none';
+    }
+    
+    function closeSignup() {
+        if (signupModal) signupModal.style.display = 'none';
+    }
+    
+    
+    // Attach listeners to the buttons/icons to close the modals
+    
+    // Login Modal Listeners
+    if (cancelLoginBtn) cancelLoginBtn.addEventListener('click', closeLogin);
+    if (closeLoginIcon) closeLoginIcon.addEventListener('click', closeLogin);
+    
+    // Sign Up Modal Listeners
+    if (cancelSignupBtn) cancelSignupBtn.addEventListener('click', closeSignup);
+    if (closeSignupIcon) closeSignupIcon.addEventListener('click', closeSignup);
+    
+    
+    // 4. Handle "Click Outside" to close EITHER modal
+    // This is the combined logic to check if the click target is either modal container
+    window.onclick = function(event) {
+        if (event.target == loginModal) {
+            closeLogin();
+        } else if (event.target == signupModal) {
+            closeSignup();
+        }
+    } 
     </script>
   </body>
 </html>
