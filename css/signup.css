@@ -60,9 +60,12 @@ button:hover {
 /* Modal Content/Box */
 .modal-signup-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto;
+  /* Set a max-width and center it using auto margins */
+  max-width: 400px; /* Use max-width for responsiveness */
+  margin: 8% auto; /* Use a single top/bottom margin like your Login modal */
+  min-height: 450px; /* Add a minimum height to ensure box is visible */
   border: 1px solid #888;
-  width: 400px; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Add shadow for definition */
 }
 
 /* Style the horizontal ruler */
