@@ -19,7 +19,7 @@ input[type=text]:focus, input[type=password]:focus {
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
   float: left;
-  width: 50%;
+  width: 35%;
   margin: 0;
 }
 
