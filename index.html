@@ -252,66 +252,70 @@
       const fontSize = fontSizeSlider.value;
       displayText.style.fontSize = `${fontSize}px`;
     });
-    //******************************************************  
-
-  var loginBtn = document.getElementById('login');
-  var signupBtn = document.getElementById('signup');
       
-  // Login Modal References (using the original ID)
-  var loginModal = document.getElementById('loginModal'); 
-  var cancelLoginBtn = document.getElementById('cancelLogin');
-  var closeLoginIcon = document.getElementById('closelogin');
-  
-  // Sign Up Modal References (using the new unique ID)
-  var signupModal = document.getElementById('signupModal'); 
-  var cancelSignupBtn = document.getElementById('cancelSignupBtn');
-  var closeSignupIcon = document.getElementById('closeSignup');
-  
-  
-  //Define a function to close each modal
-  function closeLogin() {
-      if (loginModal) loginModal.style.display = 'none';
-  }
-  
-  function closeSignup() {
-      if (signupModal) signupModal.style.display = 'none';
-  }
-  
-  // listeners for the header buttons to OPEN the modals
-  if (loginBtn) {
-      loginBtn.addEventListener('click', function() {
-          // Set the modal display to 'block' to make it visible
-          if (loginModal) loginModal.style.display = 'flex'; 
-      });
-  }
-  
-  if (signupBtn) {
+    //******************Login/Setup forms ***************************  
+    var loginBtn = document.getElementById('login');
+    var signupBtn = document.getElementById('signup');
+        
+    // Login Modal References (using the original ID)
+    var loginModal = document.getElementById('loginModal'); 
+    var cancelLoginBtn = document.getElementById('cancelLogin');
+    var closeLoginIcon = document.getElementById('closelogin');
+    
+    // Sign Up Modal References (using the new unique ID)
+    var signupModal = document.getElementById('signupModal'); 
+    var cancelSignupBtn = document.getElementById('cancelSignupBtn');
+    var closeSignupIcon = document.getElementById('closeSignup');
+    
+    
+    //Define a function to close each modal
+    function closeLogin() {
+        if (loginModal) loginModal.style.display = 'none';
+    }
+    
+    function closeSignup() {
+        if (signupModal) signupModal.style.display = 'none';
+    }
+    
+    // listeners for the header buttons to OPEN the modals
+    if (loginBtn) {
+        loginBtn.addEventListener('click', function() {
+            // Set the modal display to 'block' to make it visible
+            if (loginModal) loginModal.style.display = 'flex'; 
+        });
+    }
+    
+    if (signupBtn) {
       signupBtn.addEventListener('click', function() {
-          // Set the modal display to 'block' to make it visible
-          if (signupModal) signupModal.style.display = 'flex';
+          signupModal.classList.add('is-open');
       });
-  }
-
-      
-  // Attach listeners to the buttons/icons to close the modals
-  // Login Modal Listeners
-  if (cancelLoginBtn) cancelLoginBtn.addEventListener('click', closeLogin);
-  if (closeLoginIcon) closeLoginIcon.addEventListener('click', closeLogin);
-  
-  // Sign Up Modal Listeners
-  if (cancelSignupBtn) cancelSignupBtn.addEventListener('click', closeSignup);
-  if (closeSignupIcon) closeSignupIcon.addEventListener('click', closeSignup);
+    }
+    
+    function closeSignup() {
+        signupModal.classList.remove('is-open');
+    }
   
   
-  // Handle "Click Outside" to close EITHER modal
-  // This is the combined logic to check if the click target is either modal container
-  window.onclick = function(event) {
-      if (event.target == loginModal) {
-          closeLogin();
-      } else if (event.target == signupModal) {
-          closeSignup();
-      }
-  } 
+        
+    // Attach listeners to the buttons/icons to close the modals
+    // Login Modal Listeners
+    if (cancelLoginBtn) cancelLoginBtn.addEventListener('click', closeLogin);
+    if (closeLoginIcon) closeLoginIcon.addEventListener('click', closeLogin);
+    
+    // Sign Up Modal Listeners
+    if (cancelSignupBtn) cancelSignupBtn.addEventListener('click', closeSignup);
+    if (closeSignupIcon) closeSignupIcon.addEventListener('click', closeSignup);
+    
+    
+    // Handle "Click Outside" to close EITHER modal
+    // This is the combined logic to check if the click target is either modal container
+    window.onclick = function(event) {
+        if (event.target == loginModal) {
+            closeLogin();
+        } else if (event.target == signupModal) {
+            closeSignup();
+        }
+    } 
   </script>
   </body>
 </html>
