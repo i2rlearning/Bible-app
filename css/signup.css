@@ -59,7 +59,7 @@ button:hover {
 
 /* Modal Content/Box */
 .modal-signup-content {
-  background-color: white;  /*#fefefe*/
+  background-color: #fefefe;
   /* Set a max-width and center it using auto margins */
   max-width: 200px; /* Use max-width for responsiveness */
   margin: 8% auto; /* Use a single top/bottom margin like your Login modal */
