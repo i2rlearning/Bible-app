@@ -21,6 +21,7 @@ input[type=text]:focus, input[type=password]:focus {
   float: left;
   width: 35%;
   margin: 0;
+  gap: 16px;
 }
 
 .cancelbtn {
