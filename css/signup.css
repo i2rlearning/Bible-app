@@ -89,7 +89,7 @@ hr {
 /* The Close Button (x) */
 .close {
   position: absolute;
-  left: 50px;
+  left: 450px;
   top: 15px;
   font-size: 40px;
   font-weight: bold;
