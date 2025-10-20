@@ -53,28 +53,23 @@ button:hover {
   padding: 16px;
 }
 
-/* The Modal (background) */
 .signup-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: #474e5d;
-  padding-top: 50px;
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  inset: 0;
+  z-index: 1;
 }
 
-/* Modal Content/Box */
 .signup-form-content {
   background-color: #fff;
-  width: 85%;           /* form width size */
+  width: 90%;
   max-width: 400px;
-  margin: 8% auto;
-  border: 1px solid #888;
+  border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  padding: 20px;
 }
 
 /* Style the horizontal ruler */
