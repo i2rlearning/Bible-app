@@ -70,7 +70,8 @@ button:hover {
 /* Modal Content/Box */
 .signup-form-content {
   background-color: #fff;
-  width: 200px;     /* not max-width */
+  width: 85%;           /* form width size */
+  max-width: 400px;
   margin: 8% auto;
   border: 1px solid #888;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
