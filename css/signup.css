@@ -48,6 +48,7 @@ button:hover {
   clear: both;
 }
 
+
 .signup-modal {
   display: none; /* hidden by default */
   position: fixed;
