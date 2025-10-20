@@ -18,10 +18,12 @@ input[type=text]:focus, input[type=password]:focus {
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
-  float: left;
-  width: 35%;
+  float: none;
   margin: 0;
-  gap: 16px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
 }
 
 .cancelbtn {
@@ -93,17 +95,17 @@ hr {
   cursor: pointer;
 }
 
+.clearfix {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
 /* Clear floats */
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
-}
-
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
