@@ -42,13 +42,6 @@ button:hover {
   padding: 16px;
 }
 
-.acct-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
 .signup-modal {
   display: none; /* hidden by default */
   position: fixed;
@@ -102,6 +95,12 @@ hr {
   content: "";
   clear: both;
   display: table;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
