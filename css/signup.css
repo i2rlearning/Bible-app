@@ -16,7 +16,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Set a style for buttons specific to the Sign Up modal content */
-.modal-signup-content button:not(.cancelbtn):not(.signupbtn) {
+.signup-form-content button:not(.cancelbtn):not(.signupbtn) {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -68,7 +68,7 @@ button:hover {
 }
 
 /* Modal Content/Box */
-.modal-signup-content {
+.signup-form-content {
   background-color: #fefefe;
   /* Set a max-width and center it using auto margins */
   max-width: 200px; /* Use max-width for responsiveness */
