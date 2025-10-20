@@ -54,22 +54,24 @@ button:hover {
 }
 
 .signup-modal {
-  display: flex;
-  justify-content: center;  /* center horizontally */
-  align-items: center;      /* center vertically */
-  background-color: rgba(0,0,0,0.4);
+  display: none;
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 1000;
+  justify-content: center; 
+  align-items: center;
+  background-color: rgba(0,0,0,0.4);
 }
 
 .signup-form-content {
-  background-color: #fff;
+  background: #fff;
   width: 90%;
   max-width: 400px;
   border-radius: 8px;
+  padding: 24px;
+  border: 1px solid #888;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  padding: 20px;
+  margin: 0;                     /* no leftover margins */
 }
 
 /* Style the horizontal ruler */
