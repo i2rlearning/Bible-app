@@ -27,12 +27,14 @@ input[type=text]:focus, input[type=password]:focus {
   background-color: #f44336; /* Red */
   padding: 14px 20px;
 }
+
 .signupbtn {
-  background-color: #04AA6D; /* Green, using your existing style */
+  background-color: #31ACFF;
   padding: 14px 20px;
 }
 
 button:hover {
+  cursor: pointer;
   opacity:1;
 }
 
