@@ -18,9 +18,9 @@ input[type=text]:focus, input[type=password]:focus {
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
-  margin: 10px 0;
+  float: left;
+  width: 50%;
+  margin: 0;
 }
 
 .cancelbtn {
@@ -39,7 +39,7 @@ button:hover {
 
 /* Add padding to container elements */
 .acct-container {
-  padding: 16px;
+  padding: 16px 16px 0; 
 }
 
 .signup-modal {
@@ -62,7 +62,7 @@ button:hover {
   width: 90%;
   max-width: 400px;
   border-radius: 8px;
-  padding: 24px;
+  padding: 24px 24px 16px;
   border: 1px solid #888;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
   margin: 0;                     /* no leftover margins */
