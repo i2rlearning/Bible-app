@@ -54,14 +54,20 @@ button:hover {
 }
 
 .signup-modal {
-  display: none;
+  display: none; /* hidden by default */
   position: fixed;
   inset: 0;
   z-index: 1000;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   background-color: rgba(0,0,0,0.4);
 }
+
+/* JS toggle */
+.signup-modal.is-open {
+  display: flex;
+}
+
 
 .signup-form-content {
   background: #fff;
