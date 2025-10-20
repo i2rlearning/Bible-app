@@ -24,7 +24,6 @@ input[type=text]:focus, input[type=password]:focus {
   border: 0;
   border-radius: 4px;
   color: #fff;
-  flex: 0 0 35%;
 }
 
 .cancelbtn {
