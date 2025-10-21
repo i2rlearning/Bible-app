@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/menu.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
+    <link href="css/signup.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <title>Branch of Israel - Bible App</title>
+  </head>
+
+  <body class="index">
+      <div class="subheader" id="stickyHeader">
+        <div class="container flex">
+          <div class="subheadings">
+            <div class="column">
+              <span style="font-size:25px;cursor:pointer;" onclick="openNav()">&#9776;</span><!-- show foo foo bar --> 
+            </div>
+            <div class="column">
+              <span style="color:lightgray;">Bible</span>
+            </div>
+            <div class="column">
+              <span style="color:lightgray;">Book & Chapter</span>
+            </div>
+            <div class="column">
+              <div class="custom-select" style="width:12vw;" onclick="getOption()">  
+                <select id="optVal">  
+                  <option value="language">Language</option>
+                  <option value='https://api.scripture.api.bible/v1/bibles?language=eng&include-full-details=false'>English</option>
+                  <option value="https://api.scripture.api.bible/v1/bibles?language=grc&include-full-details=false">Greek</option>
+                  <option value='https://api.scripture.api.bible/v1/bibles?ids=a8a97eebae3c98e4-01%2C%202c500771ea16da93-01%2C%200b262f1ed7f084a6-01&include-full-details=false'>Hebrew</option>
+                  <option value="https://api.scripture.api.bible/v1/bibles?include-full-details=false">All</option>              
+                </select>
+              </div>          
+            </div>
+            <div class="column">
+              <div class="align-group">
+                <label for="font-size-slider">Font size: </label>&nbsp;
+                <input type="range" id="font-size-slider" min="18" max="35" value="18">
+              </div>
+            </div>  
+                <button type="button" id="login">Login</button>
+                <button type="button" id="signup">Sign-up</button>
+          </div>
+        </div>
+      </div>
+
+     <!-- ****** Login ****** -->
+    <div id="loginModal" class="modal">
+      <span type="button" id="closelogin" class="close" title="Close Modal"> 
+        &times;</span>
+    
+    <form class="modal-content" action="/action_page.php">
+      <div class="modal-input-container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+  
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+  
+      <div class="modal-container bottom-row">
+        <button type="button" id="cancelLogin" class="cancelbtn">Cancel</button>
+      </div>
+      
+      <div class="auth-actions">
+        <span>Forgot <a href="#">password?</a></span>
+        <span>Create <a href="#">account</a></span>
+      </div>
+    </form>
+  </div>
+
+<!-- ****** Signup Form ****** -->
+<div id="signupModal" class="signup-modal">
+  <span type="button" id="closeSignup" class="close" title="Close Modal">&times;</span>
+    
+  <form class="signup-form-content" action="/action_page.php">
+    <div class="acct-container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" id="cancelSignupBtn" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>  
+    
+    <header>
+      <div id="menuNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" style="color:red" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#" class="current">Home</a>
+          <a href="#" class="disabled">Books</a>
+          <a href="#" class="disabled">Chapter</a>
+          <a href="./search.html">Search</a>
+          <a href="#">Settings</a>   
+        </div>
+      </div>
+    </header>   
+
+<main class="container" style="font-size: 18px;">
+    <div id="bible-version-list">
+        </div>
+    
+    <div class="leftcol">
+        <a id="prevURL">
+            <img id="imgleft" class="left-button" src="./img/orig_left_stamp.png" />
+        </a>
+    </div>
+
+    <div class="rightcol">
+        <a id="nextURL">
+            <img id="imgright" class="right-button" src="./img/orig_right_stamp.png" />
+        </a>
+    </div>
+
+    <div class="bottom-spacer"></div>
+</main>    
+    
+    <script src="js/my_key.js"></script>
+    <script src="js/misc.js"></script>
+
+    <script>
+      function getOption() {
+        window.location.reload();
+         selectElement = document.querySelector('#optVal').value;
+      }
+
+
+      // ************* Side Menu **************
+      function openNav() {
+        document.getElementById("menuNav").style.width = "225px";
+      }
+
+      function closeNav() {
+        document.getElementById("menuNav").style.width = "0px";
+      } 
+      // ************* Side Menu End **************
+
+
+      // ************* Dropdown Menu **************
+      var x, i, j, l, ll, selElmnt, a, b, c;
+      /*look for any elements with the class "custom-select":*/
+      x = document.getElementsByClassName("custom-select");
+      l = x.length;
+      for (i = 0; i < l; i++) {
+        selElmnt = x[i].getElementsByTagName("select")[0];
+        ll = selElmnt.length;
+        /*for each element, create a new DIV that will act as the selected item:*/
+        a = document.createElement("DIV");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        x[i].appendChild(a);
+        
+        /*for each element, create a new DIV that will contain the option list:*/
+        b = document.createElement("DIV");
+        b.setAttribute("class", "select-items select-hide");
+        for (j = 1; j < ll; j++) {
+          /*for each option in the original select element,
+          create a new DIV that will act as an option item:*/
+          c = document.createElement("DIV");
+          c.innerHTML = selElmnt.options[j].innerHTML;
+          c.addEventListener("click", function(e) {
+              /*when an item is clicked, update the original select box,
+              and the selected item:*/
+              var y, i, k, s, h, sl, yl;
+              s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+              sl = s.length;
+              h = this.parentNode.previousSibling;
+              for (i = 0; i < sl; i++) {
+                if (s.options[i].innerHTML == this.innerHTML) {
+                  s.selectedIndex = i;
+                  h.innerHTML = this.innerHTML;
+                  y = this.parentNode.getElementsByClassName("same-as-selected");
+                  yl = y.length;
+                  for (k = 0; k < yl; k++) {
+                    y[k].removeAttribute("class");
+                  }
+                  this.setAttribute("class", "same-as-selected");
+                  break;
+                }
+              }
+              h.click();
+          });
+          b.appendChild(c);
+        }
+        x[i].appendChild(b);
+        a.addEventListener("click", function(e) {
+            /*when the select box is clicked, close any other select boxes,
+            and open/close the current select box:*/
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
+          });
+      }
+
+      function closeAllSelect(elmnt) {
+        /*a function that will close all select boxes in the document,
+        except the current select box:*/
+        var x, y, i, xl, yl, arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+          if (elmnt == y[i]) {
+            arrNo.push(i)
+          } else {
+            y[i].classList.remove("select-arrow-active");
+          }
+        }
+        for (i = 0; i < xl; i++) {
+          if (arrNo.indexOf(i)) {
+            x[i].classList.add("select-hide");
+          }
+        }
+      }
+      /*if the user clicks anywhere outside the select box,
+      then close all select boxes:*/
+      document.addEventListener("click", closeAllSelect);
+
+    
+    //******************* Font resize slider *********************
+    const fontSizeSlider = document.getElementById("font-size-slider");
+    const displayText = document.getElementById("bible-version-list");
+    
+    fontSizeSlider.addEventListener("input", () => {
+      const fontSize = fontSizeSlider.value;
+      displayText.style.fontSize = `${fontSize}px`;
+    });
+      
+    //******************Login/Setup forms ***************************  
+    // Buttons
+    const loginBtn  = document.getElementById('login');
+    const signupBtn = document.getElementById('signup');
+    
+    // Modals
+    const loginModal  = document.getElementById('loginModal');
+    const signupModal = document.getElementById('signupModal');
+    
+    // Close buttons
+    const cancelLoginBtn  = document.getElementById('cancelLogin');
+    const closeLoginIcon  = document.getElementById('closelogin');
+    const cancelSignupBtn = document.getElementById('cancelSignupBtn');
+    const closeSignupIcon = document.getElementById('closeSignup');
+    
+    // Helpers
+    function openLogin()  { loginModal?.classList.add('is-open'); }
+    function closeLogin() { loginModal?.classList.remove('is-open'); }
+    
+    function openSignup()  { signupModal?.classList.add('is-open'); }
+    function closeSignup() { signupModal?.classList.remove('is-open'); }
+    
+    // Open handlers
+    loginBtn?.addEventListener('click', openLogin);
+    signupBtn?.addEventListener('click', openSignup);
+    
+    // Close handlers
+    cancelLoginBtn?.addEventListener('click', closeLogin);
+    closeLoginIcon?.addEventListener('click', closeLogin);
+    
+    cancelSignupBtn?.addEventListener('click', closeSignup);
+    closeSignupIcon?.addEventListener('click', closeSignup);
+    
+    // Click outside to close
+    window.addEventListener('click', (e) => {
+      if (e.target === loginModal)  closeLogin();
+      if (e.target === signupModal) closeSignup();
+    });
+ 
+  </script>
+  </body>
+</html>
