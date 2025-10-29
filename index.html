@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!-- https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_website&stacked=h -->
+<html>
+  <head>
+	  <titleBranch of Israel</title>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+	  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  </head>
+  
+	<body id="myPage">
+
+	<!-- Sidebar on click -->
+	<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+	  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
+	    <i class="fa fa-remove"></i>
+	  </a>
+	<!-- Also add: past newsletters	-->
+	  <a href="#" class="w3-bar-item w3-button">Home</a>
+	  <a href="#" class="w3-bar-item w3-button">Podcast</a>
+	  <a href="#" class="w3-bar-item w3-button">Blog</a>
+	  <a href="#" class="w3-bar-item w3-button">Book</a>
+	  <a href="#" class="w3-bar-item w3-button">Newsletter</a>
+	  <a href="#" class="w3-bar-item w3-button">Contact Us</a>
+	  <a href="#" class="w3-bar-item w3-button">Daily Decree</a>
+	</nav>
+	
+	<!-- Navbar -->
+	<div class="w3-top">
+	 <div class="w3-bar w3-theme-d2 w3-left-align">
+	  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+	  <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Logo</a>
+	  <a href="#ministry" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Ministry</a>
+	  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
+	  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+      <a href="#newsletter" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Newsletter</a>
+	  <a href="https://www.paypal.com/donate/?business=B3BWAZD429VDY&no_recurring=0&currency_code=USD" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">Donate</a>  
+        <!--<div class="w3-dropdown-hover w3-hide-small">
+	    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
+	    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+	      <a href="#" class="w3-bar-item w3-button">Link</a>
+	      <a href="#" class="w3-bar-item w3-button">Link</a>
+	      <a href="#" class="w3-bar-item w3-button">Link</a>
+	    </div>-->
+	  </div>
+	  <!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a> -->
+	 	
+     </div>
+	
+	  <!-- Navbar on small screens -->
+	  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+	    <a href="#ministry" class="w3-bar-item w3-button">Ministry</a>
+	    <a href="#work" class="w3-bar-item w3-button">Work</a>
+	    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+	    <a href="#" class="w3-bar-item w3-button">Search</a>
+	  </div>
+	</div>
+	
+	<!-- Image Header -->
+	<div class="w3-display-container w3-animate-opacity">
+	  <img src="/w3images/sailboat.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+	</div>
+	
+	<!-- Modal -->
+	<div id="id01" class="w3-modal">
+	  <div class="w3-modal-content w3-card-4 w3-animate-top">
+	    <header class="w3-container w3-teal w3-display-container"> 
+	      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>
+	      <h4>Oh snap! We just showed you a modal..</h4>
+	      <h5>Because we can <i class="fa fa-smile-o"></i></h5>
+	    </header>
+	    <div class="w3-container">
+	      <p>Cool huh? Ok, enough teasing around..</p>
+	      <p>Go to our <a class="w3-text-teal" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
+	    </div>
+	    <footer class="w3-container w3-teal">
+	      <p>Modal footer</p>
+	    </footer>
+	  </div>
+	</div>
+	
+	<!-- Team Container -->
+	<div class="w3-container w3-padding-64 w3-center" id="ministry">
+	<!-- <h2>OUR TEAM</h2>
+	<p>Meet the team - our office rats:</p> -->
+	
+	<div class="w3-row"><br>
+	
+	<div class="w3-quarter">
+	  <img src="/w3images/avatar.jpg" alt="Oaks of Righteousness" style="width:45%" class="w3-circle w3-hover-opacity">
+	  <h3>Oaks of Righteousness</h3>
+	  <p align="center" style="width:150px; margin-left:35px;">One one ministry counseling with a live person and not some AI robot</p>
+	</div>
+	
+	<div class="w3-quarter">
+	  <a href="https://www.amazon.com/Hebraic-Prayers-Vine-Roger-Herman/dp/1442120991/ref=sr_1_1?crid=FL1QJTETZ2N3&keywords=hebraic+prayers+from+the+vine+book&qid=1641849112&sprefix=hebraic+prayers+from+the+vine+b%2Caps%2C691&sr=8-1"><img src="/w3images/avatar.jpg" alt="Book" style="width:45%" class="w3-circle w3-hover-opacity"></a>
+	  <h3>Hebraic Prayers from the Vine</h3>
+	  <p>Learn Hebraic prayers without learning Hebrew</p>
+	</div>
+	
+	<div class="w3-quarter">
+	  <a href="https://blog.branchofisrael.com/"><img src="/w3images/avatar.jpg" alt="Blog" style="width:45%" class="w3-circle w3-hover-opacity"></a>
+	  <h3>Blog</h3>
+	  <p>Various teachings</p>
+	</div>
+	
+	<div class="w3-quarter">
+	  <a href="https://branchofisrael.com/daily-decree/"><img src="/w3images/avatar.jpg" alt="Decree" style="width:45%" class="w3-circle w3-hover-opacity"></a>
+	  <h3>Daily Decree</h3>
+	  <p>You will want to say this everyday</p>
+	</div>
+	
+	</div>
+	</div>
+	
+	<!-- Work Row -->
+	<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+	
+	<div class="w3-quarter">
+	<h2>Our Work</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	
+	<div class="w3-quarter">
+	<div class="w3-card w3-white">
+	  <img src="/w3images/snow.jpg" alt="Snow" style="width:100%">
+	  <div class="w3-container">
+	  <h3>Customer 1</h3>
+	  <h4>Trade</h4>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  </div>
+	  </div>
+	</div>
+	
+	<div class="w3-quarter">
+	<div class="w3-card w3-white">
+	  <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+	  <div class="w3-container">
+	  <h3>Customer 2</h3>
+	  <h4>Trade</h4>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  </div>
+	  </div>
+	</div>
+	
+	<div class="w3-quarter">
+	<div class="w3-card w3-white">
+	  <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+	  <div class="w3-container">
+	  <h3>Customer 3</h3>
+	  <h4>Trade</h4>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  <p>Blablabla</p>
+	  </div>
+	  </div>
+	</div>
+	
+	</div>
+	
+	<!-- Container -->
+	<div class="w3-container" style="position:relative">
+	  <a onclick="w3_open()" class="w3-button w3-xlarge w3-circle w3-teal"
+	  style="position:absolute;top:-28px;right:24px">+</a>
+	</div>
+	
+	
+	<!-- Contact Container -->
+	<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+	  <div class="w3-row">
+	    <!-- <div class="w3-col m5">
+	    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span></div>
+	      <h3>Address</h3>
+	      <p>Swing by for a cup of coffee, or whatever.</p>
+	      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>  Chicago, US</p>
+	      <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +00 1515151515</p>
+	      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  test@test.com</p>
+	    </div>-->
+	    <div class="w3-col m7">
+	      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+	      <div class="w3-section">      
+	        <label>Name:</label>
+	        <input class="w3-input" type="text" name="Name" required>
+	      </div>
+	      <div class="w3-section">      
+	        <label>Email:</label>
+            <input type="text" name="Email" id="emailInput" class="w3-input" required title="Enter a valid email address">
+          <span id="emailError" style="color:red; display:none;">Invalid email format</span>
+	      </div>
+	      <div class="w3-section">      
+	        <label>Subject:</label>
+              <select name="Subject" required style="width: 100%; box-sizing: border-box; background-color: #eeeeee;" id="subjectSelect">
+              	<option value="" disabled selected>Make a Selection</option>
+                <option value="Prayer Request<">Prayer Request</option>
+                <option value="Come and Speak">Come and Speak</option>
+                <option value="Ministry Counseling">I would like Ministry Counseling</option>
+                <option value="Other">Other (Describe below)</option>
+              </select>
+	      </div>          
+	      <div class="w3-section">      
+	        <label>Message:</label>
+	        <input class="w3-input" type="text" name="Message" id="messageTextarea">
+	      </div>  
+          <div class="h-captcha" data-sitekey="58c4773c-0a5c-4e7c-9cca-7e92b1e07a6e"></div>
+	      <button type="submit" class="w3-button w3-right w3-theme">Send</button>
+	      </form>
+	    </div>
+	  </div>
+	</div>
+  
+	<!-- Newsletter signup -->
+    <form action="https://branchofisrael.us2.list-manage.com/subscribe/post" method="POST">
+      <input type="hidden" name="u" value="a470704f567e4578282ec164c">
+      <input type="hidden" name="id" value="593fb32e3c">
+
+      <div class="field-group">
+        <label for="MERGE0">Email Address <span style="color: #cc6600;">*</span></label>
+        <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" required>
+      </div>
+
+      <div class="submit_container">
+        <input type="submit" name="submit" value="Subscribe">
+      </div>
+    </form>    
+
+	<!-- Footer -->
+	<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+	  <div>Copyright <script>document.write( new Date().getFullYear() );</script> </div>
+	
+	  <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+	    <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>   
+	    <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+	    <i class="fa fa-chevron-circle-up"></i></span></a>
+	  </div>
+	</footer>
+		
+		<script>
+		// Script for side navigation
+		function w3_open() {
+		  var x = document.getElementById("mySidebar");
+		  x.style.width = "300px";
+		  x.style.paddingTop = "10%";
+		  x.style.display = "block";
+		}
+		
+		// Close side navigation
+		function w3_close() {
+		  document.getElementById("mySidebar").style.display = "none";
+		}
+		
+		// Used to toggle the menu on smaller screens when clicking on the menu button
+		function openNav() {
+		  var x = document.getElementById("navDemo");
+		  if (x.className.indexOf("w3-show") == -1) {
+		    x.className += " w3-show";
+		  } else { 
+		    x.className = x.className.replace(" w3-show", "");
+		  }
+		}
+
+
+		// *************** Checks when user selects "Other" in contact us section
+          const subjectDropdown = document.getElementById('subjectSelect');
+          const messageInput = document.getElementById('messageTextarea'); // Renamed variable for clarity
+          const triggerValue = "Other"; // *** THIS MUST MATCH THE OPTION'S VALUE EXACTLY ***
+
+          // Define a function to run on change
+          function toggleMessageRequirement() {
+              // Check if the currently selected value is the trigger value
+              if (subjectDropdown.value === triggerValue) {
+                  // If it is, make the message mandatory
+                  messageInput.setAttribute('required', 'required');
+                  messageInput.placeholder = "This field is required";
+              } else {
+                  // Otherwise, remove the mandatory requirement
+                  messageInput.removeAttribute('required');
+                  messageInput.placeholder = ""; // Clear placeholder if needed
+              }
+          }
+
+          // Detect when the dropdown selection changes
+          subjectDropdown.addEventListener('change', toggleMessageRequirement);
+
+          // Checks on page load in case the form is pre-filled or cached
+          toggleMessageRequirement();
+          
+          
+        // *************** Checks email field for validity        
+        const emailInput = document.getElementById('emailInput');
+        const emailError = document.getElementById('emailError');
+        const form = document.querySelector('form');
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        emailInput.addEventListener('blur', function() {
+          if (emailInput.value.trim() !== '' && !emailRegex.test(emailInput.value)) {
+            emailError.style.display = 'inline';
+            emailInput.classList.add('w3-border-red');
+          } else {
+            emailError.style.display = 'none';
+            emailInput.classList.remove('w3-border-red');
+          }
+        });
+
+        form.addEventListener('submit', function(e) {
+          if (!emailRegex.test(emailInput.value)) {
+            e.preventDefault(); // stop form submission
+            emailError.style.display = 'inline';
+            emailInput.classList.add('w3-border-red');
+          }
+        });         
+        </script>
+	</body>
+</html>
