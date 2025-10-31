@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ✅ Static list of images (edit these paths)
   const images = [
-    'img/example1.jpg',
-    'img/example2.jpg'
+    'img/Jaffagatewithsnow.jpg',
+    'img/Jaffagate.jpg'
     // 'img/another.jpg', ...
   ];
 
