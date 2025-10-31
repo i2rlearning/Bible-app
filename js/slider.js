@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const images = [
     'img/Jaffagatewithsnow.jpg',
     'img/Jaffagate.jpg'
-    // 'img/another.jpg', ...
   ];
 
   const slidesContainer = document.getElementById('slides');
