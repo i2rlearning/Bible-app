@@ -128,3 +128,37 @@
           if (Math.abs(diffX) > swipeThreshold) handleSwipe(diffX > 0 ? 'left' : 'right');
         });
       }
+
+// *************************************************************************** 
+// 1) List your images here (relative to your page). Add/remove as needed.
+  const imageList = [
+    'img/Jaffagatewithsnow.jpg',
+    'img/Jaffagate.jpg'
+  ];
+
+  // 2) Render slides from the list
+  const slidesRoot = document.getElementById('slides');
+  slidesRoot.innerHTML = imageList.map((src, i) => `
+    <img class="slide ${i === 0 ? 'active' : ''}" src="${src}" alt="Slide ${i + 1}">
+  `).join('');
+
+  // 3) Basic slider controls
+  let current = 0;
+  const slides = () => document.querySelectorAll('.slide');
+
+  function showSlide(nextIndex) {
+    const s = slides();
+    if (!s.length) return;
+    s[current].classList.remove('active');
+    current = (nextIndex + s.length) % s.length; // wrap around
+    s[current].classList.add('active');
+  }
+
+  function nextSlide() { showSlide(current + 1); }
+  function prevSlide() { showSlide(current - 1); }
+
+  // Optional: keyboard support
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft')  prevSlide();
+  });
