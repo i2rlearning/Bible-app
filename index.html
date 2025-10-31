@@ -62,39 +62,17 @@
 	</div>
 	
 	<!-- Image Slider -->
-    <div class="navbar" id="myTopnav">
-      <a href="https://www.feedmysheepjerusalem.com/">Home</a>
-      <div class="dropdown">
-        <button class="dropbtn">Categories &#9660;</button>
-        <div class="dropdown-content">
-          <select id="category-select" onchange="categoryChanged()">
-            <option value="butterflies">Butterflies</option>
-            <option value="eagles">Eagles</option>
-            <option value="flowers">Flowers</option>
-            <option value="Jerusalem">Jerusalem</option>
-            <option value="lions">Lions</option>
-            <option value="miracle-photos">Miracle Photos</option>
-            <option value="people">People</option>
-            <option value="scenic">Scenic</option>
-            <option value="sheep">Sheep</option>
-            <option value="unusual">Unusual</option>
-          </select>
-        </div>
-      </div>
-      <div id="current-image-url-container">
-        <span id="current-image-url"></span>
-        <a href="#" target="_blank" id="image-link" class="download-button">Download Image</a>
-      </div>
-      <a href="javascript:void(0);" class="icon" onclick="myMenu()">&#9776;</a>
-    </div>
-  
-    <div class="container">
-      <div class="slider-container">
-        <div id="slides"></div>
-        <div class="arrow arrow-prev" onclick="prevSlide()">&#10094;</div>
-        <div class="arrow arrow-next" onclick="nextSlide()">&#10095;</div>
-      </div>
-    </div>
+<div class="navbar" id="myTopnav">
+  <a href="javascript:void(0);" class="icon" onclick="myMenu()">&#9776;</a>
+</div>
+
+<div class="container">
+  <div class="slider-container">
+    <div id="slides" class="slides"></div>
+    <button class="arrow arrow-prev" aria-label="Previous" onclick="prevSlide()">&#10094;</button>
+    <button class="arrow arrow-next" aria-label="Next" onclick="nextSlide()">&#10095;</button>
+  </div>
+</div>
 	
 	<!-- Modal -->
 	<div id="id01" class="w3-modal">
@@ -353,3 +331,4 @@
         </script>
 	</body>
 </html>
+
