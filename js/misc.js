@@ -111,4 +111,29 @@
     return sortedVersions;
   } 
 
+//Swaps pics on main site 
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Select all images with the generic class
+    const images = document.querySelectorAll('.image-swap');
 
+    images.forEach(img => {
+        // Store the original source for later use (when hover is off)
+        const originalSrc = img.src;
+        // Get the hover source from the data-hover attribute
+        const hoverSrc = img.getAttribute('data-hover');
+
+        // --- Event Listener for MOUSE OVER (Hover ON) ---
+        img.addEventListener('mouseenter', () => {
+            // Check if the hover source exists before swapping
+            if (hoverSrc) {
+                img.src = hoverSrc;
+            }
+        });
+
+        // --- Event Listener for MOUSE OUT (Hover OFF) ---
+        img.addEventListener('mouseleave', () => {
+            // Swap back to the original source
+            img.src = originalSrc;
+        });
+    });
+});
