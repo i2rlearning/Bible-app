@@ -38,15 +38,13 @@
 	  <a href="#ministry" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Ministry</a>
 	  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
 	  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-      <a href="#newsletter" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Newsletter</a>
 	  <a href="https://www.paypal.com/donate/?business=B3BWAZD429VDY&no_recurring=0&currency_code=USD" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">Donate</a>  
-        <!--<div class="w3-dropdown-hover w3-hide-small">
-	    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-hover w3-hide-small">
+	    <button class="w3-button" title="Notifications">Newsletter<i class="fa fa-caret-down"></i></button>     
 	    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-	      <a href="#" class="w3-bar-item w3-button">Link</a>
-	      <a href="#" class="w3-bar-item w3-button">Link</a>
-	      <a href="#" class="w3-bar-item w3-button">Link</a>
-	    </div>-->
+	      <a href="#newsletter" class="w3-bar-item w3-button">Sign-up</a>
+	      <a href="#" class="w3-bar-item w3-button">Past Newsletters</a>
+	    </div>
 	  </div>
 	  <!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a> -->
 	 	
@@ -225,19 +223,21 @@
 	</div>
   
 	<!-- Newsletter signup -->
-    <form action="https://branchofisrael.us2.list-manage.com/subscribe/post" method="POST">
-      <input type="hidden" name="u" value="a470704f567e4578282ec164c">
-      <input type="hidden" name="id" value="593fb32e3c">
-
-      <div class="field-group">
-        <label for="MERGE0">Email Address <span style="color: #cc6600;">*</span></label>
-        <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" required>
-      </div>
-
-      <div class="submit_container">
-        <input type="submit" name="submit" value="Subscribe">
-      </div>
-    </form>    
+	<div class="w3-container w3-padding-64 w3-theme-l5" id="newsletter">		
+	    <form action="https://branchofisrael.us2.list-manage.com/subscribe/post" method="POST">
+	      <input type="hidden" name="u" value="a470704f567e4578282ec164c">
+	      <input type="hidden" name="id" value="593fb32e3c">
+	
+	      <div class="field-group">
+	        <label for="MERGE0">Email Address <span style="color: #cc6600;">*</span></label>
+	        <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" required>
+	      </div>
+	
+	      <div class="submit_container">
+	        <input type="submit" name="submit" value="Subscribe">
+	      </div>
+	    </form>    
+	</div>
 
 	<!-- Footer -->
 	<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
@@ -327,6 +327,7 @@
         </script>
 	</body>
 </html>
+
 
 
 
