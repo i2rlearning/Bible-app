@@ -232,33 +232,34 @@
 	</div>
   
 	<!-- Footer -->
-	<footer class="w3-container w3-padding-32 w3-theme-d1">
-	<!-- ************** Newsletter signup ************** -->
-	<div id="newsletter">		
-	    <form action="https://branchofisrael.us2.list-manage.com/subscribe/post" method="POST">
-	      <input type="hidden" name="u" value="a470704f567e4578282ec164c">
-	      <input type="hidden" name="id" value="593fb32e3c">
-
-		  <span>Newsletter Sign-up:</span>
-	      <div class="field-group">
-	        <label for="MERGE0">Email Address <span style="color: #cc6600;">*</span></label>
-	        <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" required>
- 			<input type="submit" name="submit" value="Subscribe">				
-	      </div>
-	    </form>    
-	</div>
-	<!--************** -->
-		
-	  <div style="style:center;">Copyright <script>document.write( new Date().getFullYear() );</script> </div>
+	<footer class="w3-container w3-theme-d1">
+	    <div id="newsletter" class="custom-footer-content"> 
+	        <form action="..." method="POST">
+	            <input type="hidden" name="u" value="a470704f567e4578282ec164c">
+	            <input type="hidden" name="id" value="593fb32e3c">
 	
-	  <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
-	    <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>   
-	    <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
-	    <i class="fa fa-chevron-circle-up"></i></span></a>
-	  </div>
+	            <div class="newsletter-layout">
+	                <span>Newsletter Sign-up:</span>
+	                <div class="field-group">
+	                    <label for="MERGE0">Email Address <span style="color: #cc6600;">*</span></label>
+	                    <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" required>
+	                    <input type="submit" name="submit" value="Subscribe">
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+	    <div class="copyright-bottom">
+	        Copyright <script>document.write( new Date().getFullYear() );</script> 
+	    </div>
+	    
+	    <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+	        <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>    
+	        <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+	        <i class="fa fa-chevron-circle-up"></i></span></a>
+	    </div>
 	</footer>
-		
-		<script>
+	
+	<script>
 		// Script for side navigation
 		function w3_open() {
 		  var x = document.getElementById("mySidebar");
@@ -276,93 +277,93 @@
 		function openNav() {
 		  var x = document.getElementById("navDemo");
 		  if (x.className.indexOf("w3-show") == -1) {
-		    x.className += " w3-show";
+			x.className += " w3-show";
 		  } else { 
-		    x.className = x.className.replace(" w3-show", "");
+			x.className = x.className.replace(" w3-show", "");
 		  }
 		}
-
-
+	
+	
 		// *************** Checks when user selects "Other" in contact us section
-          const subjectDropdown = document.getElementById('subjectSelect');
-          const messageInput = document.getElementById('messageTextarea'); // Renamed variable for clarity
-          const triggerValue = "Other"; // *** THIS MUST MATCH THE OPTION'S VALUE EXACTLY ***
-
-          // Define a function to run on change
-          function toggleMessageRequirement() {
-              // Check if the currently selected value is the trigger value
-              if (subjectDropdown.value === triggerValue) {
-                  // If it is, make the message mandatory
-                  messageInput.setAttribute('required', 'required');
-                  messageInput.placeholder = "This field is required";
-              } else {
-                  // Otherwise, remove the mandatory requirement
-                  messageInput.removeAttribute('required');
-                  messageInput.placeholder = ""; // Clear placeholder if needed
-              }
-          }
-
-          // Detect when the dropdown selection changes
-          subjectDropdown.addEventListener('change', toggleMessageRequirement);
-
-          // Checks on page load in case the form is pre-filled or cached
-          toggleMessageRequirement();
-          
-          
-        // *************** Checks email field for validity        
-        const emailInput = document.getElementById('emailInput');
-        const emailError = document.getElementById('emailError');
-        const form = document.querySelector('form');
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-        emailInput.addEventListener('blur', function() {
-          if (emailInput.value.trim() !== '' && !emailRegex.test(emailInput.value)) {
-            emailError.style.display = 'inline';
-            emailInput.classList.add('w3-border-red');
-          } else {
-            emailError.style.display = 'none';
-            emailInput.classList.remove('w3-border-red');
-          }
-        });
-
-        form.addEventListener('submit', function(e) {
-          if (!emailRegex.test(emailInput.value)) {
-            e.preventDefault(); // stop form submission
-            emailError.style.display = 'inline';
-            emailInput.classList.add('w3-border-red');
-          }
-        });       
-
+		  const subjectDropdown = document.getElementById('subjectSelect');
+		  const messageInput = document.getElementById('messageTextarea'); // Renamed variable for clarity
+		  const triggerValue = "Other"; // *** THIS MUST MATCH THE OPTION'S VALUE EXACTLY ***
+	
+		  // Define a function to run on change
+		  function toggleMessageRequirement() {
+			  // Check if the currently selected value is the trigger value
+			  if (subjectDropdown.value === triggerValue) {
+				  // If it is, make the message mandatory
+				  messageInput.setAttribute('required', 'required');
+				  messageInput.placeholder = "This field is required";
+			  } else {
+				  // Otherwise, remove the mandatory requirement
+				  messageInput.removeAttribute('required');
+				  messageInput.placeholder = ""; // Clear placeholder if needed
+			  }
+		  }
+	
+		  // Detect when the dropdown selection changes
+		  subjectDropdown.addEventListener('change', toggleMessageRequirement);
+	
+		  // Checks on page load in case the form is pre-filled or cached
+		  toggleMessageRequirement();
+		  
+		  
+		// *************** Checks email field for validity        
+		const emailInput = document.getElementById('emailInput');
+		const emailError = document.getElementById('emailError');
+		const form = document.querySelector('form');
+		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+	
+		emailInput.addEventListener('blur', function() {
+		  if (emailInput.value.trim() !== '' && !emailRegex.test(emailInput.value)) {
+			emailError.style.display = 'inline';
+			emailInput.classList.add('w3-border-red');
+		  } else {
+			emailError.style.display = 'none';
+			emailInput.classList.remove('w3-border-red');
+		  }
+		});
+	
+		form.addEventListener('submit', function(e) {
+		  if (!emailRegex.test(emailInput.value)) {
+			e.preventDefault(); // stop form submission
+			emailError.style.display = 'inline';
+			emailInput.classList.add('w3-border-red');
+		  }
+		});       
+	
 		// ********** Swaps photos on mouseenter event
 		document.addEventListener('DOMContentLoaded', () => {
-		    // Select all images with the generic class
-		    const images = document.querySelectorAll('.image-swap');
+			// Select all images with the generic class
+			const images = document.querySelectorAll('.image-swap');
 		
-		    images.forEach(img => {
-		        // Store the original source for later use (when hover is off)
-		        const originalSrc = img.src;
-		        // Get the hover source from the data-hover attribute
-		        const hoverSrc = img.getAttribute('data-hover');
+			images.forEach(img => {
+				// Store the original source for later use (when hover is off)
+				const originalSrc = img.src;
+				// Get the hover source from the data-hover attribute
+				const hoverSrc = img.getAttribute('data-hover');
 		
-		        // --- Event Listener for MOUSE OVER (Hover ON) ---
-		        img.addEventListener('mouseenter', () => {
-		            // Check if the hover source exists before swapping
-		            if (hoverSrc) {
-		                img.src = hoverSrc;
-		            }
-		        });
+				// --- Event Listener for MOUSE OVER (Hover ON) ---
+				img.addEventListener('mouseenter', () => {
+					// Check if the hover source exists before swapping
+					if (hoverSrc) {
+						img.src = hoverSrc;
+					}
+				});
 		
-		        // --- Event Listener for MOUSE OUT (Hover OFF) ---
-		        img.addEventListener('mouseleave', () => {
-		            // Swap back to the original source
-		            img.src = originalSrc;
-		        });
-		    });
-		});			
-			
-        </script>
-	</body>
+				// --- Event Listener for MOUSE OUT (Hover OFF) ---
+				img.addEventListener('mouseleave', () => {
+					// Swap back to the original source
+					img.src = originalSrc;
+				});
+			});
+		});
+	</script>
+  </body>
 </html>
+
 
 
 
