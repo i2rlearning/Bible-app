@@ -53,6 +53,22 @@
     padding: 2px 0;
 }
 
+/* Force the email input field to take up the full width of the column */
+.footer-col-3 input[type="email"] {
+    width: 100%;
+    /* Keep existing padding and border styles if necessary */
+    box-sizing: border-box; /* Crucial: ensures padding doesn't increase total width */
+}
+
+/* Force the subscribe button to take up the full width */
+.footer-col-3 input[type="submit"] {
+    width: 100%;
+    /* You may want to style the button colors here for better contrast */
+    padding: 10px 0; /* Add vertical padding for a better button appearance */
+    box-sizing: border-box; 
+    text-align: center;
+}
+		
 /* --- 3. COPYRIGHT AND GO-TO-TOP LAYOUT --- */
 .copyright-area {
     display: flex;
@@ -480,6 +496,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
