@@ -53,6 +53,20 @@
     padding: 2px 0;
 }
 
+/* Ensure content in the third column is structured vertically */
+.footer-col-3 {
+    /* Set display: block or remove unnecessary display: flex if present */
+    /* Ensure the column itself is using the full width assigned by flex: 1; */
+}
+
+/* Target the wrapper around the email and button */
+.footer-col-3 form > div {
+    /* Stack elements vertically (Email Label, Input, Button) */
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; /* Increase spacing between elements for clarity */
+}
+		
 /* Force the email input field to take up the full width of the column */
 .footer-col-3 input[type="email"] {
     width: 100%;
@@ -496,6 +510,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
