@@ -19,8 +19,66 @@
 	  <script src='../js/slider.js'></script>
       <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   </head>
-  
-	<body id="myPage">
+
+	<style>
+	/* --- 1. OVERRIDE W3.CSS PADDING AND FIX HEIGHT --- */
+.w3-container.custom-footer {
+    /* Set padding smaller than w3-padding-32 to reduce overall height */
+    padding: 25px 16px; 
+    /* The W3.CSS class gives the background color, we control the padding */
+}
+
+/* --- 2. FLEXBOX FOR 3 COLUMNS --- */
+.footer-columns-wrapper {
+    display: flex;
+    justify-content: space-between; /* Spreads columns evenly */
+    gap: 20px; /* Space between columns */
+    margin-bottom: 20px; /* Space above the copyright/separator line */
+    /* Allows content to wrap to a single column on small screens */
+    flex-wrap: wrap; 
+}
+
+.footer-col {
+    /* Each column takes up an equal amount of space */
+    flex: 1; 
+    min-width: 200px; /* Prevents columns from getting too narrow before wrapping */
+}
+
+/* Style for column headings */
+.footer-col h4 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: white; /* Match W3.CSS theme text */
+}
+
+.footer-col a {
+    color: #ccc; /* Lighter link color */
+    text-decoration: none;
+    display: block; /* Makes links stack vertically */
+    padding: 2px 0;
+}
+
+/* --- 3. COPYRIGHT AND GO-TO-TOP LAYOUT --- */
+.copyright-area {
+    display: flex;
+    justify-content: space-between; /* Puts copyright on the left, button on the right */
+    align-items: center;
+    width: 100%;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* Style for the horizontal rule */
+.footer-separator {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+}
+</style>
+	
+  <body id="myPage">
 
 	<!-- Sidebar on click -->
 	<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
@@ -383,6 +441,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
