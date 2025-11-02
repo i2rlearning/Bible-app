@@ -10,7 +10,6 @@
 	  <link href="css/slider.css" rel="stylesheet" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       
-	  <script src='../js/misc.js'></script>
 	  <script src='../js/slider.js'></script>
       <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   </head>
@@ -41,13 +40,13 @@
 	  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
 	  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
 	  <a href="https://www.paypal.com/donate/?business=B3BWAZD429VDY&no_recurring=0&currency_code=USD" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">Donate</a>  
-      <div class="w3-dropdown-hover w3-hide-small">
-	    <button class="w3-button" title="Notifications">Newsletter<i class="fa fa-caret-down"></i></button>     
-	    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-	      <a href="#newsletter" class="w3-bar-item w3-button">Sign-up</a>
-	      <a href="#" class="w3-bar-item w3-button">Past Newsletters</a>
-	    </div>
-	  </div>
+    <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button" title="Notifications">Newsletter <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="#" class="w3-bar-item w3-button">Sign-up</a>
+      <a href="#" class="w3-bar-item w3-button">Past Newsletters</a>
+      <a href="#" class="w3-bar-item w3-button">Link</a>
+    </div>
 	  <!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a> -->
 	 	
      </div>
@@ -326,9 +325,38 @@
             emailInput.classList.add('w3-border-red');
           }
         });         
+
+		//used on mouseover event to swap out pics	
+		document.addEventListener('DOMContentLoaded', () => {
+		    // 1. Select all images with the generic class
+		    const images = document.querySelectorAll('.image-swap');
+		
+		    images.forEach(img => {
+		        // Store the original source for later use (when hover is off)
+		        const originalSrc = img.src;
+		        // Get the hover source from the data-hover attribute
+		        const hoverSrc = img.getAttribute('data-hover');
+		
+		        // --- Event Listener for MOUSE OVER (Hover ON) ---
+		        img.addEventListener('mouseenter', () => {
+		            // Check if the hover source exists before swapping
+		            if (hoverSrc) {
+		                img.src = hoverSrc;
+		            }
+		        });
+		
+		        // --- Event Listener for MOUSE OUT (Hover OFF) ---
+		        img.addEventListener('mouseleave', () => {
+		            // Swap back to the original source
+		            img.src = originalSrc;
+		        });
+		    });
+		});
+		
         </script>
 	</body>
 </html>
+
 
 
 
