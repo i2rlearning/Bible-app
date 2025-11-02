@@ -70,6 +70,45 @@
     background: rgba(255, 255, 255, 0.1);
     margin: 10px 0;
 }
+
+/* --- Adjust Copyright Area Layout --- */
+.copyright-area {
+    /* Set the footer's bottom section as the positioning context */
+    position: relative; 
+    /* Use display: block (or flex-direction: column) to allow the content to center */
+    display: flex;
+    justify-content: center; /* This centers the primary content horizontally */
+    align-items: center; 
+    width: 100%;
+    color: #ccc;
+    font-size: 14px;
+    padding-bottom: 5px; /* Add some padding at the bottom for clearance */
+}
+
+/* --- Style for the Centered Text Block --- */
+.copyright-center-content {
+    /* Ensures this block is what gets centered by the parent's justify-content: center */
+    display: inline-block; 
+}
+
+.privacy-link {
+    color: inherit; /* Inherit the light gray color from the parent */
+    text-decoration: none;
+    padding-left: 5px; /* Small gap between the bullet and the link */
+}
+
+.link-separator {
+    padding: 0 5px; /* Padding around the bullet for spacing */
+}
+
+/* --- Position the Go To Top Button --- */
+.go-to-top-button {
+    /* Overrides the flow and places the button on the right */
+    position: absolute;
+    right: 0; /* Align to the right edge of the .copyright-area */
+    top: 50%; /* Center vertically within the .copyright-area */
+    transform: translateY(-50%); 
+}		
 </style>
 	
   <body id="myPage">
@@ -318,17 +357,23 @@
 	    
 	    <hr class="footer-separator">
 	
-	    <div class="copyright-area">
-	        <div class="copyright-text">
-	            Copyright <script>document.write( new Date().getFullYear() );</script>
-	        </div>
-	        
-	        <div class="go-to-top-button w3-tooltip w3-right">
-	            <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
-	            <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
-	            <i class="fa fa-chevron-circle-up"></i></span></a>
-	        </div>
-	    </div>
+<div class="copyright-area">
+    
+    <div class="copyright-center-content">
+        <span class="copyright-text">
+            Copyright <script>document.write( new Date().getFullYear() );</script>
+        </span>
+        
+        <span class="link-separator">&bullet;</span>
+        <a href="/privacy-policy" class="privacy-link">Privacy Policy</a>
+    </div>
+    
+    <div class="go-to-top-button w3-tooltip w3-right">
+        <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+        <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+        <i class="fa fa-chevron-circle-up"></i></span></a>
+    </div>
+</div>
 	</footer>
 	
 	<script>
@@ -435,6 +480,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
