@@ -56,34 +56,27 @@
 }
 
 /* Ensure content in the third column is structured vertically */
+/* Ensure proper alignment of the newsletter form */
 .footer-col-3 {
-    /* Set display: block or remove unnecessary display: flex if present */
-    /* Ensure the column itself is using the full width assigned by flex: 1; */
-}
-
-/* Target the wrapper around the email and button */
-.footer-col-3 form > div {
-    /* Stack elements vertically (Email Label, Input, Button) */
     display: flex;
-    flex-direction: column; 
-    gap: 10px; /* Increase spacing between elements for clarity */
-}
-		
-/* Force the email input field to take up the full width of the column */
-.footer-col-3 input[type="email"] {
-    width: 100%;
-    /* Keep existing padding and border styles if necessary */
-    box-sizing: border-box; /* Crucial: ensures padding doesn't increase total width */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 10px; /* Adjust top padding if needed */
 }
 
-/* Force the subscribe button to take up the full width */
+.footer-col-3 form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Ensure enough space between elements */
+}
+
+.footer-col-3 input[type="email"],
 .footer-col-3 input[type="submit"] {
     width: 100%;
-    /* You may want to style the button colors here for better contrast */
-    padding: 10px 0; /* Add vertical padding for a better button appearance */
-    box-sizing: border-box; 
-    text-align: center;
+    box-sizing: border-box;
 }
+
 		
 /* --- 3. COPYRIGHT AND GO-TO-TOP LAYOUT --- */
 .copyright-area {
@@ -514,6 +507,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
