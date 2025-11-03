@@ -68,17 +68,17 @@
 .footer-col-3 form {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Ensure enough space between elements */
+    gap: 10px;
+    width: 100%; /* Ensure the form takes full width of the parent column */
 }
 
 .footer-col-3 input[type="email"],
 .footer-col-3 input[type="submit"] {
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Crucial to include padding and border in the width */
 }
-
-		
-/* --- 3. COPYRIGHT AND GO-TO-TOP LAYOUT --- */
+	
+/* --- COPYRIGHT AND GO-TO-TOP LAYOUT --- */
 .copyright-area {
     display: flex;
     justify-content: space-between; /* Puts copyright on the left, button on the right */
@@ -507,6 +507,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
