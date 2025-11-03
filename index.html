@@ -55,30 +55,30 @@
     padding: 2px 0;
 }
 
-/* Ensure content in the third column is structured vertically */
-/* Ensure proper alignment of the newsletter form */
+/* Ensure the form fills the full width of its parent */
 .footer-col-3 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
-    padding-top: 10px; /* Adjust top padding if needed */
+    padding-top: 10px;  /* Adjust padding-top if necessary */
+    width: 100%;  /* Ensure it takes full width of the footer column */
 }
 
 .footer-col-3 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;  /* Ensure the form takes the full width of the container */
-    margin: 0;  /* Remove any unwanted margin */
+    gap: 10px; /* Space between email input and button */
+    width: 100%; /* Ensure form spans full width of the column */
+    margin: 0;  /* Remove margin to prevent width issue */
 }
 
+/* Ensure inputs are full-width */
 .footer-col-3 input[type="email"],
 .footer-col-3 input[type="submit"] {
     width: 100%;
-    box-sizing: border-box;  /* Ensure padding and border are included in the width */
-    padding: 12px 20px; /* Adjust padding if needed */
-    margin: 0; /* Ensure no extra margin is applied */
+    box-sizing: border-box; /* Includes padding and border in total width */
+    padding: 12px 20px; /* Increase padding if you need more space */
+    margin: 0; /* Remove margins to avoid shrinking */
 }
 	
 /* --- COPYRIGHT AND GO-TO-TOP LAYOUT --- */
@@ -510,18 +510,3 @@
 	</script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
