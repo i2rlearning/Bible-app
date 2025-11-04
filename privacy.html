@@ -1,11 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Privacy Policy - Branch of Israel</title>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+	<title>Privacy Policy - Branch of Israel</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+	 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+	 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  </head>
 
-    <style>
+	<style>
+		/* --- FLEXBOX FOR 3 COLUMNS --- */
+		.footer-columns-wrapper {
+		    display: flex;
+		    justify-content: space-between; /* Spreads columns evenly */
+		    gap: 20px; /* Space between columns */
+		    margin-bottom: 20px; /* Space above the copyright/separator line */
+		    /* Allows content to wrap to a single column on small screens */
+		    flex-wrap: wrap; 
+		}
+		
+		.footer-col {
+		    /* Each column takes up an equal amount of space */
+		    flex: 1; 
+		    min-width: 200px; /* Prevents columns from getting too narrow before wrapping */
+		}
+		
+		/* Style for column headings */
+		.footer-col h4 {
+		    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+		    padding-bottom: 5px;
+		    margin-bottom: 10px;
+		    color: white; /* Match W3.CSS theme text */
+		}
+		
+		.footer-col a {
+		    color: #ccc; /* Lighter link color */
+		    text-decoration: none;
+		    display: block; /* Makes links stack vertically */
+		    padding: 2px 0;
+		}
+		
+		/* Ensure the form fills the full width of its parent */
+		.footer-col-3 {
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: flex-start;
+		    padding-top: 10px;  /* Adjust padding-top if necessary */
+		    width: 100%;  /* Ensure it takes full width of the footer column */
+		}
+		
+		.footer-col-3 form {
+		    display: flex;
+		    flex-direction: column;
+		    gap: 10px; /* Space between email input and button */
+		    width: 100%; /* Ensure form spans full width of the column */
+		    margin: 0;  /* Remove margin to prevent width issue */
+		}
+		
+		/* Ensure inputs are full-width */
+		.footer-col-3 input[type="email"],
+		.footer-col-3 input[type="submit"] {
+		    width: 100%;
+		    box-sizing: border-box; /* Includes padding and border in total width */
+		    padding: 8px 20px; 
+		    margin: 0; /* Remove margins to avoid shrinking */
+		}
+			
+		/* --- COPYRIGHT AND GO-TO-TOP LAYOUT --- */
+		.copyright-area {
+		    display: flex;
+		    justify-content: space-between; /* Puts copyright on the left, button on the right */
+		    align-items: center;
+		    width: 100%;
+		    color: #ccc;
+		    font-size: 14px;
+		}
+		
+		/* Style for the horizontal rule */
+		.footer-separator {
+		    border: 0;
+		    height: 1px;
+		    background: rgba(255, 255, 255, 0.1);
+		    margin: 10px 0;
+		}
+		
+		/* --- Adjust Copyright Area Layout --- */
+		.copyright-area {
+		    /* Set the footer's bottom section as the positioning context */
+		    position: relative; 
+		    /* Use display: block (or flex-direction: column) to allow the content to center */
+		    display: flex;
+		    justify-content: center; /* This centers the primary content horizontally */
+		    align-items: center; 
+		    width: 100%;
+		    color: #ccc;
+		    font-size: 14px;
+		    padding-bottom: 5px; /* Add some padding at the bottom for clearance */
+		}
+		
+		/* --- Style for the Centered Text Block --- */
+		.copyright-center-content {
+		    /* Ensures this block is what gets centered by the parent's justify-content: center */
+		    display: inline-block; 
+		}
+		
+		.privacy-link {
+		    color: inherit; /* Inherit the light gray color from the parent */
+		    text-decoration: none;
+		    padding-left: 5px; /* Small gap between the bullet and the link */
+		}
+		
+		.link-separator {
+		    padding: 0 5px; /* Padding around the bullet for spacing */
+		}
+		
+		/* --- Position the Go To Top Button --- */
+		.go-to-top-button {
+		    /* Overrides the flow and places the button on the right */
+		    position: absolute;
+		    right: 0; /* Align to the right edge of the .copyright-area */
+		    top: 50%; /* Center vertically within the .copyright-area */
+		    transform: translateY(-50%); 
+		}		
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
