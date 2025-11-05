@@ -308,47 +308,48 @@
 	
 	</div>
 	
-	<!-- Container -->
+	<!-- Container 
 	<div class="w3-container" style="position:relative">
 	  <a onclick="w3_open()" class="w3-button w3-xlarge w3-circle w3-teal"
 	  style="position:absolute;top:-28px;right:24px">+</a>
-	</div>
-	
+	</div>-->
 	
 	<!-- Contact Container -->
 	<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
 	  <div class="w3-row">
-	    <div class="w3-col m5">
-	    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span></div>
-			<img src="/img/phone-wwatermark.webp" style="width:50%")>
+	    <div class="w3-col m5" style="display: flex; justify-content: center;">
+	      <div class="w3-padding-16">
+	        <span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span>
+	      </div>
+	      <img src="/img/phone-wwatermark.webp" style="width:50%; max-width: 100%; object-fit: contain;">
 	    </div>
 	    <div class="w3-col m7">
 	      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
-	      <div class="w3-section">      
-	        <label>Name:</label>
-	        <input class="w3-input" type="text" name="Name" required>
-	      </div>
-	      <div class="w3-section">      
-	        <label>Email:</label>
-            <input type="text" name="Email" id="emailInput" class="w3-input" required title="Enter a valid email address">
-          <span id="emailError" style="color:red; display:none;">Invalid email format</span>
-	      </div>
-	      <div class="w3-section">      
-	        <label>Subject:</label>
-              <select name="Subject" required style="width: 100%; box-sizing: border-box; background-color: #eeeeee;" id="subjectSelect">
-              	<option value="" disabled selected>Make a Selection</option>
-                <option value="Prayer Request<">Prayer Request</option>
-                <option value="Come and Speak">Come and Speak</option>
-                <option value="Ministry Counseling">I would like Ministry Counseling</option>
-                <option value="Other">Other (Describe below)</option>
-              </select>
-	      </div>          
-	      <div class="w3-section">      
-	        <label>Message:</label>
-	        <input class="w3-input" type="text" name="Message" id="messageTextarea">
-	      </div>  
-          <div class="h-captcha" data-sitekey="58c4773c-0a5c-4e7c-9cca-7e92b1e07a6e"></div>
-	      <button type="submit" class="w3-button w3-right w3-theme">Send</button>
+	        <div class="w3-section">
+	          <label>Name:</label>
+	          <input class="w3-input" type="text" name="Name" required>
+	        </div>
+	        <div class="w3-section">
+	          <label>Email:</label>
+	          <input type="text" name="Email" id="emailInput" class="w3-input" required title="Enter a valid email address">
+	          <span id="emailError" style="color:red; display:none;">Invalid email format</span>
+	        </div>
+	        <div class="w3-section">
+	          <label>Subject:</label>
+	          <select name="Subject" required style="width: 100%; box-sizing: border-box; background-color: #eeeeee;" id="subjectSelect">
+	            <option value="" disabled selected>Make a Selection</option>
+	            <option value="Prayer Request">Prayer Request</option>
+	            <option value="Come and Speak">Come and Speak</option>
+	            <option value="Ministry Counseling">I would like Ministry Counseling</option>
+	            <option value="Other">Other (Describe below)</option>
+	          </select>
+	        </div>
+	        <div class="w3-section">
+	          <label>Message:</label>
+	          <input class="w3-input" type="text" name="Message" id="messageTextarea">
+	        </div>
+	        <div class="h-captcha" data-sitekey="58c4773c-0a5c-4e7c-9cca-7e92b1e07a6e"></div>
+	        <button type="submit" class="w3-button w3-right w3-theme">Send</button>
 	      </form>
 	    </div>
 	  </div>
@@ -519,6 +520,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
