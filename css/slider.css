@@ -5,7 +5,7 @@
       .slide.active { opacity: 1; }
       .slide img { width: 100%; height: 95%; object-fit: contain; filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0,0,0,0.5)); }
       .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); color: #fff; font-size: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 50%; transition: background-color 0.3s; opacity: 0; z-index: 2; }
-      .arrow:hover { background-color: blue; }
+      .arrow:hover { background-color: #1d44b8; }
       .slider-container:hover .arrow { opacity: 1; }
       .arrow-prev { left: 10px; }
       .arrow-next { right: 10px; }
