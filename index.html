@@ -275,10 +275,9 @@
 	</div> -->
 	
 	<!-- Ministry Container  pics ar 761x748-->
-	<div class="scroll-wrapper" id="ministry">
-	  <button class="scroll-btn left" onclick="scrollMinistry(-1)">&#10094;</button>
-	
-	  <div class="scroll-container w3-container w3-padding-64 w3-center">
+	<div class="scroll-wrapper" id="ministry-wrapper">
+	  <button class="scroll-btn left" data-scroll-dir="-1">&#10094;</button>
+	  <div class="scroll-container w3-container w3-padding-64 w3-center" id="ministry">
 
 		  <div class="w3-quarter">
 	      <a href="#" target="_blank" style="text-decoration:none">		
@@ -345,7 +344,7 @@
 	    </div>	    
 	  </div>
 	
-	  <button class="scroll-btn right" onclick="scrollMinistry(1)">&#10095;</button>
+	  <button class="scroll-btn right" data-scroll-dir="1">&#10095;</button>
 	</div>
 
 		  
@@ -612,68 +611,72 @@
 		});
 	// For scrolling left/rigfht in the mministry section
 	document.addEventListener("DOMContentLoaded", () => {
-	  const container = document.getElementById("ministry");
-	  const leftBtn = document.querySelector(".scroll-btn.left");
-	  const rightBtn = document.querySelector(".scroll-btn.right");
-	  const scrollAmount = 300;
-	
-	  function scrollMinistry(direction) {
-	    container.scrollBy({
-	      left: direction * scrollAmount,
-	      behavior: "smooth"
+	    // Select the actual scrollable element (now the inner div)
+	    const container = document.getElementById("ministry");
+	    const leftBtn = document.querySelector("#ministry-wrapper .scroll-btn.left"); // Use the wrapper to target the buttons
+	    const rightBtn = document.querySelector("#ministry-wrapper .scroll-btn.right");
+	    const scrollAmount = 300;
+	    
+	    // Check if elements exist before proceeding
+	    if (!container || !leftBtn || !rightBtn) return;
+	    
+	    // This function scrolls the container and is only called by the listeners
+	    function scrollMinistry(direction) {
+	      container.scrollBy({
+	        left: direction * scrollAmount,
+	        behavior: "smooth"
+	      });
+	      // Immediately call updateArrows after the scroll is initiated (smooth scroll takes time)
+	      setTimeout(updateArrows, 500); 
+	    }
+	    
+	    function updateArrows() {
+	      // Use a small tolerance for floating point errors
+	      const tolerance = 5; 
+	      const maxScroll = container.scrollWidth - container.clientWidth;
+	      const currentScroll = container.scrollLeft;
+	      
+	      // Disable left if fully at start
+	      if (currentScroll <= tolerance) {
+	        leftBtn.classList.add("disabled");
+	      } else {
+	        leftBtn.classList.remove("disabled");
+	      }
+	      
+	      // Disable right if fully at end (add tolerance to maxScroll check)
+	      if (currentScroll >= maxScroll - tolerance) {
+	        rightBtn.classList.add("disabled");
+	      } else {
+	        rightBtn.classList.remove("disabled");
+	      }
+	    }
+	    
+	    // --- Event Listeners ---
+	    
+	    // 1. Initial check (Right button should be active, Left disabled)
+	    // Run after the DOM is ready and window content (like images) has loaded
+	    window.addEventListener("load", () => {
+	      updateArrows();
+	      // A small delay helps if elements are lazy-loaded or calculated late
+	      setTimeout(updateArrows, 200);
 	    });
-	  }
-	
-	function updateArrows() {
-	  const maxScroll = container.scrollWidth - container.clientWidth;
-	  const currentScroll = container.scrollLeft;
-	
-	  // Disable left if fully at start
-	  if (currentScroll <= 0) {
-	    leftBtn.classList.add("disabled");
-	  } else {
-	    leftBtn.classList.remove("disabled");
-	  }
-	
-	  // Disable right if fully at end
-	  if (currentScroll >= maxScroll - 2) {
-	    rightBtn.classList.add("disabled");
-	  } else {
-	    rightBtn.classList.remove("disabled");
-	  }
-	}
-	
-	  // Scroll button clicks
-	  leftBtn.addEventListener("click", () => {
-	    scrollMinistry(-1);
-	    setTimeout(updateArrows, 500);
-	  });
-	
-	  rightBtn.addEventListener("click", () => {
-	    scrollMinistry(1);
-	    setTimeout(updateArrows, 500);
-	  });
-	
-	  // Monitor real-time scroll
-	  container.addEventListener("scroll", updateArrows);
-	
-	  // Wait until images are loaded before measuring scroll width
-	  window.addEventListener("load", () => {
-	    updateArrows();
-	    // Trigger again after small delay (in case of lazy-loaded images)
-	    setTimeout(updateArrows, 800);
-	  });
+	    
+	    // 2. Scroll button clicks
+	    leftBtn.addEventListener("click", () => {
+	      scrollMinistry(-1);
+	    });
+	    
+	    rightBtn.addEventListener("click", () => {
+	      scrollMinistry(1);
+	    });
+	    
+	    // 3. Monitor real-time scroll (user scrolling with mouse/trackpad)
+	    container.addEventListener("scroll", updateArrows);
+	    
+	    // Initial call in case no images are used or to disable the left button right away
+	    updateArrows(); 
 	});
 	
 	</script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
