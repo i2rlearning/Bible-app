@@ -627,24 +627,24 @@
 	    });
 	  }
 	
-	  function updateArrows() {
-	    const maxScroll = container.scrollWidth - container.clientWidth;
-	    const currentScroll = container.scrollLeft;
+	function updateArrows() {
+	  const maxScroll = container.scrollWidth - container.clientWidth;
+	  const currentScroll = container.scrollLeft;
 	
-	    // Disable left if fully at start
-	    if (currentScroll <= 0) {
-	      leftBtn.classList.add("disabled");
-	    } else {
-	      leftBtn.classList.remove("enabled");
-	    }
-	
-	    // Disable right if fully at end
-	    if (currentScroll >= maxScroll - 2) {
-	      rightBtn.classList.add("disabled");
-	    } else {
-	      rightBtn.classList.remove("enabled");
-	    }
+	  // Disable left if fully at start
+	  if (currentScroll <= 0) {
+	    leftBtn.classList.add("disabled");
+	  } else {
+	    leftBtn.classList.remove("disabled");
 	  }
+	
+	  // Disable right if fully at end
+	  if (currentScroll >= maxScroll - 2) {
+	    rightBtn.classList.add("disabled");
+	  } else {
+	    rightBtn.classList.remove("disabled");
+	  }
+	}
 	
 	  // Scroll button clicks
 	  leftBtn.addEventListener("click", () => {
@@ -671,6 +671,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
