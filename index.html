@@ -163,15 +163,27 @@
 }
 
 .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   font-size: 2em;
   cursor: pointer;
   color: #333;
+  z-index: 2;
   transition: opacity 0.3s;
 }
+
+.scroll-btn.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default;
+}
+
 .scroll-btn:hover {
   opacity: 0.6;
+  color: blue;
 }
 
 .scroll-btn.left {
@@ -189,11 +201,7 @@
   float: none !important;  /* override W3.CSS float */
   margin: 0 20px;       /* spacing between cards */
 }
-
-.scroll-btn.disabled {
-  opacity: 0.3;
-  pointer-events: none;
-}		
+	
 </style>
 	
   <body id="myPage">
@@ -606,14 +614,17 @@
 		    });
 		});
 	// For scrolling left/rigfht in the mministry section
-	document.addEventListener('DOMContentLoaded', () => {
-	  const container = document.getElementById('ministry');
-	  const leftBtn = document.querySelector('.scroll-btn.left');
-	  const rightBtn = document.querySelector('.scroll-btn.right');
+	document.addEventListener("DOMContentLoaded", () => {
+	  const container = document.getElementById("ministry");
+	  const leftBtn = document.querySelector(".scroll-btn.left");
+	  const rightBtn = document.querySelector(".scroll-btn.right");
 	  const scrollAmount = 300;
 	
 	  function scrollMinistry(direction) {
-	    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+	    container.scrollBy({
+	      left: direction * scrollAmount,
+	      behavior: "smooth"
+	    });
 	  }
 	
 	  function updateArrows() {
@@ -622,40 +633,45 @@
 	
 	    // Disable left if fully at start
 	    if (currentScroll <= 0) {
-	      leftBtn.classList.add('disabled');
+	      leftBtn.classList.add("disabled");
 	    } else {
-	      leftBtn.classList.remove('disabled');
+	      leftBtn.classList.remove("disabled");
 	    }
 	
 	    // Disable right if fully at end
-	    if (currentScroll >= maxScroll - 5) {
-	      rightBtn.classList.add('disabled');
+	    if (currentScroll >= maxScroll - 2) {
+	      rightBtn.classList.add("disabled");
 	    } else {
-	      rightBtn.classList.remove('disabled');
+	      rightBtn.classList.remove("disabled");
 	    }
 	  }
 	
-	  // --- EVENT BINDINGS ---
-	  leftBtn.addEventListener('click', () => {
+	  // Scroll button clicks
+	  leftBtn.addEventListener("click", () => {
 	    scrollMinistry(-1);
-	    // check after short delay to update states post-scroll
-	    setTimeout(updateArrows, 400);
+	    setTimeout(updateArrows, 500);
 	  });
 	
-	  rightBtn.addEventListener('click', () => {
+	  rightBtn.addEventListener("click", () => {
 	    scrollMinistry(1);
-	    setTimeout(updateArrows, 400);
+	    setTimeout(updateArrows, 500);
 	  });
 	
-	  container.addEventListener('scroll', updateArrows);
+	  // Monitor real-time scroll
+	  container.addEventListener("scroll", updateArrows);
 	
-	  // Initialize once layout is ready
-	  updateArrows();
+	  // Wait until images are loaded before measuring scroll width
+	  window.addEventListener("load", () => {
+	    updateArrows();
+	    // Trigger again after small delay (in case of lazy-loaded images)
+	    setTimeout(updateArrows, 800);
+	  });
 	});
 	
 	</script>
   </body>
 </html>
+
 
 
 
