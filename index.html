@@ -143,25 +143,38 @@
 }		
 
 /* sroller for ministry section*/
+/* WRAPPER */
 .scroll-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  position: relative; 
+  z-index: 0; /* creates the stacking context */
 }
 
-.scroll-container {
+/* SCROLL AREA */
+#ministry {
   display: flex;
+  flex-wrap: nowrap;
   overflow-x: auto;
   scroll-behavior: smooth;
-  gap: 40px;
-  scrollbar-width: none; /* Hide scrollbar Firefox */
-}
-.scroll-container::-webkit-scrollbar {
-  display: none; /* Hide scrollbar Chrome/Safari */
+  justify-content: flex-start;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 1; /* ensures it’s below the arrows */
 }
 
+/* INDIVIDUAL CARD OVERRIDES */
+#ministry .w3-quarter {
+  flex: 0 0 auto;        /* allows horizontal scroll */
+  width: 280px;          /* size per card */
+  float: none !important; /* override W3.CSS float */
+  margin: 0 20px;        /* spacing between cards */
+  box-sizing: border-box;
+}
+
+/* SCROLLBAR HIDE (optional) */
+#ministry::-webkit-scrollbar { display: none; }
+#ministry { scrollbar-width: none; }
+
+/* ARROW BUTTONS */
 .scroll-btn {
   position: absolute;
   top: 50%;
@@ -171,35 +184,19 @@
   font-size: 2em;
   cursor: pointer;
   color: #333;
-  z-index: 10;
+  pointer-events: auto;
+  z-index: 9999; /* ensures always clickable */
   transition: opacity 0.3s;
 }
 
+.scroll-btn.left  { left: 10px; }
+.scroll-btn.right { right: 10px; }
+
+/* DISABLED STATE */
 .scroll-btn.disabled {
   opacity: 0.3;
   pointer-events: none;
   cursor: default;
-}
-
-.scroll-btn:hover {
-  opacity: 0.6;
-  color: blue;
-}
-
-.scroll-btn.left {
-  position: absolute;
-  left: 5px;
-}
-.scroll-btn.right {
-  position: absolute;
-  right: 5px;
-}
-
-#ministry .w3-quarter {
-  flex: 0 0 auto;       /* allows horizontal scroll */
-  width: 280px;         /* adjust size per card */
-  float: none !important;  /* override W3.CSS float */
-  margin: 0 20px;       /* spacing between cards */
 }
 	
 </style>
@@ -671,6 +668,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
