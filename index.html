@@ -189,7 +189,11 @@
   float: none !important;  /* override W3.CSS float */
   margin: 0 20px;       /* spacing between cards */
 }
-		
+
+.scroll-btn.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}		
 </style>
 	
   <body id="myPage">
@@ -602,17 +606,50 @@
 		    });
 		});
 	// For scrolling left/rigfht in the mministry section
+	const container = document.getElementById('ministry');
+	const leftBtn = document.querySelector('.scroll-btn.left');
+	const rightBtn = document.querySelector('.scroll-btn.right');
+	const scrollAmount = 300; // adjust to your liking
+	
 	function scrollMinistry(direction) {
-	  const container = document.getElementById('ministry');
-	  const scrollAmount = 300; // adjust for scroll distance
 	  container.scrollBy({
 	    left: direction * scrollAmount,
 	    behavior: 'smooth'
 	  });
-	}		
+	
+	  // After scrolling, check positions
+	  setTimeout(updateArrows, 300); // allow smooth scroll to finish
+	}
+	
+	function updateArrows() {
+	  const maxScroll = container.scrollWidth - container.clientWidth;
+	  const currentScroll = container.scrollLeft;
+	
+	  // Left arrow disabled when fully at start
+	  if (currentScroll <= 0) {
+	    leftBtn.classList.add('disabled');
+	  } else {
+	    leftBtn.classList.remove('disabled');
+	  }
+	
+	  // Right arrow disabled when fully at end
+	  if (currentScroll >= maxScroll - 1) {
+	    rightBtn.classList.add('disabled');
+	  } else {
+	    rightBtn.classList.remove('disabled');
+	  }
+	}
+	
+	// Monitor scrolling continuously
+	container.addEventListener('scroll', updateArrows);
+	
+	// Initialize state on page load
+	window.addEventListener('load', updateArrows);
+	
 	</script>
   </body>
 </html>
+
 
 
 
