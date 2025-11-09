@@ -606,49 +606,57 @@
 		    });
 		});
 	// For scrolling left/rigfht in the mministry section
-	const container = document.getElementById('ministry');
-	const leftBtn = document.querySelector('.scroll-btn.left');
-	const rightBtn = document.querySelector('.scroll-btn.right');
-	const scrollAmount = 300; // adjust to your liking
+	document.addEventListener('DOMContentLoaded', () => {
+	  const container = document.getElementById('ministry');
+	  const leftBtn = document.querySelector('.scroll-btn.left');
+	  const rightBtn = document.querySelector('.scroll-btn.right');
+	  const scrollAmount = 300;
 	
-	function scrollMinistry(direction) {
-	  container.scrollBy({
-	    left: direction * scrollAmount,
-	    behavior: 'smooth'
+	  function scrollMinistry(direction) {
+	    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+	  }
+	
+	  function updateArrows() {
+	    const maxScroll = container.scrollWidth - container.clientWidth;
+	    const currentScroll = container.scrollLeft;
+	
+	    // Disable left if fully at start
+	    if (currentScroll <= 0) {
+	      leftBtn.classList.add('disabled');
+	    } else {
+	      leftBtn.classList.remove('disabled');
+	    }
+	
+	    // Disable right if fully at end
+	    if (currentScroll >= maxScroll - 5) {
+	      rightBtn.classList.add('disabled');
+	    } else {
+	      rightBtn.classList.remove('disabled');
+	    }
+	  }
+	
+	  // --- EVENT BINDINGS ---
+	  leftBtn.addEventListener('click', () => {
+	    scrollMinistry(-1);
+	    // check after short delay to update states post-scroll
+	    setTimeout(updateArrows, 400);
 	  });
 	
-	  // After scrolling, check positions
-	  setTimeout(updateArrows, 300); // allow smooth scroll to finish
-	}
+	  rightBtn.addEventListener('click', () => {
+	    scrollMinistry(1);
+	    setTimeout(updateArrows, 400);
+	  });
 	
-	function updateArrows() {
-	  const maxScroll = container.scrollWidth - container.clientWidth;
-	  const currentScroll = container.scrollLeft;
+	  container.addEventListener('scroll', updateArrows);
 	
-	  // Left arrow disabled when fully at start
-	  if (currentScroll <= 0) {
-	    leftBtn.classList.add('disabled');
-	  } else {
-	    leftBtn.classList.remove('disabled');
-	  }
-	
-	  // Right arrow disabled when fully at end
-	  if (currentScroll >= maxScroll - 1) {
-	    rightBtn.classList.add('disabled');
-	  } else {
-	    rightBtn.classList.remove('disabled');
-	  }
-	}
-	
-	// Monitor scrolling continuously
-	container.addEventListener('scroll', updateArrows);
-	
-	// Initialize state on page load
-	window.addEventListener('load', updateArrows);
+	  // Initialize once layout is ready
+	  updateArrows();
+	});
 	
 	</script>
   </body>
 </html>
+
 
 
 
