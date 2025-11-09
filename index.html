@@ -209,9 +209,6 @@
     transition: opacity 0.3s;
 }
 
-.scroll-overlay .scroll-btn:hover {
-	color: #007bff;
-}
 /* Button Positioning within their overlays */
 .scroll-overlay.left .scroll-btn {
     right: 10px; /* Positions the button 10px from the inner edge */
@@ -220,15 +217,16 @@
     left: 10px; /* Positions the button 10px from the inner edge */
 }
 
+/* ENABLED STATE */
+.scroll-overlay .scroll-btn:hover:not(.disabled) {
+    color: #007bff; 
+    opacity: 1;    
+}
+	
 /* DISABLED STATE */
 .scroll-overlay .scroll-btn.disabled {
     opacity: 0.3;
-    /* pointer-events: auto; is maintained from the base rule above */
     cursor: default;
-}
-
-.scroll-overlay .scroll-btn.disabled:hover {
-    color: none;
 }
 
 </style>
@@ -716,6 +714,7 @@
 	</script>
   </body>
 </html>
+
 
 
 
