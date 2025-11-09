@@ -26,9 +26,9 @@
       <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   </head>
 
-	<style>
+<style>
 
-		/* --- FLEXBOX FOR 3 COLUMNS --- */
+/* --- FLEXBOX FOR 3 COLUMNS --- */
 .footer-columns-wrapper {
     display: flex;
     justify-content: space-between; /* Spreads columns evenly */
@@ -143,62 +143,86 @@
 }		
 
 /* sroller for ministry section*/
-/* WRAPPER */
+/* WRAPPER (Outer container for scroll area and fixed overlays) */
 .scroll-wrapper {
-  position: relative; 
-  z-index: 0; /* creates the stacking context */
+    position: relative;
+    z-index: 0;
 }
 
-/* SCROLL AREA */
+/* SCROLL AREA (#ministry holds the actual content and scrolls) */
 #ministry {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  justify-content: flex-start;
-  padding: 2rem 0;
-  position: relative;
-  z-index: 1; /* ensures it’s below the arrows */
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    justify-content: flex-start;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 1; 
 }
 
 /* INDIVIDUAL CARD OVERRIDES */
 #ministry .w3-quarter {
-  flex: 0 0 auto;        /* allows horizontal scroll */
-  width: 280px;          /* size per card */
-  float: none !important; /* override W3.CSS float */
-  margin: 0 20px;        /* spacing between cards */
-  box-sizing: border-box;
+    flex: 0 0 auto;
+    width: 280px;
+    float: none !important;
+    margin: 0 20px;
+    box-sizing: border-box;
 }
 
 /* SCROLLBAR HIDE (optional) */
 #ministry::-webkit-scrollbar { display: none; }
 #ministry { scrollbar-width: none; }
 
-/* ARROW BUTTONS */
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 2em;
-  cursor: pointer;
-  color: #333;
-  pointer-events: auto;
-  z-index: 9999; /* ensures always clickable */
-  transition: opacity 0.3s;
+/* ----------------------------------------------------------------- */
+/* ARROW OVERLAY & BUTTON STYLES (Cleaned up) */
+/* ----------------------------------------------------------------- */
+
+/* OVERLAY BOXES (The "thin vertical rectangles") */
+.scroll-overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 60px; /* Width of the rectangle */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent); /* Suggestion: use a gradient for a smooth transition */
+    pointer-events: none; /* Crucial: Allows clicks to pass through by default */
+    z-index: 100;
 }
 
-.scroll-btn.left  { left: 10px; }
-.scroll-btn.right { right: 10px; }
+.scroll-overlay.right {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent); /* Reverse gradient for right side */
+}
+
+/* The actual arrow button */
+.scroll-overlay .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #333;
+    z-index: 101;
+    pointer-events: auto; /* Re-enable clicks ONLY on the button */
+    transition: opacity 0.3s;
+}
+
+/* Button Positioning within their overlays */
+.scroll-overlay.left .scroll-btn {
+    right: 10px; /* Positions the button 10px from the inner edge */
+}
+.scroll-overlay.right .scroll-btn {
+    left: 10px; /* Positions the button 10px from the inner edge */
+}
 
 /* DISABLED STATE */
-.scroll-btn.disabled {
-  opacity: 0.3;
-  pointer-events: none;
-  cursor: default;
+.scroll-overlay .scroll-btn.disabled {
+    opacity: 0.3;
+    /* pointer-events: auto; is maintained from the base rule above */
+    cursor: default;
 }
-	
 </style>
 	
   <body id="myPage">
@@ -276,7 +300,9 @@
 	
 	<!-- Ministry Container  pics ar 761x748-->
 	<div class="scroll-wrapper" id="ministry-wrapper">
-	  <button class="scroll-btn left" data-scroll-dir="-1">&#10094;</button>
+	  <div class="scroll-overlay left">
+    	<button class="scroll-btn left" data-scroll-dir="-1">&#10094;</button>
+ 	  </div>
 	  <div class="scroll-container w3-container w3-padding-64 w3-center" id="ministry">
 
 		  <div class="w3-quarter">
@@ -344,7 +370,9 @@
 	    </div>	    
 	  </div>
 	
-	  <button class="scroll-btn right" data-scroll-dir="1">&#10095;</button>
+	  <div class="scroll-overlay right">
+    	<button class="scroll-btn right" data-scroll-dir="1">&#10095;</button>
+  	  </div>
 	</div>
 
 		  
@@ -680,3 +708,4 @@
 	</script>
   </body>
 </html>
+
