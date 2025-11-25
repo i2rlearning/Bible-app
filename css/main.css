@@ -162,6 +162,43 @@ img {
     background-color: #15338a !important; 
 }
 
+/* Base Dropdown Container */
+.w3-dropdown-hover {
+    /* Must be inline-block to sit next to other menu items */
+    display: inline-block;
+    /* This ensures the content is positioned relative to the container */
+    position: relative; 
+}
+
+/* Dropdown Content Container */
+.w3-dropdown-content {
+    /* Must be absolute so it floats over the content and doesn't take up space */
+    position: absolute;
+    /* Initially hide the content */
+    display: none; 
+    /* Set minimum width for the content box */
+    min-width: 160px;
+    /* Use a high z-index to make sure it is on top of other elements */
+    z-index: 1;
+    /* Add basic styling, like white background */
+    background-color: white; 
+}
+
+/* 3. The Hover Effect (The crucial part to hide/show the content) */
+.w3-dropdown-hover:hover .w3-dropdown-content {
+    /* When the parent is hovered, display the content */
+    display: block; 
+}
+
+/* Optional: Ensure dropdown links look like bar items */
+.w3-dropdown-content .w3-bar-item {
+    /* Dropdown items should be full width */
+    width: 100%;
+    /* Display as a block for full width click area */
+    display: block; 
+    /* Set text alignment (W3.CSS default is often left-aligned) */
+    text-align: left;
+}
 
 /* --- FLEXBOX FOR 3 COLUMNS --- */
 .footer-columns-wrapper {
