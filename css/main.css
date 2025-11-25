@@ -162,40 +162,44 @@ img {
     background-color: #15338a !important; 
 }
 
-/* Base Dropdown Container */
+/* Base Dropdown Container - Navbrar */
 .w3-dropdown-hover {
-    /* Must be inline-block to sit next to other menu items */
     display: inline-block;
-    /* This ensures the content is positioned relative to the container */
     position: relative; 
 }
 
-/* Dropdown Content Container */
+/* Dropdown Content Container*/
 .w3-dropdown-content {
-	position: absolute;
-    /* ... (rest of the styles) ... */
-	display: **none** !important;
-	background-color: white; 
+    position: absolute;
+    /* This line must be 'none' to hide it by default */
+    **display: none !important;** min-width: 160px; /* Added for width consistency */
+    z-index: 10; /* Added/Increased z-index to ensure it is above other content */
+    
+    background-color: white; 
     color: black;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19); /* Using the w3-card shadow */
 }
 
-/* 3. The Hover Effect (The crucial part to hide/show the content) */
+/* 3. The Hover Effect (This rule is correct) */
 .w3-dropdown-hover:hover .w3-dropdown-content {
-    /* When the parent is hovered, display the content */
     display: block !important;
 }
 
 /* Optional: Ensure dropdown links look like bar items */
 .w3-dropdown-content .w3-bar-item {
-    /* Dropdown items should be full width */
     width: 100%;
-    /* Display as a block for full width click area */
     display: block; 
-    /* Set text alignment (W3.CSS default is often left-aligned) */
-    text-align: left;    
-    color: black !important; 
-    /* Remove text-decoration for consistency */
+    text-align: left; 
+    color: black !important; /* Forces black text */
     text-decoration: none; 
+}
+
+/* --- Donate button --- */
+.donate-button {
+    background-color: var(--accent-color) !important; /* Uses the color defined in :root */
+}
+.donate-button:hover {
+    background-color: #a30000 !important; /* Slightly darker red on hover */
 }
 
 /* --- FLEXBOX FOR 3 COLUMNS --- */
