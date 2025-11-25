@@ -194,6 +194,11 @@ img {
     display: block; 
     /* Set text alignment (W3.CSS default is often left-aligned) */
     text-align: left;
+    
+    /* ADD THIS LINE TO FORCE BLACK TEXT ON THE LINKS */
+    color: black !important; 
+    /* Remove text-decoration for consistency */
+    text-decoration: none; 
 }
 
 /* --- FLEXBOX FOR 3 COLUMNS --- */
