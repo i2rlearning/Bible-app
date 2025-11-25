@@ -182,6 +182,7 @@ img {
     z-index: 1;
     /* Add basic styling, like white background */
     background-color: white; 
+	text-color: black;
 }
 
 /* 3. The Hover Effect (The crucial part to hide/show the content) */
