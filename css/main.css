@@ -174,16 +174,15 @@ img {
 .w3-dropdown-content {
 	position: absolute;
     /* ... (rest of the styles) ... */
-    /* Add basic styling, like white background */
-    background-color: white; 
-    /* CORRECTED: The property is 'color', not 'text-color' */
+	display: **none** !important;
+	background-color: white; 
     color: black;
 }
 
 /* 3. The Hover Effect (The crucial part to hide/show the content) */
 .w3-dropdown-hover:hover .w3-dropdown-content {
     /* When the parent is hovered, display the content */
-    display: block; 
+    display: block !important;
 }
 
 /* Optional: Ensure dropdown links look like bar items */
@@ -193,9 +192,7 @@ img {
     /* Display as a block for full width click area */
     display: block; 
     /* Set text alignment (W3.CSS default is often left-aligned) */
-    text-align: left;
-    
-    /* ADD THIS LINE TO FORCE BLACK TEXT ON THE LINKS */
+    text-align: left;    
     color: black !important; 
     /* Remove text-decoration for consistency */
     text-decoration: none; 
