@@ -144,8 +144,10 @@ w3-bar {
 
 /* Replicate Theme Classes */
 .w3-theme-d2 { /* Navbar background */
-    background-color: var(--primary-color) !important;
-    color: white;
+    /*background-color: var(--primary-color) !important;
+    color: white; */
+	color: #fff !important;
+  	background-color: #000000 !important;
 }
 .w3-theme-l1 { /* Podcast background */
     background-color: var(--lighter-theme-color) !important;
