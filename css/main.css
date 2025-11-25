@@ -172,17 +172,12 @@ img {
 
 /* Dropdown Content Container */
 .w3-dropdown-content {
-    /* Must be absolute so it floats over the content and doesn't take up space */
-    position: absolute;
-    /* Initially hide the content */
-    display: none; 
-    /* Set minimum width for the content box */
-    min-width: 160px;
-    /* Use a high z-index to make sure it is on top of other elements */
-    z-index: 1;
+	position: absolute;
+    /* ... (rest of the styles) ... */
     /* Add basic styling, like white background */
     background-color: white; 
-	text-color: black;
+    /* CORRECTED: The property is 'color', not 'text-color' */
+    color: black;
 }
 
 /* 3. The Hover Effect (The crucial part to hide/show the content) */
