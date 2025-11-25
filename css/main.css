@@ -110,6 +110,10 @@ img {
     white-space: nowrap;
 }
 
+w3-bar {
+	background-color: black;
+}
+
 /* --- Responsiveness Utilities --- */
 /* Note: You must manually check the w3.css source for the exact media queries if you need them to perfectly match */
 @media (max-width: 600px) { /* Small screen breakpoint */
