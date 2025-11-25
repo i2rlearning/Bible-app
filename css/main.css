@@ -172,15 +172,15 @@ img {
 .w3-dropdown-content {
     position: absolute;
     /* This line must be 'none' to hide it by default */
-    **display: none !important;** min-width: 160px; /* Added for width consistency */
-    z-index: 10; /* Added/Increased z-index to ensure it is above other content */
-    
+    display: none !important;
+	min-width: 160px; 
+    z-index: 10; 
     background-color: white; 
     color: black;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19); /* Using the w3-card shadow */
 }
 
-/* 3. The Hover Effect (This rule is correct) */
+/* The Hover Effect (This rule is correct) */
 .w3-dropdown-hover:hover .w3-dropdown-content {
     display: block !important;
 }
