@@ -292,6 +292,15 @@ img {
     cursor: default;
 }
 
+/* --- COLOR/THEME DEFINITIONS --- */
+:root {
+    --primary-color: #1d44b8; /* Used for w3-theme-d2 */
+    --accent-color: #cc0000; /* Used for Donate button */
+    --lightest-theme-color: #f2f9ff; /* Guess at w3-theme-l5 (Contact Form background) */
+    --lighter-theme-color: #f1f1f1; /* Guess at w3-theme-l1 (Podcast background) */
+    --darker-theme-color: #4a4a4a; /* Guess at w3-theme-d1 (Footer) */
+}
+
 /* Replicate Theme Classes */
 .w3-theme-d2 { /* Navbar background */
     /*background-color: var(--primary-color) !important;
