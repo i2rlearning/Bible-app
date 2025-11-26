@@ -65,54 +65,6 @@ img {
     margin: 0 auto 10px auto; /* Centers the image */
 }						 
 
-/* --- ESSENTIAL UTILITY CLASSES  --- */
-/* --- Layout and Spacing --- */
-/* The base container for content */
-.w3-container {
-    padding: 0.01em 16px;
-}
-/* Replicates w3-padding-64 */
-.w3-padding-64 {
-    padding-top: 64px !important;
-    padding-bottom: 64px !important;
-}
-
-/* --- Alignment and Text --- */
-/* Replicates w3-center */
-.w3-center {
-    text-align: center !important;
-}
-/* Replicates w3-right */
-.w3-right {
-    float: right !important;
-}
-
-/* --- Cards and Shadows --- */
-/* Replicates w3-card and w3-card-4 */
-.w3-card, .w3-card-4 {
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
-}
-
-/* --- Navigation & Sidebar (Very minimal) --- */
-/* Base button style (you may need to add more from the w3.css source if this is too basic) */
-.w3-button {
-    border: none;
-    display: inline-block;
-    padding: 8px 16px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    background-color: inherit;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-w3-bar {
-	background-color: black;
-}
-
 /* --- Responsiveness Utilities --- */
 /* Note: You must manually check the w3.css source for the exact media queries if you need them to perfectly match */
 @media (max-width: 600px) { /* Small screen breakpoint */
@@ -129,73 +81,6 @@ w3-bar {
     .w3-hide-large {
         display: none !important;
     }
-}
-
-/* --- COLOR/THEME DEFINITIONS --- */
-:root {
-    --primary-color: #1d44b8; /* Used for w3-theme-d2 */
-    --accent-color: #cc0000; /* Used for Donate button */
-    --lightest-theme-color: #f2f9ff; /* Guess at w3-theme-l5 (Contact Form background) */
-    --lighter-theme-color: #f1f1f1; /* Guess at w3-theme-l1 (Podcast background) */
-    --darker-theme-color: #4a4a4a; /* Guess at w3-theme-d1 (Footer) */
-}
-
-/* Replicate Theme Classes */
-.w3-theme-d2 { /* Navbar background */
-    /*background-color: var(--primary-color) !important;
-    color: white; */
-	color: #fff !important;
-  	background-color: #000000 !important;
-}
-.w3-theme-l1 { /* Podcast background */
-    background-color: var(--lighter-theme-color) !important;
-}
-.w3-theme-l5 { /* Contact container background */
-    background-color: var(--lightest-theme-color) !important;
-}
-.w3-theme-d1 { /* Footer background */
-    background-color: var(--darker-theme-color) !important;
-    color: white;
-}
-.w3-theme { /* Buttons */
-    background-color: var(--primary-color) !important;
-    color: white;
-}
-.w3-theme:hover {
-    /* Add a hover effect for buttons */
-    background-color: #15338a !important; 
-}
-
-/* Base Dropdown Container - Navbrar */
-.w3-dropdown-hover {
-    display: inline-block;
-    position: relative; 
-}
-
-/* Dropdown Content Container*/
-.w3-dropdown-content {
-    position: absolute;
-    /* This line must be 'none' to hide it by default */
-    display: none !important;
-	min-width: 160px; 
-    z-index: 10; 
-    background-color: white; 
-    color: black;
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19); /* Using the w3-card shadow */
-}
-
-/* The Hover Effect (This rule is correct) */
-.w3-dropdown-hover:hover .w3-dropdown-content {
-    display: block !important;
-}
-
-/* Optional: Ensure dropdown links look like bar items */
-.w3-dropdown-content .w3-bar-item {
-    width: 100%;
-    display: block; 
-    text-align: left; 
-    color: black !important; /* Forces black text */
-    text-decoration: none; 
 }
 
 /* --- Donate button --- */
