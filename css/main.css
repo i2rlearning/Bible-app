@@ -291,3 +291,29 @@ img {
     opacity: 0.3;
     cursor: default;
 }
+
+/* Replicate Theme Classes */
+.w3-theme-d2 { /* Navbar background */
+    /*background-color: var(--primary-color) !important;
+    color: white; */
+    color: #fff !important;
+    background-color: #000000 !important;
+}
+.w3-theme-l1 { /* Podcast background */
+    background-color: var(--lighter-theme-color) !important;
+}
+.w3-theme-l5 { /* Contact container background */
+    background-color: var(--lightest-theme-color) !important;
+}
+.w3-theme-d1 { /* Footer background */
+    background-color: var(--darker-theme-color) !important;
+    color: white;
+}
+.w3-theme { /* Buttons */
+    background-color: var(--primary-color) !important;
+    color: white;
+}
+.w3-theme:hover {
+    /* Add a hover effect for buttons */
+    background-color: #15338a !important; 
+}
