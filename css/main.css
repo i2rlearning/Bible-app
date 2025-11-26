@@ -326,3 +326,21 @@ img {
     /* Add a hover effect for buttons */
     background-color: #15338a !important; 
 }
+
+/* Base Dropdown Container - Navbrar */
+.w3-dropdown-hover {
+    display: inline-block;
+    position: relative; 
+}
+
+/* Dropdown Content Container*/
+.w3-dropdown-content {
+    position: absolute;
+    /* This line must be 'none' to hide it by default */
+    display: none !important;
+    min-width: 160px; 
+    z-index: 10; 
+    background-color: white; 
+    color: black;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19); /* Using the w3-card shadow */
+}
