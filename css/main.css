@@ -133,7 +133,6 @@ w3-bar {
 }
 
 /* --- COLOR/THEME DEFINITIONS --- */
-/* Define your primary colors using variables */
 :root {
     --primary-color: #1d44b8; /* Used for w3-theme-d2 */
     --accent-color: #cc0000; /* Used for Donate button */
