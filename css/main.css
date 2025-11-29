@@ -22,6 +22,9 @@
     }
 }						 
 
+.removePic img (max-width: 600px) {
+	display: none;
+	}	
 
 /* --- PODCAST SECTION  --- */
 .podcast-grid {
