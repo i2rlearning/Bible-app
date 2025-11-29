@@ -20,11 +20,11 @@
     #ministry .scroll-item {
         width: 100%;
     }
-}						 
-
-.removePic img (max-width: 600px) {
-	display: none;
-	}	
+    /* remove pic in contact us section*/
+    .removePic img {
+        display: none;
+    }
+}
 
 /* --- PODCAST SECTION  --- */
 .podcast-grid {
