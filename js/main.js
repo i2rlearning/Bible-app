@@ -75,7 +75,7 @@ emailInput.classList.add('w3-border-red');
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Select all ANCHOR tags that contain the image.
   // We'll use the 'a' tag selector and assume your .image-swap is inside it.
-  const anchors = document.querySelectorAll('.w3-quarter a');
+  const anchors = document.querySelectorAll('.scroll-item a');
 
   anchors.forEach(anchor => {
       // 2. Find the image *inside* the current anchor tag
