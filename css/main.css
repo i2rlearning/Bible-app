@@ -20,7 +20,7 @@
 .w3-col.m5 .removePic {
     /* 1. Positioning for Centering */
     position: absolute; 
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%); 
     
@@ -38,9 +38,11 @@
     #ministry .scroll-item {
         width: 100%;
     }
-    /* remove pic in contact us section*/
+}
+
+@media (max-width: 300px) {
     .removePic {
-        display: none;
+        display: none !important;
     }
 }
 
