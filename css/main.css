@@ -20,7 +20,7 @@
 .w3-col.m5 .removePic {
     /* 1. Positioning for Centering */
     position: absolute; 
-    top: 70%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%); 
     
