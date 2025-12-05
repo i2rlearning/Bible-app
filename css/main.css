@@ -29,7 +29,7 @@
 /* --- PODCAST SECTION  --- */
 .podcast-grid {
     display: grid;
-    background-color: #333;  /*#f1f1f1;*/ 
+    background-color: #f1f1f1; 
     padding: 64px 16px; 
     gap: 32px; /* Space between grid items */
 }
@@ -37,6 +37,10 @@
 /* Default for small screens: 1 column */
 .podcast-grid {
     grid-template-columns: 1fr;
+}
+
+.podcast-item {
+	color: white;
 }
 
 /* Medium screens (601px+): 2 columns */
