@@ -29,7 +29,7 @@
 /* --- PODCAST SECTION  --- */
 .podcast-grid {
     display: grid;
-    background-color: #f1f1f1; 
+    background-color: #333;  /*#f1f1f1;*/ 
     padding: 64px 16px; 
     gap: 32px; /* Space between grid items */
 }
