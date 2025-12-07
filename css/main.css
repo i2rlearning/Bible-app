@@ -22,8 +22,8 @@
     
     top: auto !important; /* Resets the stuck 'top' position */
     bottom: 0;            /* Anchors image to the bottom */
-    left: 0;              /* Anchors image to the left */
-    transform: none;      /* Removes the centering effect */
+    left: 50%; 			  /* Moves the left edge of the image to the center */
+    transform: translateX(-50%);
     
     /*max-width: 85%;*/ 
     height: 90%;
