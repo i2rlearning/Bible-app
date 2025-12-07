@@ -26,7 +26,7 @@
     transform: none;      /* Removes the centering effect */
     
     max-width: 85%; 
-    height: auto;
+    height: 45%;
     object-fit: contain; 
     display: block;
 }
