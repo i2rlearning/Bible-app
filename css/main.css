@@ -18,19 +18,17 @@
 /* Contact Us */
 /* Target the image inside the m5 column for general scaling */
 .w3-col.m5 .removePic {
-    /* 1. Positioning for Centering */
-    position: absolute; 
-    top: 85% !important;
-    left: 50%;
-    transform: translate(-50%, -50%); 
+	position: absolute; 
     
-    /* 2. Responsive Sizing */
-    max-width: 85%; /* Image will occupy up to 85% of the m5 column's width */
+    top: auto !important; /* Resets the stuck 'top' position */
+    bottom: 0;            /* Anchors image to the bottom */
+    left: 0;              /* Anchors image to the left */
+    transform: none;      /* Removes the centering effect */
+    
+    max-width: 85%; 
     height: auto;
-    object-fit: contain; /* Ensures the whole image is visible without cropping */
-    
-    /* Keep it visible by default for medium/large screens */
-    display: block; 
+    object-fit: contain; 
+    display: block;
 }
 
 /* Mobile / Small Screens: 1 item per visible area (100% width) */
@@ -40,7 +38,7 @@
     }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 600px) {
     .removePic {
         display: none !important;
     }
