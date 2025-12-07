@@ -26,7 +26,7 @@
     transform: translateX(-50%);  /* Slides the image back left by 50% of its own width */
     
     /*max-width: 85%;*/ 
-    height: auto%;
+    height: 90%;
     object-fit: contain; 
     display: block;
 }
