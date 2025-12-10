@@ -47,7 +47,7 @@ nav .mobile-menu .mobile-close-btn:hover {
 /* MENU ITEMS ONLY (not the X) */
 nav .mobile-menu a:not(.mobile-close-btn) {
     display: block;
-    padding: 12px 32px !important; /* indentation for menu */
+    padding: 12px 45px !important; /* indents text */
     color: white;
     text-decoration: none;
     font-size: 18px;
