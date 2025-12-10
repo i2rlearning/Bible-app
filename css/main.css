@@ -38,12 +38,6 @@
     background-color: #1d44b8; 
 }
 
-#navDemo:hover {
-    background-color: #1d44b8 !important;
-    color: white !important;
-}
-
-/* Mobile menu container */
 .mobile-menu {
     display: none;              /* Hidden by default */
     background-color: #000;     /* Black menu background */
