@@ -21,6 +21,26 @@
     color: white;              /* Ensures text is readable on red background */
 }
 
+/*
+ * Custom styles for the Hamburger Button (nav-toggle-btn)
+ * This ensures it is a clickable block on the left side of the bar
+ */
+.nav-toggle-btn {
+    padding: 8px 16px;       /* Standard button padding */
+    display: block;          /* Ensures it sits correctly in the bar */
+    float: left;             /* Place it on the left side (Crucial for position) */
+    cursor: pointer;         /* Show pointer cursor on hover */
+    text-decoration: none;   /* Remove underline */
+    box-sizing: border-box;
+    /* You can customize these colors to match your theme: */
+    background-color: #000000; /* Matching your w3-theme-d2 override */
+    color: white;
+}
+
+.nav-toggle-btn:hover {
+    background-color: #1a1a1a; /* A slightly lighter shade on hover */
+}
+
 /* --- MINISTRY SECTION --- */
 #ministry .scroll-item {
     /* Large Screens: 4 items per visible area (25% width) */
