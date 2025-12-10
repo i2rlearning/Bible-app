@@ -38,9 +38,18 @@
     background-color: #1d44b8; 
 }
 
+#navDemo {
+	padding:8px 16px;
+	float:left;
+	width:auto
+	;border:none;
+	display:block;
+	outline:0
+}
+
 #navDemo:hover {
-    background-color: #1d44b8 !important;
-    color: white !important;
+    background-color: #1d44b8;
+    color: white;
 }
 
 /* --- MINISTRY SECTION --- */
