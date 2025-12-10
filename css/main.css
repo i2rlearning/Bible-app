@@ -1,3 +1,26 @@
+/* *************** NAVBAR *************** 
+ * Custom styles for the mobile close button
+ * Replaces: w3-bar-item, w3-button, w3-right-align, w3-hover-red
+ */
+.mobile-close-btn {
+    /* Layout and Spacing (Mimics w3-bar-item and w3-button) */
+    display: block;        /* Ensures it takes up the full width */0
+    width: 100%;           /* Full width within the menu container */
+    padding: 8px 16px;     /* Standard padding for clickable buttons */
+    text-decoration: none; /* Remove underline from link */
+    cursor: pointer;       /* Show pointer cursor */
+    border: none;          /* Remove button border */
+    text-align: right;     /* Alignment (Replaces w3-right-align) */
+    box-sizing: border-box; /* Ensure padding is inside the element width */
+	float: left;
+}
+
+/* Hover Effect (Replaces w3-hover-red) */
+.mobile-close-btn:hover {
+    background-color: #f44336; /* A standard red color for hover */
+    color: white;              /* Ensures text is readable on red background */
+}
+
 /* --- MINISTRY SECTION --- */
 #ministry .scroll-item {
     /* Large Screens: 4 items per visible area (25% width) */
