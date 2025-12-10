@@ -15,9 +15,8 @@
 	float: left;
 }
 
-/* Hover Effect (Replaces w3-hover-red) */
 .mobile-close-btn:hover {
-    background-color: #1d44b8; 
+    background-color: #1d44b8;  /* blue*/ 
     color: white;              
 }
 
@@ -26,19 +25,18 @@
  * This ensures it is a clickable block on the left side of the bar
  */
 .nav-toggle-btn {
-    padding: 8px 16px;       /* Standard button padding */
-    display: block;          /* Ensures it sits correctly in the bar */
-    float: left;             /* Place it on the left side (Crucial for position) */
-    cursor: pointer;         /* Show pointer cursor on hover */
-    text-decoration: none;   /* Remove underline */
+    padding: 8px 16px;       
+    display: block;          
+    float: left;             
+    cursor: pointer;         
+    text-decoration: none;   
     box-sizing: border-box;
-    /* You can customize these colors to match your theme: */
-    background-color: #000000; /* Matching your w3-theme-d2 override */
+    background-color: #000000; 
     color: white;
 }
 
 .nav-toggle-btn:hover {
-    background-color: #1a1a1a; /* A slightly lighter shade on hover */
+    background-color: #1d44b8; 
 }
 
 /* --- MINISTRY SECTION --- */
