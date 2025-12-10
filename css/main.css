@@ -34,7 +34,6 @@ nav .mobile-menu .mobile-close-btn {
     text-align: left;
     box-sizing: border-box;
     font-size: 22px;
-    font-weight: bold;
     background-color: #000;
     color: #1d44b8; /* blue X */
 }
@@ -42,7 +41,7 @@ nav .mobile-menu .mobile-close-btn {
 /* Close button hover: stays black */
 nav .mobile-menu .mobile-close-btn:hover {
     background-color: #000 !important;
-    color: white;
+    color: red;
 }
 
 /* MENU ITEMS ONLY (not the X) */
