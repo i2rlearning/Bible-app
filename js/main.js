@@ -1,25 +1,4 @@
 /* *************** NAVBAR *************** 
- * Custom styles for the mobile close button
- * Replaces: w3-bar-item, w3-button, w3-right-align, w3-hover-red
- */
-.mobile-close-btn {
-    /* Layout and Spacing (Mimics w3-bar-item and w3-button) */
-    display: block;        /* Ensures it takes up the full width */
-    width: 100%;           /* Full width within the menu container */
-    padding: 8px 16px;     /* Standard padding for clickable buttons */
-    text-decoration: none; /* Remove underline from link */
-    cursor: pointer;       /* Show pointer cursor */
-    border: none;          /* Remove button border */
-    text-align: right;     /* Alignment (Replaces w3-right-align) */
-    box-sizing: border-box; /* Ensure padding is inside the element width */
-}
-
-/* Hover Effect (Replaces w3-hover-red) */
-.mobile-close-btn:hover {
-    background-color: #f44336; /* A standard red color for hover */
-    color: white;              /* Ensures text is readable on red background */
-}
-
 // Used to toggle the menu on smaller screens when clicking on the menu button
 function openNav() {
   var x = document.getElementById("navDemo");
