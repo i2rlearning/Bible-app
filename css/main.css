@@ -38,10 +38,71 @@
     background-color: #1d44b8; 
 }
 
-
 #navDemo:hover {
     background-color: #1d44b8 !important;
     color: white !important;
+}
+
+/* Mobile menu container */
+.mobile-menu {
+    display: none;              /* Hidden by default */
+    background-color: #000;     /* Black menu background */
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Mobile menu links */
+.mobile-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Hover effect for links */
+.mobile-menu a:hover {
+    background-color: #1d44b8; /* Blue hover bar */
+    color: white;
+}
+
+/* Close button */
+.mobile-menu .mobile-close {
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Mobile menu container */
+.mobile-menu {
+    display: none;              /* Hidden by default */
+    background-color: #000;     /* Black menu background */
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Mobile menu links */
+.mobile-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Hover effect for links */
+.mobile-menu a:hover {
+    background-color: #1d44b8; /* Blue hover bar */
+    color: white;
+}
+
+/* Close button */
+.mobile-menu .mobile-close {
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 /* --- MINISTRY SECTION --- */
