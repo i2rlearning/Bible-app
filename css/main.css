@@ -39,6 +39,7 @@
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
+	text-align: left;
 }
 
 /* Mobile menu links */
@@ -54,13 +55,6 @@
 .mobile-menu a:hover {
     background-color: #1d44b8;
     color: white;
-}
-
-/* Close button inside mobile menu */
-.mobile-menu .mobile-close {
-    text-align: right;
-    font-weight: bold;
-    font-size: 20px;
 }
 
 #mobileMenu .w3-bar-item:hover {
