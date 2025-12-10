@@ -2,13 +2,15 @@
 .mobile-close-btn {
     display: block;        
     width: 100%;
-    padding: 8px 16px;
+    padding: 12px 16px 20px 16px;
     text-decoration: none;
     cursor: pointer;
     border: none;
     text-align: left;
     box-sizing: border-box;
     float: left;
+	font-size: 22px;
+    font-weight: bold;
 }
 
 .mobile-close-btn:hover {
