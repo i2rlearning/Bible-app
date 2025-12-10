@@ -99,7 +99,7 @@
     font-size: 20px;
 }
 
-#navDemo .w3-bar-item:hover {
+#mobileMenu .w3-bar-item:hover {
     background-color: #1d44b8 !important;
     color: white !important;
 }
