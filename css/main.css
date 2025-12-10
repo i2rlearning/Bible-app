@@ -27,7 +27,7 @@ nav .mobile-menu {
 /* Close button inside mobile menu */
 nav .mobile-menu .mobile-close-btn {
     display: inline-block;
-    padding: 12px 16px 28px 16px;
+    padding: 12px 16px 28px 16px; 
     text-decoration: none;
     cursor: pointer;
     border: none;
@@ -35,7 +35,7 @@ nav .mobile-menu .mobile-close-btn {
     box-sizing: border-box;
     font-size: 22px;
     background-color: #000;
-    color: 1d44b8;
+    color: #1d44b8;
 }
 
 
@@ -48,7 +48,7 @@ nav .mobile-menu .mobile-close-btn:hover {
 /* All links inside mobile menu */
 nav .mobile-menu a {
     display: block;
-    padding: 12px 32px !important; /* indentation for items */
+    padding: 12px 48px !important; 
     color: white;
     text-decoration: none;
     font-size: 18px;
