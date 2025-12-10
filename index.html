@@ -22,24 +22,9 @@
       <link rel="preload" as="image" href="/img/blog.webp">	
   </head>
 
-  <body>
-	<!-- Sidebar on click -->
-	<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
-	  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
-	    <i class="fa fa-remove"></i>
-	  </a>
-	<!-- Also add: past newsletters	-->
-	  <a href="#" class="w3-bar-item w3-button">Home</a>
-	  <a href="#" class="w3-bar-item w3-button">Podcasts</a>
-	  <a href="#" class="w3-bar-item w3-button">Blog</a>
-	  <a href="#" class="w3-bar-item w3-button">Book</a>
-	  <a href="#" class="w3-bar-item w3-button">Newsletter</a>
-	  <a href="#" class="w3-bar-item w3-button">Contact Us</a>
-	  <a href="#" class="w3-bar-item w3-button">Daily Decree</a>
-	</nav>
-	
+  <body>		
 	<!-- Navbar -->
-	<div class="w3-top">
+	<nav class="w3-top">
 	  <div class="w3-bar w3-theme-d2 w3-left-align">
 	    
 	    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()">
@@ -57,7 +42,7 @@
 	    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact Us</a>
 	
 	    <div class="w3-dropdown-hover w3-hide-small">
-	      <button class="w3-button w3-hover-white" title="Notifications">Newsletter<i class="fa fa-caret-down"></i></button>
+	      <button class="w3-button w3-hover-white" title="Notifications">Newsletter <i class="fa fa-caret-down"></i></button>
 	      <div class="w3-dropdown-content w3-card-4 w3-bar-block">
 	        <a href="#newsletter" class="w3-bar-item w3-button">Sign-up</a>
 	        <a href="https://us2.campaign-archive.com/home/?u=a470704f567e4578282ec164c&id=593fb32e3c" class="w3-bar-item w3-button" target="_blank" style="text-decoration:none">Past Newsletters</a>
@@ -66,8 +51,7 @@
 	  </div>
 	
 	  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide">
-    	<a href="javascript:void(0)" onclick="openNav()" class="w3-bar-item w3-button w3-right-align w3-hover-red">
-      	Close <i class="fa fa-remove"></i>
+    	<a href="javascript:void(0)" onclick="openNav()" class="w3-bar-item w3-button w3-right-align w3-hover-red"><i class="fa fa-remove"></i>
       </a>
     
 	  <a href="#" class="w3-bar-item w3-button" onclick="openNav()">Home</a>
@@ -75,7 +59,7 @@
 	  <a href="#podcast" class="w3-bar-item w3-button" onclick="openNav()">Podcast</a>
 	  <a href="#contact" class="w3-bar-item w3-button" onclick="openNav()">Contact Us</a>
 	 </div>
-	</div>
+	</nav>
 	
 	<!-- Image Slider -->
 	<div class="container">
@@ -85,24 +69,6 @@
 	    <div class="arrow arrow-next" onclick="nextSlide()">&#10095;</div>
 	  </div>
 	</div>
-	
-	<!-- Modal
-	<div id="id01" class="w3-modal">
-	  <div class="w3-modal-content w3-card-4 w3-animate-top">
-	    <header class="w3-container w3-teal w3-display-container"> 
-	      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>
-	      <h4>Oh snap! We just showed you a modal..</h4>
-	      <h5>Because we can <i class="fa fa-smile-o"></i></h5>
-	    </header>
-	    <div class="w3-container">
-	      <p>Cool huh? Ok, enough teasing around..</p>
-	      <p>Go to our <a class="w3-text-teal" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
-	    </div>
-	    <footer class="w3-container w3-teal">
-	      <p>Modal footer</p>
-	    </footer>
-	  </div>
-	</div> -->
 	
 	<!-- Ministry Container  pics are 761x748-->
 	<div class="scroll-wrapper" id="ministry-wrapper">
@@ -331,6 +297,7 @@
     	<script src="https://js.hcaptcha.com/1/api.js" async defer></script> 
   </body>
 </html>
+
 
 
 
