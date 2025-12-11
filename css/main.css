@@ -136,12 +136,23 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     }
 }
 
-/* --- CORE IMAGE FIX  --- */
+
+.podcast-item {
+    text-align: center;
+}
+
+.podcast-item img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* --- CORE IMAGE FIX  --- 
 img {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
-}
+}*/
 
 /* Specific fix for images inside the Ministry cards */
 .scroll-item img {
