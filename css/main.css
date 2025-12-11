@@ -94,6 +94,99 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     }
 }
 
+@media (max-width: 600px) {
+    #ministry .scroll-item {
+        width: 100%;
+    }
+}
+
+/* sroller for ministry section*/
+/* WRAPPER (Outer container for scroll area and fixed overlays) */
+.scroll-wrapper {
+    position: relative;
+    z-index: 0;
+}
+
+/* SCROLL AREA (#ministry holds the actual content and scrolls) */
+#ministry {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    justify-content: flex-start;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 1; 
+}
+
+/* INDIVIDUAL CARD OVERRIDES */
+#ministry .w3-quarter {
+    flex: 0 0 auto;
+    width: 280px;
+    float: none !important;
+    margin: 0 20px;
+    box-sizing: border-box;
+}
+
+/* SCROLLBAR HIDE (optional) */
+#ministry::-webkit-scrollbar { display: none; }
+#ministry { scrollbar-width: none; }
+
+/* ----------------------------------------------------------------- */
+/* ARROW OVERLAY & BUTTON STYLES (Cleaned up) */
+/* ----------------------------------------------------------------- */
+
+/* OVERLAY BOXES (The "thin vertical rectangles") */
+.scroll-overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 60px; /* Width of the rectangle */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent); /* Suggestion: use a gradient for a smooth transition */
+    pointer-events: none; /* Crucial: Allows clicks to pass through by default */
+    z-index: 100;
+}
+
+.scroll-overlay.right {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent); /* Reverse gradient for right side */
+}
+
+/* The actual arrow button */
+.scroll-overlay .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #333;
+    z-index: 101;
+    pointer-events: auto; /* Re-enable clicks ONLY on the button */
+    transition: opacity 0.3s;
+}
+
+/* Button Positioning within their overlays */
+.scroll-overlay.left .scroll-btn {
+    right: 10px; /* Positions the button 10px from the inner edge */
+}
+.scroll-overlay.right .scroll-btn {
+    left: 10px; /* Positions the button 10px from the inner edge */
+}
+
+/* ENABLED STATE */
+.scroll-overlay .scroll-btn:hover:not(.disabled) {
+    color: #007bff; 
+    opacity: 1;    
+}
+	
+/* DISABLED STATE */
+.scroll-overlay .scroll-btn.disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
 /* Chamnges cursor when over the scroller from a pointer finger to a hand grabbing the scroller */
 #ministry {
   cursor: grab;
@@ -122,18 +215,12 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 
 /* Mobile / Small Screens: 1 item per visible area (100% width) */
 @media (max-width: 600px) {
-    #ministry .scroll-item {
-        width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
     .removePic {
         display: none !important;
     }
 }
 
-/* --- PODCAST SECTION  --- */
+/* *************** PODCAST *************** */
 .podcast-grid {
     display: grid;
     background-color: #333; 
@@ -170,34 +257,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 }
 
 
-
-/* --- CORE IMAGE FIX  --- 
-img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-}*/
-
-
-/* --- Responsiveness Utilities --- */
-/* Note: You must manually check the w3.css source for the exact media queries if you need them to perfectly match */
-@media (max-width: 600px) { /* Small screen breakpoint */
-    .w3-hide-small {
-        display: none !important;
-    }
-}
-@media (min-width: 601px) and (max-width: 992px) { /* Medium screen breakpoint */
-    .w3-hide-medium {
-        display: none !important;
-    }
-}
-@media (min-width: 993px) { /* Large screen breakpoint */
-    .w3-hide-large {
-        display: none !important;
-    }
-}
-
-
+/* *************** FOOTER *************** */
 /* --- FLEXBOX FOR 3 COLUMNS --- */
 .footer-columns-wrapper {
     display: flex;
@@ -311,90 +371,3 @@ img {
     top: 50%; /* Center vertically within the .copyright-area */
     transform: translateY(-50%); 
 }		
-
-/* sroller for ministry section*/
-/* WRAPPER (Outer container for scroll area and fixed overlays) */
-.scroll-wrapper {
-    position: relative;
-    z-index: 0;
-}
-
-/* SCROLL AREA (#ministry holds the actual content and scrolls) */
-#ministry {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    justify-content: flex-start;
-    padding: 2rem 0;
-    position: relative;
-    z-index: 1; 
-}
-
-/* INDIVIDUAL CARD OVERRIDES */
-#ministry .w3-quarter {
-    flex: 0 0 auto;
-    width: 280px;
-    float: none !important;
-    margin: 0 20px;
-    box-sizing: border-box;
-}
-
-/* SCROLLBAR HIDE (optional) */
-#ministry::-webkit-scrollbar { display: none; }
-#ministry { scrollbar-width: none; }
-
-/* ----------------------------------------------------------------- */
-/* ARROW OVERLAY & BUTTON STYLES (Cleaned up) */
-/* ----------------------------------------------------------------- */
-
-/* OVERLAY BOXES (The "thin vertical rectangles") */
-.scroll-overlay {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 60px; /* Width of the rectangle */
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent); /* Suggestion: use a gradient for a smooth transition */
-    pointer-events: none; /* Crucial: Allows clicks to pass through by default */
-    z-index: 100;
-}
-
-.scroll-overlay.right {
-    right: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent); /* Reverse gradient for right side */
-}
-
-/* The actual arrow button */
-.scroll-overlay .scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 2em;
-    cursor: pointer;
-    color: #333;
-    z-index: 101;
-    pointer-events: auto; /* Re-enable clicks ONLY on the button */
-    transition: opacity 0.3s;
-}
-
-/* Button Positioning within their overlays */
-.scroll-overlay.left .scroll-btn {
-    right: 10px; /* Positions the button 10px from the inner edge */
-}
-.scroll-overlay.right .scroll-btn {
-    left: 10px; /* Positions the button 10px from the inner edge */
-}
-
-/* ENABLED STATE */
-.scroll-overlay .scroll-btn:hover:not(.disabled) {
-    color: #007bff; 
-    opacity: 1;    
-}
-	
-/* DISABLED STATE */
-.scroll-overlay .scroll-btn.disabled {
-    opacity: 0.3;
-    cursor: default;
-}
