@@ -68,6 +68,11 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     color: white;
 }
 
+/* Keeps "Newsletter" background white while hovering over sub-menus */
+.w3-dropdown-hover:hover > .w3-button {
+    background-color: #fff !important;
+    color: #000 !important;
+}
 
 /* *************** MINISTRY *************** */
 #ministry .scroll-item {
