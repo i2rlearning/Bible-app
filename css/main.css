@@ -94,6 +94,15 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     }
 }
 
+/* Used for scroller and helps user see it is a draggable content*/
+#ministry {
+  cursor: grab;
+}
+
+#ministry:active {
+  cursor: grabbing;
+}
+
 
 /* *************** CONTACT US *************** */
 /* Target the image inside the m5 column for general scaling */
