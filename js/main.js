@@ -4,6 +4,163 @@ function openNav() {
   var x = document.getElementById("mobileMenu");
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+/* *************** CONTACT SUBJECT "OTHER" CHECK *************** */
+const subjectDropdown = document.getElementById("subjectSelect");
+const messageInput = document.getElementById("messageTextarea");
+const triggerValue = "Other";
+
+function toggleMessageRequirement() {
+  if (!subjectDropdown || !messageInput) return;
+
+  if (subjectDropdown.value === triggerValue) {
+    messageInput.setAttribute("required", "required");
+    messageInput.placeholder = "This field is required";
+  } else {
+    messageInput.removeAttribute("required");
+    messageInput.placeholder = "";
+  }
+}
+
+if (subjectDropdown) {
+  subjectDropdown.addEventListener("change", toggleMessageRequirement);
+  toggleMessageRequirement();
+}
+
+/* *************** EMAIL VALIDATION *************** */
+const emailInput = document.getElementById("emailInput");
+const emailError = document.getElementById("emailError");
+const form = document.querySelector("form");
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+if (emailInput && emailError && form) {
+  emailInput.addEventListener("blur", function () {
+    if (emailInput.value.trim() !== "" && !emailRegex.test(emailInput.value)) {
+      emailError.style.display = "inline";
+      emailInput.classList.add("w3-border-red");
+    } else {
+      emailError.style.display = "none";
+      emailInput.classList.remove("w3-border-red");
+    }
+  });
+
+  form.addEventListener("submit", function (e) {
+    if (!emailRegex.test(emailInput.value)) {
+      e.preventDefault();
+      emailError.style.display = "inline";
+      emailInput.classList.add("w3-border-red");
+    }
+  });
+}
+
+/* *************** MINISTRY IMAGE HOVER SWAP *************** */
+document.addEventListener("DOMContentLoaded", () => {
+  const anchors = document.querySelectorAll(".scroll-item a");
+
+  anchors.forEach((anchor) => {
+    const img = anchor.querySelector(".image-swap");
+    if (!img) return;
+
+    const originalSrc = img.src;
+    const hoverSrc = img.getAttribute("data-hover");
+
+    anchor.addEventListener("mouseenter", () => {
+      if (hoverSrc) {
+        img.src = hoverSrc;
+      }
+    });
+
+    anchor.addEventListener("mouseleave", () => {
+      img.src = originalSrc;
+    });
+  });
+});
+
+/* *************** MINISTRY HORIZONTAL SCROLLER *************** */
+document.addEventListener("DOMContentLoaded", () => {
+  // Scrollable container and arrow buttons
+  const container = document.getElementById("ministry");
+  const leftBtn = document.querySelector("#ministry-wrapper .scroll-btn.left");
+  const rightBtn = document.querySelector("#ministry-wrapper .scroll-btn.right");
+
+  if (!container || !leftBtn || !rightBtn) return;
+
+  // Returns the current scroll distance for one "card"
+  function getScrollAmount() {
+    const card = container.querySelector(".scroll-item");
+    if (!card) return 0;
+
+    const rect = card.getBoundingClientRect();
+    const style = window.getComputedStyle(card);
+    const marginLeft = parseFloat(style.marginLeft) || 0;
+    const marginRight = parseFloat(style.marginRight) || 0;
+
+    // Width plus horizontal margins
+    return rect.width + marginLeft + marginRight;
+  }
+
+  function scrollMinistry(direction) {
+    const amount = getScrollAmount();
+    if (!amount) return;
+
+    container.scrollBy({
+      left: direction * amount,
+      behavior: "smooth",
+    });
+
+    // Update arrow state after scroll animation begins
+    setTimeout(updateArrows, 500);
+  }
+
+  function updateArrows() {
+    const tolerance = 5;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    const currentScroll = container.scrollLeft;
+
+    if (currentScroll <= tolerance) {
+      leftBtn.classList.add("disabled");
+    } else {
+      leftBtn.classList.remove("disabled");
+    }
+
+    if (currentScroll >= maxScroll - tolerance) {
+      rightBtn.classList.add("disabled");
+    } else {
+      rightBtn.classList.remove("disabled");
+    }
+  }
+
+  // Initial state when everything is loaded
+  window.addEventListener("load", () => {
+    updateArrows();
+    setTimeout(updateArrows, 200);
+  });
+
+  // Arrow click handlers
+  leftBtn.addEventListener("click", () => {
+    scrollMinistry(-1);
+  });
+
+  rightBtn.addEventListener("click", () => {
+    scrollMinistry(1);
+  });
+
+  // Live update while user scrolls manually
+  container.addEventListener("scroll", updateArrows);
+
+  // Initial call
+  updateArrows();
+});
+/* *************** NAVBAR *************** */
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("mobileMenu");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
