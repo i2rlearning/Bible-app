@@ -1,3 +1,12 @@
+/* *************** DONATE BUTTON *************** */
+.donate-button {
+    background-color: red !important;
+}
+.donate-button:hover {
+    background-color: #a30000 !important; 
+}
+
+
 /* *************** NAVBAR *************** */
 .nav-toggle-btn {
     padding: 8px 16px;
@@ -59,7 +68,8 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     color: white;
 }
 
-/* --- MINISTRY SECTION --- */
+
+/* *************** MINISTRY *************** */
 #ministry .scroll-item {
     /* Large Screens: 4 items per visible area (25% width) */
     flex-shrink: 0; 
@@ -69,6 +79,14 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     text-align: center; /* Center the text and images */
 }
 
+/* Specific fix for images inside the Ministry cards */
+.scroll-item img {
+    /* You can define a specific max size here if you want them smaller than 100% */
+    max-width: 50%; 
+    display: block;
+    margin: 0 auto 10px auto; /* Centers the image */
+}	
+
 /* Tablet / Medium Screens: 2 items per visible area (50% width) */
 @media (max-width: 992px) {
     #ministry .scroll-item {
@@ -76,7 +94,8 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     }
 }
 
-/* Contact Us */
+
+/* *************** CONTACT US *************** */
 /* Target the image inside the m5 column for general scaling */
 .w3-col.m5 .removePic {
 	position: absolute; 
@@ -150,13 +169,6 @@ img {
     vertical-align: middle;
 }*/
 
-/* Specific fix for images inside the Ministry cards */
-.scroll-item img {
-    /* You can define a specific max size here if you want them smaller than 100% */
-    max-width: 50%; 
-    display: block;
-    margin: 0 auto 10px auto; /* Centers the image */
-}						 
 
 /* --- Responsiveness Utilities --- */
 /* Note: You must manually check the w3.css source for the exact media queries if you need them to perfectly match */
@@ -176,13 +188,6 @@ img {
     }
 }
 
-/* --- Donate button --- */
-.donate-button {
-    background-color: red !important;
-}
-.donate-button:hover {
-    background-color: #a30000 !important; 
-}
 
 /* --- FLEXBOX FOR 3 COLUMNS --- */
 .footer-columns-wrapper {
@@ -384,38 +389,3 @@ img {
     opacity: 0.3;
     cursor: default;
 }
-
-/* --- COLOR/THEME DEFINITIONS --- */
-:root {
-    --primary-color: #1d44b8; /* Used for w3-theme-d2 */
-    --lightest-theme-color: #f2f9ff; /* Guess at w3-theme-l5 (Contact Form background) */
-    --lighter-theme-color: #f1f1f1; /* Guess at w3-theme-l1 (Podcast background) */
-    --darker-theme-color: #4a4a4a; /* Guess at w3-theme-d1 (Footer) */
-}
-
-/* Replicate Theme Classes */
-.w3-theme-d2 { /* Navbar background */
-    /*background-color: var(--primary-color) !important;
-    color: white; */
-    color: #fff !important;
-    background-color: #000000 !important;
-}
-.w3-theme-l1 { /* Podcast background */
-    background-color: var(--lighter-theme-color) !important;
-}
-.w3-theme-l5 { /* Contact container background */
-    background-color: var(--lightest-theme-color) !important;
-}
-.w3-theme-d1 { /* Footer background */
-    background-color: var(--darker-theme-color) !important;
-    color: white;
-}
-.w3-theme { /* Buttons */
-    background-color: var(--primary-color) !important;
-    color: white;
-}
-.w3-theme:hover {
-    /* Add a hover effect for buttons */
-    background-color: #15338a !important; 
-}
-
