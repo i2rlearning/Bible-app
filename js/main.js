@@ -91,8 +91,22 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // Scroll by visible width of the container
+  // Scroll by one card width (with margins) if possible
   function getScrollAmount() {
+    const card = container.querySelector(".scroll-item");
+    if (card) {
+      const rect = card.getBoundingClientRect();
+      const style = window.getComputedStyle(card);
+      const marginLeft = parseFloat(style.marginLeft) || 0;
+      const marginRight = parseFloat(style.marginRight) || 0;
+      const cardWidth = rect.width + marginLeft + marginRight;
+
+      if (cardWidth > 0) {
+        return cardWidth;
+      }
+    }
+
+    // Fallback: visible width of container
     return container.clientWidth || 0;
   }
 
@@ -129,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Wire up buttons
   leftBtn.addEventListener("click", function () {
     scrollMinistry(-1);
   });
@@ -138,10 +151,8 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollMinistry(1);
   });
 
-  // Update arrows on manual scroll
   container.addEventListener("scroll", updateArrows);
 
-  // Initial checks
   window.addEventListener("load", function () {
     updateArrows();
     setTimeout(updateArrows, 200);
