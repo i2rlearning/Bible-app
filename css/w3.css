@@ -249,3 +249,39 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-border-dark-grey,.w3-hover-border-dark-grey:hover,.w3-border-dark-gray,.w3-hover-border-dark-gray:hover{border-color:#616161!important}
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
+
+/* --- COLOR/THEME DEFINITIONS --- */
+:root {
+    --primary-color: #1d44b8; /* Used for w3-theme-d2 */
+    --lightest-theme-color: #f2f9ff; /* Guess at w3-theme-l5 (Contact Form background) */
+    --lighter-theme-color: #f1f1f1; /* Guess at w3-theme-l1 (Podcast background) */
+    --darker-theme-color: #4a4a4a; /* Guess at w3-theme-d1 (Footer) */
+}
+
+/* Replicate Theme Classes */
+.w3-theme-d2 { /* Navbar background */
+    /*background-color: var(--primary-color) !important;
+    color: white; */
+    color: #fff !important;
+    background-color: #000000 !important;
+}
+.w3-theme-l1 { /* Podcast background */
+    background-color: var(--lighter-theme-color) !important;
+}
+.w3-theme-l5 { /* Contact container background */
+    background-color: var(--lightest-theme-color) !important;
+}
+.w3-theme-d1 { /* Footer background */
+    background-color: var(--darker-theme-color) !important;
+    color: white;
+}
+.w3-theme { /* Buttons */
+    background-color: var(--primary-color) !important;
+    color: white;
+}
+.w3-theme:hover {
+    /* Add a hover effect for buttons */
+    background-color: #15338a !important; 
+}
+
+
