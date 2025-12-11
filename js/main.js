@@ -201,3 +201,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateArrows();
 });
+
+// ************ GO TO TOP BUTTON - DISPLAYS AFTER 300PX OF SCROLLING *****************
+document.addEventListener("DOMContentLoaded", function () {
+  const topBtn = document.querySelector(".go-to-top-button");
+  if (!topBtn) return;
+
+  function toggleTopButton() {
+    if (window.scrollY > 300) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  }
+
+  // Handle scroll
+  window.addEventListener("scroll", toggleTopButton);
+  // Initial state
+  toggleTopButton();
+});
