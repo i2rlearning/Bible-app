@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Arrow click handlers
   leftBtn.addEventListener("click", function () {
     scrollMinistry(-1);
   });
@@ -151,8 +152,48 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollMinistry(1);
   });
 
+  // Touchscreen / mouse drag to scroll
+  let isDragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let activePointerId = null;
+
+  container.addEventListener("pointerdown", function (e) {
+    isDragging = true;
+    activePointerId = e.pointerId;
+    container.setPointerCapture(activePointerId);
+    startX = e.clientX;
+    startScrollLeft = container.scrollLeft;
+  });
+
+  container.addEventListener("pointermove", function (e) {
+    if (!isDragging || e.pointerId !== activePointerId) return;
+    const dx = e.clientX - startX;
+    container.scrollLeft = startScrollLeft - dx;
+  });
+
+  function endDrag(e) {
+    if (!isDragging || (e && e.pointerId !== activePointerId)) return;
+    isDragging = false;
+    if (activePointerId !== null) {
+      try {
+        container.releasePointerCapture(activePointerId);
+      } catch (err) {
+        // ignore if capture was not set
+      }
+    }
+    activePointerId = null;
+    updateArrows();
+  }
+
+  container.addEventListener("pointerup", endDrag);
+  container.addEventListener("pointercancel", endDrag);
+  container.addEventListener("pointerleave", endDrag);
+
+  // Update arrows on manual scroll (including drag or native touch scroll)
   container.addEventListener("scroll", updateArrows);
 
+  // Initial checks
   window.addEventListener("load", function () {
     updateArrows();
     setTimeout(updateArrows, 200);
