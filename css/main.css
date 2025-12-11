@@ -94,7 +94,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     }
 }
 
-/* Used for scroller and helps user see it is a draggable content*/
+/* Chamnges cursor when over the scroller from a pointer finger to a hand grabbing the scroller */
 #ministry {
   cursor: grab;
 }
