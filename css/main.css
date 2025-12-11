@@ -108,7 +108,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 /* --- PODCAST SECTION  --- */
 .podcast-grid {
     display: grid;
-    background-color: #333; /*#f1f1f1;*/ 
+    background-color: #333; 
     padding: 64px 16px; 
     gap: 32px; /* Space between grid items */
 }
