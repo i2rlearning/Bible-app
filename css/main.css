@@ -368,11 +368,20 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     padding: 0 5px; /* Padding around the bullet for spacing */
 }
 
-/* --- Position the Go To Top Button --- */
+/* *************** GO TO TOP BUTTON *************** */
 .go-to-top-button {
-    /* Overrides the flow and places the button on the right */
-    position: absolute;
-    right: 0; /* Align to the right edge of the .copyright-area */
-    top: 50%; /* Center vertically within the .copyright-area */
-    transform: translateY(-50%); 
-}		
+    position: fixed;         /* float over the page */
+    right: 16px;
+    bottom: 16px;
+    z-index: 999;
+    display: none;           /* hidden by default */
+}
+
+@media (max-width: 600px) {
+    .go-to-top-button {
+        right: 12px;
+        bottom: 12px;
+        transform: none;     /* remove old translate if any */
+    }
+}
+	
