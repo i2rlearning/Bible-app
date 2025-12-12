@@ -370,18 +370,11 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 
 /* *************** GO TO TOP BUTTON *************** */
 .go-to-top-button {
-    position: fixed;         /* float over the page */
+    position: fixed !important;
     right: 16px;
     bottom: 16px;
-    z-index: 999;
-    display: none;           /* hidden by default */
+    z-index: 9999;
+    display: none;
 }
 
-@media (max-width: 600px) {
-    .go-to-top-button {
-        right: 12px;
-        bottom: 12px;
-        transform: none;     /* remove old translate if any */
-    }
-}
 	
