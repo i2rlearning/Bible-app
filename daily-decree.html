@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Decree - Branch of Israel</title>
+
+  <!-- Optional: load fonts similar to your WP site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;600&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Basic page styling (replace with your own) */
+    body{
+      margin:0;
+      font-family:"Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      line-height:1.8;
+      background: url("images/Wedding-Paper1.jpg") no-repeat fixed center / cover;
+      color:#000;
+      padding-top:120px; /* space for fixed header */
+    }
+
+    header{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      background:#005eb8;
+      box-shadow:0 2px 8px rgba(0,0,0,.2);
+    }
+
+    .nav-inner{
+      max-width:1140px;
+      margin:0 auto;
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      justify-content:space-between;
+    }
+
+    .logo img{ height:56px; width:auto; display:block; }
+
+    nav ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:12px; }
+    nav a{ color:#fff; text-decoration:none; font-size:15px; }
+    nav a:hover{ color:#94d4ef; }
+
+    main{
+      max-width:1140px;
+      margin:0 auto;
+      padding:18px 14px 120px;
+      background:rgba(255,255,255,.85);
+      backdrop-filter: blur(2px);
+      border-radius:12px;
+    }
+
+    h1{ margin:0 0 10px; font-size:23px; }
+    .content a{ color:#000; }
+
+    footer{
+      text-align:center;
+      padding:18px 10px;
+      color:#fff;
+      background:#005eb8;
+      margin-top:30px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav-inner">
+      <a class="logo" href="/">
+        <img src="images/cropped-cropped-Dove-150x150-1.png" alt="Branch of Israel">
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="https://www.youtube.com/@branchofisrael" target="_blank" rel="noopener">Radio/Podcast</a></li>
+          <li><a href="https://blog.branchofisrael.com/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.amazon.com/Hebraic-Prayers-Vine-Roger-Herman/dp/1442120991/" target="_blank" rel="noopener">Book</a></li>
+          <li><a href="https://branchofisrael.us2.list-manage.com/subscribe?u=a470704f567e4578282ec164c&id=593fb32e3c" target="_blank" rel="noopener">Newsletter</a></li>
+          <li><a href="https://www.paypal.com/donate/?business=B3BWAZD429VDY&no_recurring=0&currency_code=USD" target="_blank" rel="noopener">Donate</a></li>
+          <li><a href="/#contact">Contact Us</a></li>
+          <li><a href="/daily-decree.html" aria-current="page">Daily Decree</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Daily Decree</h1>
+
+    <!-- Your scroll bar widget (unchanged) -->
+    <style>
+      #scrollBar{
+        position:fixed; bottom:0; left:0; width:100%;
+        background:#000; padding:3px 3px 8px; z-index:1001;
+        color:#fff; display:flex; justify-content:center; align-items:flex-end; gap:10px; height:57px;
+      }
+      #incrementSpeed::before, #decrementSpeed::before{
+        content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+        width:0; height:0; border-left:12px solid transparent; border-right:12px solid transparent;
+      }
+      #incrementSpeed::before{ border-bottom:12px solid #fff; }
+      #decrementSpeed::before{ border-top:12px solid #fff; }
+      #scrollToggle, #incrementSpeed, #decrementSpeed{
+        width:30px; height:30px; background:#333; border:none; cursor:pointer; position:relative; transition:background-color 1s ease;
+      }
+      #scrollToggle{ width:auto; padding:5px 10px; color:#fff; }
+      #scrollToggle:hover, #incrementSpeed:hover, #decrementSpeed:hover,
+      #scrollToggle:active, #incrementSpeed:active, #decrementSpeed:active{
+        background-color:#0066ff !important;
+      }
+      .slider-container{ display:flex; flex-direction:column; align-items:center; gap:5px; }
+      .slider-controls{ display:flex; align-items:center; gap:5px; }
+      input[type="range"]{
+        -webkit-appearance:none; appearance:none; width:100px; height:8px; background:#666; border-radius:5px; outline:none;
+      }
+      input[type="range"]::-webkit-slider-thumb{
+        -webkit-appearance:none; appearance:none; width:20px; height:20px; background:#fff; border-radius:50%; cursor:pointer;
+      }
+      input[type="range"]::-moz-range-thumb{
+        width:20px; height:20px; background:#fff; border-radius:50%; cursor:pointer;
+      }
+      label[for="scrollSpeed"]{ color:#fff; font-size:11px; margin-bottom:1.5px; }
+      #speedValue{ position:relative; top:13px; }
+    </style>
+
+    <div id="scrollBar">
+      <div class="slider-container">
+        <label for="scrollSpeed"><span id="speedValue">1.50</span></label>
+        <div class="slider-controls">
+          <button id="decrementSpeed" aria-label="Decrease speed"></button>
+          <input type="range" id="scrollSpeed" min="0.01" max="10" step="0.01" value="0.06">
+          <button id="incrementSpeed" aria-label="Increase speed"></button>
+        </div>
+      </div>
+      <button id="scrollToggle">Start</button>
+    </div>
+
+    <script>
+      let scrolling = false;
+      let scrollSpeed = 0.06;
+      let accumulatedScroll = 0;
+      let scrollQueue = [];
+      let animationFrameId = null;
+      let lastTime = performance.now();
+
+      const savedScrollSpeed = getScrollSpeed();
+      if (savedScrollSpeed !== null) scrollSpeed = savedScrollSpeed;
+
+      function speedToPercentage(val){
+        if (typeof val !== 'number' || isNaN(val)) return '1.00';
+        const min = 0.01, max = 10, steps = (max - min)/0.01, idx = (val - min)/0.01;
+        const pct = 1 + (idx/steps)*99;
+        return (Math.round(pct*10)/10).toFixed(2);
+      }
+
+      function updateSpeedDisplay(){
+        document.getElementById('speedValue').textContent = speedToPercentage(scrollSpeed);
+        document.getElementById('scrollSpeed').value = scrollSpeed;
+        saveScrollSpeed(scrollSpeed);
+      }
+
+      function toggleAutoScroll(){
+        scrolling = !scrolling;
+        const btn = document.getElementById('scrollToggle');
+        btn.textContent = scrolling ? 'Stop' : 'Start';
+
+        if (scrolling){
+          lastTime = performance.now();
+          scrollQueue = [];
+          accumulatedScroll = 0;
+          autoScroll(lastTime);
+        } else {
+          if (animationFrameId){ cancelAnimationFrame(animationFrameId); animationFrameId = null; }
+          accumulatedScroll = 0;
+          scrollQueue = [];
+        }
+      }
+
+      const isIOSWebKit = /AppleWebKit/.test(navigator.userAgent) && /Mobile/.test(navigator.userAgent);
+
+      function autoScroll(t){
+        if (!scrolling) return;
+
+        const dt = (t - lastTime)/1000;
+        lastTime = t;
+
+        accumulatedScroll += scrollSpeed * dt * 60;
+        scrollQueue.push(accumulatedScroll);
+        if (scrollQueue.length > 3) scrollQueue.shift();
+
+        const avg = scrollQueue.reduce((a,b)=>a+b,0)/scrollQueue.length;
+
+        if (avg >= 0.2){
+          const amt = Math.floor(avg);
+          if (isIOSWebKit) window.scrollTo(0, window.scrollY + amt);
+          else {
+            try { window.scrollBy({ top: amt, behavior: 'smooth' }); }
+            catch { window.scrollTo(0, window.scrollY + amt); }
+          }
+          accumulatedScroll -= amt;
+        }
+
+        const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1;
+        if (atBottom){
+          scrolling = false;
+          document.getElementById('scrollToggle').textContent = 'Start';
+          if (animationFrameId){ cancelAnimationFrame(animationFrameId); animationFrameId = null; }
+          accumulatedScroll = 0;
+          scrollQueue = [];
+          return;
+        }
+
+        animationFrameId = requestAnimationFrame(autoScroll);
+      }
+
+      function saveScrollSpeed(s){ try{ localStorage.setItem("scrollSpeed", String(s)); }catch{} }
+      function getScrollSpeed(){ try{ const v = localStorage.getItem("scrollSpeed"); return v ? parseFloat(v) : null; }catch{ return null; } }
+
+      function handleButtonStyle(btn){
+        btn.style.backgroundColor = '#0066ff';
+        setTimeout(()=>{ btn.style.backgroundColor = '#333'; }, 300);
+      }
+
+      document.getElementById('scrollToggle').addEventListener('click', () => {
+        toggleAutoScroll();
+        handleButtonStyle(document.getElementById('scrollToggle'));
+      });
+
+      document.addEventListener('click', (e)=>{
+        if (e.target.id === 'incrementSpeed'){
+          scrollSpeed = Math.min(10, scrollSpeed + 0.01);
+          updateSpeedDisplay();
+          handleButtonStyle(e.target);
+        } else if (e.target.id === 'decrementSpeed'){
+          scrollSpeed = Math.max(0.01, scrollSpeed - 0.01);
+          updateSpeedDisplay();
+          handleButtonStyle(e.target);
+        }
+      });
+
+      document.addEventListener('input', (e)=>{
+        if (e.target.id === 'scrollSpeed'){
+          scrollSpeed = parseFloat(e.target.value);
+          updateSpeedDisplay();
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', updateSpeedDisplay);
+    </script>
+
+    <!-- Your actual content -->
+    <div class="content">
+      <p><strong>
+        My personal portals are open to receive God’s prosperity and abundance.<br>
+        My personal portals are open to release God’s prosperity and abundance as it flows through me.<br>
+        ...<br>
+        I thank you God for the abundance for my <em>______________________________</em>
+      </strong></p>
+
+      <p>
+        <a href="https://www.youtube.com/watch?v=L-08_XRoMR8&pp=ygUZam9zaHVhIG1pbGxzIGRhaWx5IGRlY3JlZQ%3D%3D"
+           target="_blank" rel="noopener">
+          <em>Manifesting Abundance - Joshua Mills</em>
+        </a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    Copyright 2025
+  </footer>
+</body>
+</html>
