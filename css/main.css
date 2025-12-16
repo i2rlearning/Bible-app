@@ -86,10 +86,12 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 
 /* Specific fix for images inside the Ministry cards */
 .scroll-item img {
-    /* You can define a specific max size here if you want them smaller than 100% */
-    max-width: 50%; 
-    display: block;
-    margin: 0 auto 10px auto; /* Centers the image */
+  width: 140px;          /* pick a size you like */
+  height: 140px;
+  max-width: none;       /* important: overrides your max-width:50% */
+  object-fit: contain;   /* keeps whole image visible */
+  display: block;
+  margin: 0 auto 12px;
 }   
 
 /* Tablet / Medium Screens: 2 items per visible area (50% width) */
