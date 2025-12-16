@@ -90,7 +90,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     max-width: 50%; 
     display: block;
     margin: 0 auto 10px auto; /* Centers the image */
-}	
+}   
 
 /* Tablet / Medium Screens: 2 items per visible area (50% width) */
 @media (max-width: 992px) {
@@ -185,7 +185,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     color: #007bff; 
     opacity: 1;    
 }
-	
+    
 /* DISABLED STATE */
 .scroll-overlay .scroll-btn.disabled {
     opacity: 0.3;
@@ -205,11 +205,11 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 /* *************** CONTACT US *************** */
 /* Target the image inside the m5 column for general scaling */
 .w3-col.m5 .removePic {
-	position: absolute; 
+    position: absolute; 
     
     top: auto !important; /* Resets the stuck 'top' position */
     bottom: 0;            /* Anchors image to the bottom */
-    left: 50%; 			  /* Moves the left edge of the image to the center */
+    left: 50%;            /* Moves the left edge of the image to the center */
     transform: translateX(-50%);  /* Slides the image back left by 50% of its own width */
     
     /*max-width: 85%;*/ 
@@ -239,7 +239,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 }
 
 .podcast-item {
-	color: white;
+    color: white;
 }
 
 .podcast-item img {
@@ -319,7 +319,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     padding: 8px 20px; 
     margin: 0; /* Remove margins to avoid shrinking */
 }
-	
+    
 /* --- COPYRIGHT AND GO-TO-TOP LAYOUT --- */
 .copyright-area {
     display: flex;
