@@ -57,30 +57,29 @@ if (emailInput && emailError && form) {
   });
 }
 
-/* *************** MINISTRY IMAGE HOVER SWAP *************** */
+/* *************** MINISTRY IMAGE HOVER SWAP (UPDATED) *************** */
 document.addEventListener("DOMContentLoaded", function () {
-  const anchors = document.querySelectorAll(".scroll-item a");
+  const images = document.querySelectorAll("#ministry img.image-swap");
 
-  anchors.forEach(function (anchor) {
-    const img = anchor.querySelector(".image-swap");
-    if (!img) return;
-
-    const originalSrc = img.src;
+  images.forEach(function (img) {
+    const originalSrc = img.getAttribute("src");
     const hoverSrc = img.getAttribute("data-hover");
+    if (!originalSrc || !hoverSrc) return;
 
-    anchor.addEventListener("mouseenter", function () {
-      if (hoverSrc) {
-        img.src = hoverSrc;
-      }
+    // Store original once so it always restores correctly
+    if (!img.dataset.originalSrc) img.dataset.originalSrc = originalSrc;
+
+    img.addEventListener("mouseenter", function () {
+      img.setAttribute("src", hoverSrc);
     });
 
-    anchor.addEventListener("mouseleave", function () {
-      img.src = originalSrc;
+    img.addEventListener("mouseleave", function () {
+      img.setAttribute("src", img.dataset.originalSrc);
     });
   });
 });
 
-/* *************** MINISTRY HORIZONTAL SCROLLER *************** */
+/* *************** MINISTRY HORIZONTAL SCROLLER (UPDATED) *************** */
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("ministry");
   const leftBtn = document.querySelector("#ministry-wrapper .scroll-btn.left");
@@ -91,23 +90,11 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // Scroll by one card width (with margins) if possible
+  // Scroll amount: stable and independent of item width quirks
   function getScrollAmount() {
-    const card = container.querySelector(".scroll-item");
-    if (card) {
-      const rect = card.getBoundingClientRect();
-      const style = window.getComputedStyle(card);
-      const marginLeft = parseFloat(style.marginLeft) || 0;
-      const marginRight = parseFloat(style.marginRight) || 0;
-      const cardWidth = rect.width + marginLeft + marginRight;
-
-      if (cardWidth > 0) {
-        return cardWidth;
-      }
-    }
-
-    // Fallback: visible width of container
-    return container.clientWidth || 0;
+    // 80% of visible width feels like "one page"
+    const amount = Math.round(container.clientWidth * 0.8);
+    return amount > 0 ? amount : 0;
   }
 
   function scrollMinistry(direction) {
@@ -122,7 +109,9 @@ document.addEventListener("DOMContentLoaded", function () {
       behavior: "smooth"
     });
 
-    setTimeout(updateArrows, 500);
+    // Update arrows after scroll animation settles
+    setTimeout(updateArrows, 350);
+    setTimeout(updateArrows, 700);
   }
 
   function updateArrows() {
@@ -143,19 +132,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Arrow click handlers
+  // Arrow click handlers (stop propagation so drag logic never interferes)
   leftBtn.addEventListener("click", function (e) {
     e.preventDefault();
+    e.stopPropagation();
+    if (leftBtn.classList.contains("disabled")) return;
     scrollMinistry(-1);
   });
 
   rightBtn.addEventListener("click", function (e) {
     e.preventDefault();
+    e.stopPropagation();
+    if (rightBtn.classList.contains("disabled")) return;
     scrollMinistry(1);
   });
 
   // Drag-to-scroll without breaking normal link clicks
-  // Captures the pointer only after the user actually drags past a small threshold
   let isPointerDown = false;
   let startX = 0;
   let startScrollLeft = 0;
@@ -164,11 +156,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const DRAG_THRESHOLD = 8;
 
   container.addEventListener("pointerdown", function (e) {
+    // Ignore clicks on the arrow buttons area, just in case
+    if (e.target && e.target.closest && e.target.closest(".scroll-btn")) return;
+
     isPointerDown = true;
     moved = false;
     activePointerId = e.pointerId;
     startX = e.clientX;
     startScrollLeft = container.scrollLeft;
+
+    container.style.cursor = "grabbing";
   });
 
   container.addEventListener("pointermove", function (e) {
@@ -185,6 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       container.scrollLeft = startScrollLeft - dx;
+      e.preventDefault();
     }
   });
 
@@ -202,12 +200,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     activePointerId = null;
+    container.style.cursor = "grab";
     updateArrows();
   }
 
   container.addEventListener("pointerup", endDrag);
   container.addEventListener("pointercancel", endDrag);
   container.addEventListener("pointerleave", endDrag);
+
+  // If the user dragged, prevent click navigation (but keep normal clicks working)
+  container.addEventListener("click", function (e) {
+    if (moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      moved = false;
+    }
+  }, true);
 
   // Update arrows on manual scroll (including drag or native touch scroll)
   container.addEventListener("scroll", updateArrows);
