@@ -2,9 +2,9 @@
 // Used to toggle the menu on smaller screens when clicking on the menu button
 function openNav() {
   var x = document.getElementById("mobileMenu");
-  if (x.className.indexOf("w3-show") === -1) {
+  if (x && x.className.indexOf("w3-show") === -1) {
     x.className += " w3-show";
-  } else {
+  } else if (x) {
     x.className = x.className.replace(" w3-show", "");
   }
 }
@@ -144,44 +144,63 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Arrow click handlers
-  leftBtn.addEventListener("click", function () {
+  leftBtn.addEventListener("click", function (e) {
+    e.preventDefault();
     scrollMinistry(-1);
   });
 
-  rightBtn.addEventListener("click", function () {
+  rightBtn.addEventListener("click", function (e) {
+    e.preventDefault();
     scrollMinistry(1);
   });
 
-  // Touchscreen / mouse drag to scroll
-  let isDragging = false;
+  // Drag-to-scroll without breaking normal link clicks
+  // Captures the pointer only after the user actually drags past a small threshold
+  let isPointerDown = false;
   let startX = 0;
   let startScrollLeft = 0;
   let activePointerId = null;
+  let moved = false;
+  const DRAG_THRESHOLD = 8;
 
   container.addEventListener("pointerdown", function (e) {
-    isDragging = true;
+    isPointerDown = true;
+    moved = false;
     activePointerId = e.pointerId;
-    container.setPointerCapture(activePointerId);
     startX = e.clientX;
     startScrollLeft = container.scrollLeft;
   });
 
   container.addEventListener("pointermove", function (e) {
-    if (!isDragging || e.pointerId !== activePointerId) return;
+    if (!isPointerDown || e.pointerId !== activePointerId) return;
+
     const dx = e.clientX - startX;
-    container.scrollLeft = startScrollLeft - dx;
+
+    if (Math.abs(dx) > DRAG_THRESHOLD) {
+      moved = true;
+
+      // Capture only once we know it's a drag
+      if (!container.hasPointerCapture(activePointerId)) {
+        container.setPointerCapture(activePointerId);
+      }
+
+      container.scrollLeft = startScrollLeft - dx;
+    }
   });
 
   function endDrag(e) {
-    if (!isDragging || (e && e.pointerId !== activePointerId)) return;
-    isDragging = false;
-    if (activePointerId !== null) {
+    if (!isPointerDown || (e && e.pointerId !== activePointerId)) return;
+
+    isPointerDown = false;
+
+    if (activePointerId !== null && container.hasPointerCapture(activePointerId)) {
       try {
         container.releasePointerCapture(activePointerId);
       } catch (err) {
-        // ignore if capture was not set
+        // ignore
       }
     }
+
     activePointerId = null;
     updateArrows();
   }
@@ -202,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateArrows();
 });
 
-// ************ GO TO TOP BUTTON - DISPLAYS AFTER 300PX OF SCROLLING *****************
+/* ************ GO TO TOP BUTTON - DISPLAYS AFTER 300PX OF SCROLLING ************ */
 document.addEventListener("DOMContentLoaded", function () {
   const topBtn = document.querySelector(".go-to-top-button");
   if (!topBtn) return;
@@ -215,8 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Handle scroll
   window.addEventListener("scroll", toggleTopButton);
-  // Initial state
   toggleTopButton();
 });
