@@ -149,6 +149,21 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     margin: 8px 0 0;
 }
 
+/* Prevent image dragging / text selection interfering with grab */
+#ministry, #ministry * {
+  user-select: none;
+}
+
+#ministry img {
+  -webkit-user-drag: none;
+}
+
+/* Still allow clicking links */
+#ministry a, #ministry a * {
+  pointer-events: auto;
+}
+
+
 /* Hide scrollbar */
 #ministry::-webkit-scrollbar { display: none; }
 #ministry { scrollbar-width: none; }
