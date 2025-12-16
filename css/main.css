@@ -16,73 +16,53 @@
   display: block;
   float: left;
   cursor: pointer;
-  text-decoration: none;
-  box-sizing: border-box;
   background-color: #000;
-  color: white;
+  color: #fff;
 }
-
 .nav-toggle-btn:hover {
   background-color: #1d44b8;
 }
 
-/* Mobile menu container */
 nav .mobile-menu {
   display: none;
   background-color: #000;
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: left;
 }
 
-/* Close button */
 nav .mobile-menu .mobile-close-btn {
-  display: block;
-  padding: 12px 16px 20px 16px;
+  padding: 12px 16px 20px;
   font-size: 22px;
-  background-color: #000;
   color: #1d44b8;
-  cursor: pointer;
+  background-color: #000;
 }
-
 nav .mobile-menu .mobile-close-btn:hover {
   color: red;
 }
 
-/* Menu items */
 nav .mobile-menu a:not(.mobile-close-btn) {
-  display: block;
   padding: 12px 45px;
-  color: white;
-  text-decoration: none;
+  display: block;
+  color: #fff;
   font-size: 18px;
 }
-
 nav .mobile-menu a:not(.mobile-close-btn):hover {
   background-color: #1d44b8;
 }
 
 /* =========================================================
-   MINISTRY SCROLLER (Option A - SAFE)
+   MINISTRY SCROLLER
    ========================================================= */
-
-/* Wrapper */
 .scroll-wrapper {
   position: relative;
-  z-index: 0;
 }
 
-/* Scroll container */
 #ministry {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-behavior: smooth;
-  justify-content: flex-start;
-  padding: 2rem 0;
-  position: relative;
-  z-index: 1;
+  -webkit-overflow-scrolling: touch;
 
   cursor: grab;
   align-items: stretch;
@@ -92,10 +72,11 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   cursor: grabbing;
 }
 
-/* Cards */
+/* Force overflow */
 #ministry .scroll-item {
-  flex-shrink: 0;
-  width: 25%;
+  flex: 0 0 auto;
+  width: 280px;
+  margin: 0 20px;
   padding: 16px;
   box-sizing: border-box;
   text-align: center;
@@ -104,21 +85,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   flex-direction: column;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
-  #ministry .scroll-item {
-    width: 50%;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  #ministry .scroll-item {
-    width: 100%;
-  }
-}
-
-/* Make card content vertical */
+/* Clickable card */
 #ministry .scroll-item a {
   display: flex;
   flex-direction: column;
@@ -127,14 +94,14 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   text-decoration: none;
 }
 
-/* FIXED IMAGE BOX - DOES NOT BREAK JS */
-#ministry .scroll-item img {
+/* Option A fixed image box */
+#ministry .scroll-item img.image-swap {
   width: 140px;
   height: 140px;
   max-width: none;
   object-fit: contain;
+  margin-bottom: 12px;
   display: block;
-  margin: 0 auto 12px;
 }
 
 /* Title alignment */
@@ -144,7 +111,6 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   line-height: 1.3;
 }
 
-/* Description */
 #ministry .scroll-item p {
   margin: 8px 0 0;
 }
@@ -154,15 +120,15 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 #ministry { scrollbar-width: none; }
 
 /* =========================================================
-   SCROLL ARROWS
+   ARROWS
    ========================================================= */
 .scroll-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 70px;
-  z-index: 100;
   pointer-events: none;
+  z-index: 10;
 }
 
 .scroll-overlay.left {
@@ -175,34 +141,28 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
 }
 
-/* Arrow buttons */
 .scroll-overlay .scroll-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 2em;
   background: none;
   border: none;
-  font-size: 2em;
   cursor: pointer;
-  color: #333;
-  z-index: 101;
   pointer-events: auto;
+  color: #333;
 }
+
+.scroll-overlay.left .scroll-btn { right: 10px; }
+.scroll-overlay.right .scroll-btn { left: 10px; }
 
 .scroll-overlay .scroll-btn.disabled {
   opacity: 0.3;
   cursor: default;
 }
 
-.scroll-overlay .scroll-btn:hover:not(.disabled) {
-  color: #007bff;
-}
-
-.scroll-overlay.left .scroll-btn { right: 10px; }
-.scroll-overlay.right .scroll-btn { left: 10px; }
-
 /* =========================================================
-   CONTACT SECTION
+   CONTACT IMAGE
    ========================================================= */
 .w3-col.m5 .removePic {
   position: absolute;
@@ -210,13 +170,10 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   left: 50%;
   transform: translateX(-50%);
   height: 90%;
-  object-fit: contain;
 }
 
 @media (max-width: 600px) {
-  .removePic {
-    display: none !important;
-  }
+  .removePic { display: none !important; }
 }
 
 /* =========================================================
@@ -224,109 +181,39 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
    ========================================================= */
 .podcast-grid {
   display: grid;
-  background-color: #333;
+  grid-template-columns: 1fr;
+  background: #333;
   padding: 64px 16px;
   gap: 32px;
-  grid-template-columns: 1fr;
 }
-
-.podcast-item {
-  color: white;
-}
-
-.podcast-item img {
-  display: block;
-  margin: 0 auto;
-}
-
 @media (min-width: 600px) {
-  .podcast-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .podcast-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (min-width: 993px) {
-  .podcast-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .podcast-grid { grid-template-columns: repeat(4, 1fr); }
 }
+.podcast-item { color: #fff; }
+.podcast-item img { margin: 0 auto; display: block; }
 
 /* =========================================================
    FOOTER
    ========================================================= */
 .footer-columns-wrapper {
   display: flex;
-  justify-content: space-between;
   gap: 20px;
-  margin-bottom: 20px;
   flex-wrap: wrap;
 }
-
-.footer-col {
-  flex: 1;
-  min-width: 200px;
-}
-
+.footer-col { flex: 1; min-width: 200px; }
 .footer-col h4 {
   border-bottom: 1px solid rgba(255,255,255,0.2);
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  color: white;
+  color: #fff;
 }
+.footer-col a { color: #ccc; display: block; }
 
-.footer-col a {
-  color: #ccc;
-  text-decoration: none;
-  display: block;
-  padding: 2px 0;
-}
-
-.footer-col-3 {
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-}
-
-.footer-col-3 form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footer-col-3 input[type="email"],
-.footer-col-3 input[type="submit"] {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 8px 20px;
-}
-
-/* =========================================================
-   COPYRIGHT
-   ========================================================= */
-.copyright-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ccc;
-  font-size: 14px;
-}
-
-.privacy-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.link-separator {
-  padding: 0 5px;
-}
-
-/* =========================================================
-   GO TO TOP BUTTON
-   ========================================================= */
 .go-to-top-button {
-  position: fixed !important;
+  position: fixed;
   right: 16px;
   bottom: 16px;
-  z-index: 9999;
   display: none;
+  z-index: 9999;
 }
