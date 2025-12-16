@@ -1,9 +1,10 @@
 /* *************** NAVBAR *************** */
+// Used to toggle the menu on smaller screens when clicking on the menu button
 function openNav() {
   var x = document.getElementById("mobileMenu");
-  if (x && x.className.indexOf("w3-show") === -1) {
+  if (x.className.indexOf("w3-show") === -1) {
     x.className += " w3-show";
-  } else if (x) {
+  } else {
     x.className = x.className.replace(" w3-show", "");
   }
 }
@@ -56,108 +57,166 @@ if (emailInput && emailError && form) {
   });
 }
 
-/* *************** MINISTRY IMAGE HOVER SWAP (FIXED) *************** */
+/* *************** MINISTRY IMAGE HOVER SWAP *************** */
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("#ministry img.image-swap").forEach(function (img) {
-    const originalSrc = img.getAttribute("src");
+  const anchors = document.querySelectorAll(".scroll-item a");
+
+  anchors.forEach(function (anchor) {
+    const img = anchor.querySelector(".image-swap");
+    if (!img) return;
+
+    const originalSrc = img.src;
     const hoverSrc = img.getAttribute("data-hover");
-    if (!hoverSrc) return;
 
-    img.dataset.originalSrc = originalSrc;
-
-    img.addEventListener("mouseenter", function () {
-      img.setAttribute("src", hoverSrc);
+    anchor.addEventListener("mouseenter", function () {
+      if (hoverSrc) {
+        img.src = hoverSrc;
+      }
     });
 
-    img.addEventListener("mouseleave", function () {
-      img.setAttribute("src", img.dataset.originalSrc);
+    anchor.addEventListener("mouseleave", function () {
+      img.src = originalSrc;
     });
   });
 });
 
-/* *************** MINISTRY HORIZONTAL SCROLLER (FIXED) *************** */
+/* *************** MINISTRY HORIZONTAL SCROLLER *************** */
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("ministry");
   const leftBtn = document.querySelector("#ministry-wrapper .scroll-btn.left");
   const rightBtn = document.querySelector("#ministry-wrapper .scroll-btn.right");
 
-  if (!container || !leftBtn || !rightBtn) return;
+  if (!container || !leftBtn || !rightBtn) {
+    console.warn("Ministry scroller - elements not found");
+    return;
+  }
 
+  // Scroll by one card width (with margins) if possible
   function getScrollAmount() {
-    return Math.round(container.clientWidth * 0.8);
+    const card = container.querySelector(".scroll-item");
+    if (card) {
+      const rect = card.getBoundingClientRect();
+      const style = window.getComputedStyle(card);
+      const marginLeft = parseFloat(style.marginLeft) || 0;
+      const marginRight = parseFloat(style.marginRight) || 0;
+      const cardWidth = rect.width + marginLeft + marginRight;
+
+      if (cardWidth > 0) {
+        return cardWidth;
+      }
+    }
+
+    // Fallback: visible width of container
+    return container.clientWidth || 0;
+  }
+
+  function scrollMinistry(direction) {
+    const amount = getScrollAmount();
+    if (!amount) {
+      console.warn("Ministry scroller - scroll amount is 0");
+      return;
+    }
+
+    container.scrollBy({
+      left: direction * amount,
+      behavior: "smooth"
+    });
+
+    setTimeout(updateArrows, 500);
   }
 
   function updateArrows() {
     const tolerance = 5;
     const maxScroll = container.scrollWidth - container.clientWidth;
+    const currentScroll = container.scrollLeft;
 
-    leftBtn.classList.toggle("disabled", container.scrollLeft <= tolerance);
-    rightBtn.classList.toggle("disabled", container.scrollLeft >= maxScroll - tolerance);
+    if (currentScroll <= tolerance) {
+      leftBtn.classList.add("disabled");
+    } else {
+      leftBtn.classList.remove("disabled");
+    }
+
+    if (currentScroll >= maxScroll - tolerance) {
+      rightBtn.classList.add("disabled");
+    } else {
+      rightBtn.classList.remove("disabled");
+    }
   }
 
-  leftBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (leftBtn.classList.contains("disabled")) return;
-    container.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+  // Arrow click handlers
+  leftBtn.addEventListener("click", function () {
+    scrollMinistry(-1);
   });
 
-  rightBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (rightBtn.classList.contains("disabled")) return;
-    container.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+  rightBtn.addEventListener("click", function () {
+    scrollMinistry(1);
   });
 
-  let isDown = false;
+  // Touchscreen / mouse drag to scroll
+  let isDragging = false;
   let startX = 0;
   let startScrollLeft = 0;
-  let dragged = false;
-  const DRAG_THRESHOLD = 8;
+  let activePointerId = null;
 
   container.addEventListener("pointerdown", function (e) {
-    isDown = true;
-    dragged = false;
+    isDragging = true;
+    activePointerId = e.pointerId;
+    container.setPointerCapture(activePointerId);
     startX = e.clientX;
     startScrollLeft = container.scrollLeft;
   });
 
   container.addEventListener("pointermove", function (e) {
-    if (!isDown) return;
-
+    if (!isDragging || e.pointerId !== activePointerId) return;
     const dx = e.clientX - startX;
-    if (Math.abs(dx) > DRAG_THRESHOLD) dragged = true;
-
-    if (dragged) {
-      container.scrollLeft = startScrollLeft - dx;
-      e.preventDefault();
-    }
+    container.scrollLeft = startScrollLeft - dx;
   });
 
-  container.addEventListener("pointerup", function () {
-    isDown = false;
+  function endDrag(e) {
+    if (!isDragging || (e && e.pointerId !== activePointerId)) return;
+    isDragging = false;
+    if (activePointerId !== null) {
+      try {
+        container.releasePointerCapture(activePointerId);
+      } catch (err) {
+        // ignore if capture was not set
+      }
+    }
+    activePointerId = null;
     updateArrows();
+  }
+
+  container.addEventListener("pointerup", endDrag);
+  container.addEventListener("pointercancel", endDrag);
+  container.addEventListener("pointerleave", endDrag);
+
+  // Update arrows on manual scroll (including drag or native touch scroll)
+  container.addEventListener("scroll", updateArrows);
+
+  // Initial checks
+  window.addEventListener("load", function () {
+    updateArrows();
+    setTimeout(updateArrows, 200);
   });
 
-  container.addEventListener("click", function (e) {
-    if (dragged) {
-      e.preventDefault();
-      e.stopPropagation();
-      dragged = false;
-    }
-  }, true);
-
-  container.addEventListener("scroll", updateArrows);
-  window.addEventListener("load", updateArrows);
+  updateArrows();
 });
 
-/* ************ GO TO TOP BUTTON ************ */
+// ************ GO TO TOP BUTTON - DISPLAYS AFTER 300PX OF SCROLLING *****************
 document.addEventListener("DOMContentLoaded", function () {
   const topBtn = document.querySelector(".go-to-top-button");
   if (!topBtn) return;
 
   function toggleTopButton() {
-    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    if (window.scrollY > 300) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
   }
 
+  // Handle scroll
   window.addEventListener("scroll", toggleTopButton);
+  // Initial state
   toggleTopButton();
 });
