@@ -1,142 +1,145 @@
 /* *************** DONATE BUTTON *************** */
 .donate-button {
-    background-color: red !important;
+  background-color: red !important;
 }
 .donate-button:hover {
-    background-color: #a30000 !important; 
+  background-color: #a30000 !important;
 }
-
 
 /* *************** NAVBAR *************** */
 .nav-toggle-btn {
-    padding: 8px 16px;
-    display: block;
-    float: left;
-    cursor: pointer;
-    text-decoration: none;
-    box-sizing: border-box;
-    background-color: #000;
-    color: white;
+  padding: 8px 16px;
+  display: block;
+  float: left;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+  background-color: #000;
+  color: white;
 }
-
 .nav-toggle-btn:hover {
-    background-color: #1d44b8;
+  background-color: #1d44b8;
 }
 
 /* Mobile menu container */
 nav .mobile-menu {
-    display: none;
-    background-color: #000;
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: left;
+  display: none;
+  background-color: #000;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 
 /* CLOSE BUTTON (X) */
 nav .mobile-menu .mobile-close-btn {
-    display: block;
-    padding: 12px 16px 20px 16px;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    text-align: left;
-    box-sizing: border-box;
-    font-size: 22px;
-    background-color: #000;
-    color: #1d44b8; /* blue X */
+  display: block;
+  padding: 12px 16px 20px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  box-sizing: border-box;
+  font-size: 22px;
+  background-color: #000;
+  color: #1d44b8;
 }
 
 /* Close button hover: stays black */
 nav .mobile-menu .mobile-close-btn:hover {
-    background-color: #000 !important;
-    color: red;
+  background-color: #000 !important;
+  color: red;
 }
 
 /* MENU ITEMS ONLY (not the X) */
 nav .mobile-menu a:not(.mobile-close-btn) {
-    display: block;
-    padding: 12px 45px !important; /* indents text */
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
+  display: block;
+  padding: 12px 45px !important;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
 }
-
-/* Hover effect for menu items */
 nav .mobile-menu a:not(.mobile-close-btn):hover {
-    background-color: #1d44b8;
-    color: white;
+  background-color: #1d44b8;
+  color: white;
 }
 
 /* Keeps "Newsletter" background white while hovering over sub-menus */
 .w3-dropdown-hover:hover > .w3-button {
-    background-color: #fff !important;
-    color: #000 !important;
+  background-color: #fff !important;
+  color: #000 !important;
 }
 
 /* *************** MINISTRY *************** */
 #ministry .scroll-item {
-    /* Large Screens: 4 items per visible area (25% width) */
-    flex-shrink: 0; 
-    width: 25%;
-    padding: 16px; /* Add some internal padding */
-    box-sizing: border-box; /* Include padding in the width calculation */
-    text-align: center; /* Center the text and images */
+  flex-shrink: 0;
+  width: 25%;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 /* Specific fix for images inside the Ministry cards */
 .scroll-item img {
-  width: 140px;          /* pick a size you like */
+  width: 140px;
   height: 140px;
-  max-width: none;       /* important: overrides your max-width:50% */
-  object-fit: contain;   /* keeps whole image visible */
+  max-width: none;
+  object-fit: contain;
   display: block;
   margin: 0 auto 12px;
-}   
+}
 
 /* Tablet / Medium Screens: 2 items per visible area (50% width) */
 @media (max-width: 992px) {
-    #ministry .scroll-item {
-        width: 50%;
-    }
+  #ministry .scroll-item {
+    width: 50%;
+  }
 }
 
 @media (max-width: 600px) {
-    #ministry .scroll-item {
-        width: 100%;
-    }
+  #ministry .scroll-item {
+    width: 100%;
+  }
 }
 
-/* sroller for ministry section*/
+/* scroller for ministry section */
 /* WRAPPER (Outer container for scroll area and fixed overlays) */
 .scroll-wrapper {
-    position: relative;
-    z-index: 0;
+  position: relative;
+  z-index: 0;
 }
 
 /* SCROLL AREA (#ministry holds the actual content and scrolls) */
 #ministry {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    justify-content: flex-start;
-    padding: 2rem 0;
-    position: relative;
-    z-index: 1; 
-    cursor: grab;
-    padding: 2rem 56px;
-    scroll-padding-left: 45px;
-    scroll-padding-right: 45px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1;
+
+  /* edge buffer so content never sits under overlays */
+  padding: 2rem 56px;
+  box-sizing: border-box;
+
+  /* keep these matching the padding */
+  scroll-padding-left: 56px;
+  scroll-padding-right: 56px;
+
+  cursor: grab;
+}
+#ministry:active {
+  cursor: grabbing;
 }
 
-/* INDIVIDUAL CARD OVERRIDES */
+/* INDIVIDUAL CARD OVERRIDES (if you are not using .w3-quarter here, this can be removed) */
 #ministry .w3-quarter {
-    flex: 0 0 auto;
-    width: 280px;
-    float: none !important;
-    margin: 0 20px;
-    box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 280px;
+  float: none !important;
+  margin: 0 20px;
+  box-sizing: border-box;
 }
 
 /* SCROLLBAR HIDE (optional) */
@@ -144,237 +147,190 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 #ministry { scrollbar-width: none; }
 
 /* ----------------------------------------------------------------- */
-/* ARROW OVERLAY & BUTTON STYLES (Cleaned up) */
+/* ARROW OVERLAY & BUTTON STYLES */
 /* ----------------------------------------------------------------- */
-
-/* OVERLAY BOXES (The "thin vertical rectangles") */
 .scroll-overlay {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 40px; /* Width of the rectangle */
-    background: white; /*linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent); */ /*Suggestion: use a gradient for a smooth transition */
-    pointer-events: none; /* Crucial: Allows clicks to pass through by default */
-    z-index: 100;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background: white;
+  pointer-events: none;
+  z-index: 100;
 }
-
+.scroll-overlay.left {
+  left: 0;
+}
 .scroll-overlay.right {
-    right: 0;
-    background: white; /*linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent); */ /* Reverse gradient for right side */
+  right: 0;
 }
 
 /* The actual arrow button */
 .scroll-overlay .scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 2em;
-    cursor: pointer;
-    color: #333;
-    z-index: 101;
-    pointer-events: auto; /* Re-enable clicks ONLY on the button */
-    transition: opacity 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #333;
+  z-index: 101;
+  pointer-events: auto;
+  transition: opacity 0.3s;
 }
 
 /* Button Positioning within their overlays */
-.scroll-overlay.left .scroll-btn {
-    right: 10px; /* Positions the button 10px from the inner edge */
-}
-.scroll-overlay.right .scroll-btn {
-    left: 10px; /* Positions the button 10px from the inner edge */
-}
+.scroll-overlay.left .scroll-btn { right: 10px; }
+.scroll-overlay.right .scroll-btn { left: 10px; }
 
 /* ENABLED STATE */
 .scroll-overlay .scroll-btn:hover:not(.disabled) {
-    color: #007bff; 
-    opacity: 1;    
+  color: #007bff;
+  opacity: 1;
 }
-    
+
 /* DISABLED STATE */
 .scroll-overlay .scroll-btn.disabled {
-    opacity: 0.3;
-    cursor: default;
+  opacity: 0.3;
+  cursor: default;
 }
-
-
-#ministry:active {
-  cursor: grabbing;
-}
-
 
 /* *************** CONTACT US *************** */
-/* Target the image inside the m5 column for general scaling */
 .w3-col.m5 .removePic {
-    position: absolute; 
-    
-    top: auto !important; /* Resets the stuck 'top' position */
-    bottom: 0;            /* Anchors image to the bottom */
-    left: 50%;            /* Moves the left edge of the image to the center */
-    transform: translateX(-50%);  /* Slides the image back left by 50% of its own width */
-    
-    /*max-width: 85%;*/ 
-    height: 90%;
-    object-fit: contain; 
-    display: block;
+  position: absolute;
+  top: auto !important;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 90%;
+  object-fit: contain;
+  display: block;
 }
 
-/* Mobile / Small Screens: 1 item per visible area (100% width) */
 @media (max-width: 600px) {
-    .removePic {
-        display: none !important;
-    }
+  .removePic {
+    display: none !important;
+  }
 }
 
 /* *************** PODCAST *************** */
 .podcast-grid {
-    display: grid;
-    background-color: #333; 
-    padding: 64px 16px; 
-    gap: 32px; /* Space between grid items */
+  display: grid;
+  background-color: #333;
+  padding: 64px 16px;
+  gap: 32px;
+  grid-template-columns: 1fr; /* Default for small screens */
 }
 
-/* Default for small screens: 1 column */
-.podcast-grid {
-    grid-template-columns: 1fr;
-}
-
-.podcast-item {
-    color: white;
-}
-
+.podcast-item { color: white; }
 .podcast-item img {
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Medium screens (600px+): 2 columns */
 @media (min-width: 600px) {
-    .podcast-grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
+  .podcast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* Large screens (993px+): 4 columns */
 @media (min-width: 993px) {
-    .podcast-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .podcast-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
-
 
 /* *************** FOOTER *************** */
-/* --- FLEXBOX FOR 3 COLUMNS --- */
 .footer-columns-wrapper {
-    display: flex;
-    justify-content: space-between; /* Spreads columns evenly */
-    gap: 20px; /* Space between columns */
-    margin-bottom: 20px; /* Space above the copyright/separator line */
-    /* Allows content to wrap to a single column on small screens */
-    flex-wrap: wrap; 
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .footer-col {
-    /* Each column takes up an equal amount of space */
-    flex: 1; 
-    min-width: 200px; /* Prevents columns from getting too narrow before wrapping */
+  flex: 1;
+  min-width: 200px;
 }
 
-/* Style for column headings */
 .footer-col h4 {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    color: white; /* Match W3.CSS theme text */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+ color: white;
 }
 
 .footer-col a {
-    color: #ccc; /* Lighter link color */
-    text-decoration: none;
-    display: block; /* Makes links stack vertically */
-    padding: 2px 0;
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  padding: 2px 0;
 }
 
-/* Ensure the form fills the full width of its parent */
 .footer-col-3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 10px;  /* Adjust padding-top if necessary */
-    width: 100%;  /* Ensure it takes full width of the footer column */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 10px;
+  width: 100%;
 }
 
 .footer-col-3 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between email input and button */
-    width: 100%; /* Ensure form spans full width of the column */
-    margin: 0;  /* Remove margin to prevent width issue */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
 }
 
-/* Ensure inputs are full-width */
 .footer-col-3 input[type="email"],
 .footer-col-3 input[type="submit"] {
-    width: 100%;
-    box-sizing: border-box; /* Includes padding and border in total width */
-    padding: 8px 20px; 
-    margin: 0; /* Remove margins to avoid shrinking */
-}
-    
-/* --- COPYRIGHT AND GO-TO-TOP LAYOUT --- */
-.copyright-area {
-    display: flex;
-    justify-content: space-between; /* Puts copyright on the left, button on the right */
-    align-items: center;
-    width: 100%;
-    color: #ccc;
-    font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 20px;
+  margin: 0;
 }
 
-/* Style for the horizontal rule */
 .footer-separator {
-    border: 0;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 10px 0;
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 10px 0;
 }
 
-/* --- Adjust Copyright Area Layout --- */
+/* Keep only one copyright-area definition */
 .copyright-area {
-    /* Set the footer's bottom section as the positioning context */
-    position: relative; 
-    /* Use display: block (or flex-direction: column) to allow the content to center */
-    display: flex;
-    justify-content: center; /* This centers the primary content horizontally */
-    align-items: center; 
-    width: 100%;
-    color: #ccc;
-    font-size: 14px;
-    padding-bottom: 5px; /* Add some padding at the bottom for clearance */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #ccc;
+  font-size: 14px;
+  padding-bottom: 5px;
 }
 
-/* --- Style for the Centered Text Block --- */
 .copyright-center-content {
-    /* Ensures this block is what gets centered by the parent's justify-content: center */
-    display: inline-block; 
+  display: inline-block;
 }
 
 .privacy-link {
-    color: inherit; /* Inherit the light gray color from the parent */
-    text-decoration: none;
-    padding-left: 5px; /* Small gap between the bullet and the link */
+  color: inherit;
+  text-decoration: none;
+  padding-left: 5px;
 }
 
 .link-separator {
-    padding: 0 5px; /* Padding around the bullet for spacing */
+  padding: 0 5px;
 }
 
 /* *************** GO TO TOP BUTTON *************** */
 .go-to-top-button {
-    position: fixed !important;
-    right: 16px;
-    bottom: 16px;
-    z-index: 9999;
-    display: none;
+  position: fixed !important;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: none;
 }
