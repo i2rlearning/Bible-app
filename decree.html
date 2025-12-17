@@ -6,6 +6,7 @@
   <title>Daily Decree</title>
 
   <link href="/css/decree.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,23 +14,39 @@
 </head>
 
 <body>
-
-<header>
-  <div class="nav-inner">
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="https://www.youtube.com/@branchofisrael" target="_blank" rel="noopener">Radio/Podcast</a></li>
-        <li><a href="https://blog.branchofisrael.com/" target="_blank" rel="noopener">Blog</a></li>
-        <li><a href="https://www.amazon.com/Hebraic-Prayers-Vine-Roger-Herman/dp/1442120991/" target="_blank" rel="noopener">Book</a></li>
-        <li><a href="https://branchofisrael.us2.list-manage.com/subscribe?u=a470704f567e4578282ec164c&id=593fb32e3c" target="_blank" rel="noopener">Newsletter</a></li>
-        <li><a href="https://www.paypal.com/donate/?business=B3BWAZD429VDY&no_recurring=0&currency_code=USD" target="_blank" rel="noopener">Donate</a></li>
-        <li><a href="/#contact">Contact Us</a></li>
-        <li><a href="/daily-decree.html" aria-current="page">Daily Decree</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<!-- Navbar -->
+	<nav class="w3-top">
+	  <div class="w3-bar w3-theme-d2 w3-left-align">
+		<a class="nav-toggle-btn w3-hide-medium w3-hide-large" href="javascript:void(0);" onclick="openNav()">
+		  <i class="fa fa-bars"></i>
+		</a>
+	
+	    <a href="https://www.paypal.com/donate/?business=B3BWAZD429VDY&no_recurring=0&currency_code=USD" class="w3-bar-item w3-button w3-right donate-button">Donate</a>
+	
+	    <a href="#" class="w3-bar-item w3-button w3-hide-small" style="background-color:#1d44b8;">Home</a>
+	    <a href="#ministry" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Ministry</a>
+	    <a href="#podcast" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Podcasts</a>
+	    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact Us</a>
+	
+	    <div class="w3-dropdown-hover w3-hide-small">
+	      <button class="w3-button w3-hover-white" title="Notifications">Newsletter <i class="fa fa-caret-down"></i></button>
+	      <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+	        <a href="#newsletter" class="w3-bar-item w3-button">Sign-up</a>
+	        <a href="https://us2.campaign-archive.com/home/?u=a470704f567e4578282ec164c&id=593fb32e3c" class="w3-bar-item w3-button" target="_blank" style="text-decoration:none">Past Newsletters</a>
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div id="mobileMenu" class="mobile-menu">
+	    <a href="javascript:void(0)" onclick="openNav()" class="mobile-close-btn">X</a>
+	    <a href="#" onclick="openNav()">Home</a>
+	    <a href="#ministry" onclick="openNav()">Ministry</a>
+	    <a href="#podcast" onclick="openNav()">Podcast</a>
+	    <a href="#contact" onclick="openNav()">Contact Us</a>
+	    <a href="#newsletter" onclick="openNav()">Newsletter Sign-up</a>
+	    <a href="https://us2.campaign-archive.com/home/?u=a470704f567e4578282ec164c&id=593fb32e3c" onclick="openNav()" target="_blank" style="text-decoration:none">Past Newsletters</a>
+	  </div>
+	</nav>
 
 <main>
   <div class="content">
