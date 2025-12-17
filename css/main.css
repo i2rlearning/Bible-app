@@ -148,7 +148,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     position: absolute;
     top: 0;
     height: 100%;
-    width: 60px; /* Width of the rectangle */
+    width: 40px; /* Width of the rectangle */
     background: white; /*linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent); */ /*Suggestion: use a gradient for a smooth transition */
     pointer-events: none; /* Crucial: Allows clicks to pass through by default */
     z-index: 100;
@@ -156,7 +156,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 
 .scroll-overlay.right {
     right: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent); /* Reverse gradient for right side */
+    background: white; /*linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent); */ /* Reverse gradient for right side */
 }
 
 /* The actual arrow button */
