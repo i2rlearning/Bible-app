@@ -124,6 +124,10 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     padding: 2rem 0;
     position: relative;
     z-index: 1; 
+    cursor: grab;
+    padding: 2rem 56px;
+    scroll-padding-left: 45px;
+    scroll-padding-right: 45px;
 }
 
 /* INDIVIDUAL CARD OVERRIDES */
@@ -194,13 +198,6 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     cursor: default;
 }
 
-/* Chamnges cursor when over the scroller from a pointer finger to a hand grabbing the scroller */
-#ministry {
-  cursor: grab;
-  padding: 2rem 56px;
-  scroll-padding-left: 56px;
-  scroll-padding-right: 56px;
-}
 
 #ministry:active {
   cursor: grabbing;
