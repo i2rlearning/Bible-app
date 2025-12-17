@@ -112,8 +112,6 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 .scroll-wrapper {
     position: relative;
     z-index: 0;
-    padding-left: 50px;
-    padding-right: 50px;
 }
 
 /* SCROLL AREA (#ministry holds the actual content and scrolls) */
@@ -199,6 +197,9 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 /* Chamnges cursor when over the scroller from a pointer finger to a hand grabbing the scroller */
 #ministry {
   cursor: grab;
+  padding: 2rem 56px;
+  scroll-padding-left: 56px;
+  scroll-padding-right: 56px;
 }
 
 #ministry:active {
