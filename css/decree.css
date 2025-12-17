@@ -179,7 +179,6 @@ input[type="range"]::-moz-range-thumb{
   background: #3f3f3f;  
   border: 1px solid #666;
   border-radius: 2px;
-
   cursor: pointer;
   position: relative;
   padding: 0;
@@ -213,7 +212,7 @@ input[type="range"]::-moz-range-thumb{
 
 #scrollToggle{
   height: 30px;
-  padding: 0 12px;
+  padding: 10px 12px;
   background: #3f3f3f;
   border: 1px solid #666;
   border-radius: 2px;
