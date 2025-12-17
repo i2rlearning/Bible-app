@@ -112,8 +112,8 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 .scroll-wrapper {
     position: relative;
     z-index: 0;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 /* SCROLL AREA (#ministry holds the actual content and scrolls) */
@@ -150,7 +150,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     position: absolute;
     top: 0;
     height: 100%;
-    width: 20px; /* Width of the rectangle */
+    width: 40px; /* Width of the rectangle */
     background: white; /*linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent); */ /*Suggestion: use a gradient for a smooth transition */
     pointer-events: none; /* Crucial: Allows clicks to pass through by default */
     z-index: 100;
