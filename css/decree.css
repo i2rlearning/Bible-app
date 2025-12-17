@@ -91,7 +91,7 @@ h1{
   width: 100%;
   height: auto;     
   padding: 10px 10px;           /* adds space above AND below the controls */
-  align-items: center;
+  align-items: flex-end;
   box-sizing: border-box;
 
   background: #000;
@@ -212,7 +212,7 @@ input[type="range"]::-moz-range-thumb{
 
 #scrollToggle{
   height: 30px;
-  padding: 10px 12px;
+  padding: 0 12px;
   background: #3f3f3f;
   border: 1px solid #666;
   border-radius: 2px;
