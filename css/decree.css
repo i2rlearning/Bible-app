@@ -38,6 +38,7 @@ main{
   background:rgba(255,255,255,.85);
   backdrop-filter: blur(2px);
   border-radius:12px;
+  padding-bottom: 90px;
 }
 
 h1{ margin:0 0 10px; font-size:23px; }
@@ -51,7 +52,7 @@ footer{
   margin-top:30px;
 }
 
-<!-- Scroll bar widget (unchanged) -->
+/* Scroll bar widget (unchanged) */
 #scrollBar{
   position:fixed; bottom:0; left:0; width:100%;
   background:#000; padding:3px 3px 8px; z-index:1001;
