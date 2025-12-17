@@ -212,13 +212,25 @@ input[type="range"]::-moz-range-thumb{
 
 #scrollToggle{
   height: 30px;
+  min-height: 30px;          /* prevents odd sizing when text changes */
   padding: 0 12px;
+
   background: #3f3f3f;
   border: 1px solid #666;
   border-radius: 2px;
   color: #fff;
   cursor: pointer;
+
+  display: inline-flex;      /* centers text properly */
+  align-items: center;
+  justify-content: center;
+  line-height: 1;            /* avoids vertical drift */
+  box-sizing: border-box;
+
+  align-self: flex-end;      /* this is the key: drops it down */
+  margin-bottom: 0px;        /* adjust if you want it slightly lower */
 }
+
 
 /* hover states */
 #scrollToggle:hover,
