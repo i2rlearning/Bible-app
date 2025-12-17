@@ -1,0 +1,52 @@
+body{
+  margin:0;
+  font-family:"Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  line-height:1.8;
+  background: url("images/Wedding-Paper1.jpg") no-repeat fixed center / cover;
+  color:#000;
+  padding-top:120px; /* space for fixed header */
+}
+
+header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  background:#005eb8;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.nav-inner{
+  max-width:1140px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  justify-content:space-between;
+}
+
+.logo img{ height:56px; width:auto; display:block; }
+
+nav ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:12px; }
+nav a{ color:#fff; text-decoration:none; font-size:15px; }
+nav a:hover{ color:#94d4ef; }
+
+main{
+  max-width:1140px;
+  margin:0 auto;
+  padding:18px 14px 120px;
+  background:rgba(255,255,255,.85);
+  backdrop-filter: blur(2px);
+  border-radius:12px;
+}
+
+h1{ margin:0 0 10px; font-size:23px; }
+.content a{ color:#000; }
+
+footer{
+  text-align:center;
+  padding:18px 10px;
+  color:#fff;
+  background:#005eb8;
+  margin-top:30px;
+}
