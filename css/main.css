@@ -112,6 +112,8 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 .scroll-wrapper {
     position: relative;
     z-index: 0;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 /* SCROLL AREA (#ministry holds the actual content and scrolls) */
