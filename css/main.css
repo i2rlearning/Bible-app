@@ -158,18 +158,20 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   pointer-events: none;
   z-index: 100;
 }
+
 .scroll-overlay.left {
   left: 0;
 }
 .scroll-overlay.right {
   right: 0;
-}
+}  
 
 /* The actual arrow button */
 .scroll-overlay .scroll-btn {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: none;
   border: none;
   font-size: 2em;
@@ -180,9 +182,9 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   transition: opacity 0.3s;
 }
 
-/* Button Positioning within their overlays */
+/* Button Positioning within their overlays 
 .scroll-overlay.left .scroll-btn { right: 10px; }
-.scroll-overlay.right .scroll-btn { left: 10px; }
+.scroll-overlay.right .scroll-btn { left: 10px; }  */
 
 /* ENABLED STATE */
 .scroll-overlay .scroll-btn:hover:not(.disabled) {
