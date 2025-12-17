@@ -1,173 +1,228 @@
+/* ===========================
+   GLOBAL
+   =========================== */
+
 body{
-  margin:0;
-  font-family:"Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  line-height:1.8;
-  background:url("images/Wedding-Paper1.jpg") no-repeat fixed center / cover;
-  color:#000;
-  padding-top:120px;
+  margin: 0;
+  font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  line-height: 1.8;
+  background: url("images/Wedding-Paper1.jpg") no-repeat fixed center / cover;
+  color: #000;
+  padding-top: 120px; /* space for fixed header */
 }
 
-/* HEADER */
+/* ===========================
+   HEADER / NAV
+   =========================== */
+
 header{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:1000;
-  background:#005eb8;
-  box-shadow:0 2px 8px rgba(0,0,0,.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #005eb8;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
 
 .nav-inner{
-  max-width:1140px;
-  margin:0 auto;
-  padding:10px 14px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 10px 14px;
 }
 
 nav ul{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 nav a{
-  color:#fff;
-  text-decoration:none;
-  font-size:15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
 }
 
 nav a:hover{
-  color:#94d4ef;
+  color: #94d4ef;
 }
 
-/* MAIN CONTENT */
+/* ===========================
+   MAIN CONTENT
+   =========================== */
+
 main{
-  max-width:1140px;
-  margin:0 auto;
-  padding:18px 14px 100px;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(2px);
-  border-radius:12px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 18px 14px 80px; /* space for footer bar */
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(2px);
+  border-radius: 12px;
 }
 
 h1{
-  margin:0 0 10px;
-  font-size:23px;
+  margin: 0 0 10px;
+  font-size: 23px;
 }
+
+.content a{
+  color: #000;
+}
+
+/* ===========================
+   DECREE TEXT
+   =========================== */
 
 .decree p{
-  margin:0 0 12px;
+  margin: 0 0 12px;
 }
 
-/* FIXED SCROLL BAR */
+/* ===========================
+   FIXED BOTTOM SCROLL BAR
+   =========================== */
+
 #scrollBar{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:57px;
-  background:#000;
-  color:#fff;
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  gap:10px;
-  padding:3px 3px 8px;
-  z-index:1001;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 44px;     
+  padding: 6px 10px;
+  box-sizing: border-box;
+
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  z-index: 1001;
 }
 
-/* BUTTONS */
-#scrollToggle,
-#incrementSpeed,
-#decrementSpeed{
-  background:#333;
-  border:none;
-  cursor:pointer;
-  position:relative;
-  transition:background-color .3s ease;
-}
+/* ===========================
+   SLIDER + LABEL
+   =========================== */
 
-#scrollToggle{
-  color:#fff;
-  padding:5px 10px;
-}
-
-#scrollToggle:hover,
-#incrementSpeed:hover,
-#decrementSpeed:hover{
-  background:#0066ff;
-}
-
-/* ARROWS */
-#incrementSpeed::before,
-#decrementSpeed::before{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:0;
-  height:0;
-  border-left:12px solid transparent;
-  border-right:12px solid transparent;
-}
-
-#incrementSpeed::before{
-  border-bottom:12px solid #fff;
-}
-
-#decrementSpeed::before{
-  border-top:12px solid #fff;
-}
-
-/* SLIDER */
 .slider-container{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  line-height: 1;
 }
 
-.slider-controls{
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
-
-input[type="range"]{
-  appearance:none;
-  width:100px;
-  height:8px;
-  background:#666;
-  border-radius:5px;
-  outline:none;
-}
-
-input[type="range"]::-webkit-slider-thumb{
-  appearance:none;
-  width:20px;
-  height:20px;
-  background:#fff;
-  border-radius:50%;
-  cursor:pointer;
-}
-
-input[type="range"]::-moz-range-thumb{
-  width:20px;
-  height:20px;
-  background:#fff;
-  border-radius:50%;
-  cursor:pointer;
-}
-
-label{
-  font-size:11px;
+label[for="scrollSpeed"]{
+  font-size: 11px;
+  margin: 0;
 }
 
 #speedValue{
-  position:relative;
-  top:6px;
+  position: static;
+}
+
+/* ===========================
+   SLIDER CONTROLS
+   =========================== */
+
+.slider-controls{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===========================
+   RANGE SLIDER
+   =========================== */
+
+input[type="range"]{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 110px;
+  height: 8px;
+  background: #666;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb{
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ===========================
+   ARROW BUTTONS (LIGHT BOXES)
+   =========================== */
+
+#incrementSpeed,
+#decrementSpeed{
+  width: 30px;
+  height: 30px;
+  background: #3f3f3f;  
+  border: 1px solid #666;
+  border-radius: 2px;
+
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+
+/* triangle icons */
+#incrementSpeed::before,
+#decrementSpeed::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+#incrementSpeed::before{
+  border-bottom: 10px solid #fff;
+}
+
+#decrementSpeed::before{
+  border-top: 10px solid #fff;
+}
+
+/* ===========================
+   START BUTTON
+   =========================== */
+
+#scrollToggle{
+  height: 30px;
+  padding: 0 12px;
+  background: #3f3f3f;
+  border: 1px solid #666;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* hover states */
+#scrollToggle:hover,
+#incrementSpeed:hover,
+#decrementSpeed:hover{
+  background: #555;
 }
