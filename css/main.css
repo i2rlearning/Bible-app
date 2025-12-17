@@ -149,7 +149,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
     top: 0;
     height: 100%;
     width: 60px; /* Width of the rectangle */
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent); /* Suggestion: use a gradient for a smooth transition */
+    background: white; /*linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent); */ /*Suggestion: use a gradient for a smooth transition */
     pointer-events: none; /* Crucial: Allows clicks to pass through by default */
     z-index: 100;
 }
