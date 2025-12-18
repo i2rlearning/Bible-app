@@ -59,8 +59,8 @@ main{
   padding: 18px 14px 90px; /* space for footer bar */
   background: rgba(255,255,255,.85);
   backdrop-filter: blur(2px);
-  border-radius: 12px;
   background: url("/img/scroll-nobg.webp") no-repeat fixed center / cover;
+  background-size: 50% 100%;
 }
 
 h1{
