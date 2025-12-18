@@ -10,7 +10,7 @@ body::before{
   right: 0;
   bottom: 55px;              /* height of control bar */
   background: url("/img/scroll-nobg.webp") no-repeat center top;
-  background-size: 90% 100%;
+  background-size: 100% 100%;
   z-index: 0;
   pointer-events: none;
 }
@@ -89,7 +89,7 @@ h1{
    =========================== */
 
 .decree p{
-  margin: 0 0 12px;
+  margin: 75px 0 -50px;
 }
 
 /* ===========================
