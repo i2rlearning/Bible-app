@@ -60,7 +60,7 @@ main{
   background: rgba(255,255,255,.85);
   backdrop-filter: blur(2px);
   background: url("/img/scroll-nobg.webp") no-repeat fixed center / cover;
-  background-size: 50% 100%;
+  background-size: 100% 100%;
 }
 
 h1{
