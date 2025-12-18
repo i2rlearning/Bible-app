@@ -2,18 +2,18 @@
    GLOBAL
    =========================== */
 
-body::before{
+/*body::before{
   content: "";
   position: fixed;
-  top: 37px;                 /* below header */
+  top: 37px;                 
   left: 0;
   right: 0;
-  bottom: 55px;              /* height of control bar */
+  bottom: 55px;
   background: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
   z-index: 0;
   pointer-events: none;
-}
+} */
 
 body{
   margin: 0;
@@ -106,7 +106,7 @@ h1{
   padding-right: clamp(16px, 10%, 90px);
 
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
 
   overflow-wrap: anywhere;
 
@@ -126,7 +126,7 @@ h1{
 
 .decree{
   position: relative;
-  padding: 0 60px;  /* keeps text inside parchment edges */
+  padding: 0; /* was 0 60px */
 }
 
 .decree p{
