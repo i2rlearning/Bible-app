@@ -55,7 +55,7 @@ nav a:hover{
 
 main{
   max-width: 1140px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
   padding: 18px 14px 90px; /* space for footer bar */
   z-index: 1000;
   background: rgba(255,255,255,.85);
