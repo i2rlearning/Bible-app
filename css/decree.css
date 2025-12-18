@@ -81,6 +81,18 @@ h1{
 }
 
 .content{
+  position: fixed;
+  top: 130px;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
+
+  padding: 0 80px;     /* 👈 Controls left/right margins for the text*/
+  overflow: hidden;
+  z-index: 1;
+
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent,
@@ -95,16 +107,8 @@ h1{
     black 92%,
     transparent
   );
-
-  position: fixed;
-  top: 130px;
-  bottom: 130px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 900px;
-  overflow: hidden;
-  z-index: 1;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 .content a{
