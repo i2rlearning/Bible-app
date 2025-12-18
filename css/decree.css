@@ -90,7 +90,7 @@ h1{
   width: 100%;
   max-width: 900px;
 
-  padding: 0 100px 0 -25px;     /* 👈 Controls left/right margins for the text*/
+  padding: 0 100px 0 0;     /* 👈 Controls left/right margins for the text*/
   overflow: hidden;
   z-index: 1;
 
