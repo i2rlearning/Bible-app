@@ -82,6 +82,7 @@ h1{
 
 .content{
   position: fixed;
+  object-fit: contain; 
   top: 130px;
   bottom: 130px;
   left: 50%;
