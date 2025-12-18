@@ -2,6 +2,19 @@
    GLOBAL
    =========================== */
 
+body::before{
+  content: "";
+  position: fixed;
+  top: 50px;                 /* below header */
+  left: 0;
+  right: 0;
+  bottom: 70px;              /* height of control bar */
+  background: url("/img/scroll-nobg.webp") no-repeat center top;
+  background-size: 100% 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
 body{
   margin: 0;
   font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
@@ -56,12 +69,10 @@ nav a:hover{
 main{
   max-width: 1140px;
   margin: 0 auto;
-  padding: 18px 14px 90px; /* space for footer bar */
-  z-index: 1000;
+  padding: 18px 14px 120px; /* space for controls */
   background: rgba(255,255,255,.85);
-  /*backdrop-filter: blur(2px);*/
-  background: url("/img/scroll-nobg.webp") no-repeat fixed center / cover;
-  background-size: 100% 90%;
+  position: relative;
+  z-index: 1;
 }
 
 h1{
