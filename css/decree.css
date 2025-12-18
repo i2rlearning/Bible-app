@@ -120,6 +120,15 @@ h1{
   color: #000;
 }
 
+@media (max-width: 600px){
+  .content{
+    top: 90px;
+    bottom: 90px;
+    padding-left: clamp(14px, 8%, 60px);
+    padding-right: clamp(14px, 8%, 60px);
+  }
+}
+
 /* ===========================
    DECREE TEXT
    =========================== */
