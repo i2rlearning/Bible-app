@@ -88,7 +88,7 @@ h1{
   transform: translateX(-50%);
 
   top: calc(17px + 130px);
-  bottom: calc(15px + 130px);
+  bottom: calc(5px + 130px);
 
   width: clamp(280px, 62vw, 900px);
 
