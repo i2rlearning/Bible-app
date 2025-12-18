@@ -7,10 +7,7 @@ body{
   font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   line-height: 1.8;
   color: #000;
-  padding-top: 100px; /* space for fixed header */
-  background: url("/img/scroll-nobg.webp") no-repeat fixed center / cover;
-  background-size: 100% 100%;
-
+  padding-top: 10px; /* space for fixed header */
 }
 
 /* ===========================
@@ -58,11 +55,13 @@ nav a:hover{
 
 main{
   max-width: 1140px;
-  margin: 0 auto auto;
+  margin: 0 auto;
   padding: 18px 14px 90px; /* space for footer bar */
   z-index: 1000;
   background: rgba(255,255,255,.85);
-  backdrop-filter: blur(2px);
+  /*backdrop-filter: blur(2px);*/
+  background: url("/img/scroll-nobg.webp") no-repeat fixed center / cover;
+  background-size: 100% 100%;
 }
 
 h1{
