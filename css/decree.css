@@ -87,7 +87,7 @@ h1{
   left: 50%;
   transform: translateX(-50%);
 
-  top: calc(17px + 150px);
+  top: calc(7px + 175px);  /* changes the top and bottom of where the text begins and ends*/
   bottom: calc(5px + 130px);
 
   width: clamp(280px, 62vw, 900px);
