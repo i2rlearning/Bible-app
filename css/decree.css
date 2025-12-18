@@ -69,8 +69,8 @@ nav a:hover{
 main{
   max-width: 1140px;
   margin: 0 auto;
-  padding: 18px 14px 120px; /* space for controls */
-  background: rgba(255,255,255,.85);
+  padding: 38px 14px 120px; /* space for controls */
+  /*background: rgba(255,255,255,.85);*/
   position: relative;
   z-index: 1;
 }
