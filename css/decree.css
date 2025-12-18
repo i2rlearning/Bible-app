@@ -5,7 +5,7 @@
 body::before{
   content: "";
   position: fixed;
-  top: 37px;                 
+  top: 37px;
   left: 0;
   right: 0;
   bottom: 55px;
@@ -13,14 +13,13 @@ body::before{
   background-size: 100% 100%;
   z-index: 0;
   pointer-events: none;
-} 
+}
 
 body{
   margin: 0;
   font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   line-height: 1.8;
   color: #000;
-  /*padding-top: 50px;  space for fixed header */
 }
 
 /* ===========================
@@ -69,8 +68,7 @@ nav a:hover{
 main{
   max-width: 1140px;
   margin: 0 auto;
-  padding: 18px 14px 120px; /* space for controls */
-  /*background: rgba(255,255,255,.85);*/
+  padding: 18px 14px 120px;
   position: relative;
   z-index: 1;
 }
@@ -80,19 +78,21 @@ h1{
   font-size: 23px;
 }
 
+/* ===========================
+   SCROLL VIEWPORT
+   =========================== */
+
 .content{
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
 
-  /* match the parchment visible area */
   top: calc(37px + 130px);
   bottom: calc(55px + 130px);
 
-  /* this is the key: container shrinks on small screens */
   width: clamp(280px, 62vw, 900px);
 
-  z-index: 1;
+  z-index: 2;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -102,35 +102,46 @@ h1{
 }
 
 /* ===========================
-   DECREE TEXT
+   DECREE TEXT (SCROLLING)
    =========================== */
 
 .decree{
-  position: relative;
-  padding: 0; /* was 0 60px */
-}
-
-/* the scrolling element */
-.decree{
   height: 100%;
   overflow-y: auto;
-  box-sizing: border-box;
+  overflow-x: hidden;
 
-  /* safe side margins inside parchment */
   padding-left: clamp(14px, 8vw, 90px);
   padding-right: clamp(14px, 8vw, 90px);
 
-  /* fade top and bottom while scrolling */
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.decree p{ margin: 0 0 24px; }
+.decree::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
 
-/* optional: keep link visible but not part of the scrolling text */
-.source{ margin: 12px 0 0; }
+.decree p{
+  margin: 0 0 24px;
+}
 
 /* ===========================
    FIXED BOTTOM SCROLL BAR
@@ -141,9 +152,7 @@ h1{
   left: 0;
   bottom: 0;
   width: 100%;
-  height: auto;     
-  padding: 10px 10px;           /* adds space above AND below the controls */
-  align-items: flex-end;
+  padding: 10px;
   box-sizing: border-box;
 
   background: #000;
@@ -221,14 +230,14 @@ input[type="range"]::-moz-range-thumb{
 }
 
 /* ===========================
-   ARROW BUTTONS (LIGHT BOXES)
+   ARROW BUTTONS
    =========================== */
 
 #incrementSpeed,
 #decrementSpeed{
   width: 30px;
   height: 30px;
-  background: #3f3f3f;  
+  background: #3f3f3f;
   border: 1px solid #666;
   border-radius: 2px;
   cursor: pointer;
@@ -236,7 +245,6 @@ input[type="range"]::-moz-range-thumb{
   padding: 0;
 }
 
-/* triangle icons */
 #incrementSpeed::before,
 #decrementSpeed::before{
   content: "";
@@ -264,7 +272,6 @@ input[type="range"]::-moz-range-thumb{
 
 #scrollToggle{
   height: 30px;
-  min-height: 30px;          /* prevents odd sizing when text changes */
   padding: 0 12px;
 
   background: #3f3f3f;
@@ -273,18 +280,13 @@ input[type="range"]::-moz-range-thumb{
   color: #fff;
   cursor: pointer;
 
-  display: inline-flex;      /* centers text properly */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;            /* avoids vertical drift */
+  line-height: 1;
   box-sizing: border-box;
-
-  align-self: flex-end;      /* this is the key: drops it down */
-  margin-bottom: 0px;        /* adjust if you want it slightly lower */
 }
 
-
-/* hover states */
 #scrollToggle:hover,
 #incrementSpeed:hover,
 #decrementSpeed:hover{
