@@ -7,7 +7,7 @@ body{
   font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   line-height: 1.8;
   color: #000;
-  padding-top: 10px; /* space for fixed header */
+  padding-top: 50px; /* space for fixed header */
 }
 
 /* ===========================
