@@ -19,7 +19,7 @@ header{
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 100;
   background: #005eb8;
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
@@ -55,8 +55,9 @@ nav a:hover{
 
 main{
   max-width: 1140px;
-  margin: 0 auto;
+  margin: 0 auto auto;
   padding: 18px 14px 90px; /* space for footer bar */
+  z-index: 1000;
   background: rgba(255,255,255,.85);
   backdrop-filter: blur(2px);
   background: url("/img/scroll-nobg.webp") no-repeat fixed center / cover;
