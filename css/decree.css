@@ -2,7 +2,7 @@
    GLOBAL
    =========================== */
 
-/*body::before{
+body::before{
   content: "";
   position: fixed;
   top: 37px;                 
@@ -13,7 +13,7 @@
   background-size: 100% 100%;
   z-index: 0;
   pointer-events: none;
-} */
+} 
 
 body{
   margin: 0;
@@ -80,53 +80,25 @@ h1{
   font-size: 23px;
 }
 
-.scroll-wrap{
-  position: relative;
-  width: min(900px, 100%);
-  margin: 0 auto;
-}
-
-.scroll-img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .content{
-  position: absolute;
-  top: 130px;
-  bottom: 130px;
-  left: 0;
-  right: 0;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
 
-  box-sizing: border-box;
+  /* match the parchment visible area */
+  top: calc(37px + 130px);
+  bottom: calc(55px + 130px);
 
-  /* side padding inside parchment */
-  padding-left: clamp(16px, 10%, 90px);
-  padding-right: clamp(16px, 10%, 90px);
+  /* this is the key: container shrinks on small screens */
+  width: clamp(280px, 62vw, 900px);
 
+  z-index: 1;
   overflow: hidden;
-  z-index: 2;
-
-  overflow-wrap: anywhere;
-
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+  box-sizing: border-box;
 }
 
 .content a{
   color: #000;
-}
-
-@media (max-width: 600px){
-  .content{
-    top: 90px;
-    bottom: 90px;
-    padding-left: clamp(14px, 8%, 60px);
-    padding-right: clamp(14px, 8%, 60px);
-  }
 }
 
 /* ===========================
@@ -138,9 +110,27 @@ h1{
   padding: 0; /* was 0 60px */
 }
 
-.decree p{
-  margin: 0 0 24px;
+/* the scrolling element */
+.decree{
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  /* safe side margins inside parchment */
+  padding-left: clamp(14px, 8vw, 90px);
+  padding-right: clamp(14px, 8vw, 90px);
+
+  /* fade top and bottom while scrolling */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
+
+.decree p{ margin: 0 0 24px; }
+
+/* optional: keep link visible but not part of the scrolling text */
+.source{ margin: 12px 0 0; }
 
 /* ===========================
    FIXED BOTTOM SCROLL BAR
