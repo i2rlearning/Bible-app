@@ -5,10 +5,10 @@
 body::before{
   content: "";
   position: fixed;
-  top: 10px;                 /* below header */
+  top: 20px;                 /* below header */
   left: 0;
   right: 0;
-  bottom: 10px;              /* height of control bar */
+  bottom: 30px;              /* height of control bar */
   background: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
   z-index: 0;
