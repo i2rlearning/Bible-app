@@ -80,6 +80,33 @@ h1{
   font-size: 23px;
 }
 
+.content{
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+
+  position: fixed;
+  top: 130px;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  z-index: 1;
+}
+
 .content a{
   color: #000;
 }
@@ -88,8 +115,13 @@ h1{
    DECREE TEXT
    =========================== */
 
+.decree{
+  position: relative;
+  padding: 0 60px;  /* keeps text inside parchment edges */
+}
+
 .decree p{
-  margin: 75px 0 -50px;
+  margin: 0 0 24px;
 }
 
 /* ===========================
