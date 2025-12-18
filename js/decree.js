@@ -7,7 +7,6 @@ let accumulatedScroll = 0;
 let scrollQueue = [];
 let animationFrameId = null;
 let lastTime = performance.now();
-let translateY = 0;
 
 /* ===========================
    INIT (DOM READY)
@@ -48,24 +47,35 @@ function updateSpeedDisplay(){
    START / STOP
    =========================== */
 
+function stopAutoScroll(){
+  scrolling = false;
+  const btn = document.getElementById('scrollToggle');
+  if (btn) btn.textContent = 'Start';
+
+  if (animationFrameId){
+    cancelAnimationFrame(animationFrameId);
+    animationFrameId = null;
+  }
+}
+
 function toggleAutoScroll(){
+  if (!decree) return;
+
   scrolling = !scrolling;
   const btn = document.getElementById('scrollToggle');
-  btn.textContent = scrolling ? 'Stop' : 'Start';
+  if (btn) btn.textContent = scrolling ? 'Stop' : 'Start';
 
   if (scrolling){
     lastTime = performance.now();
     accumulatedScroll = 0;
     scrollQueue = [];
 
-    // Reset position on start
-    translateY = 0;
-    decree.style.transform = 'translateY(0px)';
+    // Reset to top on start (same behavior as your original)
+    decree.scrollTop = 0;
 
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
-    cancelAnimationFrame(animationFrameId);
-    animationFrameId = null;
+    stopAutoScroll();
   }
 }
 
@@ -74,7 +84,7 @@ function toggleAutoScroll(){
    =========================== */
 
 function autoScroll(t){
-  if (!scrolling) return;
+  if (!scrolling || !decree) return;
 
   const dt = (t - lastTime) / 1000;
   lastTime = t;
@@ -87,14 +97,20 @@ function autoScroll(t){
 
   if (avg >= 0.2){
     const amt = Math.floor(avg);
-    translateY -= amt;
 
-    // Clamp to bottom
-    const maxScroll = decree.scrollHeight - content.clientHeight;
-    translateY = Math.max(-maxScroll, translateY);
+    const maxScrollTop = decree.scrollHeight - decree.clientHeight;
 
-    decree.style.transform = `translateY(${translateY}px)`;
+    // Apply scroll and clamp
+    decree.scrollTop = Math.min(maxScrollTop, decree.scrollTop + amt);
+
     accumulatedScroll -= amt;
+
+    // Stop at the end (this is the missing part)
+    if (decree.scrollTop >= maxScrollTop - 1){
+      decree.scrollTop = maxScrollTop;
+      stopAutoScroll();
+      return;
+    }
   }
 
   animationFrameId = requestAnimationFrame(autoScroll);
