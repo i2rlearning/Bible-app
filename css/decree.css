@@ -5,10 +5,10 @@
 body::before{
   content: "";
   position: fixed;
-  top: 50px;                 /* below header */
+  top: 10px;                 /* below header */
   left: 0;
   right: 0;
-  bottom: 70px;              /* height of control bar */
+  bottom: 10px;              /* height of control bar */
   background: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
   z-index: 0;
@@ -69,7 +69,7 @@ nav a:hover{
 main{
   max-width: 1140px;
   margin: 0 auto;
-  padding: 38px 14px 120px; /* space for controls */
+  padding: 18px 14px 120px; /* space for controls */
   /*background: rgba(255,255,255,.85);*/
   position: relative;
   z-index: 1;
