@@ -7,7 +7,7 @@ body{
   font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   line-height: 1.8;
   color: #000;
-  padding-top: 50px; /* space for fixed header */
+  /*padding-top: 50px;  space for fixed header */
 }
 
 /* ===========================
@@ -61,7 +61,7 @@ main{
   background: rgba(255,255,255,.85);
   /*backdrop-filter: blur(2px);*/
   background: url("/img/scroll-nobg.webp") no-repeat fixed center / cover;
-  background-size: 90% 100%;
+  background-size: 70% 100%;
 }
 
 h1{
