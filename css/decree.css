@@ -160,7 +160,7 @@ h1{
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
 
   z-index: 1001;
@@ -272,6 +272,8 @@ input[type="range"]::-moz-range-thumb{
 
 #scrollToggle{
   height: 30px;
+  min-height: 30px;
+  line-height: 30px;
   padding: 0 12px;
 
   background: #3f3f3f;
@@ -283,7 +285,6 @@ input[type="range"]::-moz-range-thumb{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
   box-sizing: border-box;
 }
 
