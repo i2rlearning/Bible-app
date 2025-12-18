@@ -6,7 +6,7 @@ body{
   margin: 0;
   font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   line-height: 1.8;
-  background: url("/img/Wedding-Paper1.jpg") no-repeat fixed center / cover;
+  background: url("/img/wedding-paper.jpg") no-repeat fixed center / cover;
   color: #000;
   padding-top: 100px; /* space for fixed header */
 }
