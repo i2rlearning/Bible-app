@@ -10,6 +10,7 @@
     <title>Branch of Israel - Bible App</title>
   </head>
 
+  <!-- *********************** Header Sticky Menu ***********************  -->
   <body class="index">
       <div class="subheader" id="stickyHeader">
         <div class="container flex">
