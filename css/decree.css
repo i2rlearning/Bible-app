@@ -110,7 +110,7 @@ h1{
   overflow-y: auto;
   overflow-x: hidden;
 
-  padding-left: clamp(14px, 8vw, 90px);
+  padding-left: clamp(10px, 4vw, 50px);  /*padding-left: clamp(14px, 8vw, 90px);*/
   padding-right: clamp(14px, 8vw, 90px);
 
   -webkit-mask-image: linear-gradient(
