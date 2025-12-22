@@ -297,8 +297,17 @@
 			// Checks total page height in px
 			//var length = document.documentElement.scrollHeight;
 			//alert("Total page height: " + document.documentElement.scrollHeight + "px");
+			//******************* Font resize slider *********************
+		    const fontSizeSlider = document.getElementById("font-size-slider");
+		    const displayText = document.getElementById("bible-version-list");
+		    
+		    fontSizeSlider.addEventListener("input", () => {
+		      const fontSize = fontSizeSlider.value;
+		      displayText.style.fontSize = `${fontSize}px`;
+		    });
 		</script>
   </body>
 </html>
+
 
 
