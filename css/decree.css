@@ -157,13 +157,28 @@ h1{
 
   background: #000;
   color: #fff;
-
+  
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  gap: 10px;
-
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;    
   z-index: 1001;
+}
+
+
+/* New wrapper for the font resizer to match the structure of the speed controls */
+.font-resizer {
+  display: flex;
+  align-items: center;
+  gap: 8px;                  /* space between label and slider */
+  line-height: 1;
+  font-size: 14px;           /* slightly larger than speed label for balance */
+}
+
+/* Optional: make the font slider a bit longer to match visual weight */
+#font-size-slider {
+  width: 130px;              /* was implicitly shorter; now matches speed slider feel */
 }
 
 /* ===========================
