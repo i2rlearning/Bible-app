@@ -297,3 +297,6 @@ input[type="range"]::-moz-range-thumb{
 /* ===========================
    MISCELLANEOUS
    =========================== */
+.extraSpace {
+  padding-bottom: 40px;
+}
