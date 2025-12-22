@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     const slideInterval = 10000; // 10s
 
-    // ✅ Static list of images (edit these paths)
+    //  Static list of images (edit these paths)
     const images = [
       'img/Jaffagatewithsnow.jpg',
       'img/Jaffagate.jpg'
