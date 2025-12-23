@@ -276,7 +276,6 @@ input[type="range"]::-moz-range-thumb{
 /* ===========================
    START BUTTON
    =========================== */
-
 #scrollToggle{
   height: 30px;
   min-height: 30px;
@@ -302,9 +301,6 @@ input[type="range"]::-moz-range-thumb{
   background: #555;
 }
 
-/* ===========================
-   RESPSONSIVE 
-   =========================== */
 /* Keeps Start button close to arrows */
 .control-group {
   display: flex;
@@ -312,11 +308,15 @@ input[type="range"]::-moz-range-thumb{
   gap: 10px; /* Tight gap between Speed and Start */
 }
 
+/* ===========================
+   RESPSONSIVE 
+   =========================== */
 /* Responsive adjustments */
 @media (max-width: 800px) {
   .content {
     top: 110px;    /* Pulls the top up slightly on mobile */
     bottom: 120px; /* Pushes the bottom up so it clears the taller black bar */
+    gap: 10px; 
   }
 
   .control-group, .font-resizer {
@@ -334,7 +334,6 @@ input[type="range"]::-moz-range-thumb{
 /* ===========================
    MISCELLANEOUS
    =========================== */
-
 .extraSpace{
   padding-top: 80px;
 }
