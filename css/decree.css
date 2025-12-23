@@ -146,6 +146,12 @@ h1{
 /* ===========================
    FIXED BOTTOM SCROLL BAR
    =========================== */
+.control-block {
+  display: flex;
+  align-items: center;
+  height: 44px;              /* same height for all controls */
+  gap: 8px;
+}
 
 #scrollBar{
   position: fixed;
@@ -219,7 +225,7 @@ label[for="scrollSpeed"]{
 input[type="range"]{
   -webkit-appearance: none;
   appearance: none;
-  width: 110px;
+  width: 120px;
   height: 8px;
   background: #666;
   border-radius: 5px;
