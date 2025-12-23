@@ -1,13 +1,18 @@
 /* ===========================
    GLOBAL
    =========================== */
-body::before{
+:root {
+  --bar-height: 70px; /* Default height for the black bar */
+}
+
+body::before {
   content: "";
   position: fixed;
   top: 37px;
   left: 0;
   right: 0;
-  bottom: 100px;
+  /* This ensures the scroll always stops exactly at the top of the bar */
+  bottom: var(--bar-height); 
   background: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
   z-index: 0;
@@ -85,8 +90,8 @@ h1{
   left: 50%;
   transform: translateX(-50%);
   top: 140px; 
-  /* Reduce this number to move the bottom of the scroll UP */
-  bottom: calc(5px + 150px);
+  /* This keeps the text window 60px above the black bar consistently */
+  bottom: calc(var(--bar-height) + 60px); 
   width: clamp(280px, 62vw, 900px);
   z-index: 2;
   overflow: hidden;
@@ -313,22 +318,24 @@ input[type="range"]::-moz-range-thumb{
    =========================== */
 /* Responsive adjustments */
 @media (max-width: 800px) {
-  .content {
-    top: 110px;    
-    /* Pull the bottom UP significantly to clear the stacked controls */
-    bottom: 180px; 
+  :root {
+    --bar-height: 110px; /* Increase space because the bar is now 2 rows tall */
   }
-
+  
   .control-group, .font-resizer {
     justify-content: center;
-    width: 100%; 
+    width: 100%;
   }
 }
 
+/* Mobile Tighter Stack (600px) */
 @media (max-width: 600px) {
+  :root {
+    --bar-height: 100px; /* Slightly shorter if you reduced padding/gap at 600px */
+  }
+  
   #scrollBar {
-    gap: 8px; /* Tighter gap */
-    padding: 8px 10px; /* Reduced vertical padding */
+    gap: 10px;
   }
 }
 
