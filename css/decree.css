@@ -297,6 +297,8 @@ input[type="range"]::-moz-range-thumb{
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  margin: 0;
+  align-self: center;
 }
 
 #scrollToggle:hover,
