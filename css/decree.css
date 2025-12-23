@@ -91,7 +91,7 @@ h1{
   transform: translateX(-50%);
   top: 140px; 
   /* This keeps the text window 60px above the black bar consistently */
-  bottom: calc(var(--bar-height) + 60px); 
+  bottom: calc(var(--bar-height) + 70px); 
   width: clamp(280px, 62vw, 900px);
   z-index: 2;
   overflow: hidden;
