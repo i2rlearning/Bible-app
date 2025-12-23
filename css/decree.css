@@ -168,9 +168,10 @@ h1{
 
 .slider-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 #speedValue{
@@ -196,9 +197,18 @@ h1{
 
 .slider-controls,
 .font-resizer {
-  position: relative;
-  top: -3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
 }
+
+.font-resizer label, 
+#speedValue {
+  margin-right: 8px;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
 /* ===========================
    RANGE SLIDER
    =========================== */
