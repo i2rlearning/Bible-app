@@ -173,12 +173,6 @@ h1{
   justify-content: center;
 }
 
-label[for="scrollSpeed"],
-.font-resizer label {
-  position: relative;
-  top: -6px;
-}
-
 #speedValue{
   position: static;
 }
@@ -200,6 +194,11 @@ label[for="scrollSpeed"],
   height: 36px;
 }
 
+.slider-controls,
+.font-resizer {
+  position: relative;
+  top: -3px;
+}
 /* ===========================
    RANGE SLIDER
    =========================== */
