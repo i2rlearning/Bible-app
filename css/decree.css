@@ -154,22 +154,9 @@ h1{
 }
 
 #scrollBar{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-
-  background: #000;
-  color: #fff;
-  
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;    
-  z-index: 1001;
 }
 
 
@@ -177,14 +164,16 @@ h1{
 .font-resizer {
   display: flex;
   align-items: center;
-  gap: 8px;                  /* space between label and slider */
-  line-height: 1;
-  font-size: 14px;           /* slightly larger than speed label for balance */
 }
 
 /* Optional: make the font slider a bit longer to match visual weight */
 #font-size-slider {
   width: 130px;              /* was implicitly shorter; now matches speed slider feel */
+}
+
+#scrollSpeed,
+#font-size-slider {
+  width: 120px;
 }
 
 /* ===========================
@@ -195,8 +184,7 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  line-height: 1;
+  justify-content: center;
 }
 
 label[for="scrollSpeed"]{
@@ -216,6 +204,13 @@ label[for="scrollSpeed"]{
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.slider-controls,
+.font-resizer {
+  display: flex;
+  align-items: center;
+  height: 36px;          /* same visual center */
 }
 
 /* ===========================
