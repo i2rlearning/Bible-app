@@ -7,7 +7,7 @@ body::before{
   top: 37px;
   left: 0;
   right: 0;
-  bottom: 55px;
+  bottom: 80px;
   background: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
   z-index: 0;
@@ -80,14 +80,13 @@ h1{
 /* ===========================
    SCROLL VIEWPORT
    =========================== */
-
 .content {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   top: 140px; 
   /* Reduce this number to move the bottom of the scroll UP */
-  bottom: 100px; 
+  bottom: calc(5px + 150px);
   width: clamp(280px, 62vw, 900px);
   z-index: 2;
   overflow: hidden;
