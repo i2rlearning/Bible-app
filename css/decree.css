@@ -12,7 +12,7 @@ body::before {
   left: 0;
   right: 0;
   /* This ensures the scroll always stops exactly at the top of the bar */
-  bottom: var(--bar-height); 
+  bottom: var(--bar-spacing); 
   background: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
   z-index: 0;
@@ -319,23 +319,17 @@ input[type="range"]::-moz-range-thumb{
 /* Responsive adjustments */
 @media (max-width: 800px) {
   :root {
-    --bar-height: 110px; /* Increase space because the bar is now 2 rows tall */
-  }
-  
-  .control-group, .font-resizer {
-    justify-content: center;
-    width: 100%;
+    /* Increase this when the bar stacks to 2 rows */
+    /* This lifts BOTH the image and the text window together */
+    --bar-spacing: 115px; 
   }
 }
 
-/* Mobile Tighter Stack (600px) */
 @media (max-width: 600px) {
   :root {
-    --bar-height: 100px; /* Slightly shorter if you reduced padding/gap at 600px */
-  }
-  
-  #scrollBar {
-    gap: 10px;
+    /* If you tightened the bar at 600px (smaller gaps), 
+       set this between the 800px and the full-screen value */
+    --bar-spacing: 105px; 
   }
 }
 
