@@ -173,9 +173,10 @@ h1{
   justify-content: center;
 }
 
-label[for="scrollSpeed"]{
-  font-size: 11px;
-  margin: 0;
+label[for="scrollSpeed"],
+.font-resizer label {
+  position: relative;
+  top: -6px;
 }
 
 #speedValue{
