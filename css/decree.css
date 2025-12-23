@@ -148,7 +148,7 @@ h1{
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 10px;
+  padding: 15px 10px;
   box-sizing: border-box;
 
   background: #000;
@@ -157,9 +157,12 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   flex-wrap: wrap;
   z-index: 1001;
+
+  height: auto; 
+  min-height: 60px;
 }
 
 /* ===========================
@@ -305,6 +308,33 @@ input[type="range"]::-moz-range-thumb{
 #incrementSpeed:hover,
 #decrementSpeed:hover{
   background: #555;
+}
+
+/* ===========================
+   RESPSONSIVE 
+   =========================== */
+/* Keeps Start button close to arrows */
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Tight gap between Speed and Start */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #scrollBar {
+    gap: 10px; /* Closer together vertically when stacked */
+  }
+  
+  .control-group {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .font-resizer {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 /* ===========================
