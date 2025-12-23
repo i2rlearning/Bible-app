@@ -116,27 +116,22 @@
 
 <!-- FIXED BOTTOM SCROLL BAR -->
 <div id="scrollBar">
-
-  <div style="display: flex; align-items: center; gap: 15px;">
-    
+  <div class="control-group">
     <div class="slider-container">
-      <label for="scrollSpeed">
-        Scroll Speed: <span id="speedValue">1.50</span>
-      </label>
+      <label>Scroll Speed: <span id="speedValue">1.50</span></label>
       <div class="slider-controls">
-        <button id="decrementSpeed" aria-label="Decrease speed"></button>
-        <input type="range" id="scrollSpeed" min="0.01" max="10" step="0.01" value="0.06">
-        <button id="incrementSpeed" aria-label="Increase speed"></button>
+        <button id="decrementSpeed"></button>
+        <input type="range" id="scrollSpeed" ...>
+        <button id="incrementSpeed"></button>
       </div>
     </div>
-
     <button id="scrollToggle">Start</button>
-    
-  </div> <div class="font-resizer">
-    <label for="font-size-slider">Font size:</label>
-    <input type="range" id="font-size-slider" min="18" max="35" value="25">
   </div>
 
+  <div class="font-resizer">
+    <label>Font size:</label>
+    <input type="range" id="font-size-slider" ...>
+  </div>
 </div>
 
 <script src='/js/main.js'></script>	
