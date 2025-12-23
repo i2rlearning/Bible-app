@@ -313,10 +313,10 @@ input[type="range"]::-moz-range-thumb{
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .content {
     top: 110px;    /* Pulls the top up slightly on mobile */
-    bottom: 110px; /* Pushes the bottom up so it clears the taller black bar */
+    bottom: 120px; /* Pushes the bottom up so it clears the taller black bar */
   }
 
   .control-group, .font-resizer {
@@ -328,16 +328,6 @@ input[type="range"]::-moz-range-thumb{
 @media (max-width: 600px) {
   #scrollBar {
     gap: 10px; /* Closer together vertically when stacked */
-  }
-  
-  .control-group {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .font-resizer {
-    justify-content: center;
-    width: 100%;
   }
 }
 
