@@ -46,10 +46,10 @@ function updateSpeedDisplay(){
    START / STOP
    =========================== */
 
-function stopAutoScroll(){
+function stopAutoScroll(status){
   scrolling = false;
   const btn = document.getElementById('scrollToggle');
-  if (btn) btn.textContent = 'Start';
+  if (btn) btn.textContent = status;
 
   if (animationFrameId){
     cancelAnimationFrame(animationFrameId);
@@ -81,7 +81,7 @@ function toggleAutoScroll() {
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
     // If we just clicked 'Pause'
-    stopAutoScroll();
+    stopAutoScroll('Pause');
   }
 }
 
@@ -114,7 +114,7 @@ function autoScroll(t){
     // Stop at the end (this is the missing part)
     if (decree.scrollTop >= maxScrollTop - 1){
       decree.scrollTop = maxScrollTop;
-      stopAutoScroll();
+      stopAutoScroll('Start');
       return;
     }
   }
