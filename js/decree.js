@@ -81,7 +81,7 @@ function toggleAutoScroll() {
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
     // If we just clicked 'Pause'
-    stopAutoScroll('Pause');
+    stopAutoScroll('Continue');
   }
 }
 
