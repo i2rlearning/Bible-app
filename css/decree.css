@@ -318,7 +318,7 @@ input[type="range"]::-moz-range-thumb{
    =========================== */
 @media (max-width: 800px) {
   :root {
-    --bar-height: 110px; /* Adjusting for the double-stack height */
+    --bar-height: 100px; /* Adjusting for the double-stack height */
   }
 
   #scrollBar {
@@ -334,7 +334,16 @@ input[type="range"]::-moz-range-thumb{
   }
 }
 
-
+@media (max-width: 600px) {
+/*  #scrollBar {
+    gap: 8px; 
+  } */
+  
+  /* Optional: make the sliders slightly shorter for very narrow phones */
+  input[type="range"] {
+    width: 100px;
+  }
+}
 
 /* ===========================
    MISCELLANEOUS
