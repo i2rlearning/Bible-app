@@ -319,7 +319,7 @@ input[type="range"]::-moz-range-thumb{
 /* Responsive adjustments */
 @media (max-width: 800px) {
   :root {
-    --bar-height: 110px; /* Increase space because the bar is now 2 rows tall */
+    --bar-height: 100px; /* Increase space because the bar is now 2 rows tall */
   }
   
   .control-group, .font-resizer {
