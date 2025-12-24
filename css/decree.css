@@ -157,7 +157,7 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; 
+  flex-wrap: nowrap; 
   gap: 20px; /* Space between the two main control groups */
   z-index: 1001;
   min-height: 50px; 
@@ -316,9 +316,34 @@ input[type="range"]::-moz-range-thumb{
 /* ===========================
    RESPSONSIVE 
    =========================== */
+@media (max-width: 800px) {
+  :root {
+    --bar-height: 110px; /* Adjusting for the double-stack height */
+  }
 
+  #scrollBar {
+    flex-wrap: wrap; /* Allow wrapping at this breakpoint */
+    padding: 15px 10px;
+  }
+  
+  /* Forcing each group to take a full row creates the Shot #1 look */
+  .control-group, 
+  .font-resizer {
+    justify-content: center;
+    width: 100%; 
+  }
+}
 
-
+@media (max-width: 600px) {
+  #scrollBar {
+    gap: 8px; /* Reduce vertical space between the two rows */
+  }
+  
+  /* Optional: make the sliders slightly shorter for very narrow phones */
+  input[type="range"] {
+    width: 100px;
+  }
+}
 /* ===========================
    MISCELLANEOUS
    =========================== */
