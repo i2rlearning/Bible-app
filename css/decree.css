@@ -318,16 +318,6 @@ input[type="range"]::-moz-range-thumb{
    =========================== */
 
 
-/* Mobile Tighter Stack (600px) */
-@media (max-width: 600px) {
-  :root {
-    --bar-height: 100px; /* Slightly shorter if you reduced padding/gap at 600px */
-  }
-  
-  #scrollBar {
-    gap: 10px;
-  }
-}
 
 /* ===========================
    MISCELLANEOUS
