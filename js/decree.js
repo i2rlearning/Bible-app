@@ -75,7 +75,6 @@ function toggleAutoScroll() {
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
     stopAutoScroll();
-    decree.scrollTop = 0; 
   }
 }
 
