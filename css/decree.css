@@ -316,17 +316,7 @@ input[type="range"]::-moz-range-thumb{
 /* ===========================
    RESPSONSIVE 
    =========================== */
-/* Responsive adjustments */
-@media (max-width: 800px) {
-  :root {
-    --bar-height: 100px; /* Increase space because the bar is now 2 rows tall */
-  }
-  
-  .control-group, .font-resizer {
-    justify-content: center;
-    width: 100%;
-  }
-}
+
 
 /* Mobile Tighter Stack (600px) */
 @media (max-width: 600px) {
