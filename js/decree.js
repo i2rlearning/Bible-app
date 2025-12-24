@@ -62,7 +62,7 @@ function toggleAutoScroll(){
 
   scrolling = !scrolling;
   const btn = document.getElementById('scrollToggle');
-  if (btn) btn.textContent = scrolling ? 'Stop' : 'Start';
+  if (btn) btn.textContent = scrolling ? 'Pause' : 'Start';
 
   if (scrolling){
     lastTime = performance.now();
