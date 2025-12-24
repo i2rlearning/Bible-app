@@ -62,18 +62,25 @@ function toggleAutoScroll() {
 
   scrolling = !scrolling;
   const btn = document.getElementById('scrollToggle');
-  if (btn) btn.textContent = scrolling ? 'Pause' : 'Start';
 
-  if (scrolling){
+  if (scrolling) {
+    // 1. Check if we are at the bottom (or very close to it)
     const maxScrollTop = decree.scrollHeight - decree.clientHeight;
     const isAtBottom = decree.scrollTop >= maxScrollTop - 5;
 
+    // 2. If we are at the bottom, reset to the top before starting
     if (isAtBottom) {
       decree.scrollTop = 0;
     }
 
+    // 3. Update visuals and start loop
+    if (btn) btn.textContent = 'Pause';
+    lastTime = performance.now();
+    accumulatedScroll = 0;
+    scrollQueue = [];
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
+    // If we just clicked 'Pause'
     stopAutoScroll();
   }
 }
