@@ -65,12 +65,12 @@ function toggleAutoScroll() {
   if (btn) btn.textContent = scrolling ? 'Pause' : 'Start';
 
   if (scrolling){
-    lastTime = performance.now();
-    accumulatedScroll = 0;
-    scrollQueue = [];
+    const maxScrollTop = decree.scrollHeight - decree.clientHeight;
+    const isAtBottom = decree.scrollTop >= maxScrollTop - 5;
 
-    // Reset to top on start (same behavior as your original)
-    //decree.scrollTop = 0; 
+    if (isAtBottom) {
+      decree.scrollTop = 0;
+    }
 
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
