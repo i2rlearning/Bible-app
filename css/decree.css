@@ -334,16 +334,8 @@ input[type="range"]::-moz-range-thumb{
   }
 }
 
-@media (max-width: 600px) {
-  #scrollBar {
-    gap: 8px; /* Reduce vertical space between the two rows */
-  }
-  
-  /* Optional: make the sliders slightly shorter for very narrow phones */
-  input[type="range"] {
-    width: 100px;
-  }
-}
+
+
 /* ===========================
    MISCELLANEOUS
    =========================== */
