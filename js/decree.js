@@ -46,10 +46,10 @@ function updateSpeedDisplay(){
    START / STOP
    =========================== */
 
-function stopAutoScroll(status){
+function stopAutoScroll(){
   scrolling = false;
   const btn = document.getElementById('scrollToggle');
-  if (btn) btn.textContent = status;
+  //if (btn) btn.textContent = status;
 
   if (animationFrameId){
     cancelAnimationFrame(animationFrameId);
@@ -81,7 +81,8 @@ function toggleAutoScroll() {
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
     // If we just clicked 'Pause'
-    stopAutoScroll('Continue');
+    stopAutoScroll();
+    updateButtonStatus ('Continue');
   }
 }
 
@@ -114,7 +115,8 @@ function autoScroll(t){
     // Stop at the end (this is the missing part)
     if (decree.scrollTop >= maxScrollTop - 1){
       decree.scrollTop = maxScrollTop;
-      stopAutoScroll('Start');
+      stopAutoScroll();
+      updateButtonStatus ('Start');
       return;
     }
   }
@@ -162,6 +164,11 @@ function flashButton(btn){
   setTimeout(() => {
     btn.style.backgroundColor = '#333';
   }, 300);
+}
+
+function updateButtonStatus(status) {
+  const btn = document.getElementById('scrollToggle');
+  if (btn) btn.textContent = status;
 }
 
 /* ===========================
