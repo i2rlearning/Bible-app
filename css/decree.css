@@ -8,13 +8,13 @@
 body::before {
   content: "";
   position: fixed;
-  top: 37px;
+  top: 45px;
   left: 0;
   right: 0;
   /* This ensures the scroll always stops exactly at the top of the bar */
   bottom: var(--bar-height); 
   background: url("/img/scroll-nobg.webp") no-repeat center top;
-  background-size: 100% 101%;
+  background-size: 100% 100%;
   z-index: 0;
   pointer-events: none;
 }
