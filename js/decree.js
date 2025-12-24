@@ -70,7 +70,7 @@ function toggleAutoScroll(){
     scrollQueue = [];
 
     // Reset to top on start (same behavior as your original)
-    decree.scrollTop = 0;
+    //decree.scrollTop = 0;
 
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
