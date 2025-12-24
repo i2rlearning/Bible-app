@@ -303,7 +303,7 @@ input[type="range"]::-moz-range-thumb{
 #scrollToggle:hover,
 #incrementSpeed:hover,
 #decrementSpeed:hover{
-  background: #555;
+  background-color: #1d44b8;
 }
 
 /* Keeps Start button close to arrows */
