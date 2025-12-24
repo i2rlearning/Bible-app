@@ -19,6 +19,31 @@ document.addEventListener('DOMContentLoaded', () => {
   if (savedScrollSpeed !== null) scrollSpeed = savedScrollSpeed;
 
   updateSpeedDisplay();
+
+ // Listen for manual scrolling (mouse wheel, touch, or scrollbar dragging)
+ decree.addEventListener('scroll', () => {
+  // We only care about this if the auto-scroller is currently STOPPED
+  if (!scrolling) {
+    const scrollPos = decree.scrollTop;
+    const maxScroll = decree.scrollHeight - decree.clientHeight;
+    const btn = document.getElementById('scrollToggle');
+
+    if (!btn) return;
+
+    // 1. If user manually scrolls to the very top
+    if (scrollPos <= 2) {
+      btn.textContent = 'Start';
+    } 
+    // 2. If user manually scrolls to the very bottom
+    else if (scrollPos >= maxScroll - 5) {
+      btn.textContent = 'Start';
+    } 
+    // 3. If they are anywhere in the middle, keep it as Resume
+    else {
+      btn.textContent = 'Resume';
+    }
+  }
+ });
 });
 
 /* ===========================
