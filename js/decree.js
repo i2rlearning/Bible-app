@@ -57,20 +57,24 @@ function stopAutoScroll(){
   }
 }
 
-function toggleAutoScroll(){
+function toggleAutoScroll() {
   if (!decree) return;
 
-  scrolling = !scrolling;
   const btn = document.getElementById('scrollToggle');
-  if (btn) btn.textContent = scrolling ? 'Pause' : 'Start';
+  const isFinished = (btn.textContent === 'Start'); // Check if we are at the beginning
 
-  if (scrolling){
+  scrolling = !scrolling;
+  if (btn) btn.textContent = scrolling ? 'Pause' : 'Resume';
+
+  if (scrolling) {
     lastTime = performance.now();
     accumulatedScroll = 0;
     scrollQueue = [];
 
-    // Reset to top on start (same behavior as your original)
-    //decree.scrollTop = 0;
+    // ONLY reset to top if the button was 'Start'
+    if (isFinished) {
+      decree.scrollTop = 0;
+    }
 
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
