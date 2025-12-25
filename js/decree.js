@@ -30,20 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!btn) return;
 
-    // 1. If user manually scrolls to the very top
+    // User manually scrolls to the very top
     if (scrollPos <= 2) {
       btn.textContent = 'Start';
     } 
-    // 2. If user manually scrolls to the very bottom
+    // User manually scrolls to the very bottom
     else if (scrollPos >= maxScroll - 5) {
       btn.textContent = 'Start';
     } 
-    // 3. If they are anywhere in the middle, keep it as Resume
+    // User is in the middle, keep it as Resume
     else {
       btn.textContent = 'Resume';
     }
   }
  });
+   
+  // Listen for changes on the font resizer
+  const fontResizer = document.getElementById('fontresizer');
+  fontResizer.addEventListener('input', () => {
+    scrollSpeed = parseFloat(fontResizer.value);
+    updateSpeedDisplay();
+  });
 });
 
 /* ===========================
