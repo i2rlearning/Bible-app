@@ -46,10 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
  });
    
   // Listen for changes on the font resizer
-  const fontResizer = document.getElementById('fontresizer');
-  fontResizer.addEventListener('input', () => {
-    scrollSpeed = parseFloat(fontResizer.value);
-    updateSpeedDisplay();
+  const fontSizeSlider = document.getElementById("font-size-slider");
+  const fontSizeDisplay = document.getElementById("fontSizeDisplay");
+  
+  fontSizeSlider.addEventListener("input", () => {
+    const fontSize = fontSizeSlider.value;
+    decree.style.fontSize = `${fontSize}px`;
+    fontSizeDisplay.textContent = fontSize; // Update the displayed font size
   });
 });
 
