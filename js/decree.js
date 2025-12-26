@@ -20,81 +20,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateSpeedDisplay();
 
- // Listen for manual scrolling (mouse wheel, touch, or scrollbar dragging)
- decree.addEventListener('scroll', () => {
-  // We only care about this if the auto-scroller is currently STOPPED
-  if (!scrolling) {
-    const scrollPos = decree.scrollTop;
-    const maxScroll = decree.scrollHeight - decree.clientHeight;
-    const btn = document.getElementById('scrollToggle');
+  // Manual scroll detection
+  decree.addEventListener('scroll', () => {
+    if (!scrolling) {
+      const scrollPos = decree.scrollTop;
+      const maxScroll = decree.scrollHeight - decree.clientHeight;
+      const btn = document.getElementById('scrollToggle');
+      if (!btn) return;
 
-    if (!btn) return;
-
-    // User manually scrolls to the very top
-    if (scrollPos <= 2) {
-      btn.textContent = 'Start';
-    } 
-    // User manually scrolls to the very bottom
-    else if (scrollPos >= maxScroll - 5) {
-      btn.textContent = 'Start';
-    } 
-    // User is in the middle, keep it as Resume
-    else {
-      btn.textContent = 'Resume';
+      if (scrollPos <= 2) btn.textContent = 'Start';
+      else if (scrollPos >= maxScroll - 5) btn.textContent = 'Start';
+      else btn.textContent = 'Resume';
     }
-  }
- });
-   
-/* ===========================
-   FONT RESIZER
-   =========================== */
-  // Listen for changes on the font resizer
+  });
+
+  /* ===========================
+     FONT RESIZER
+     =========================== */
   const fontSizeSlider = document.getElementById("font-size-slider");
   const fontSizeDisplay = document.getElementById("fontSizeDisplay");
-  
+
   fontSizeSlider.addEventListener("input", () => {
     const fontSize = fontSizeSlider.value;
     decree.style.fontSize = `${fontSize}px`;
-    fontSizeDisplay.textContent = fontSize; // Update the displayed font size
+    fontSizeDisplay.textContent = fontSize;
   });
 });
 
-	
-  const fontSizeSlider = document.getElementById("font-size-slider");
-  const displayText = document.getElementById("decree-text");
+const fontSizeSlider = document.getElementById("font-size-slider");
+const displayText = document.getElementById("decree-text");
 
-  fontSizeSlider.addEventListener("input", () => {
-    const fontSize = fontSizeSlider.value;
-    displayText.style.fontSize = `${fontSize}px`;
+fontSizeSlider?.addEventListener("input", () => {
+  const fontSize = fontSizeSlider.value;
+  displayText.style.fontSize = `${fontSize}px`;
 });
 
 /* ===========================
-   SPEED DISPLAY
+   SPEED DISPLAY (UPDATED)
+   UI scale: 1 → 100
+   Internal scale: 0.01 → 10
    =========================== */
-function speedToPercentage(val){
-  if (typeof val !== 'number' || isNaN(val)) return '1.00';
-  const min = 0.01, max = 10;
-  const pct = 1 + ((val - min) / (max - min)) * 99;
-  return (Math.round(pct * 10) / 10).toFixed(2);
-}
 
 function updateSpeedDisplay(){
   const speedValue = document.getElementById('speedValue');
   const slider = document.getElementById('scrollSpeed');
   if (!speedValue || !slider) return;
 
-  speedValue.textContent = speedToPercentage(scrollSpeed);
-  slider.value = scrollSpeed;
+  const uiValue = scrollSpeed * 10; // convert internal → UI
+
+  speedValue.textContent = uiValue.toFixed(2);
+  slider.value = uiValue;
+
   saveScrollSpeed(scrollSpeed);
 }
 
 /* ===========================
    START / STOP
    =========================== */
+
 function stopAutoScroll(){
   scrolling = false;
-  const btn = document.getElementById('scrollToggle');
-  //if (btn) btn.textContent = status;
 
   if (animationFrameId){
     cancelAnimationFrame(animationFrameId);
@@ -109,25 +94,19 @@ function toggleAutoScroll() {
   const btn = document.getElementById('scrollToggle');
 
   if (scrolling) {
-    // 1. Check if we are at the bottom (or very close to it)
     const maxScrollTop = decree.scrollHeight - decree.clientHeight;
     const isAtBottom = decree.scrollTop >= maxScrollTop - 5;
 
-    // 2. If we are at the bottom, reset to the top before starting
-    if (isAtBottom) {
-      decree.scrollTop = 0;
-    }
+    if (isAtBottom) decree.scrollTop = 0;
 
-    // 3. Update visuals and start loop
     if (btn) btn.textContent = 'Pause';
     lastTime = performance.now();
     accumulatedScroll = 0;
     scrollQueue = [];
     animationFrameId = requestAnimationFrame(autoScroll);
   } else {
-    // If we just clicked 'Pause'
     stopAutoScroll();
-    updateButtonStatus ('Continue');
+    updateButtonStatus('Continue');
   }
 }
 
@@ -152,16 +131,14 @@ function autoScroll(t){
 
     const maxScrollTop = decree.scrollHeight - decree.clientHeight;
 
-    // Apply scroll and clamp
     decree.scrollTop = Math.min(maxScrollTop, decree.scrollTop + amt);
 
     accumulatedScroll -= amt;
 
-    // Stop at the end (this is the missing part)
     if (decree.scrollTop >= maxScrollTop - 1){
       decree.scrollTop = maxScrollTop;
       stopAutoScroll();
-      updateButtonStatus ('Start');
+      updateButtonStatus('Start');
       return;
     }
   }
@@ -170,26 +147,37 @@ function autoScroll(t){
 }
 
 /* ===========================
-   SPEED CONTROLS
+   SPEED CONTROLS (UPDATED)
+   Buttons now modify UI scale
    =========================== */
 
 document.addEventListener('click', (e)=>{
   if (e.target.id === 'incrementSpeed'){
-    scrollSpeed = Math.min(10, scrollSpeed + 0.01);
+    let uiValue = scrollSpeed * 10;
+    uiValue = Math.min(100, uiValue + 1);
+    scrollSpeed = uiValue / 10; // convert UI → internal
     updateSpeedDisplay();
     flashButton(e.target);
   }
 
   if (e.target.id === 'decrementSpeed'){
-    scrollSpeed = Math.max(0.01, scrollSpeed - 0.01);
+    let uiValue = scrollSpeed * 10;
+    uiValue = Math.max(1, uiValue - 1);
+    scrollSpeed = uiValue / 10; // convert UI → internal
     updateSpeedDisplay();
     flashButton(e.target);
   }
 });
 
+/* ===========================
+   SLIDER INPUT (UPDATED)
+   Slider uses UI scale
+   =========================== */
+
 document.addEventListener('input', (e)=>{
   if (e.target.id === 'scrollSpeed'){
-    scrollSpeed = parseFloat(e.target.value);
+    const uiValue = parseFloat(e.target.value);
+    scrollSpeed = uiValue / 10; // convert UI → internal
     updateSpeedDisplay();
   }
 });
