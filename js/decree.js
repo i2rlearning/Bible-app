@@ -64,9 +64,11 @@ fontSizeSlider?.addEventListener("input", () => {
 function updateSpeedDisplay(){
   const speedValue = document.getElementById('speedValue');
   const slider = document.getElementById('scrollSpeed');
-  if (!speedValue || !slider) return;
 
-  const uiValue = scrollSpeed * 10; // convert internal → UI
+  let uiValue = scrollSpeed * 10;
+
+  // 🔥 Prevent slider from ever going below 0.50
+  if (uiValue < 0.50) uiValue = 0.50;
 
   speedValue.textContent = uiValue.toFixed(2);
   slider.value = uiValue;
@@ -77,7 +79,6 @@ function updateSpeedDisplay(){
 /* ===========================
    START / STOP
    =========================== */
-
 function stopAutoScroll(){
   scrolling = false;
 
@@ -111,9 +112,8 @@ function toggleAutoScroll() {
 }
 
 /* ===========================
-   TELEPROMPTER LOOP
+   SCROLLER LOOP
    =========================== */
-
 function autoScroll(t){
   if (!scrolling || !decree) return;
 
@@ -154,7 +154,7 @@ function autoScroll(t){
 document.addEventListener('click', (e)=>{
   if (e.target.id === 'incrementSpeed'){
     let uiValue = scrollSpeed * 10;   // internal → UI
-    uiValue = Math.min(100, uiValue + 0.10);  // allow decimals
+    uiValue = Math.min(0.50, uiValue + 0.10);  // allow decimals
     scrollSpeed = uiValue / 10;       // UI → internal
     updateSpeedDisplay();
     flashButton(e.target);
@@ -176,11 +176,15 @@ document.addEventListener('click', (e)=>{
 
 document.addEventListener('input', (e)=>{
   if (e.target.id === 'scrollSpeed'){
-    const uiValue = parseFloat(e.target.value);
-    scrollSpeed = uiValue / 10; // convert UI → internal
+    let uiValue = parseFloat(e.target.value);
+
+    if (uiValue < 0.50) uiValue = 0.50;
+
+    scrollSpeed = uiValue / 10;
     updateSpeedDisplay();
   }
 });
+
 
 /* ===========================
    BUTTON HANDLING
