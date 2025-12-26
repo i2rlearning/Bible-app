@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
  });
    
+/* ===========================
+   FONT RESIZER
+   =========================== */
   // Listen for changes on the font resizer
   const fontSizeSlider = document.getElementById("font-size-slider");
   const fontSizeDisplay = document.getElementById("fontSizeDisplay");
@@ -56,10 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+	
+  const fontSizeSlider = document.getElementById("font-size-slider");
+  const displayText = document.getElementById("decree-text");
+
+  fontSizeSlider.addEventListener("input", () => {
+    const fontSize = fontSizeSlider.value;
+    displayText.style.fontSize = `${fontSize}px`;
+});
+
 /* ===========================
    SPEED DISPLAY
    =========================== */
-
 function speedToPercentage(val){
   if (typeof val !== 'number' || isNaN(val)) return '1.00';
   const min = 0.01, max = 10;
@@ -80,7 +91,6 @@ function updateSpeedDisplay(){
 /* ===========================
    START / STOP
    =========================== */
-
 function stopAutoScroll(){
   scrolling = false;
   const btn = document.getElementById('scrollToggle');
