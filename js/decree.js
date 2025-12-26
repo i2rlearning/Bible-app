@@ -154,7 +154,7 @@ function autoScroll(t){
 document.addEventListener('click', (e)=>{
   if (e.target.id === 'incrementSpeed'){
     let uiValue = scrollSpeed * 10;   // internal → UI
-    uiValue = Math.min(100, uiValue + 0.01);  // allow decimals
+    uiValue = Math.min(100, uiValue + 0.10);  // allow decimals
     scrollSpeed = uiValue / 10;       // UI → internal
     updateSpeedDisplay();
     flashButton(e.target);
@@ -162,7 +162,7 @@ document.addEventListener('click', (e)=>{
 
   if (e.target.id === 'decrementSpeed'){
     let uiValue = scrollSpeed * 10;
-    uiValue = Math.max(0.50, uiValue - 0.01); // allow decimals
+    uiValue = Math.max(0.50, uiValue - 0.10); // allow decimals
     scrollSpeed = uiValue / 10;
     updateSpeedDisplay();
     flashButton(e.target);
