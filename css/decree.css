@@ -242,9 +242,8 @@ input[type="range"]::-moz-range-thumb{
 }
 
 /* ===========================
-   ARROW BUTTONS
+   ARROW/START BUTTONS
    =========================== */
-
 #incrementSpeed,
 #decrementSpeed{
   width: 30px;
@@ -278,9 +277,7 @@ input[type="range"]::-moz-range-thumb{
   border-top: 10px solid #fff;
 }
 
-/* ===========================
-   START BUTTON
-   =========================== */
+/* START */
 #scrollToggle{
   height: 30px;
   min-height: 30px;
@@ -300,10 +297,20 @@ input[type="range"]::-moz-range-thumb{
   align-self: center;
 }
 
+.flashing {
+  background-color: #1d44b8; /* Flashing color */
+}
+
 #scrollToggle:hover,
 #incrementSpeed:hover,
-#decrementSpeed:hover{
-  background-color: #1d44b8;
+#decrementSpeed:hover {
+  background-color: #1d44b8; /* Hover color */
+}
+
+#incrementSpeed,
+#decrementSpeed,
+#scrollToggle {
+  transition: background-color 0.3s ease; /* Smooth transition for background color changes */
 }
 
 /* Keeps Start button close to arrows */
