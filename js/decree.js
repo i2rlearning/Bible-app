@@ -1,7 +1,12 @@
 let decree;
 let content;
 let scrolling = false;
-let scrollSpeed = 0.05;
+
+// UI speed (what the user sees): 0.50 → 100.00
+let uiSpeed = 5.00;  // example initial value = 5.00 => scrollSpeed = 0.5
+// internal scrollSpeed derived from uiSpeed: 0.05 → 10.00
+let scrollSpeed = uiSpeed / 10;
+
 let accumulatedScroll = 0;
 let scrollQueue = [];
 let animationFrameId = null;
@@ -16,7 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
   content = document.querySelector('.content');
 
   const savedScrollSpeed = getScrollSpeed();
-  if (savedScrollSpeed !== null) scrollSpeed = savedScrollSpeed;
+  if (savedScrollSpeed !== null) {
+    scrollSpeed = savedScrollSpeed;     // internal value from storage
+    uiSpeed = scrollSpeed * 10;         // sync UI with stored internal
+  }
 
   updateSpeedDisplay();
 
@@ -40,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fontSizeSlider = document.getElementById("font-size-slider");
   const fontSizeDisplay = document.getElementById("fontSizeDisplay");
 
-  fontSizeSlider.addEventListener("input", () => {
+  fontSizeSlider?.addEventListener("input", () => {
     const fontSize = fontSizeSlider.value;
     decree.style.fontSize = `${fontSize}px`;
     fontSizeDisplay.textContent = fontSize;
@@ -56,27 +64,34 @@ fontSizeSlider?.addEventListener("input", () => {
 });
 
 /* ===========================
-   SPEED DISPLAY (UPDATED)
-   UI scale: 1 → 100
-   Internal scale: 0.01 → 10
+   SPEED DISPLAY
+   UI scale: 0.50 → 100
+   Internal scale: 0.05 → 10
    =========================== */
 
 function updateSpeedDisplay(){
   const speedValue = document.getElementById('speedValue');
   const slider = document.getElementById('scrollSpeed');
+  if (!speedValue || !slider) return;
 
-  let uiValue = scrollSpeed * 10;
+  // keep uiSpeed within bounds and nicely rounded
+  uiSpeed = parseFloat(uiSpeed.toFixed(2));
+  if (uiSpeed < 0.50) uiSpeed = 0.50;
+  if (uiSpeed > 100) uiSpeed = 100;
 
-  uiValue = parseFloat(uiValue.toFixed(2));
-  if (uiValue < 0.50) uiValue = 0.50;
-     speedValue.textContent = uiValue.toFixed(2);
-     slider.value = uiValue;
-     saveScrollSpeed(scrollSpeed);
+  // internal scrollSpeed derived from uiSpeed
+  scrollSpeed = uiSpeed / 10;
+
+  speedValue.textContent = uiSpeed.toFixed(2);
+  slider.value = uiSpeed;
+
+  saveScrollSpeed(scrollSpeed); // still store internal if you like
 }
 
 /* ===========================
    START / STOP
    =========================== */
+
 function stopAutoScroll(){
   scrolling = false;
 
@@ -112,6 +127,7 @@ function toggleAutoScroll() {
 /* ===========================
    SCROLLER LOOP
    =========================== */
+
 function autoScroll(t){
   if (!scrolling || !decree) return;
 
@@ -146,29 +162,27 @@ function autoScroll(t){
 
 /* ===========================
    SPEED CONTROLS
-   Buttons now modify UI scale
+   Buttons modify UI scale
    =========================== */
 
 document.addEventListener('click', (e)=>{
   if (e.target.id === 'incrementSpeed'){
-    let uiValue = scrollSpeed * 10;   // internal → UI
-    uiValue = Math.min(0.50, uiValue + 0.10);  // allow decimals
-    scrollSpeed = uiValue / 10;       // UI → internal
+    uiSpeed = parseFloat((uiSpeed + 0.10).toFixed(2));
+    if (uiSpeed > 100) uiSpeed = 100;
     updateSpeedDisplay();
     flashButton(e.target);
   }
 
   if (e.target.id === 'decrementSpeed'){
-    let uiValue = scrollSpeed * 10;
-    uiValue = Math.max(0.50, uiValue - 0.10); // allow decimals
-    scrollSpeed = uiValue / 10;
+    uiSpeed = parseFloat((uiSpeed - 0.10).toFixed(2));
+    if (uiSpeed < 0.50) uiSpeed = 0.50;
     updateSpeedDisplay();
     flashButton(e.target);
   }
 });
 
 /* ===========================
-   SLIDER INPUT (UPDATED)
+   SLIDER INPUT
    Slider uses UI scale
    =========================== */
 
@@ -177,12 +191,13 @@ document.addEventListener('input', (e)=>{
     let uiValue = parseFloat(e.target.value);
     uiValue = parseFloat(uiValue.toFixed(2));
 
-  if (uiValue < 0.50) uiValue = 0.50;
-    scrollSpeed = uiValue / 10;
-    updateSpeedDisplay();
+    if (uiValue < 0.50) uiValue = 0.50;
+    if (uiValue > 100) uiValue = 100;
+
+    uiSpeed = uiValue;          // <- make UI state the source of truth
+    updateSpeedDisplay();       // this will update scrollSpeed internally
   }
 });
-
 
 /* ===========================
    BUTTON HANDLING
