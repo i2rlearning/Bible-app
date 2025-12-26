@@ -147,23 +147,23 @@ function autoScroll(t){
 }
 
 /* ===========================
-   SPEED CONTROLS (UPDATED)
+   SPEED CONTROLS
    Buttons now modify UI scale
    =========================== */
 
 document.addEventListener('click', (e)=>{
   if (e.target.id === 'incrementSpeed'){
-    let uiValue = scrollSpeed * 10;
-    uiValue = Math.min(100, uiValue + 1);
-    scrollSpeed = uiValue / 10; // convert UI → internal
+    let uiValue = scrollSpeed * 10;   // internal → UI
+    uiValue = Math.min(100, uiValue + 0.01);  // allow decimals
+    scrollSpeed = uiValue / 10;       // UI → internal
     updateSpeedDisplay();
     flashButton(e.target);
   }
 
   if (e.target.id === 'decrementSpeed'){
     let uiValue = scrollSpeed * 10;
-    uiValue = Math.max(1, uiValue - 1);
-    scrollSpeed = uiValue / 10; // convert UI → internal
+    uiValue = Math.max(0.50, uiValue - 0.01); // allow decimals
+    scrollSpeed = uiValue / 10;
     updateSpeedDisplay();
     flashButton(e.target);
   }
