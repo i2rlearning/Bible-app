@@ -176,7 +176,7 @@ h1{
 }
 
 #speedValue{
-  position: static;
+  position: inline;
   margin: 0; 
   padding: 0;
 }
