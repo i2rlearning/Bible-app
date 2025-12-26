@@ -238,5 +238,3 @@ function getScrollSpeed(){
     return null;
   }
 }
-
-console.log(JSON.stringify(document.getElementById('speedValue').textContent));
