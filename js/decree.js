@@ -203,11 +203,12 @@ document.getElementById('scrollToggle')?.addEventListener('click', () => {
   flashButton(document.getElementById('scrollToggle'));
 });
 
-function flashButton(btn){
+function flashButton(btn) {
   if (!btn) return;
-  btn.style.backgroundColor = '#0066ff';
+  btn.classList.add('flashing');
+  
   setTimeout(() => {
-    btn.style.backgroundColor = '#333';
+    btn.classList.remove('flashing');
   }, 300);
 }
 
