@@ -1,7 +1,7 @@
 let decree;
 let content;
 let scrolling = false;
-let scrollSpeed = 0.06;
+let scrollSpeed = 0.05;
 let accumulatedScroll = 0;
 let scrollQueue = [];
 let animationFrameId = null;
