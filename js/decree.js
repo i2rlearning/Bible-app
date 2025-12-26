@@ -67,13 +67,11 @@ function updateSpeedDisplay(){
 
   let uiValue = scrollSpeed * 10;
 
-  // 🔥 Prevent slider from ever going below 0.50
+  uiValue = parseFloat(uiValue.toFixed(2));
   if (uiValue < 0.50) uiValue = 0.50;
-
-  speedValue.textContent = uiValue.toFixed(2);
-  slider.value = uiValue;
-
-  saveScrollSpeed(scrollSpeed);
+     speedValue.textContent = uiValue.toFixed(2);
+     slider.value = uiValue;
+     saveScrollSpeed(scrollSpeed);
 }
 
 /* ===========================
@@ -177,9 +175,9 @@ document.addEventListener('click', (e)=>{
 document.addEventListener('input', (e)=>{
   if (e.target.id === 'scrollSpeed'){
     let uiValue = parseFloat(e.target.value);
+    uiValue = parseFloat(uiValue.toFixed(2));
 
-    if (uiValue < 0.50) uiValue = 0.50;
-
+  if (uiValue < 0.50) uiValue = 0.50;
     scrollSpeed = uiValue / 10;
     updateSpeedDisplay();
   }
