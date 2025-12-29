@@ -191,7 +191,7 @@ h1{
   margin-right: 8px; 
 }
 
-.slider-container label::after {
+.slider-container label {
   margin-right: 8px;  
 }
 
