@@ -207,10 +207,13 @@ h1{
 
 .font-resizer label, 
 #speedValue {
-  margin-right: 8px;
-  white-space: nowrap; /* Prevents text from wrapping */
+  margin-right: 0;
+  white-space: nowrap; 
 }
 
+.font-resizer label {
+  margin-right: 8px; 
+}
 /* ===========================
    RANGE SLIDER
    =========================== */
