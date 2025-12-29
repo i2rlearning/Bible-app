@@ -194,6 +194,7 @@ h1{
 .slider-container label::after {
   content: ":";
   margin-right: 8px;  
+}
 
 /* ===========================
    SLIDER CONTROLS
