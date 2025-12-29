@@ -84,9 +84,7 @@ function updateSpeedDisplay(){
 
   speedValue.textContent = uiSpeed.toFixed(2);
   slider.value = uiSpeed;
-  alert('speedvalue: ' + '"' + speedValue.textContent + '"');
-  alert('slider.value: ' + '"' + slider.value + '"');
-  alert('scrollSpeed: ' + '"' + scrollSpeed + '"');
+  alert('uiSpeed: ' + '"' + uiSpeed + '"');
             
   saveScrollSpeed(scrollSpeed); // still store internal if you like
 }
