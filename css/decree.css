@@ -191,9 +191,9 @@ h1{
   margin-right: 8px; 
 }
 
-#speedValue label::after {
-  margin-right: 8px;
-}
+.slider-container label::after {
+  content: ":";
+  margin-right: 8px;  
 
 /* ===========================
    SLIDER CONTROLS
