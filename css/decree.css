@@ -167,18 +167,25 @@ h1{
 /* ===========================
    SLIDER + LABEL
    =========================== */
-.slider-container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+.slider-container label {
+  margin-right: 8px;
+  white-space: nowrap;
+  display: inline-block;
 }
 
-#speedValue{
-  position: inline;
-  margin: 0; 
+#speedValue {
+  margin: 0;
   padding: 0;
+}
+
+.font-resizer label, 
+#speedValue {
+  margin-right: 0;
+  white-space: nowrap; 
+}
+
+.font-resizer label {
+  margin-right: 8px; 
 }
 
 /* ===========================
@@ -205,15 +212,6 @@ h1{
   height: 36px;
 }
 
-.font-resizer label, 
-#speedValue {
-  margin-right: 0;
-  white-space: nowrap; 
-}
-
-.font-resizer label {
-  margin-right: 8px; 
-}
 /* ===========================
    RANGE SLIDER
    =========================== */
