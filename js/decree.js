@@ -2,9 +2,9 @@ let decree;
 let content;
 let scrolling = false;
 
-// UI speed (what the user sees): 0.50 → 100.00
+// UI speed (what the user sees): 0.50 â†’ 100.00
 let uiSpeed = 5.00;  // example initial value = 5.00 => scrollSpeed = 0.5
-// internal scrollSpeed derived from uiSpeed: 0.05 → 10.00
+// internal scrollSpeed derived from uiSpeed: 0.05 â†’ 10.00
 let scrollSpeed = uiSpeed / 10;
 
 let accumulatedScroll = 0;
@@ -100,8 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ===========================
    SPEED DISPLAY
-   UI scale: 0.50 → 100
-   Internal scale: 0.05 → 10
+   UI scale: 0.50 â†’ 100
+   Internal scale: 0.05 â†’ 10
    =========================== */
 
 function updateSpeedDisplay(){
