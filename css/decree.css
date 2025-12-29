@@ -180,7 +180,12 @@ h1{
   margin: 0; 
   padding: 0;
 }
-
+label {
+  font-size: 0; /* Collapses whitespace between inline children */
+}
+label span {
+  font-size: 16px; /* Or whatever your normal text size is */
+}
 /* ===========================
    SLIDER CONTROLS
    =========================== */
