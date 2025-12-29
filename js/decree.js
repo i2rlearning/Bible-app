@@ -238,3 +238,16 @@ function getScrollSpeed(){
     return null;
   }
 }
+
+function saveFontResizer(s){
+  try { localStorage.setItem("fontSizeDisplay", String(s)); } catch {}
+}
+
+function getFontResizer(){
+  try {
+    const v = localStorage.getItem("fontSizeDisplay");
+    return v ? parseFloat(v) : null;
+  } catch {
+    return null;
+  }
+}
