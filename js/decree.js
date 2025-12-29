@@ -238,29 +238,3 @@ function getScrollSpeed(){
     return null;
   }
 }
-
-
-
-// TEMPORARY DEBUG: Force-clean the speed value and check for hidden spaces
-setTimeout(() => {
-  const span = document.getElementById('speedValue');
-  if (span) {
-    console.log('Before cleaning:', '"' + span.textContent + '"');
-    console.log('Length before:', span.textContent.length); // should be 4 for "5.00"
-
-    // Remove any leading/trailing spaces
-    const cleaned = span.textContent.trim();
-    span.textContent = cleaned;
-
-    console.log('After cleaning:', '"' + cleaned + '"');
-    console.log('Length after:', cleaned.length);
-
-    // Force update from current uiSpeed to be extra sure
-    if (typeof updateSpeedDisplay === 'function') {
-      updateSpeedDisplay();
-      console.log('Final value after updateSpeedDisplay:', '"' + span.textContent + '"');
-    }
-  } else {
-    console.warn('speedValue span not found');
-  }
-}, 1000); // runs 1 second after page load
