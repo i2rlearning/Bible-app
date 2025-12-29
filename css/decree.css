@@ -167,14 +167,17 @@ h1{
 /* ===========================
    SLIDER + LABEL
    =========================== */
-.slider-container label {
-  margin-right: 8px;
-  white-space: nowrap;
-  display: inline-block;
+.slider-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-#speedValue {
-  margin: 0;
+#speedValue{
+  position: inline;
+  margin: 0; 
   padding: 0;
 }
 
@@ -186,6 +189,10 @@ h1{
 
 .font-resizer label {
   margin-right: 8px; 
+}
+
+#speedValue label::after {
+  margin-right: 8px;
 }
 
 /* ===========================
