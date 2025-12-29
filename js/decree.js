@@ -45,22 +45,57 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ===========================
      FONT RESIZER
      =========================== */
+document.addEventListener('DOMContentLoaded', () => {
   const fontSizeSlider = document.getElementById("font-size-slider");
   const fontSizeDisplay = document.getElementById("fontSizeDisplay");
+  const decreeText = document.querySelector('.decree'); // or '#decree-text', whatever your scrolling text container is
 
-  fontSizeSlider?.addEventListener("input", () => {
-    const fontSize = fontSizeSlider.value;
-    decree.style.fontSize = `${fontSize}px`;
+  if (!fontSizeSlider || !fontSizeDisplay || !decreeText) {
+    console.warn("Font resizer elements not found");
+    return;
+  }
+
+  // Default font size (fallback if nothing saved)
+  const DEFAULT_FONT_SIZE = 18;
+
+  // Load saved font size from localStorage
+  function getSavedFontSize() {
+    try {
+      const saved = localStorage.getItem("fontSize");
+      return saved ? parseInt(saved, 10) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Save font size to localStorage
+  function saveFontSize(size) {
+    try {
+      localStorage.setItem("fontSize", String(size));
+    } catch (e) {
+      console.warn("Could not save font size", e);
+    }
+  }
+
+  // Apply font size to the decree text and update UI
+  function applyFontSize(size) {
+    decreeText.style.fontSize = `${size}px`;
+    fontSizeDisplay.textContent = size;
+    fontSizeSlider.value = size; // Sync slider position
+  }
+
+  // Initial load
+  const savedSize = getSavedFontSize();
+  const initialSize = savedSize || DEFAULT_FONT_SIZE;
+  applyFontSize(initialSize);
+
+  // Listen for slider changes
+  fontSizeSlider.addEventListener("input", () => {
+    const fontSize = parseInt(fontSizeSlider.value, 10);
+    decreeText.style.fontSize = `${fontSize}px`;
     fontSizeDisplay.textContent = fontSize;
+    saveFontSize(fontSize); // Save on every change
   });
-});
-
-const fontSizeSlider = document.getElementById("font-size-slider");
-const displayText = document.getElementById("decree-text");
-
-fontSizeSlider?.addEventListener("input", () => {
-  const fontSize = fontSizeSlider.value;
-  displayText.style.fontSize = `${fontSize}px`;
 });
 
 /* ===========================
