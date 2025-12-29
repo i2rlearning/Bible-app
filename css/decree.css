@@ -287,7 +287,9 @@ input[type="range"]::-moz-range-thumb{
   border-top: 10px solid #fff;
 }
 
-/* START */
+/* ===========================
+   START
+   =========================== */
 #scrollToggle{
   height: 30px;
   min-height: 30px;
@@ -367,5 +369,5 @@ input[type="range"]::-moz-range-thumb{
    MISCELLANEOUS
    =========================== */
 .extraSpace{
-  padding-top: 80px;
+  padding-top: 100px;  /* Extra padding for the starting point of the text */
 }
