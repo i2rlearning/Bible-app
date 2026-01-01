@@ -373,5 +373,6 @@ input[type="range"]::-moz-range-thumb{
 }
 
 .colorChange a:hover{
-  color: #b30000;
+  color: #1d44b8;
+  text-decoration: none;
 }
