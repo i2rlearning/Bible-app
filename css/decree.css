@@ -369,5 +369,9 @@ input[type="range"]::-moz-range-thumb{
    MISCELLANEOUS
    =========================== */
 .extraSpace{
-  padding-top: 100px;  /* Extra padding for the starting point of the text */
+  padding-top: 200px;  /* Extra padding for the starting point of the text */
+}
+
+.colorChange a:hover{
+  color: #b30000;
 }
