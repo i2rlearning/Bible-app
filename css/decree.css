@@ -372,7 +372,10 @@ input[type="range"]::-moz-range-thumb{
   padding-top: 200px;  /* Extra padding for the starting point of the text */
 }
 
+.colorChange {
+  text-decoration: none;
+}
+
 .colorChange a:hover{
   color: #1d44b8;
-  text-decoration: none;
 }
