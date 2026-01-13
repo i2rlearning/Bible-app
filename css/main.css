@@ -1,5 +1,5 @@
 /* ---------- NAV + SLIDER FIX ---------- */
-:root { --nav-h: 40px; }
+:root { --nav-h: 56px; } /* this will be auto-set by JS below */
 
 /* Navbar stays fixed */
 .w3-top{
@@ -10,21 +10,23 @@
   z-index: 9999;
 }
 
+/* Push ALL content below the fixed navbar */
 html, body{
   margin: 0;
   padding: 0;
 }
-
-/* OUTER WRAPPER - no visual ownership */
-.container{
+body{
   padding-top: var(--nav-h);
-  margin: 0;
-  background: transparent;          /* IMPORTANT */
-  padding-left: 0 !important;       /* kill W3 defaults */
-  padding-right: 0 !important;
 }
 
-/* SLIDER owns the visual frame */
+/* Container should NOT add extra top spacing */
+.container{
+  margin: 0;
+  padding: 0 !important;
+  background: transparent;
+}
+
+/* Slider box */
 .slider-container{
   width: min(1100px, 92vw);
   margin: 0 auto;
@@ -33,30 +35,30 @@ html, body{
   position: relative;
   background: #333;
 
-  /* hard reset */
   border: 0 !important;
   outline: 0 !important;
   box-shadow: none !important;
-  filter: none !important;
 }
 
-/* FULL FILL STACK */
-#slides,
-.slide{
+/* Fill */
+#slides, .slide{
   width: 100%;
   height: 100%;
 }
 
-/* IMAGE FITTING */
 .slide img{
   width: 100%;
   height: 100%;
-  object-fit: contain;          /* full image, no cropping */
-  object-position: center;
-  background: #333;             /* intentional letterbox */
   display: block;
-}
 
+  /* Choose ONE of these: */
+
+  object-fit: contain;  /* full image, may show bars */
+  /* object-fit: cover; */ /* no bars, crops image */
+
+  object-position: center;
+  background: #333;
+}
 /* Center slide content */
 .slide{
   display: flex;
