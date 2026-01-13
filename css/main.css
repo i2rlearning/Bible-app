@@ -70,30 +70,6 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   color: #000 !important;
 }
 
-nav .w3-bar {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-/* Cancel W3 floats */
-nav .w3-bar-item,
-nav .w3-dropdown-hover {
-  float: none !important;
-}
-
-/* Push EVERYTHING except Donate to the left */
-nav .w3-bar > :not(.donate-button) {
-  order: 1;
-}
-
-/* Force Donate to the far right */
-nav .donate-button {
-  order: 2;
-  margin-left: auto;
-  white-space: nowrap;
-}
-
 /* *************** MINISTRY *************** */
 #ministry .scroll-item {
   flex-shrink: 0;
