@@ -70,6 +70,21 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   color: #000 !important;
 }
 
+nav .w3-bar {
+  display: flex;
+  align-items: center;
+}
+
+nav .w3-bar .w3-bar-item,
+nav .w3-bar .w3-dropdown-hover {
+  float: none !important; /* cancel W3 floats */
+}
+
+nav .donate-button {
+  margin-left: auto; /* pushes Donate to the far right */
+  white-space: nowrap;
+}
+
 /* *************** MINISTRY *************** */
 #ministry .scroll-item {
   flex-shrink: 0;
