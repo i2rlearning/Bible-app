@@ -28,6 +28,8 @@ html, body{
   overflow: hidden;
   position: relative;
   background: #333;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 /* Force the image to actually fill the slider */
