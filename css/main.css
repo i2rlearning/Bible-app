@@ -17,7 +17,8 @@ html, body{
 
 /* HERO area that holds the slider */
 .container{
-  background: #333;
+  background: #333 !important; 
+  margin-top: 0 !important; 
   padding-top: var(--nav-h);     /* space for fixed navbar */
   min-height: calc(100vh - var(--nav-h)); /* gray goes to the fold */
   display: flex;
