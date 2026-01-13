@@ -1,10 +1,19 @@
-/* Ensures content starts right under the fixed navbar */
+/* ---------- GLOBAL: ensure content starts under fixed navbar ---------- */
 body {
   margin: 0;
-  padding-top: 52px; /* adjust to your navbar height */
+  padding-top: 52px; /* set this to your real navbar height */
 }
 
-/* *************** DONATE BUTTON *************** */
+/* Make sure the fixed navbar is always on top */
+.w3-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* ---------- DONATE BUTTON ---------- */
 .donate-button {
   background-color: red !important;
 }
@@ -12,7 +21,7 @@ body {
   background-color: #a30000 !important;
 }
 
-/* *************** NAVBAR *************** */
+/* ---------- NAVBAR ---------- */
 .nav-toggle-btn {
   padding: 8px 16px;
   display: block;
@@ -76,11 +85,14 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   color: #000 !important;
 }
 
-/* *************** SLIDESHOW *************** */
-/* Slider sizing - stays inside the visible screen */
+/* ---------- SLIDESHOW ---------- */
+/* Remove any stray gap above/below the slider */
 .slider-container {
+  margin: 0 !important;
+  padding: 0 !important;
+
   width: 100%;
-  height: calc(100vh - 52px); /* 52px must match the padding-top above */
+  height: calc(100vh - 52px); /* must match body padding-top */
   max-height: 650px;          /* optional cap for very large monitors */
   overflow: hidden;
 }
@@ -92,12 +104,20 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 }
 
 .slide img {
-  object-fit: cover;      /* fills without distortion */
-  object-position: center;/* keeps center visible */
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
-/* *************** MINISTRY *************** */
+/* Smaller screens: keep it from dominating the page */
+@media (max-width: 600px) {
+  .slider-container {
+    height: calc(60vh - 52px);
+    max-height: 420px;
+  }
+}
+
+/* ---------- MINISTRY ---------- */
 #ministry .scroll-item {
   flex-shrink: 0;
   width: 25%;
@@ -116,27 +136,21 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   margin: 0 auto 12px;
 }
 
-/* Tablet / Medium Screens: 2 items per visible area (50% width) */
 @media (max-width: 992px) {
-  #ministry .scroll-item {
-    width: 50%;
-  }
+  #ministry .scroll-item { width: 50%; }
 }
 
 @media (max-width: 600px) {
-  #ministry .scroll-item {
-    width: 100%;
-  }
+  #ministry .scroll-item { width: 100%; }
 }
 
-/* scroller for ministry section */
-/* WRAPPER (Outer container for scroll area and fixed overlays) */
+/* WRAPPER */
 .scroll-wrapper {
   position: relative;
   z-index: 0;
 }
 
-/* SCROLL AREA (#ministry holds the actual content and scrolls) */
+/* SCROLL AREA */
 #ministry {
   display: flex;
   flex-wrap: nowrap;
@@ -146,36 +160,20 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   position: relative;
   z-index: 1;
 
-  /* edge buffer so content never sits under overlays */
   padding: 2rem 56px;
   box-sizing: border-box;
 
-  /* keep these matching the padding */
   scroll-padding-left: 56px;
   scroll-padding-right: 56px;
 
   cursor: grab;
 }
-#ministry:active {
-  cursor: grabbing;
-}
+#ministry:active { cursor: grabbing; }
 
-/* INDIVIDUAL CARD OVERRIDES (if you are not using .w3-quarter here, this can be removed) */
-#ministry .w3-quarter {
-  flex: 0 0 auto;
-  width: 280px;
-  float: none !important;
-  margin: 0 20px;
-  box-sizing: border-box;
-}
-
-/* SCROLLBAR HIDE (optional) */
 #ministry::-webkit-scrollbar { display: none; }
 #ministry { scrollbar-width: none; }
 
-/* ----------------------------------------------------------------- */
 /* ARROW OVERLAY & BUTTON STYLES */
-/* ----------------------------------------------------------------- */
 .scroll-overlay {
   position: absolute;
   top: 0;
@@ -183,17 +181,13 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   width: 40px;
   background: white;
   pointer-events: none;
-  z-index: 100;
+
+  z-index: 5; /* keep below navbar */
 }
 
-.scroll-overlay.left {
-  left: 0;
-}
-.scroll-overlay.right {
-  right: 0;
-}  
+.scroll-overlay.left { left: 0; }
+.scroll-overlay.right { right: 0; }
 
-/* The actual arrow button */
 .scroll-overlay .scroll-btn {
   position: absolute;
   top: 50%;
@@ -204,28 +198,22 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   font-size: 2em;
   cursor: pointer;
   color: #333;
-  z-index: 101;
+
+  z-index: 6; /* keep below navbar */
   pointer-events: auto;
   transition: opacity 0.3s;
 }
 
-/* Button Positioning within their overlays 
-.scroll-overlay.left .scroll-btn { right: 10px; }
-.scroll-overlay.right .scroll-btn { left: 10px; }  */
-
-/* ENABLED STATE */
 .scroll-overlay .scroll-btn:hover:not(.disabled) {
   color: #007bff;
   opacity: 1;
 }
-
-/* DISABLED STATE */
 .scroll-overlay .scroll-btn.disabled {
   opacity: 0.3;
   cursor: default;
 }
 
-/* *************** CONTACT US *************** */
+/* ---------- CONTACT US ---------- */
 .w3-col.m5 .removePic {
   position: absolute;
   top: auto !important;
@@ -236,20 +224,17 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   object-fit: contain;
   display: block;
 }
-
 @media (max-width: 600px) {
-  .removePic {
-    display: none !important;
-  }
+  .removePic { display: none !important; }
 }
 
-/* *************** PODCAST *************** */
+/* ---------- PODCAST ---------- */
 .podcast-grid {
   display: grid;
   background-color: #333;
   padding: 64px 16px;
   gap: 32px;
-  grid-template-columns: 1fr; /* Default for small screens */
+  grid-template-columns: 1fr;
 }
 
 .podcast-item { color: white; }
@@ -258,32 +243,27 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   margin: 0 auto;
 }
 
-.youtube-link{
+.youtube-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
-.youtube-icon{
+.youtube-icon {
   height: 30px;
   width: auto;
-  display: inline-block; /* overrides the .podcast-item img rule */
-  margin: 0;            /* overrides the centering */
+  display: inline-block;
+  margin: 0;
 }
 
 @media (min-width: 600px) {
-  .podcast-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .podcast-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (min-width: 993px) {
-  .podcast-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .podcast-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* *************** FOOTER *************** */
+/* ---------- FOOTER ---------- */
 .footer-columns-wrapper {
   display: flex;
   justify-content: space-between;
@@ -301,7 +281,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 5px;
   margin-bottom: 10px;
- color: white;
+  color: white;
 }
 
 .footer-col a {
@@ -342,7 +322,6 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   margin: 10px 0;
 }
 
-/* Keep only one copyright-area definition */
 .copyright-area {
   position: relative;
   display: flex;
@@ -354,9 +333,7 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   padding-bottom: 5px;
 }
 
-.copyright-center-content {
-  display: inline-block;
-}
+.copyright-center-content { display: inline-block; }
 
 .privacy-link {
   color: inherit;
@@ -364,11 +341,9 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   padding-left: 5px;
 }
 
-.link-separator {
-  padding: 0 5px;
-}
+.link-separator { padding: 0 5px; }
 
-/* *************** GO TO TOP BUTTON *************** */
+/* ---------- GO TO TOP BUTTON ---------- */
 .go-to-top-button {
   position: fixed !important;
   right: 16px;
