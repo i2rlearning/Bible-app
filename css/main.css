@@ -1,7 +1,7 @@
 /* ---------- NAV + SLIDER FIX ---------- */
-:root { --nav-h: 56px; } /* this will be auto-set by JS below */
+:root { --nav-h: 40px; } /* JS will overwrite this with the real height */
 
-/* Navbar stays fixed */
+/* Navbar stays on top */
 .w3-top{
   position: fixed;
   top: 0;
@@ -10,60 +10,53 @@
   z-index: 9999;
 }
 
-/* Push ALL content below the fixed navbar */
+/* Reset default spacing */
 html, body{
   margin: 0;
   padding: 0;
 }
+
+/* Use the offset only once - HERE */
 body{
   padding-top: var(--nav-h);
 }
 
-/* Container should NOT add extra top spacing */
+/* Container should NOT add extra top padding */
 .container{
+  background: #333;
+  padding-top: 0;
   margin: 0;
-  padding: 0 !important;
-  background: transparent;
 }
 
 /* Slider box */
 .slider-container{
   width: min(1100px, 92vw);
   margin: 0 auto;
-  height: clamp(300px, 50vh, 520px);
+  height: clamp(300px, 50vh, 500px);
   overflow: hidden;
   position: relative;
   background: #333;
-
-  border: 0 !important;
-  outline: 0 !important;
   box-shadow: none !important;
+  border: 0; /* remove the faint box lines */
 }
 
-/* Fill */
-#slides, .slide{
+/* Fill rules */
+#slides, .slide, .slide img{
   width: 100%;
   height: 100%;
 }
 
-.slide img{
-  width: 100%;
-  height: 100%;
-  display: block;
-
-  /* Choose ONE of these: */
-
-  object-fit: contain;  /* full image, may show bars */
-  /* object-fit: cover; */ /* no bars, crops image */
-
-  object-position: center;
-  background: #333;
-}
-/* Center slide content */
 .slide{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.slide img{
+  object-fit: contain;
+  object-position: center;
+  background: #333;
+  display: block;
 }
 
 /* MOBILE TUNING */
