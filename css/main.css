@@ -39,8 +39,11 @@ html, body{
 
 .slide img{
   display: block;
-  object-fit: cover !important;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* key change - no zoom */
   object-position: center;
+  background: #333;         /* fills empty space around image */
 }
 
 /* Mobile: keep it shorter */
