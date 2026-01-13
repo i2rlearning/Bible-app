@@ -1,3 +1,9 @@
+/* Ensures content starts right under the fixed navbar */
+body {
+  margin: 0;
+  padding-top: 52px; /* adjust to your navbar height */
+}
+
 /* *************** DONATE BUTTON *************** */
 .donate-button {
   background-color: red !important;
@@ -68,6 +74,27 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 .w3-dropdown-hover:hover > .w3-button {
   background-color: #fff !important;
   color: #000 !important;
+}
+
+/* *************** SLIDESHOW *************** */
+/* Slider sizing - stays inside the visible screen */
+.slider-container {
+  width: 100%;
+  height: calc(100vh - 52px); /* 52px must match the padding-top above */
+  max-height: 650px;          /* optional cap for very large monitors */
+  overflow: hidden;
+}
+
+/* Make the slides and images fill the container cleanly */
+#slides, .slide, .slide img {
+  width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  object-fit: cover;      /* fills without distortion */
+  object-position: center;/* keeps center visible */
+  display: block;
 }
 
 /* *************** MINISTRY *************** */
