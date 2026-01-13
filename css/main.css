@@ -21,14 +21,13 @@ html, body{
   margin: 0;
 }
 
-/* Slider should be responsive but not "full screen tall" */
 .slider-container{
   width: min(1100px, 92vw);
   margin: 0 auto;
-
-  height: clamp(320px, 55vh, 520px);  /* key change */
+  height: clamp(300px, 50vh, 500px);
   overflow: hidden;
   position: relative;
+  background: #333;
 }
 
 /* Force the image to actually fill the slider */
@@ -38,12 +37,10 @@ html, body{
 }
 
 .slide img{
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;      /* key change - no zoom */
+  object-fit: contain;     /* show the whole image */
   object-position: center;
-  background: #333;         /* fills empty space around image */
+  background: #333;        /* clean letterbox bars */
+  display: block;
 }
 
 /* Mobile: keep it shorter */
