@@ -43,6 +43,12 @@ html, body{
   display: block;
 }
 
+.slide{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Mobile: keep it shorter */
 @media (max-width: 600px){
   .container .slider-container{
