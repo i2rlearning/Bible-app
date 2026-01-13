@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalId = null;
     let isPaused = false;
     const slideInterval = 10000; // 10s
+    const nav = document.querySelector('.w3-top');
+    
+    if (nav) {
+      document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+    }
 
     //  Static list of images (edit these paths)
     const images = [
