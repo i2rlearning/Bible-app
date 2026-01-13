@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //  Static list of images (edit these paths)
     const images = [
       'img/Israel_tour.jpg',
-      'img/Jaffagate.jpg'
+      'img/Father and son.jpeg'
     ];
 
     const slidesContainer = document.getElementById('slides');
