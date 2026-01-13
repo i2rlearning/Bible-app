@@ -15,22 +15,19 @@ html, body{
   padding: 0;
 }
 
-/* HERO area that holds the slider */
 .container{
-  background: #333 !important; 
-  margin-top: 0 !important; 
-  padding-top: var(--nav-h);     /* space for fixed navbar */
-  min-height: calc(100vh - var(--nav-h)); /* gray goes to the fold */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #333;
+  padding-top: var(--nav-h);           /* space for fixed nav */
+  min-height: calc(100vh - var(--nav-h));
+  display: block;                      /* no vertical centering */
 }
 
-/* The slider box itself */
+/* Slider box: fill available height without extra top/bottom padding */
 .slider-container{
-  margin: 0;
   width: min(1100px, 92vw);
-  aspect-ratio: 16 / 9;          /* keeps clean shape on all monitors */
+  margin: 0 auto;                      /* center horizontally only */
+  height: calc(100vh - var(--nav-h));  /* exactly the remaining viewport */
+  max-height: 560px;                   /* prevents it getting too tall */
   overflow: hidden;
   position: relative;
 }
