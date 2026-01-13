@@ -73,15 +73,24 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
 nav .w3-bar {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
-nav .w3-bar .w3-bar-item,
-nav .w3-bar .w3-dropdown-hover {
-  float: none !important; /* cancel W3 floats */
+/* Cancel W3 floats */
+nav .w3-bar-item,
+nav .w3-dropdown-hover {
+  float: none !important;
 }
 
+/* Push EVERYTHING except Donate to the left */
+nav .w3-bar > :not(.donate-button) {
+  order: 1;
+}
+
+/* Force Donate to the far right */
 nav .donate-button {
-  margin-left: auto; /* pushes Donate to the far right */
+  order: 2;
+  margin-left: auto;
   white-space: nowrap;
 }
 
