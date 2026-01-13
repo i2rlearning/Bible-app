@@ -1,9 +1,7 @@
 /* ---------- NAV + SLIDER FIX ---------- */
-/* Set this once. If the slider is still slightly under the nav, raise to 60px.
-   If there is still extra gap, lower to 52px. */
-:root { --nav-h: 50px; }
+:root { --nav-h: 56px; } /* keep this, but now it will work */
 
-/* Ensure navbar is above everything */
+/* Navbar stays on top */
 .w3-top{
   position: fixed;
   top: 0;
@@ -12,35 +10,31 @@
   z-index: 9999;
 }
 
-/* Remove default spacing that can create unexpected gaps */
 html, body{
   margin: 0;
   padding: 0;
 }
 
-/* Your slider wrapper */
+/* HERO area that holds the slider */
 .container{
-  margin: 0;
-  padding: 0;
-  background: #333; /* removes the "white gap" look */
+  background: #333;
+  padding-top: var(--nav-h);     /* space for fixed navbar */
+  min-height: calc(100vh - var(--nav-h)); /* gray goes to the fold */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Slider sits below navbar and has a reasonable responsive height */
-.container .slider-container{
+/* The slider box itself */
+.slider-container{
   margin: 0;
-  padding: 0;
-  width: 100%;
-
-  /* space for fixed navbar */
-  margin-top: var(--nav-h);
-
-  /* responsive but not gigantic */
-  height: clamp(320px, 55vh, 520px);
-
+  width: min(1100px, 92vw);
+  aspect-ratio: 16 / 9;          /* keeps clean shape on all monitors */
   overflow: hidden;
+  position: relative;
 }
 
-/* Slides fill the container */
+/* Make slides fill the slider box */
 #slides, .slide, .slide img{
   width: 100%;
   height: 100%;
