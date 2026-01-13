@@ -1,7 +1,7 @@
 /* ---------- NAV + SLIDER FIX ---------- */
-:root { --nav-h: 40px; } /* keep this, but now it will work */
+:root { --nav-h: 40px; }
 
-/* Navbar stays on top */
+/* Navbar stays fixed */
 .w3-top{
   position: fixed;
   top: 0;
@@ -15,45 +15,58 @@ html, body{
   padding: 0;
 }
 
+/* OUTER WRAPPER - no visual ownership */
 .container{
-  background: #333;
   padding-top: var(--nav-h);
   margin: 0;
+  background: transparent;          /* IMPORTANT */
+  padding-left: 0 !important;       /* kill W3 defaults */
+  padding-right: 0 !important;
 }
 
+/* SLIDER owns the visual frame */
 .slider-container{
   width: min(1100px, 92vw);
   margin: 0 auto;
-  height: clamp(300px, 50vh, 500px);
+  height: clamp(300px, 50vh, 520px);
   overflow: hidden;
   position: relative;
   background: #333;
+
+  /* hard reset */
+  border: 0 !important;
+  outline: 0 !important;
   box-shadow: none !important;
-  border: 1px solid rgba(255,255,255,0.08);
+  filter: none !important;
 }
 
-/* Force the image to actually fill the slider */
-#slides, .slide, .slide img{
+/* FULL FILL STACK */
+#slides,
+.slide{
   width: 100%;
   height: 100%;
 }
 
+/* IMAGE FITTING */
 .slide img{
-  object-fit: contain;     /* show the whole image */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* full image, no cropping */
   object-position: center;
-  background: #333;        /* clean letterbox bars */
+  background: #333;             /* intentional letterbox */
   display: block;
 }
 
+/* Center slide content */
 .slide{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Mobile: keep it shorter */
+/* MOBILE TUNING */
 @media (max-width: 600px){
-  .container .slider-container{
+  .slider-container{
     height: clamp(240px, 45vh, 380px);
   }
 }
