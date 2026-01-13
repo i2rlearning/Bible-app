@@ -17,8 +17,9 @@ html, body{
 
 .container{
   background: #333;
+  margin-top: 1px;
   padding-top: var(--nav-h);           /* space for fixed nav */
-  min-height: 0; /* calc(100vh - var(--nav-h)); */
+  min-height: calc(100vh - var(--nav-h)); 
   display: block;                      /* no vertical centering */
 }
 
