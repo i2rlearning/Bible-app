@@ -1,5 +1,5 @@
 /* ---------- NAV + SLIDER FIX ---------- */
-:root { --nav-h: 56px; } /* keep this, but now it will work */
+:root { --nav-h: 50px; } /* keep this, but now it will work */
 
 /* Navbar stays on top */
 .w3-top{
