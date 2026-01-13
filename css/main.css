@@ -231,6 +231,19 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   margin: 0 auto;
 }
 
+.youtube-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.youtube-icon{
+  height: 20px;
+  width: auto;
+  display: inline-block; /* overrides the .podcast-item img rule */
+  margin: 0;            /* overrides the centering */
+}
+
 @media (min-width: 600px) {
   .podcast-grid {
     grid-template-columns: repeat(2, 1fr);
