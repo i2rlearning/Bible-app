@@ -1,5 +1,5 @@
 /* ---------- NAV + SLIDER FIX ---------- */
-:root { --nav-h: 50px; } /* keep this, but now it will work */
+:root { --nav-h: 40px; } /* keep this, but now it will work */
 
 /* Navbar stays on top */
 .w3-top{
@@ -29,7 +29,7 @@ html, body{
   position: relative;
   background: #333;
   box-shadow: none !important;
-  filter: none !important;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 /* Force the image to actually fill the slider */
