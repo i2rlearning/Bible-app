@@ -1,7 +1,7 @@
 /* ---------- NAV + SLIDER FIX ---------- */
 /* Set this once. If the slider is still slightly under the nav, raise to 60px.
    If there is still extra gap, lower to 52px. */
-:root { --nav-h: 52px; }
+:root { --nav-h: 50px; }
 
 /* Ensure navbar is above everything */
 .w3-top{
