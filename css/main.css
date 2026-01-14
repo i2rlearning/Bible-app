@@ -437,7 +437,9 @@ nav.w3-top .nav-toggle-btn {
   color: #ccc;
   text-decoration: none;
   display: block;
-  padding: 6px 0;
+  /* If you want an 8px visual gap, use 4px padding top/bottom */
+  padding: 4px 0; 
+  line-height: 1.2; /* Ensures the text height itself doesn't add extra bloat */
 }
 
 .footer-col a:hover {
@@ -449,16 +451,24 @@ nav.w3-top .nav-toggle-btn {
   flex-direction: column;
   justify-content: flex-start;
   flex: 1; 
-  min-width: 200px;  
-  width: 100%;
+  min-width: 200px;
+  /* Removed padding-top: 10px to align headers */
 }
 
 .footer-col-3 form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  /* Match the 8px total vertical space seen in the links */
+  gap: 8px; 
   width: 100%;
   margin: 0;
+}
+
+.footer-col-3 label {
+  display: block;
+  margin: 0;
+  padding-bottom: 0; /* Ensure no extra space under 'Email Address:' */
+  color: white;
 }
 
 .footer-col-3 input[type="email"],
