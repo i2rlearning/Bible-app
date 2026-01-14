@@ -160,10 +160,10 @@ nav.w3-top .nav-toggle-btn {
    ========================= */
 .slider-container {
   position: relative;
-  width: 100%;
+  width: auto;
   margin: 0 !important;
   margin-top: var(--nav-h) !important;
-  height: calc(100vh - var(--nav-h));
+  height: calc(80vh - var(--nav-h));
   overflow: hidden;
   background: transparent;
   display: flex;
