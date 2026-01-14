@@ -89,6 +89,25 @@ nav.w3-top .w3-dropdown-content {
   z-index: 10001;
 }
 
+/* =========================
+   NAVBAR VERTICAL CENTER FIX
+   ========================= */
+
+/* Force bar height */
+nav.w3-top .w3-bar {
+  height: var(--nav-h);
+}
+
+/* Vertically center all items inside the bar */
+nav.w3-top .w3-bar-item,
+nav.w3-top .w3-button,
+nav.w3-top a {
+  line-height: var(--nav-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  vertical-align: middle;
+}
+
 /* Mobile menu panel */
 #mobileMenu {
   display: none;
