@@ -25,16 +25,18 @@ html, body {
   padding: 0 !important;
 }
 
-/* =========================================================
-   NAVBAR - SINGLE SOURCE OF TRUTH
-   ========================================================= */
-/* neutralize W3CSS float if w3-right is still present */
-nav.w3-top .w3-right {
-  float: none !important;
+/* ================================
+   NAVBAR + MOBILE MENU (CLEAN)
+   ================================ */
+
+/* Height of the fixed navbar */
+:root {
+  --nav-h: 48px;
 }
 
+/* Make the fixed nav truly full width */
 nav.w3-top {
-  position: fixed; /* w3-top also sets fixed, but keep explicit */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -42,14 +44,18 @@ nav.w3-top {
   z-index: 10000;
 }
 
-/* The top bar row */
+/* Use flex for the top bar */
 nav.w3-top .w3-bar {
   display: flex !important;
+  align-items: center !important;
   width: 100% !important;
-  overflow: visible !important; /* keeps dropdown visible */
+  overflow: visible !important; /* so dropdown can show */
+  margin: 0 !important;
+  padding: 0 !important;
+  height: var(--nav-h) !important;
 }
 
-/* Normalize all top-level items to match the bar height */
+/* Normalize all top level items to navbar height */
 nav.w3-top .w3-bar > a,
 nav.w3-top .w3-bar > .w3-dropdown-hover,
 nav.w3-top .w3-bar > .w3-dropdown-hover > .w3-button,
@@ -59,113 +65,96 @@ nav.w3-top .w3-bar .w3-button {
   min-height: var(--nav-h) !important;
   padding: 0 16px !important;
   margin: 0 !important;
-
   display: flex !important;
   align-items: center !important;
-
   float: none !important;
   line-height: 1 !important;
+  box-sizing: border-box !important;
 }
 
-/* Donate button - far right */
+/* IMPORTANT: W3CSS "w3-right" conflicts with flex, neutralize it */
+nav.w3-top .w3-right {
+  float: none !important;
+}
+
+/* Donate always goes to far right (desktop + mobile) */
 nav.w3-top .donate-button {
   margin-left: auto !important;
   order: 9999;
+  background: red !important;
 }
-
 nav.w3-top .donate-button:hover {
-  background-color: #a30000 !important;
+  background: #a30000 !important;
 }
 
-/* Hide hamburger icon + toggle button on desktop */
-nav.w3-top .nav-toggle-btn,
-nav.w3-top .fa-bars,
-nav.w3-top .w3-button i.fa-bars {
-  display: none !important;
-}
-
-/* Newsletter hover colors */
-nav.w3-top .w3-dropdown-hover:hover > .w3-button {
-  background-color: #fff !important;
-  color: #000 !important;
-}
-
-/* Dropdown positioning - keep on screen */
+/* Dropdown anchor and positioning */
 nav.w3-top .w3-dropdown-hover {
   position: relative;
 }
-
-/* Anchor dropdown inward (prevents going off-screen) */
 nav.w3-top .w3-dropdown-content {
   position: absolute !important;
   top: 100% !important;
   right: 0 !important;
   left: auto !important;
-
   min-width: 220px;
   max-width: calc(100vw - 16px);
-
   z-index: 10001;
 }
 
-/* ---- NAVBAR FIXES FOR W3CSS CONFLICTS ---- */
-
-/* W3CSS often sets overflow hidden on .w3-bar which clips dropdowns */
-nav.w3-top .w3-bar {
-  overflow: visible !important;
-}
-
-/* If any element still has w3-right, neutralize it under flex */
-nav.w3-top .w3-right {
-  float: none !important;
-}
-
-/* Donate always goes to far right in flex */
-nav.w3-top .donate-button {
-  margin-left: auto !important;
-  order: 9999;
-}
-
-/* =========================================================
-   MOBILE MENU (hidden unless opened by JS)
-   ========================================================= */
+/* Mobile menu panel (hidden unless open) */
 #mobileMenu {
-  display: none !important;
-
+  display: none;
   position: absolute;
   top: var(--nav-h);
   left: 0;
   width: 100%;
-
   background: #000;
   z-index: 10002;
 }
-
 #mobileMenu.is-open {
-  display: block !important;
+  display: block;
 }
-
-/* Mobile menu links */
 #mobileMenu a {
   display: block;
   padding: 12px 16px;
   color: #fff;
   text-decoration: none;
 }
-
 #mobileMenu a:hover {
   background: #1d44b8;
-  color: #fff;
 }
-
-/* Close button */
 #mobileMenu .mobile-close-btn {
   font-size: 22px;
   color: #1d44b8;
 }
 #mobileMenu .mobile-close-btn:hover {
-  background: #000 !important;
   color: red;
+}
+
+/* HAMBURGER: hidden on desktop, shown on small screens */
+nav.w3-top .nav-toggle-btn {
+  display: none; /* desktop */
+  cursor: pointer;
+}
+
+/* On small screens: show hamburger, hide desktop links/dropdown */
+@media (max-width: 600px) {
+  nav.w3-top .nav-toggle-btn {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Hide desktop links (they already have w3-hide-small in your HTML) */
+  nav.w3-top .w3-bar > a.w3-hide-small,
+  nav.w3-top .w3-bar > .w3-dropdown-hover.w3-hide-small {
+    display: none !important;
+  }
+
+  /* Keep Donate visible */
+  nav.w3-top .donate-button {
+    display: flex !important;
+    margin-left: auto !important;
+  }
 }
 
 /* =========================================================
