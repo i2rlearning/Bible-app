@@ -1,7 +1,4 @@
 /* ---------- NAV + SLIDER FIX ---------- */
-/* :root { --nav-h: 40px; }  JS will overwrite this with the real height *//* =========================================================
-   GLOBAL
-   ========================================================= */
 :root { 
   --nav-h: 48px; /* adjust to taste: 44px, 48px, etc */
 }
@@ -80,20 +77,10 @@ nav .w3-bar .w3-button i.fa-bars {
    SLIDER
    ========================================================= */
 .slider-container {
-  position: relative;
-  width: 100%;
-  margin-top: var(--nav-h);                 /* sits below sticky nav */
-  height: calc(100vh - var(--nav-h));       /* full viewport minus nav */
-  overflow: hidden;
-  background: #000;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overscroll-behavior: none;
-  touch-action: pan-x;
+  margin-top: var(--nav-h);
+  height: calc(100vh - var(--nav-h));
 }
+
 
 .slide {
   position: absolute;
@@ -544,7 +531,7 @@ body {
   display: none;
 }
 
-/* ---------- NAVBAR (SINGLE SOURCE OF TRUTH) ---------- */
+/* ---------- NAVBAR ---------- */
 :root { --nav-h: 40px; }   /* change to 36px or 44px if you want */
 
 /* Kill any padding/margins that make the bar taller than --nav-h */
@@ -596,3 +583,39 @@ nav .w3-bar .w3-button i.fa-bars {
   display: none !important;
 }
 
+   /* Make sticky nav span full width */
+nav.w3-top {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+/* The bar must take the full width */
+nav.w3-top .w3-bar {
+  width: 100% !important;
+}
+
+/* Force Donate to the far right in flex */
+nav.w3-top .donate-button {
+  margin-left: auto !important;
+}
+
+/* Mobile menu should be hidden by default */
+#mobileMenu {
+  display: none !important;
+}
+
+/* Only allow it to show when JS adds an "is-open" class */
+#mobileMenu.is-open {
+  display: block !important;
+}
+
+/* Keep it positioned below the navbar when open */
+#mobileMenu {
+  position: absolute;
+  top: var(--nav-h);
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #000;
+}
