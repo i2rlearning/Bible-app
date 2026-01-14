@@ -134,6 +134,35 @@ nav.w3-top .fa-bars {
   }
 }
 
+/* Make sure the bar is flex (again, last wins) */
+nav.w3-top .w3-bar {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Kill any leftover floats that can break flex layout */
+nav.w3-top .w3-bar *,
+nav.w3-top .w3-right {
+  float: none !important;
+}
+
+/* Donate: force far right + keep red */
+nav.w3-top a.donate-button,
+nav.w3-top .donate-button {
+  margin-left: auto !important;   /* push to far right */
+  order: 9999 !important;         /* always last */
+  background-color: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+/* Keep donate red on hover too */
+nav.w3-top a.donate-button:hover,
+nav.w3-top .donate-button:hover {
+  background-color: #a30000 !important;
+  color: #ffffff !important;
+}
+
 /* Mobile menu panel */
 #mobileMenu {
   display: none;
