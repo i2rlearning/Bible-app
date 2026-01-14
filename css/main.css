@@ -8,7 +8,8 @@
 /* =========================
    GLOBAL
    ========================= */
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -17,7 +18,9 @@ html, body {
   font-family: Arial, sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -30,7 +33,10 @@ html, body {
 }
 
 /* =========================
-   NAVBAR + MOBILE MENU
+   NAVBAR + MOBILE MENU (W3CSS FLOAT-BASED)
+   - Keeps w3-right working
+   - Keeps dropdown working
+   - Keeps Donate red
    ========================= */
 nav.w3-top {
   position: fixed;
@@ -41,45 +47,24 @@ nav.w3-top {
   z-index: 10000;
 }
 
-/* Flex top bar */
+/* IMPORTANT: do NOT use flex here if you want w3-right (float) to work */
 nav.w3-top .w3-bar {
-  display: flex !important;
-  align-items: center !important;
+  display: block !important;
   width: 100% !important;
-  overflow: visible !important; /* dropdown visible */
-  margin: 0 !important;
-  padding: 0 !important;
-  height: var(--nav-h) !important;
+  overflow: visible !important; /* so dropdown can show */
 }
 
-/* Normalize nav items height */
-nav.w3-top .w3-bar > a,
-nav.w3-top .w3-bar > .w3-dropdown-hover,
-nav.w3-top .w3-bar > .w3-dropdown-hover > .w3-button,
+/* Keep navbar items aligned to your nav height */
 nav.w3-top .w3-bar .w3-bar-item,
-nav.w3-top .w3-bar .w3-button {
-  height: var(--nav-h) !important;
-  min-height: var(--nav-h) !important;
-  padding: 0 16px !important;
-  margin: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  float: none !important;
-  line-height: 1 !important;
-  box-sizing: border-box !important;
+nav.w3-top .w3-bar .w3-button,
+nav.w3-top .w3-bar a {
+  height: var(--nav-h);
+  line-height: var(--nav-h);
 }
 
-/* W3CSS right-float conflicts with flex */
-nav.w3-top .w3-right {
-  float: none !important;
-}
-
-/* Donate: force far right + keep red */
+/* Donate stays red (base + hover) */
 nav.w3-top a.donate-button,
 nav.w3-top .donate-button {
-  margin-left: auto !important;   /* push to far right */
-  order: 9999 !important;         /* always last */
-  float: none !important;
   background-color: #ff0000 !important;
   color: #ffffff !important;
 }
@@ -93,6 +78,7 @@ nav.w3-top .donate-button:hover {
 nav.w3-top .w3-dropdown-hover {
   position: relative;
 }
+
 nav.w3-top .w3-dropdown-content {
   position: absolute !important;
   top: 100% !important;
@@ -101,37 +87,6 @@ nav.w3-top .w3-dropdown-content {
   min-width: 220px;
   max-width: calc(100vw - 16px);
   z-index: 10001;
-}
-
-/* Hamburger hidden on desktop */
-nav.w3-top .nav-toggle-btn,
-nav.w3-top .fa-bars {
-  display: none !important;
-}
-
-/* Mobile: show hamburger + hide desktop links */
-@media (max-width: 600px) {
-  nav.w3-top .nav-toggle-btn {
-    display: flex !important;
-    align-items: center !important;
-    cursor: pointer;
-  }
-
-  nav.w3-top .fa-bars {
-    display: inline-block !important;
-  }
-
-  /* Hide desktop links (assuming you use w3-hide-small in HTML) */
-  nav.w3-top .w3-bar > a.w3-hide-small,
-  nav.w3-top .w3-bar > .w3-dropdown-hover.w3-hide-small {
-    display: none !important;
-  }
-
-  /* Keep donate visible */
-  nav.w3-top .donate-button {
-    display: flex !important;
-    margin-left: auto !important;
-  }
 }
 
 /* Mobile menu panel */
@@ -144,24 +99,48 @@ nav.w3-top .fa-bars {
   background: #000;
   z-index: 10002;
 }
+
 #mobileMenu.is-open {
   display: block;
 }
+
 #mobileMenu a {
   display: block;
   padding: 12px 16px;
   color: #fff;
   text-decoration: none;
 }
+
 #mobileMenu a:hover {
   background: #1d44b8;
 }
+
 #mobileMenu .mobile-close-btn {
   font-size: 22px;
   color: #1d44b8;
 }
+
 #mobileMenu .mobile-close-btn:hover {
   color: red;
+}
+
+/* Hamburger show/hide
+   NOTE: Only works if your hamburger button has class .nav-toggle-btn */
+nav.w3-top .nav-toggle-btn {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  nav.w3-top .nav-toggle-btn {
+    display: inline-block !important;
+    cursor: pointer;
+  }
+
+  /* Hide desktop links/dropdowns if you used w3-hide-small in HTML */
+  nav.w3-top .w3-bar > a.w3-hide-small,
+  nav.w3-top .w3-bar > .w3-dropdown-hover.w3-hide-small {
+    display: none !important;
+  }
 }
 
 /* =========================
@@ -171,7 +150,10 @@ nav.w3-top .fa-bars {
   position: relative;
   width: 100%;
   margin: 0 !important;
+
+  /* only offset below fixed navbar */
   margin-top: var(--nav-h) !important;
+
   height: calc(100vh - var(--nav-h));
   overflow: hidden;
   background: transparent;
@@ -237,10 +219,17 @@ nav.w3-top .fa-bars {
   cursor: grab;
 }
 
-#ministry:active { cursor: grabbing; }
+#ministry:active {
+  cursor: grabbing;
+}
 
-#ministry::-webkit-scrollbar { display: none; }
-#ministry { scrollbar-width: none; }
+#ministry::-webkit-scrollbar {
+  display: none;
+}
+
+#ministry {
+  scrollbar-width: none;
+}
 
 #ministry .scroll-item {
   flex-shrink: 0;
@@ -259,44 +248,54 @@ nav.w3-top .fa-bars {
 }
 
 @media (max-width: 992px) {
-  #ministry .scroll-item { width: 50%; }
+  #ministry .scroll-item {
+    width: 50%;
+  }
 }
 
 @media (max-width: 600px) {
-  #ministry .scroll-item { width: 100%; }
+  #ministry .scroll-item {
+    width: 100%;
+  }
 }
 
-/* Arrow overlays */
+/* Arrow overlays - made transparent so there are no "bars" */
 .scroll-overlay {
   position: absolute;
   top: 0;
   height: 100%;
   width: 40px;
-  background: white;
+  background: transparent;
   pointer-events: none;
   z-index: 5;
 }
 
-.scroll-overlay.left { left: 0; }
-.scroll-overlay.right { right: 0; }
+.scroll-overlay.left {
+  left: 0;
+}
+
+.scroll-overlay.right {
+  right: 0;
+}
 
 .scroll-overlay .scroll-btn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   background: none;
   border: none;
   font-size: 2em;
   cursor: pointer;
   color: #333;
+
   z-index: 6;
   pointer-events: auto;
   transition: opacity 0.3s;
 }
 
 .scroll-overlay .scroll-btn:hover:not(.disabled) {
-  color: #007bff;
   opacity: 1;
 }
 
@@ -320,7 +319,9 @@ nav.w3-top .fa-bars {
 }
 
 @media (max-width: 600px) {
-  .removePic { display: none !important; }
+  .removePic {
+    display: none !important;
+  }
 }
 
 /* =========================
@@ -334,7 +335,9 @@ nav.w3-top .fa-bars {
   grid-template-columns: 1fr;
 }
 
-.podcast-item { color: white; }
+.podcast-item {
+  color: white;
+}
 
 .podcast-item img {
   display: block;
@@ -355,11 +358,15 @@ nav.w3-top .fa-bars {
 }
 
 @media (min-width: 600px) {
-  .podcast-grid { grid-template-columns: repeat(2, 1fr); }
+  .podcast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 993px) {
-  .podcast-grid { grid-template-columns: repeat(4, 1fr); }
+  .podcast-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* =========================
@@ -434,7 +441,9 @@ nav.w3-top .fa-bars {
   padding-bottom: 5px;
 }
 
-.copyright-center-content { display: inline-block; }
+.copyright-center-content {
+  display: inline-block;
+}
 
 .privacy-link {
   color: inherit;
@@ -442,7 +451,9 @@ nav.w3-top .fa-bars {
   padding-left: 5px;
 }
 
-.link-separator { padding: 0 5px; }
+.link-separator {
+  padding: 0 5px;
+}
 
 /* =========================
    GO TO TOP BUTTON
