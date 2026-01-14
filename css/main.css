@@ -164,7 +164,7 @@ nav.w3-top .nav-toggle-btn {
   margin-top: var(--nav-h) !important;
 
   /* This forces the slider to be exactly 400px (adjust this number) */
-  height: 200px; 
+  height: 400px; 
   overflow: hidden;
   background: transparent;
   display: flex;
@@ -190,7 +190,7 @@ nav.w3-top .nav-toggle-btn {
 
 .slide img {
   width: 100%;
-  height: 100%;
+  height: 80%;
   /* 'cover' ensures the image fills the 400px height without distorting */
   object-fit: cover; 
   display: block;
