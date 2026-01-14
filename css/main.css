@@ -1,9 +1,13 @@
-/* ---------- VARIABLES ---------- */
+/* =========================
+   VARIABLES
+   ========================= */
 :root {
   --nav-h: 48px; /* change to 44px or 52px if you want */
 }
 
-/* ---------- GLOBAL ---------- */
+/* =========================
+   GLOBAL
+   ========================= */
 html, body {
   width: 100%;
   height: 100%;
@@ -17,7 +21,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* ---------- OPTIONAL: container helper (your existing markup uses .container) ---------- */
+/* Container helper */
 .container {
   max-width: 100%;
   width: 100%;
@@ -25,10 +29,11 @@ html, body {
   padding: 0 !important;
 }
 
-/* ================================
-   NAVBAR + MOBILE MENU (CLEAN)
-   ================================ */
-/* Make the fixed nav truly full width */
+/* =========================
+   NAVBAR + MOBILE MENU
+   ========================= */
+
+/* Fixed nav full width */
 nav.w3-top {
   position: fixed;
   top: 0;
@@ -38,18 +43,18 @@ nav.w3-top {
   z-index: 10000;
 }
 
-/* Use flex for the top bar */
+/* Flex top bar */
 nav.w3-top .w3-bar {
   display: flex !important;
   align-items: center !important;
   width: 100% !important;
-  overflow: visible !important; /* so dropdown can show */
+  overflow: visible !important; /* dropdown visible */
   margin: 0 !important;
   padding: 0 !important;
   height: var(--nav-h) !important;
 }
 
-/* Normalize all top level items to navbar height */
+/* Normalize nav items height */
 nav.w3-top .w3-bar > a,
 nav.w3-top .w3-bar > .w3-dropdown-hover,
 nav.w3-top .w3-bar > .w3-dropdown-hover > .w3-button,
@@ -66,12 +71,12 @@ nav.w3-top .w3-bar .w3-button {
   box-sizing: border-box !important;
 }
 
-/* IMPORTANT: W3CSS "w3-right" conflicts with flex, neutralize it */
+/* W3CSS right-float conflicts with flex */
 nav.w3-top .w3-right {
   float: none !important;
 }
 
-/* Donate always goes to far right (desktop + mobile) */
+/* Donate always far right */
 nav.w3-top .donate-button {
   margin-left: auto !important;
   order: 9999;
@@ -81,7 +86,7 @@ nav.w3-top .donate-button:hover {
   background: #a30000 !important;
 }
 
-/* Dropdown anchor and positioning */
+/* Dropdown positioning */
 nav.w3-top .w3-dropdown-hover {
   position: relative;
 }
@@ -94,30 +99,39 @@ nav.w3-top .w3-dropdown-content {
   max-width: calc(100vw - 16px);
   z-index: 10001;
 }
-/* HAMBURGER ICON - hide by default (desktop) */
+
+/* Hamburger hidden on desktop */
+nav.w3-top .nav-toggle-btn,
 nav.w3-top .fa-bars {
   display: none !important;
 }
 
-/* Button hidden on desktop */
-nav.w3-top .nav-toggle-btn {
-  display: none !important;
-}
-
-/* Mobile: show hamburger button + icon */
+/* Mobile: show hamburger + hide desktop links */
 @media (max-width: 600px) {
   nav.w3-top .nav-toggle-btn {
     display: flex !important;
     align-items: center !important;
+    cursor: pointer;
   }
 
-  nav.w3-top .nav-toggle-btn .fa-bars,
   nav.w3-top .fa-bars {
     display: inline-block !important;
   }
+
+  /* Hide desktop links (assuming you use w3-hide-small in HTML) */
+  nav.w3-top .w3-bar > a.w3-hide-small,
+  nav.w3-top .w3-bar > .w3-dropdown-hover.w3-hide-small {
+    display: none !important;
+  }
+
+  /* Keep donate visible */
+  nav.w3-top .donate-button {
+    display: flex !important;
+    margin-left: auto !important;
+  }
 }
 
-/* Mobile menu panel (hidden unless open) */
+/* Mobile menu panel */
 #mobileMenu {
   display: none;
   position: absolute;
@@ -147,47 +161,22 @@ nav.w3-top .nav-toggle-btn {
   color: red;
 }
 
-/* HAMBURGER: hidden on desktop, shown on small screens */
-nav.w3-top .nav-toggle-btn {
-  display: none; /* desktop */
-  cursor: pointer;
-}
-
-/* On small screens: show hamburger, hide desktop links/dropdown */
-@media (max-width: 600px) {
-  nav.w3-top .nav-toggle-btn {
-    display: flex !important;
-    align-items: center !important;
-  }
-
-  /* Hide desktop links (they already have w3-hide-small in your HTML) */
-  nav.w3-top .w3-bar > a.w3-hide-small,
-  nav.w3-top .w3-bar > .w3-dropdown-hover.w3-hide-small {
-    display: none !important;
-  }
-
-  /* Keep Donate visible */
-  nav.w3-top .donate-button {
-    display: flex !important;
-    margin-left: auto !important;
-  }
-}
-
-/* =========================================================
-   SLIDER
-   ========================================================= */
+/* =========================
+   SLIDER (NO GREY BARS)
+   ========================= */
 .slider-container {
   position: relative;
   width: 100%;
   margin: 0 !important;
 
-  /* this is the ONLY offset below the fixed navbar */
+  /* only offset below fixed navbar */
   margin-top: var(--nav-h) !important;
 
-  /* fill the rest of the screen */
   height: calc(100vh - var(--nav-h));
   overflow: hidden;
-  background: #333;
+
+  /* you said you changed background already - keep transparent/none here */
+  background: transparent;
 
   display: flex;
   align-items: center;
@@ -197,27 +186,11 @@ nav.w3-top .nav-toggle-btn {
   touch-action: pan-x;
 }
 
-* Grey gutters + frame around the slider area */
-.slider-frame {
-  margin-top: var(--nav-h);
-  padding: 0 var(--gutter);
-  background: #444; /* grey side areas */
-}
-
-/* Slider sits inside, full width minus gutters */
-.slider-frame .slider-container {
-  margin-top: 0 !important;              /* important: frame already offsets */
-  height: calc(100vh - var(--nav-h));
-  background: #000;
-}
-
 .slide {
   position: absolute;
   inset: 0;
-
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -242,9 +215,9 @@ nav.w3-top .nav-toggle-btn {
   }
 }
 
-/* =========================================================
-   MINISTRY (your horizontal scroller)
-   ========================================================= */
+/* =========================
+   MINISTRY
+   ========================= */
 .scroll-wrapper {
   position: relative;
   z-index: 0;
@@ -315,13 +288,11 @@ nav.w3-top .nav-toggle-btn {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   background: none;
   border: none;
   font-size: 2em;
   cursor: pointer;
   color: #333;
-
   z-index: 6;
   pointer-events: auto;
   transition: opacity 0.3s;
@@ -337,9 +308,9 @@ nav.w3-top .nav-toggle-btn {
   cursor: default;
 }
 
-/* =========================================================
+/* =========================
    CONTACT (image positioning)
-   ========================================================= */
+   ========================= */
 .w3-col.m5 .removePic {
   position: absolute;
   top: auto !important;
@@ -355,9 +326,9 @@ nav.w3-top .nav-toggle-btn {
   .removePic { display: none !important; }
 }
 
-/* =========================================================
+/* =========================
    PODCAST GRID
-   ========================================================= */
+   ========================= */
 .podcast-grid {
   display: grid;
   background-color: #333;
@@ -394,9 +365,9 @@ nav.w3-top .nav-toggle-btn {
   .podcast-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* =========================================================
+/* =========================
    FOOTER
-   ========================================================= */
+   ========================= */
 .footer-columns-wrapper {
   display: flex;
   justify-content: space-between;
@@ -476,9 +447,9 @@ nav.w3-top .nav-toggle-btn {
 
 .link-separator { padding: 0 5px; }
 
-/* =========================================================
+/* =========================
    GO TO TOP BUTTON
-   ========================================================= */
+   ========================= */
 .go-to-top-button {
   position: fixed !important;
   right: 16px;
