@@ -20,8 +20,9 @@ html, body {
 /* ---------- OPTIONAL: container helper (your existing markup uses .container) ---------- */
 .container {
   max-width: 100%;
-  margin: 0 auto;
-  padding: 0; /* keep 0 so slider can touch edges */
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* =========================================================
@@ -108,6 +109,24 @@ nav.w3-top .w3-dropdown-content {
   z-index: 10001;
 }
 
+/* ---- NAVBAR FIXES FOR W3CSS CONFLICTS ---- */
+
+/* W3CSS often sets overflow hidden on .w3-bar which clips dropdowns */
+nav.w3-top .w3-bar {
+  overflow: visible !important;
+}
+
+/* If any element still has w3-right, neutralize it under flex */
+nav.w3-top .w3-right {
+  float: none !important;
+}
+
+/* Donate always goes to far right in flex */
+nav.w3-top .donate-button {
+  margin-left: auto !important;
+  order: 9999;
+}
+
 /* =========================================================
    MOBILE MENU (hidden unless opened by JS)
    ========================================================= */
@@ -156,13 +175,13 @@ nav.w3-top .w3-dropdown-content {
 .slider-container {
   position: relative;
   width: 100%;
+  margin: 0 !important;
 
-  /* Push below fixed navbar */
-  margin-top: var(--nav-h);
+  /* this is the ONLY offset below the fixed navbar */
+  margin-top: var(--nav-h) !important;
 
-  /* Full viewport minus navbar */
+  /* fill the rest of the screen */
   height: calc(100vh - var(--nav-h));
-
   overflow: hidden;
   background: #000;
 
