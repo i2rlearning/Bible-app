@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const slidesContainer = document.getElementById('slides');
   const slider = document.querySelector('.slider-container');
 
+  // Mobile menu toggle (used by onclick="openNav()")
+  function openNav() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (!mobileMenu) return;
+    mobileMenu.classList.toggle('is-open');
+  }
+  window.openNav = openNav;
+
   function renderSlides() {
     slidesContainer.innerHTML = '';
     images.forEach((imagePath, index) => {
