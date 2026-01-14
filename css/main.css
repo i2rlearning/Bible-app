@@ -32,8 +32,6 @@ html, body {
 /* =========================
    NAVBAR + MOBILE MENU
    ========================= */
-
-/* Fixed nav full width */
 nav.w3-top {
   position: fixed;
   top: 0;
@@ -75,15 +73,20 @@ nav.w3-top .w3-bar .w3-button {
 nav.w3-top .w3-right {
   float: none !important;
 }
-
-/* Donate always far right */
 nav.w3-top .donate-button {
   margin-left: auto !important;
-  order: 9999;
-  background: red !important;
+  order: 9999 !important;
+  float: none !important;
 }
+
 nav.w3-top .donate-button:hover {
   background: #a30000 !important;
+}
+/* FORCE Donate button to far right */
+
+/* Neutralize any W3CSS right floats inside nav */
+nav.w3-top .w3-right {
+  float: none !important;
 }
 
 /* Dropdown positioning */
