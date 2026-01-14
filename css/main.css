@@ -437,7 +437,7 @@ nav.w3-top .nav-toggle-btn {
   color: #ccc;
   text-decoration: none;
   display: block;
-  padding: 2px 0;
+  padding: 6px 0;
 }
 
 .footer-col a:hover {
@@ -448,14 +448,15 @@ nav.w3-top .nav-toggle-btn {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 10px;
+  flex: 1; 
+  min-width: 200px;  
   width: 100%;
 }
 
 .footer-col-3 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   margin: 0;
 }
@@ -466,6 +467,12 @@ nav.w3-top .nav-toggle-btn {
   box-sizing: border-box;
   padding: 8px 20px;
   margin: 0;
+}
+
+.footer-col-3 label, 
+.footer-col-3 p {
+  margin: 0;
+  color: white;
 }
 
 .footer-separator {
