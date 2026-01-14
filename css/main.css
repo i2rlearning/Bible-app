@@ -416,6 +416,7 @@ nav.w3-top .nav-toggle-btn {
 .footer-columns-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start; /* Forces all columns to start at the exact same top pixel */
   gap: 20px;
   margin-bottom: 20px;
   flex-wrap: wrap;
@@ -429,17 +430,18 @@ nav.w3-top .nav-toggle-btn {
 .footer-col h4 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px; /* Increased slightly for better breathing room */
+  margin-top: 0;      /* Ensures no browser default push-down */
   color: white;
+  min-height: 1.2em;  /* Keeps lines consistent even if text differs */
 }
 
 .footer-col a {
   color: #ccc;
   text-decoration: none;
   display: block;
-  /* If you want an 8px visual gap, use 4px padding top/bottom */
-  padding: 4px 0; 
-  line-height: 1.2; /* Ensures the text height itself doesn't add extra bloat */
+  padding: 5px 0;    /* Increased from 4px to fix the "too small" look */
+  line-height: 1.4;  /* Standard reading height is usually 1.4 - 1.6 */
 }
 
 .footer-col a:hover {
@@ -458,10 +460,7 @@ nav.w3-top .nav-toggle-btn {
 .footer-col-3 form {
   display: flex;
   flex-direction: column;
-  /* Match the 8px total vertical space seen in the links */
-  gap: 8px; 
-  width: 100%;
-  margin: 0;
+  gap: 10px;        /* Matches the visual rhythm of the links better */
 }
 
 .footer-col-3 label {
@@ -477,6 +476,11 @@ nav.w3-top .nav-toggle-btn {
   box-sizing: border-box;
   padding: 8px 20px;
   margin: 0;
+}
+
+.footer-col-3 input[type="submit"] {
+  width: 130px !important; 
+  margin-top: 5px;
 }
 
 .footer-col-3 label, 
