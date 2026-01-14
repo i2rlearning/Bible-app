@@ -81,8 +81,14 @@ nav.w3-top .w3-dropdown-content {
   min-width: 220px;
   max-width: calc(100vw - 16px);
   z-index: 10001;
-  /* Adjust this value (e.g., -2px or -4px) to line it up perfectly */
-  margin-left: -2px !important; 
+  /* Adjust this to align perfectly with the left edge of the button */
+  margin-left: -1px !important; 
+}
+
+/* Keeps the Newsletter button white while hovering the dropdown menu items */
+nav.w3-top .w3-dropdown-hover:hover > .w3-button {
+  background-color: #fff !important;
+  color: #000 !important;
 }
 
 /* Make the dropdown align to the right edge of the Newsletter button */
