@@ -73,20 +73,20 @@ nav.w3-top .w3-bar .w3-button {
 nav.w3-top .w3-right {
   float: none !important;
 }
+
+/* Donate: force far right + keep red */
+nav.w3-top a.donate-button,
 nav.w3-top .donate-button {
-  margin-left: auto !important;
-  order: 9999 !important;
+  margin-left: auto !important;   /* push to far right */
+  order: 9999 !important;         /* always last */
   float: none !important;
+  background-color: #ff0000 !important;
+  color: #ffffff !important;
 }
-
+nav.w3-top a.donate-button:hover,
 nav.w3-top .donate-button:hover {
-  background: #a30000 !important;
-}
-/* FORCE Donate button to far right */
-
-/* Neutralize any W3CSS right floats inside nav */
-nav.w3-top .w3-right {
-  float: none !important;
+  background-color: #a30000 !important;
+  color: #ffffff !important;
 }
 
 /* Dropdown positioning */
@@ -134,35 +134,6 @@ nav.w3-top .fa-bars {
   }
 }
 
-/* Make sure the bar is flex (again, last wins) */
-nav.w3-top .w3-bar {
-  display: flex !important;
-  align-items: center !important;
-  width: 100% !important;
-}
-
-/* Kill any leftover floats that can break flex layout */
-nav.w3-top .w3-bar *,
-nav.w3-top .w3-right {
-  float: none !important;
-}
-
-/* Donate: force far right + keep red */
-nav.w3-top a.donate-button,
-nav.w3-top .donate-button {
-  margin-left: auto !important;   /* push to far right */
-  order: 9999 !important;         /* always last */
-  background-color: #ff0000 !important;
-  color: #ffffff !important;
-}
-
-/* Keep donate red on hover too */
-nav.w3-top a.donate-button:hover,
-nav.w3-top .donate-button:hover {
-  background-color: #a30000 !important;
-  color: #ffffff !important;
-}
-
 /* Mobile menu panel */
 #mobileMenu {
   display: none;
@@ -200,14 +171,9 @@ nav.w3-top .donate-button:hover {
   position: relative;
   width: 100%;
   margin: 0 !important;
-
-  /* only offset below fixed navbar */
   margin-top: var(--nav-h) !important;
-
   height: calc(100vh - var(--nav-h));
   overflow: hidden;
-
-  /* you said you changed background already - keep transparent/none here */
   background: transparent;
 
   display: flex;
@@ -240,7 +206,6 @@ nav.w3-top .donate-button:hover {
   filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
 }
 
-/* Mobile tuning */
 @media (max-width: 600px) {
   .slider-container {
     height: clamp(240px, calc(100vh - var(--nav-h)), 380px);
