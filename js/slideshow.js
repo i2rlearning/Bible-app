@@ -24,19 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const slider = document.querySelector('.slider-container');
 
   // Mobile menu toggle (used by onclick="openNav()")
-  function openNav() {
+  window.openNav = function () {
     const menu = document.getElementById("mobileMenu");
     if (!menu) return;
-      menu.classList.toggle("is-open");
-  }
+    menu.classList.toggle("is-open");
+  };
 
-/* Optional: close menu when switching to desktop size */
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 600) {
-    const menu = document.getElementById("mobileMenu");
-    if (menu) menu.classList.remove("is-open");
-  }
-});
+  // Optional: close menu when switching to desktop size
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 600) {
+      const menu = document.getElementById("mobileMenu");
+      if (menu) menu.classList.remove("is-open");
+    }
+  });
   
   function renderSlides() {
     slidesContainer.innerHTML = '';
