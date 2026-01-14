@@ -500,8 +500,7 @@ nav.w3-top .nav-toggle-btn {
     margin-bottom: 30px;
   }
 
-  .footer-col-1 h4, 
-  .footer-col-2 h4 {
+  .footer-col-1, .footer-col-2 {
    display: none;
   }
 
