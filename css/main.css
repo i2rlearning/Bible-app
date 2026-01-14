@@ -1,8 +1,14 @@
-/* ---------- NAV + SLIDER FIX ---------- */
-:root { 
-  --nav-h: 48px; /* adjust to taste: 44px, 48px, etc */
+/* =========================================================
+   BRANCH OF ISRAEL - CLEAN CSS (NAV + SLIDER + LAYOUT)
+   Keep this file as your single source of truth.
+   ========================================================= */
+
+/* ---------- VARIABLES ---------- */
+:root {
+  --nav-h: 48px; /* change to 44px or 52px if you want */
 }
 
+/* ---------- GLOBAL ---------- */
 html, body {
   width: 100%;
   height: 100%;
@@ -16,77 +22,170 @@ html, body {
   box-sizing: border-box;
 }
 
+/* ---------- OPTIONAL: container helper (your existing markup uses .container) ---------- */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0; /* keep 0 so slider can touch edges */
+}
+
 /* =========================================================
-   NAVBAR (SINGLE SOURCE OF TRUTH)
+   NAVBAR - SINGLE SOURCE OF TRUTH
    ========================================================= */
-nav,
-nav .w3-bar {
-  margin: 0 !important;
-  padding: 0 !important;
+nav.w3-top {
+  position: fixed; /* w3-top also sets fixed, but keep explicit */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+/* The top bar row */
+nav.w3-top .w3-bar {
+  width: 100% !important;
   height: var(--nav-h) !important;
   min-height: var(--nav-h) !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
   display: flex !important;
   align-items: center !important;
+  gap: 0;
 }
 
-nav .w3-bar {
-  width: 100%;
-}
-
-/* All top-level nav items */
-nav .w3-bar > a,
-nav .w3-bar > .w3-dropdown-hover,
-nav .w3-bar > .w3-dropdown-hover > .w3-button,
-nav .w3-bar > .w3-dropdown-hover > a,
-nav .w3-bar .w3-bar-item,
-nav .w3-bar .w3-button {
+/* Normalize all top-level items to match the bar height */
+nav.w3-top .w3-bar > a,
+nav.w3-top .w3-bar > .w3-dropdown-hover,
+nav.w3-top .w3-bar > .w3-dropdown-hover > .w3-button,
+nav.w3-top .w3-bar .w3-bar-item,
+nav.w3-top .w3-bar .w3-button {
   height: var(--nav-h) !important;
   min-height: var(--nav-h) !important;
   padding: 0 16px !important;
   margin: 0 !important;
+
   display: flex !important;
   align-items: center !important;
+
   float: none !important;
   line-height: 1 !important;
 }
 
-/* Donate button */
-nav .donate-button {
-  order: 9999;
+/* Donate button - far right */
+nav.w3-top .donate-button {
   margin-left: auto !important;
   background-color: red !important;
 }
-nav .donate-button:hover {
+nav.w3-top .donate-button:hover {
   background-color: #a30000 !important;
 }
 
-/* Hide hamburger */
-nav .nav-toggle-btn,
-nav .w3-bar .fa-bars,
-nav .w3-bar .w3-button i.fa-bars {
+/* Hide hamburger icon + toggle button on desktop */
+nav.w3-top .nav-toggle-btn,
+nav.w3-top .fa-bars,
+nav.w3-top .w3-button i.fa-bars {
   display: none !important;
 }
 
-/* Dropdown hover fix */
-.w3-dropdown-hover:hover > .w3-button {
+/* Newsletter hover colors */
+nav.w3-top .w3-dropdown-hover:hover > .w3-button {
   background-color: #fff !important;
   color: #000 !important;
+}
+
+/* Dropdown positioning - keep on screen */
+nav.w3-top .w3-dropdown-hover {
+  position: relative;
+}
+
+/* Anchor dropdown inward (prevents going off-screen) */
+nav.w3-top .w3-dropdown-content {
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  left: auto !important;
+
+  min-width: 220px;
+  max-width: calc(100vw - 16px);
+
+  z-index: 10001;
+}
+
+/* =========================================================
+   MOBILE MENU (hidden unless opened by JS)
+   ========================================================= */
+#mobileMenu {
+  display: none !important;
+
+  position: absolute;
+  top: var(--nav-h);
+  left: 0;
+  width: 100%;
+
+  background: #000;
+  z-index: 10002;
+}
+
+#mobileMenu.is-open {
+  display: block !important;
+}
+
+/* Mobile menu links */
+#mobileMenu a {
+  display: block;
+  padding: 12px 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+#mobileMenu a:hover {
+  background: #1d44b8;
+  color: #fff;
+}
+
+/* Close button */
+#mobileMenu .mobile-close-btn {
+  font-size: 22px;
+  color: #1d44b8;
+}
+#mobileMenu .mobile-close-btn:hover {
+  background: #000 !important;
+  color: red;
 }
 
 /* =========================================================
    SLIDER
    ========================================================= */
 .slider-container {
-  margin-top: var(--nav-h);
-  height: calc(100vh - var(--nav-h));
-}
+  position: relative;
+  width: 100%;
 
+  /* Push below fixed navbar */
+  margin-top: var(--nav-h);
+
+  /* Full viewport minus navbar */
+  height: calc(100vh - var(--nav-h));
+
+  overflow: hidden;
+  background: #000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overscroll-behavior: none;
+  touch-action: pan-x;
+}
 
 .slide {
   position: absolute;
   inset: 0;
+
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,17 +211,32 @@ nav .w3-bar .w3-button i.fa-bars {
 }
 
 /* =========================================================
-   MINISTRY
+   MINISTRY (your horizontal scroller)
    ========================================================= */
+.scroll-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
 #ministry {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   scroll-behavior: smooth;
+  justify-content: flex-start;
+
+  position: relative;
+  z-index: 1;
+
   padding: 2rem 56px;
+  scroll-padding-left: 56px;
+  scroll-padding-right: 56px;
+
   cursor: grab;
 }
+
 #ministry:active { cursor: grabbing; }
+
 #ministry::-webkit-scrollbar { display: none; }
 #ministry { scrollbar-width: none; }
 
@@ -133,179 +247,6 @@ nav .w3-bar .w3-button i.fa-bars {
   text-align: center;
 }
 
-.scroll-item img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-  margin: 0 auto 12px;
-}
-
-@media (max-width: 992px) {
-  #ministry .scroll-item { width: 50%; }
-}
-@media (max-width: 600px) {
-  #ministry .scroll-item { width: 100%; }
-}
-
-/* =========================================================
-   PODCAST
-   ========================================================= */
-.podcast-grid {
-  display: grid;
-  background: #333;
-  padding: 64px 16px;
-  gap: 32px;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 600px) {
-  .podcast-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 993px) {
-  .podcast-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-.footer-columns-wrapper {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.footer-col {
-  flex: 1;
-  min-width: 200px;
-}
-
-.footer-col h4 {
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  padding-bottom: 5px;
-  color: white;
-}
-
-.footer-col a {
-  color: #ccc;
-  text-decoration: none;
-  display: block;
-}
-
-/* =========================================================
-   GO TO TOP
-   ========================================================= */
-.go-to-top-button {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 9999;
-  display: none;
-}
-
-
-/* Navbar stays on top */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #000; /* prevents white showing in any tiny gaps *//* ---------- NAVBAR (SINGLE SOURCE OF TRUTH) ---------- */
-:root { --nav-h: 40px; }   /* change to 36px or 44px if you want */
-
-
-/* Prevent sideways + vertical "play" caused by mobile viewport changes */
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  background: #000;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* IMPORTANT: avoid default body scroll bounce in fullscreen slideshow */
-body {
-  overflow-y: hidden;
-}
-
-.container {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-/* Slider box */
-.slider-container {
-  position: relative;
-  width: 100%;
-
-  /* Desktop uses classic vh */
-  height: calc(100vh - 120px);
-
-  overflow: hidden;
-  background-color: #000;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* Prevent scroll chaining/bounce originating from the slider */
-  overscroll-behavior: none;
-  touch-action: pan-x; /* blocks vertical dragging on the slider area */
-}
-
-.slide {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overscroll-behavior: none;
-}
-
-.slide.active { opacity: 1; }
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
-}
-
-/* MOBILE TUNING */
-@media (max-width: 600px){
-  .slider-container{
-    height: clamp(240px, 45vh, 380px);
-  }
-}
-
-/* ---------- DONATE BUTTON ---------- */
-.donate-button {
-  background-color: red !important;
-}
-.donate-button:hover {
-  background-color: #a30000 !important;
-}
-
-/* ---------- NAVBAR ---------- */
-
-/* ---------- MINISTRY ---------- */
-#ministry .scroll-item {
-  flex-shrink: 0;
-  width: 25%;
-  padding: 16px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-/* Specific fix for images inside the Ministry cards */
 .scroll-item img {
   width: 140px;
   height: 140px;
@@ -323,36 +264,7 @@ body {
   #ministry .scroll-item { width: 100%; }
 }
 
-/* WRAPPER */
-.scroll-wrapper {
-  position: relative;
-  z-index: 0;
-}
-
-/* SCROLL AREA */
-#ministry {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  justify-content: flex-start;
-  position: relative;
-  z-index: 1;
-
-  padding: 2rem 56px;
-  box-sizing: border-box;
-
-  scroll-padding-left: 56px;
-  scroll-padding-right: 56px;
-
-  cursor: grab;
-}
-#ministry:active { cursor: grabbing; }
-
-#ministry::-webkit-scrollbar { display: none; }
-#ministry { scrollbar-width: none; }
-
-/* ARROW OVERLAY & BUTTON STYLES */
+/* Arrow overlays */
 .scroll-overlay {
   position: absolute;
   top: 0;
@@ -360,8 +272,7 @@ body {
   width: 40px;
   background: white;
   pointer-events: none;
-
-  z-index: 5; /* keep below navbar */
+  z-index: 5;
 }
 
 .scroll-overlay.left { left: 0; }
@@ -372,13 +283,14 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   background: none;
   border: none;
   font-size: 2em;
   cursor: pointer;
   color: #333;
 
-  z-index: 6; /* keep below navbar */
+  z-index: 6;
   pointer-events: auto;
   transition: opacity 0.3s;
 }
@@ -387,12 +299,15 @@ body {
   color: #007bff;
   opacity: 1;
 }
+
 .scroll-overlay .scroll-btn.disabled {
   opacity: 0.3;
   cursor: default;
 }
 
-/* ---------- CONTACT US ---------- */
+/* =========================================================
+   CONTACT (image positioning)
+   ========================================================= */
 .w3-col.m5 .removePic {
   position: absolute;
   top: auto !important;
@@ -403,11 +318,14 @@ body {
   object-fit: contain;
   display: block;
 }
+
 @media (max-width: 600px) {
   .removePic { display: none !important; }
 }
 
-/* ---------- PODCAST ---------- */
+/* =========================================================
+   PODCAST GRID
+   ========================================================= */
 .podcast-grid {
   display: grid;
   background-color: #333;
@@ -417,6 +335,7 @@ body {
 }
 
 .podcast-item { color: white; }
+
 .podcast-item img {
   display: block;
   margin: 0 auto;
@@ -438,11 +357,14 @@ body {
 @media (min-width: 600px) {
   .podcast-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (min-width: 993px) {
   .podcast-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* ---------- FOOTER ---------- */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 .footer-columns-wrapper {
   display: flex;
   justify-content: space-between;
@@ -522,100 +444,13 @@ body {
 
 .link-separator { padding: 0 5px; }
 
-/* ---------- GO TO TOP BUTTON ---------- */
+/* =========================================================
+   GO TO TOP BUTTON
+   ========================================================= */
 .go-to-top-button {
   position: fixed !important;
   right: 16px;
   bottom: 16px;
   z-index: 9999;
   display: none;
-}
-
-/* ---------- NAVBAR ---------- */
-:root { --nav-h: 40px; }   /* change to 36px or 44px if you want */
-
-/* Kill any padding/margins that make the bar taller than --nav-h */
-nav,
-nav .w3-bar {
-  margin: 0 !important;
-  padding: 0 !important;
-  height: var(--nav-h) !important;
-  min-height: var(--nav-h) !important;
-  line-height: 1 !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* Top row layout */
-nav .w3-bar {
-  width: 100%;
-  gap: 0;
-}
-
-/* Every top-level item matches the bar height */
-nav .w3-bar > a,
-nav .w3-bar > .w3-dropdown-hover,
-nav .w3-bar > .w3-dropdown-hover > .w3-button,
-nav .w3-bar > .w3-dropdown-hover > a,
-nav .w3-bar .w3-bar-item,
-nav .w3-bar .w3-button {
-  height: var(--nav-h) !important;
-  min-height: var(--nav-h) !important;
-  padding: 0 16px !important;     /* no vertical padding */
-  margin: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  float: none !important;
-  box-sizing: border-box !important;
-}
-
-/* Donate on the far right and same height */
-nav .donate-button {
-  order: 9999;
-  margin-left: auto !important;
-  background-color: red !important;
-}
-
-/* Hide hamburger (your toggle button) */
-nav .nav-toggle-btn,
-nav .w3-bar .fa-bars,
-nav .w3-bar .w3-button i.fa-bars {
-  display: none !important;
-}
-
-   /* Make sticky nav span full width */
-nav.w3-top {
-  left: 0;
-  right: 0;
-  width: 100%;
-}
-
-/* The bar must take the full width */
-nav.w3-top .w3-bar {
-  width: 100% !important;
-}
-
-/* Force Donate to the far right in flex */
-nav.w3-top .donate-button {
-  margin-left: auto !important;
-}
-
-/* Mobile menu should be hidden by default */
-#mobileMenu {
-  display: none !important;
-}
-
-/* Only allow it to show when JS adds an "is-open" class */
-#mobileMenu.is-open {
-  display: block !important;
-}
-
-/* Keep it positioned below the navbar when open */
-#mobileMenu {
-  position: absolute;
-  top: var(--nav-h);
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-  background: #000;
 }
