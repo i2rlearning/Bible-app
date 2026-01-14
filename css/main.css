@@ -28,12 +28,6 @@ html, body {
 /* ================================
    NAVBAR + MOBILE MENU (CLEAN)
    ================================ */
-
-/* Height of the fixed navbar */
-:root {
-  --nav-h: 48px;
-}
-
 /* Make the fixed nav truly full width */
 nav.w3-top {
   position: fixed;
@@ -99,6 +93,28 @@ nav.w3-top .w3-dropdown-content {
   min-width: 220px;
   max-width: calc(100vw - 16px);
   z-index: 10001;
+}
+/* HAMBURGER ICON - hide by default (desktop) */
+nav.w3-top .fa-bars {
+  display: none !important;
+}
+
+/* Button hidden on desktop */
+nav.w3-top .nav-toggle-btn {
+  display: none !important;
+}
+
+/* Mobile: show hamburger button + icon */
+@media (max-width: 600px) {
+  nav.w3-top .nav-toggle-btn {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  nav.w3-top .nav-toggle-btn .fa-bars,
+  nav.w3-top .fa-bars {
+    display: inline-block !important;
+  }
 }
 
 /* Mobile menu panel (hidden unless open) */
