@@ -89,11 +89,6 @@ nav.w3-top .w3-dropdown-hover {
   position: relative; /* ensure dropdown positions from this */
 }
 
-nav.w3-top .w3-dropdown-hover .w3-dropdown-content {
-  right: 0 !important;
-  left: auto !important;
-}
-
 /* Prevent the Newsletter button from "hover-highlighting" when hovering dropdown items */
 nav.w3-top .w3-dropdown-hover:hover > .w3-button,
 nav.w3-top .w3-dropdown-hover:hover > .w3-bar-item {
