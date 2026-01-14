@@ -92,6 +92,31 @@ body {
 }
 
 /* ---------- NAVBAR ---------- */
+/* ---------- NAVBAR HEIGHT NORMALIZATION ---------- */
+
+/* Main bar */
+nav .w3-bar {
+  height: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: stretch;
+}
+
+/* All top-level nav items */
+nav .w3-bar > a,
+nav .w3-bar > .w3-dropdown-hover,
+nav .w3-bar > .w3-dropdown-hover > .w3-button,
+nav .w3-bar .w3-bar-item,
+nav .w3-bar .w3-button {
+  height: 44px;
+  line-height: 44px;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
 .nav-toggle-btn {
   padding: 8px 16px;
   display: block;
@@ -433,3 +458,9 @@ nav .w3-bar .donate-button {
   align-items: center !important;
 }
 
+/* Hide hamburger menu icon */
+nav .nav-toggle-btn,
+nav .w3-bar .w3-button i.fa-bars,
+nav .w3-bar .fa-bars {
+  display: none !important;
+}
