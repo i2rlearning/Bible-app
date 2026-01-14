@@ -440,6 +440,10 @@ nav.w3-top .nav-toggle-btn {
   padding: 2px 0;
 }
 
+.footer-col a:hover {
+  color: red;
+}
+
 .footer-col-3 {
   display: flex;
   flex-direction: column;
