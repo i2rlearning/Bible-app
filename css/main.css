@@ -68,11 +68,21 @@ nav.w3-top .donate-button {
   background-color: #ff0000 !important;
   color: #ffffff !important;
 }
+
 nav.w3-top a.donate-button:hover,
 nav.w3-top .donate-button:hover {
   background-color: #a30000 !important;
   color: #ffffff !important;
 }
+
+/* Forces the dropdown button to match the rest of the navbar links */
+nav.w3-top .w3-dropdown-hover button {
+  font-size: inherit !important;
+  font-family: inherit !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
 nav.w3-top .w3-dropdown-content {
   position: absolute !important;
   top: 100% !important;
