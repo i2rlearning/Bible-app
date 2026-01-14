@@ -164,7 +164,7 @@ nav.w3-top .nav-toggle-btn {
   margin-top: var(--nav-h) !important;
 
   /* This forces the slider to be exactly 400px (adjust this number) */
-  height: 400px; 
+  height: 200px; 
   overflow: hidden;
   background: transparent;
   display: flex;
