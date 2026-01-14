@@ -34,9 +34,6 @@ body {
 
 /* =========================
    NAVBAR + MOBILE MENU (W3CSS FLOAT-BASED)
-   - Keeps w3-right working
-   - Keeps dropdown working
-   - Keeps Donate red
    ========================= */
 nav.w3-top {
   position: fixed;
@@ -52,6 +49,9 @@ nav.w3-top .w3-bar {
   display: block !important;
   width: 100% !important;
   overflow: visible !important; /* so dropdown can show */
+  height: var(--nav-h);
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /* Keep navbar items aligned to your nav height */
@@ -60,6 +60,9 @@ nav.w3-top .w3-bar .w3-button,
 nav.w3-top .w3-bar a {
   height: var(--nav-h);
   line-height: var(--nav-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  vertical-align: middle;
 }
 
 /* Donate stays red (base + hover) */
@@ -91,7 +94,6 @@ nav.w3-top .w3-dropdown-content {
   min-width: 220px;
   max-width: calc(100vw - 16px);
   z-index: 10001;
-  /* Adjust this to align perfectly with the left edge of the button */
   margin-left: -1px !important; 
 }
 
@@ -107,27 +109,10 @@ nav.w3-top .w3-dropdown-hover {
   display: inline-block; /* Helps with float-based bars */
 }
 
-/* Keep submenu items hover effect (so the dropdown still feels clickable) */
+/* Keep submenu items hover effect */
 nav.w3-top .w3-dropdown-content a:hover {
   background-color: #f1f1f1 !important;
   color: #000 !important;
-}
-
-/* Force bar height */
-nav.w3-top .w3-bar {
-  height: var(--nav-h);
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-/* Vertically center all items inside the bar */
-nav.w3-top .w3-bar-item,
-nav.w3-top .w3-button,
-nav.w3-top a {
-  line-height: var(--nav-h);
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  vertical-align: middle;
 }
 
 /* Mobile menu panel */
@@ -165,23 +150,9 @@ nav.w3-top a {
   color: red;
 }
 
-/* Hamburger show/hide
-   NOTE: Only works if your hamburger button has class .nav-toggle-btn */
+/* Hamburger show/hide */
 nav.w3-top .nav-toggle-btn {
   display: none !important;
-}
-
-@media (max-width: 600px) {
-  nav.w3-top .nav-toggle-btn {
-    display: inline-block !important;
-    cursor: pointer;
-  }
-
-  /* Hide desktop links/dropdowns if you used w3-hide-small in HTML */
-  nav.w3-top .w3-bar > a.w3-hide-small,
-  nav.w3-top .w3-bar > .w3-dropdown-hover.w3-hide-small {
-    display: none !important;
-  }
 }
 
 /* =========================
@@ -191,18 +162,13 @@ nav.w3-top .nav-toggle-btn {
   position: relative;
   width: 100%;
   margin: 0 !important;
-
-  /* only offset below fixed navbar */
   margin-top: var(--nav-h) !important;
-
   height: calc(100vh - var(--nav-h));
   overflow: hidden;
   background: transparent;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   overscroll-behavior: none;
   touch-action: pan-x;
 }
@@ -229,12 +195,6 @@ nav.w3-top .nav-toggle-btn {
   filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
 }
 
-@media (max-width: 600px) {
-  .slider-container {
-    height: clamp(240px, calc(100vh - var(--nav-h)), 380px);
-  }
-}
-
 /* =========================
    MINISTRY
    ========================= */
@@ -249,14 +209,11 @@ nav.w3-top .nav-toggle-btn {
   overflow-x: auto;
   scroll-behavior: smooth;
   justify-content: flex-start;
-
   position: relative;
   z-index: 1;
-
   padding: 2rem 56px;
   scroll-padding-left: 56px;
   scroll-padding-right: 56px;
-
   cursor: grab;
 }
 
@@ -288,19 +245,7 @@ nav.w3-top .nav-toggle-btn {
   margin: 0 auto 12px;
 }
 
-@media (max-width: 992px) {
-  #ministry .scroll-item {
-    width: 50%;
-  }
-}
-
-@media (max-width: 600px) {
-  #ministry .scroll-item {
-    width: 100%;
-  }
-}
-
-/* Arrow overlays - made transparent so there are no "bars" */
+/* Arrow overlays */
 .scroll-overlay {
   position: absolute;
   top: 0;
@@ -311,39 +256,26 @@ nav.w3-top .nav-toggle-btn {
   z-index: 5;
 }
 
-.scroll-overlay.left {
-  left: 0;
-}
-
-.scroll-overlay.right {
-  right: 0;
-}
+.scroll-overlay.left { left: 0; }
+.scroll-overlay.right { right: 0; }
 
 .scroll-overlay .scroll-btn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   background: none;
   border: none;
   font-size: 2em;
   cursor: pointer;
   color: #333;
-
   z-index: 6;
   pointer-events: auto;
   transition: opacity 0.3s;
 }
 
-.scroll-overlay .scroll-btn:hover:not(.disabled) {
-  opacity: 1;
-}
-
-.scroll-overlay .scroll-btn.disabled {
-  opacity: 0.3;
-  cursor: default;
-}
+.scroll-overlay .scroll-btn:hover:not(.disabled) { opacity: 1; }
+.scroll-overlay .scroll-btn.disabled { opacity: 0.3; cursor: default; }
 
 /* =========================
    CONTACT (image positioning)
@@ -359,12 +291,6 @@ nav.w3-top .nav-toggle-btn {
   display: block;
 }
 
-@media (max-width: 600px) {
-  .removePic {
-    display: none !important;
-  }
-}
-
 /* =========================
    PODCAST GRID
    ========================= */
@@ -373,11 +299,11 @@ nav.w3-top .nav-toggle-btn {
   background-color: #333;
   padding: 64px 16px;
   gap: 32px;
-  grid-template-columns: 1fr;
 }
 
 .podcast-item {
   color: white;
+  text-align: center;
 }
 
 .podcast-item img {
@@ -389,6 +315,8 @@ nav.w3-top .nav-toggle-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
+  color: white;
 }
 
 .youtube-icon {
@@ -396,18 +324,6 @@ nav.w3-top .nav-toggle-btn {
   width: auto;
   display: inline-block;
   margin: 0;
-}
-
-@media (min-width: 600px) {
-  .podcast-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 993px) {
-  .podcast-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 /* =========================
@@ -483,11 +399,11 @@ nav.w3-top .nav-toggle-btn {
 
 /* Submit Button specific style */
 .footer-col-3 input[type="submit"] {
-  width: 130px; /* Removed !important as it's no longer conflicting */
+  width: 130px; 
   box-sizing: border-box;
   padding: 8px 20px;
   margin-top: 5px;
-  cursor: pointer; /* Makes it feel like a button */
+  cursor: pointer;
 }
 
 .footer-separator {
@@ -508,19 +424,9 @@ nav.w3-top .nav-toggle-btn {
   padding-bottom: 5px;
 }
 
-.copyright-center-content {
-  display: inline-block;
-}
-
-.privacy-link {
-  color: inherit;
-  text-decoration: none;
-  padding-left: 5px;
-}
-
-.link-separator {
-  padding: 0 5px;
-}
+.copyright-center-content { display: inline-block; }
+.privacy-link { color: inherit; text-decoration: none; padding-left: 5px; }
+.link-separator { padding: 0 5px; }
 
 /* =========================
    GO TO TOP BUTTON
@@ -531,4 +437,75 @@ nav.w3-top .nav-toggle-btn {
   bottom: 16px;
   z-index: 9999;
   display: none;
+}
+
+/* ============================================================
+   COMBINED RESPONSIVE OVERRIDES
+   ============================================================ */
+
+/* TABLET & DESKTOP (Screens larger than 600px) */
+@media (min-width: 601px) {
+  .podcast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* LARGE DESKTOP (Screens larger than 992px) */
+@media (min-width: 993px) {
+  .podcast-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* TABLET RANGE FOR MINISTRY */
+@media (min-width: 601px) and (max-width: 992px) {
+  #ministry .scroll-item {
+    width: 50%;
+  }
+}
+
+/* MOBILE ONLY (Screens 600px and smaller) */
+@media (max-width: 600px) {
+  nav.w3-top .nav-toggle-btn {
+    display: inline-block !important;
+    cursor: pointer;
+  }
+
+  /* Hide desktop links/dropdowns */
+  nav.w3-top .w3-bar > a.w3-hide-small,
+  nav.w3-top .w3-bar > .w3-dropdown-hover.w3-hide-small {
+    display: none !important;
+  }
+
+  .slider-container {
+    height: clamp(240px, calc(100vh - var(--nav-h)), 380px);
+  }
+
+  #ministry .scroll-item {
+    width: 100%;
+  }
+
+  .removePic {
+    display: none !important;
+  }
+
+  .footer-columns-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-col {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .footer-col-1 a, 
+  .footer-col-2 a {
+   display: none;
+  }
+
+  .footer-col-3 input[type="submit"] {
+    width: 100%;
+  }
 }
