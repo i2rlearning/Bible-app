@@ -155,44 +155,6 @@ nav .mobile-menu a:not(.mobile-close-btn):hover {
   color: #000 !important;
 }
 
-/* Target the actual bar wrapper (adjust selector if your wrapper has a different class/id) */
-nav .w3-bar,
-nav .navbar,
-nav {
-  display: flex;
-  align-items: center;      /* vertical centering */
-  gap: 0;                   /* optional */
-  min-height: 48px;         /* pick a height you like */
-}
-
-/* Make all top-level nav items consistent */
-nav .w3-bar > a,
-nav .w3-bar > .w3-dropdown-hover > button,
-nav .w3-bar > .w3-dropdown-hover > a,
-nav a.w3-button,
-nav a.w3-bar-item,
-nav .nav-toggle-btn {
-  display: flex;
-  align-items: center;      /* vertical centering inside each item */
-  height: 48px;             /* must match the bar height */
-  padding: 0 16px;          /* horizontal padding only */
-  line-height: 1;           /* prevent baseline weirdness */
-  margin: 0;
-  float: none !important;   /* neutralize old float-based layout */
-}
-
-/* Push Donate to the far right */
-nav .donate-button {
-  margin-left: auto;
-}
-
-/* If Donate is an <a> and still looks slightly off */
-nav .donate-button {
-  height: 48px;
-  display: flex;
-  align-items: center;
-}
-
 /* ---------- MINISTRY ---------- */
 #ministry .scroll-item {
   flex-shrink: 0;
@@ -427,3 +389,47 @@ nav .donate-button {
   z-index: 9999;
   display: none;
 }
+
+/* ---------- NAVBAR FIX (W3 BAR ONLY) ---------- */
+
+/* Flex ONLY the actual top bar row */
+nav .w3-bar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0;
+  min-height: 44px;
+}
+
+/* Normalize top-level items */
+nav .w3-bar > a,
+nav .w3-bar > .w3-dropdown-hover,
+nav .w3-bar > .w3-dropdown-hover > .w3-button,
+nav .w3-bar > .w3-dropdown-hover > a {
+  display: flex !important;
+  align-items: center !important;
+  height: 44px;
+  padding: 0 16px !important;   /* no vertical padding */
+  margin: 0 !important;
+  line-height: 1 !important;
+  float: none !important;
+}
+
+/* If your items have w3-bar-item/w3-button */
+nav .w3-bar .w3-bar-item,
+nav .w3-bar .w3-button {
+  height: 44px;
+  display: flex !important;
+  align-items: center !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Force Donate to the far right even if it's first in the HTML */
+nav .w3-bar .donate-button {
+  order: 9999;
+  margin-left: auto !important;
+  height: 44px;
+  display: flex !important;
+  align-items: center !important;
+}
+
