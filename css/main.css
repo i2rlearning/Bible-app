@@ -416,7 +416,7 @@ nav.w3-top .nav-toggle-btn {
 .footer-columns-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Forces all columns to start at the exact same top pixel */
+  align-items: flex-start; 
   gap: 20px;
   margin-bottom: 20px;
   flex-wrap: wrap;
@@ -430,18 +430,18 @@ nav.w3-top .nav-toggle-btn {
 .footer-col h4 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 5px;
-  margin-bottom: 15px; /* Increased slightly for better breathing room */
-  margin-top: 0;      /* Ensures no browser default push-down */
+  margin-bottom: 15px;
+  margin-top: 0;
   color: white;
-  min-height: 1.2em;  /* Keeps lines consistent even if text differs */
+  min-height: 1.2em;
 }
 
+/* Columns 1 & 2 Spacing */
 .footer-col-1 a, 
 .footer-col-2 a {
   display: block;
   color: #ccc;
   text-decoration: none;
-  /* Reduced padding and tighter line-height for a more compact list */
   padding: 2px 0;    
   line-height: 1.4;  
   margin: 0;
@@ -452,45 +452,42 @@ nav.w3-top .nav-toggle-btn {
   color: red;
 }
 
+/* Column 3 Cleanup */
 .footer-col-3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   flex: 1; 
   min-width: 200px;
-  /* Removed padding-top: 10px to align headers */
 }
 
 .footer-col-3 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;        /* Matches the visual rhythm of the links better */
+  gap: 10px;
 }
 
-.footer-col-3 label {
+/* Merged Label & P rules */
+.footer-col-3 label, 
+.footer-col-3 p {
   display: block;
   margin: 0;
-  padding-bottom: 0; /* Ensure no extra space under 'Email Address:' */
+  padding-bottom: 0;
   color: white;
 }
 
-.footer-col-3 input[type="email"],
-.footer-col-3 input[type="submit"] {
+/* Email Input specific style */
+.footer-col-3 input[type="email"] {
   width: 100%;
   box-sizing: border-box;
   padding: 8px 20px;
   margin: 0;
 }
 
+/* Submit Button specific style */
 .footer-col-3 input[type="submit"] {
-  width: 130px !important; 
+  width: 130px; /* Removed !important as it's no longer conflicting */
+  box-sizing: border-box;
+  padding: 8px 20px;
   margin-top: 5px;
-}
-
-.footer-col-3 label, 
-.footer-col-3 p {
-  margin: 0;
-  color: white;
+  cursor: pointer; /* Makes it feel like a button */
 }
 
 .footer-separator {
