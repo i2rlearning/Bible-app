@@ -25,12 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile menu toggle (used by onclick="openNav()")
   function openNav() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (!mobileMenu) return;
-    mobileMenu.classList.toggle('is-open');
+    const menu = document.getElementById("mobileMenu");
+    if (!menu) return;
+      menu.classList.toggle("is-open");
   }
-  window.openNav = openNav;
 
+/* Optional: close menu when switching to desktop size */
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 600) {
+    const menu = document.getElementById("mobileMenu");
+    if (menu) menu.classList.remove("is-open");
+  }
+});
+  
   function renderSlides() {
     slidesContainer.innerHTML = '';
     images.forEach((imagePath, index) => {
