@@ -28,6 +28,11 @@ html, body {
 /* =========================================================
    NAVBAR - SINGLE SOURCE OF TRUTH
    ========================================================= */
+/* neutralize W3CSS float if w3-right is still present */
+nav.w3-top .w3-right {
+  float: none !important;
+}
+
 nav.w3-top {
   position: fixed; /* w3-top also sets fixed, but keep explicit */
   top: 0;
@@ -39,16 +44,9 @@ nav.w3-top {
 
 /* The top bar row */
 nav.w3-top .w3-bar {
-  width: 100% !important;
-  height: var(--nav-h) !important;
-  min-height: var(--nav-h) !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-
   display: flex !important;
-  align-items: center !important;
-  gap: 0;
+  width: 100% !important;
+  overflow: visible !important; /* keeps dropdown visible */
 }
 
 /* Normalize all top-level items to match the bar height */
@@ -72,8 +70,9 @@ nav.w3-top .w3-bar .w3-button {
 /* Donate button - far right */
 nav.w3-top .donate-button {
   margin-left: auto !important;
-  background-color: red !important;
+  order: 9999;
 }
+
 nav.w3-top .donate-button:hover {
   background-color: #a30000 !important;
 }
@@ -191,6 +190,20 @@ nav.w3-top .donate-button {
 
   overscroll-behavior: none;
   touch-action: pan-x;
+}
+
+* Grey gutters + frame around the slider area */
+.slider-frame {
+  margin-top: var(--nav-h);
+  padding: 0 var(--gutter);
+  background: #444; /* grey side areas */
+}
+
+/* Slider sits inside, full width minus gutters */
+.slider-frame .slider-container {
+  margin-top: 0 !important;              /* important: frame already offsets */
+  height: calc(100vh - var(--nav-h));
+  background: #000;
 }
 
 .slide {
