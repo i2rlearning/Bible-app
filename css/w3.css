@@ -284,4 +284,8 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     background-color: #15338a !important; 
 }
 
-
+.w3-image, img {
+  max-width: 100%;
+  /* Remove or comment out height: auto if it's there, 
+     or let the slider.css handle it with !important */
+}
