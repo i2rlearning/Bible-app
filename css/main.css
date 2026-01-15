@@ -161,8 +161,7 @@ nav.w3-top .nav-toggle-btn {
 
 /* 1. Ensure the parent container doesn't restrict or push the slider */
 .slider-container {
-  width: auto;
-  height: 100px !important;
+  width: 100%;
   margin: 0 !important;
   /* Uses the JS variable to clear the fixed navbar */
   margin-top: var(--nav-h) !important;
