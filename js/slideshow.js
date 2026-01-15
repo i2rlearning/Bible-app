@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Static list of images (edit these paths)
   const images = [
     'img/Israel_tour.jpg',
+    'img/hebraic prayers from the vine.jpg',
     'img/Father and son.jpeg'
   ];
 
