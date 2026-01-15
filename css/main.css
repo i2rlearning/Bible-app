@@ -158,13 +158,18 @@ nav.w3-top .nav-toggle-btn {
 /* =========================
    SLIDER (NO GREY BARS)
    ========================= */
+
 .slider-container {
   width: 100%; 
   margin: 0 !important;
   margin-top: var(--nav-h) !important;
 
-  /* This forces the slider to be exactly 400px (adjust this number) */
-  height: 400px; 
+  /* Dynamically sets height to fill the screen minus the nav bar */
+  height: calc(100vh - var(--nav-h)) !important; 
+  
+  /* If you want a maximum limit so it doesn't get too tall on huge screens, 
+     uncomment the line below: */
+  /* max-height: 600px; */
   overflow: hidden;
   background: transparent;
   display: flex;
@@ -191,12 +196,13 @@ nav.w3-top .nav-toggle-btn {
 .slide img {
   width: 100%;
   height: 100%;
-  /* 'cover' ensures the image fills the 400px height without distorting */
+  /* 'cover' fills the area; 'contain' would show the whole image with bars on the sides */
   object-fit: cover; 
+  /* Ensures the top of the image (often the most important part) stays visible */
+  object-position: center top; 
   display: block;
   filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
 }
-
 /* =========================
    MINISTRY
    ========================= */
