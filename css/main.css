@@ -26,7 +26,7 @@ body {
 
 /* Container helper */
 .container {
-  width: 100% !important;
+  width: 100%;
   max-width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
@@ -161,53 +161,38 @@ nav.w3-top .nav-toggle-btn {
 
 /* 1. Ensure the parent container doesn't restrict or push the slider */
 .slider-container {
-  width: 100%;
+  width: 100%; 
   margin: 0 !important;
-  /* Use the JS variable, fallback to 54px */
-  margin-top: var(--nav-h, 54px) !important; 
-  
-  /* Force the container to be ONLY the remaining visible screen */
-  height: calc(100vh - var(--nav-h, 54px)) !important;
+  /* Uses the JS variable to clear the fixed navbar */
+  margin-top: var(--nav-h) !important;
+
+  /* Sets the height to exactly the remaining screen space */
+  height: calc(100vh - var(--nav-h)) !important; 
   
   overflow: hidden;
-  background: #000; /* Black background fills gaps if image is narrow */
+  background: #000; /* Matching your site's dark theme */
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-}
-
-#slides {
-  width: 100%;
-  height: 100%;
+  overscroll-behavior: none;
+  touch-action: pan-x;
 }
 
 .slide {
   width: 100%;
   height: 100%;
-  display: none; /* JS toggles 'active' */
-}
-
-.slide.active {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
 }
 
 .slide img {
-  /* CRITICAL: This prevents the image from ever being taller than the slider */
-  max-height: 100% !important; 
-  max-width: 100% !important;
-  
-  /* 'contain' ensures the whole image is visible. 
-     If you prefer 'cover', it will fill the screen but crop the sides. */
-  object-fit: contain !important; 
-  
-  width: auto !important; /* Allows width to shrink so height fits */
-  height: auto !important;
-  
+  width: 100%;
+  height: 100%;
+  /* Use 'contain' to ensure the entire image is visible without cropping.
+     Use 'cover' if you want it to fill the screen (may crop edges). */
+  object-fit: contain; 
   display: block;
   filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
+}.slide.active {
+  opacity: 1;
 }
 
 /* =========================
