@@ -5,32 +5,35 @@
   --bar-height: 70px; /* Default height for the black bar */
 }
 
+/* The background scroll image. 
+   We use z-index: -1 to put it BEHIND the main content.
+*/
 body::before {
   content: "";
   position: fixed;
   top: 45px;
   left: 0;
   right: 0;
-  /* This ensures the scroll always stops exactly at the top of the bar */
   bottom: var(--bar-height); 
   background: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
-  z-index: 0;
+  z-index: -1; 
   pointer-events: none;
 }
 
-body{
+body {
   margin: 0;
   font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   line-height: 1.8;
   color: #000;
+  /* Force transparency to see the ::before image */
+  background-color: transparent !important;
 }
 
 /* ===========================
    HEADER / NAV
    =========================== */
-
-header{
+header {
   position: fixed;
   top: 0;
   left: 0;
@@ -40,13 +43,13 @@ header{
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
 
-.nav-inner{
+.nav-inner {
   max-width: 1140px;
   margin: 0 auto;
   padding: 10px 14px;
 }
 
-nav ul{
+nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -55,13 +58,13 @@ nav ul{
   gap: 12px;
 }
 
-nav a{
+nav a {
   color: #fff;
   text-decoration: none;
   font-size: 15px;
 }
 
-nav a:hover{
+nav a:hover {
   color: #94d4ef;
 }
 
@@ -71,13 +74,14 @@ nav a:hover{
 main {
   max-width: 1140px;
   margin: 0 auto;
-  /* The 110px ensures the scroll image doesn't hit the bottom of the screen */
   padding: 18px 14px 110px; 
   position: relative;
   z-index: 1;
+  /* Remove any background color inherited from main.css */
+  background-color: transparent !important;
 }
 
-h1{
+h1 {
   margin: 0 0 10px;
   font-size: 23px;
 }
@@ -90,27 +94,28 @@ h1{
   left: 50%;
   transform: translateX(-50%);
   top: 140px; 
-  /* This keeps the text window 60px above the black bar consistently */
   bottom: calc(var(--bar-height) + 70px); 
   width: clamp(280px, 62vw, 900px);
   z-index: 2;
   overflow: hidden;
   box-sizing: border-box;
+  background: transparent !important;
 }
 
-.content a{
+.content a {
   color: #000;
 }
 
 /* ===========================
    DECREE TEXT (SCROLLING)
    =========================== */
-.decree{
+.decree {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   padding-left: clamp(10px, 4vw, 50px);
   padding-right: clamp(14px, 8vw, 90px);
+  background: transparent !important;
 
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -126,19 +131,17 @@ h1{
     black 90%,
     transparent
   );
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-
+  
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-.decree::-webkit-scrollbar{
+.decree::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
 
-.decree p{
+.decree p {
   margin: 0 0 24px;
 }
 
@@ -150,7 +153,7 @@ h1{
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 12px 10px; /* Vertical and horizontal padding */
+  padding: 12px 10px;
   box-sizing: border-box;
   background: #000;
   color: #fff;
@@ -158,16 +161,14 @@ h1{
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap; 
-  gap: 40px; /* Space between the two main control groups */
+  gap: 40px;
   z-index: 1001;
-  /* min-height: 50px; 
-  height: auto;      Allows it to grow if items stack */
 }
 
 /* ===========================
    SLIDER + LABEL
    =========================== */
-.slider-container{
+.slider-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -175,55 +176,19 @@ h1{
   gap: 8px;
 }
 
-#speedValue{
-  position: inline;
-  margin: 0; 
-  padding: 0;
+#speedValue {
+  display: inline;
 }
 
 .font-resizer label, 
 #speedValue {
-  margin-right: 0;
   white-space: nowrap; 
-}
-
-.font-resizer label {
-  margin-right: 8px; 
-}
-
-.slider-container label {
-  margin-right: 8px;  
-}
-
-/* ===========================
-   SLIDER CONTROLS
-   =========================== */
-.slider-controls{
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 36px;
-}
-
-.font-resizer{
-  display: flex;
-  align-items: center;
-  height: 36px;
-}
-
-.slider-controls,
-.font-resizer {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 36px;
 }
 
 /* ===========================
    RANGE SLIDER
    =========================== */
-
-input[type="range"]{
+input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   width: 120px;
@@ -233,17 +198,8 @@ input[type="range"]{
   outline: none;
 }
 
-input[type="range"]::-webkit-slider-thumb{
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-input[type="range"]::-moz-range-thumb{
   width: 18px;
   height: 18px;
   background: #fff;
@@ -252,101 +208,49 @@ input[type="range"]::-moz-range-thumb{
 }
 
 /* ===========================
-   ARROW/START BUTTONS
+   BUTTONS
    =========================== */
 #incrementSpeed,
-#decrementSpeed{
-  width: 30px;
-  height: 30px;
-  background: #3f3f3f;
-  border: 1px solid #666;
-  border-radius: 2px;
-  cursor: pointer;
-  position: relative;
-  padding: 0;
-}
-
-#incrementSpeed::before,
-#decrementSpeed::before{
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-}
-
-#incrementSpeed::before{
-  border-bottom: 10px solid #fff;
-}
-
-#decrementSpeed::before{
-  border-top: 10px solid #fff;
-}
-
-/* ===========================
-   START
-   =========================== */
-#scrollToggle{
-  height: 30px;
-  min-height: 30px;
-  line-height: 30px;
-  padding: 0 12px;
+#decrementSpeed,
+#scrollToggle {
   background: #3f3f3f;
   border: 1px solid #666;
   border-radius: 2px;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+#scrollToggle {
+  height: 30px;
+  padding: 0 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  margin: 0;
-  align-self: center;
-}
-
-.flashing {
-  background-color: #1d44b8; /* Flashing color */
 }
 
 #scrollToggle:hover,
 #incrementSpeed:hover,
 #decrementSpeed:hover {
-  background-color: #1d44b8; /* Hover color */
+  background-color: #1d44b8;
 }
 
-#incrementSpeed,
-#decrementSpeed,
-#scrollToggle {
-  transition: background-color 0.3s ease; /* Smooth transition for background color changes */
-}
-
-/* Keeps Start button close to arrows */
-.control-group {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Tight gap between Speed and Start */
+.flashing {
+  background-color: #1d44b8 !important;
 }
 
 /* ===========================
-   RESPSONSIVE 
+   RESPONSIVE 
    =========================== */
 @media (max-width: 800px) {
   :root {
-    --bar-height: 100px; /* Adjusting for the double-stack height */
+    --bar-height: 100px;
   }
-
   #scrollBar {
-    flex-wrap: wrap; /* Allow wrapping at this breakpoint */
+    flex-wrap: wrap;
     padding: 15px 10px;
-     gap: 8px; 
+    gap: 8px; 
   }
-  
-  /* Forcing each group to take a full row creates the Shot #1 look */
   .control-group, 
   .font-resizer {
     justify-content: center;
@@ -354,22 +258,11 @@ input[type="range"]::-moz-range-thumb{
   }
 }
 
-@media (max-width: 600px) {
-/*  #scrollBar {
-    gap: 8px; 
-  } */
-  
-  /* Optional: make the sliders slightly shorter for very narrow phones */
-  input[type="range"] {
-    width: 100px;
-  }
-}
-
 /* ===========================
    MISCELLANEOUS
    =========================== */
-.extraSpace{
-  padding-top: 200px;  /* Extra padding for the starting point of the text */
+.extraSpace {
+  padding-top: 200px; 
 }
 
 .colorChange a {
@@ -377,6 +270,6 @@ input[type="range"]::-moz-range-thumb{
   margin-bottom: 10px;
 }
 
-.colorChange a:hover{
+.colorChange a:hover {
   color: #1d44b8;
 }
