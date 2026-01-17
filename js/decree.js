@@ -17,7 +17,7 @@ let lastTime = performance.now();
    INIT (DOM READY)
    =========================== */
 document.addEventListener('DOMContentLoaded', () => {
-  decree = document.querySelector('.decree');
+  decree = document.querySelector('.decree-text');
   content = document.querySelector('.content');
 
   if (!decree) {
