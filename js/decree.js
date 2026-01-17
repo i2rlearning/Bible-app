@@ -1,4 +1,4 @@
-    const v = localStorage.getItem("scrollSpeed");
+const v = localStorage.getItem("scrollSpeed");
 let decree;
 let content;
 let scrolling = false;
@@ -17,7 +17,7 @@ let lastTime = performance.now();
 /* ===========================
    INIT (DOM READY)
    =========================== */
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
   decree = document.querySelector('.decree-text');
   content = document.querySelector('.content');
 
