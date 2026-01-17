@@ -1,3 +1,4 @@
+    const v = localStorage.getItem("scrollSpeed");
 let decree;
 let content;
 let scrolling = false;
