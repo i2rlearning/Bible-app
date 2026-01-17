@@ -5,20 +5,31 @@
   --bar-height: 70px; /* Default height for the black bar */
 }
 
-/* The background scroll image. 
-   We use z-index: -1 to put it BEHIND the main content.
-*/
+/* 1. Force everything to be see-through */
+html, body, main, .content, .decree {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* 2. Set a solid backup color ONLY on the html level so we don't have a white screen */
+html {
+    background-color: #000 !important; 
+}
+
+/* 3. Re-build the background scroll layer */
 body::before {
-  content: "";
-  position: fixed;
-  top: 45px;
-  left: 0;
-  right: 0;
-  bottom: var(--bar-height); 
-  background: url("/img/scroll-nobg.webp") no-repeat center top;
-  background-size: 100% 100%;
-  z-index: -1; 
-  pointer-events: none;
+    content: "";
+    position: fixed;
+    top: 45px;
+    left: 0;
+    right: 0;
+    bottom: 70px; /* Matching your bar height */
+    /* TRY REMOVING THE FIRST SLASH IF THIS FAILS */
+    background: url("/img/scroll-nobg.webp") no-repeat center top !important;
+    background-size: 100% 100% !important;
+    z-index: -1 !important;
+    display: block !important;
+    pointer-events: none;
 }
 
 body {
