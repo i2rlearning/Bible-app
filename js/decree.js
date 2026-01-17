@@ -2,10 +2,10 @@ let decree;
 let content;
 let scrolling = false;
 
-// UI speed (what user sees): 0.50 → 100.00
+// UI speed (what user sees): 0.50 â†’ 100.00
 let uiSpeed = 5.00;
 
-// Internal scroll speed (for animation): 0.05 → 10.00
+// Internal scroll speed (for animation): 0.05 â†’ 10.00
 let scrollSpeed = uiSpeed / 10;
 
 let accumulatedScroll = 0;
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize scroll speed display
   updateSpeedDisplay();
 
-  // Manual scroll detection → update button text
+  // Manual scroll detection â†’ update button text
   decree.addEventListener('scroll', () => {
     if (!scrolling) {
       const scrollPos = decree.scrollTop;
