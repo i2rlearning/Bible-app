@@ -29,7 +29,7 @@ body::before{
   right: 0;
   bottom: 70px;
   background: red !important;
-  background: url("/img/scroll-nobg.webp") no-repeat center top;
+  background: url("https://i2rlearning.github.io/Bible-app/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
   z-index: 0;              /* was -1 */
   pointer-events: none;
