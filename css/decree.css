@@ -32,11 +32,16 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 48px;        /* navbar height */
+  bottom: 70px;     /* bottom control bar height */
+  left: 0;
+  right: 0;
+
   background-image: url("https://i2rlearning.github.io/Bible-app/img/scroll-nobg.webp");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-position: center 55%; /* shifts image down slightly */
+  background-size: auto 120%;      /* fills height, trims rollers */
+
   z-index: 0;
   pointer-events: none;
 }
