@@ -12,34 +12,31 @@ html, body, main, .contentDecree, .decree {
 }
 
 /* Set a solid backup color ONLY on the html level so we don't have a white screen */
-html {
-    background-color: #000 !important; 
-}
+html { background: #000 !important; }
 
-/* Re-build the background scroll layer */
-body::before {
-    content: "";
-    position: fixed;
-    top: 45px;
-    left: 0;
-    right: 0;
-    bottom: 70px; /* Matching your bar height */
-    /* TRY REMOVING THE FIRST SLASH IF THIS FAILS */
-    background: url("img/scroll-nobg.webp") no-repeat center top !important;
-    background-size: 100% 100% !important;
-    z-index: -1 !important;
-    display: block !important;
-    pointer-events: none;
-}
-
-body {
+body{
   margin: 0;
-  font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  line-height: 1.8;
-  color: #000;
-  /* Force transparency to see the ::before image */
-  background-color: transparent !important;
+  background: transparent !important;
+  position: relative; /* important */
+  min-height: 100vh;
 }
+
+body::before{
+  content: "";
+  position: fixed;
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 70px;
+  background: red !important;
+  background: url("/img/scroll-nobg.webp") no-repeat center top;
+  background-size: 100% 100%;
+  z-index: 0;              /* was -1 */
+  pointer-events: none;
+}
+
+/* keep your real content above the background */
+nav.w3-top, #scrollBar, main, .contentDecree { position: relative; z-index: 1; }
 
 /* ===========================
    HEADER / NAV
