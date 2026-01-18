@@ -243,15 +243,14 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #incrementSpeed,
-#decrementSpeed{
+#decrementSpeed {
   width: 30px;
   height: 30px;
-  background: #3f3f3f;
-  border: 1px solid #666;
-  border-radius: 2px;
-  cursor: pointer;
-  position: relative;
   padding: 0;
+  position: relative;
+  flex: 0 0 auto;
+  color: transparent;
+  font-size: 0;
 }
 
 #incrementSpeed::before,
@@ -267,15 +266,9 @@ input[type="range"]::-webkit-slider-thumb {
   border-right: 10px solid transparent;
 }
 
-#incrementSpeed::before{
-  border-bottom: 10px solid #fff;
-}
+#incrementSpeed::before { border-bottom: 10px solid #fff; }
+#decrementSpeed::before { border-top: 10px solid #fff; }
 
-#decrementSpeed::before{
-  border-top: 10px solid #fff;
-}
-
-/* Start/Continue button */
 #scrollToggle {
   height: 30px;
   padding: 0 12px;
@@ -284,7 +277,6 @@ input[type="range"]::-webkit-slider-thumb {
   justify-content: center;
 }
 
-/* Hover + flashing state */
 #scrollToggle:hover,
 #incrementSpeed:hover,
 #decrementSpeed:hover,
