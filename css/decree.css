@@ -109,11 +109,11 @@ h1 {
   transform: translateX(-50%);
 
   /* Vertical alignment inside the parchment */
-  top: 190px;
-  bottom: 160px;
+  top: 160px;
+  bottom: 140px;
 
   /* Width that matches the parchment body */
-  width: clamp(320px, 48vw, 620px);
+  width: clamp(300px, 48vw, 600px);
 
   z-index: 2;
   overflow: hidden;
