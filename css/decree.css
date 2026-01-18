@@ -113,7 +113,7 @@ h1 {
   bottom: 125px;
 
   /* Width that matches the parchment body */
-  width: clamp(290px, 44vw, 560px);
+  width: clamp(280px, 44vw, 560px);
 
   z-index: 2;
   overflow: hidden;
