@@ -19,24 +19,23 @@ main {
   z-index: 1;
 }
 
+html {
+  background: #000 !important;
+}
+
 body {
-  margin: 0;
   background: transparent !important;
-  min-height: 100vh;
 }
 
 body::before {
   content: "";
   position: fixed;
-  top: 57px;        /* navbar height */
-  bottom: 80px;     /* bottom control bar height */
-  left: 0;
-  right: 0;
+  inset: 0;
 
   background-image: url("https://i2rlearning.github.io/Bible-app/img/scroll-nobg.webp");
   background-repeat: no-repeat;
-  background-position: center 55%; /* shifts image down slightly */
-  background-size: auto 120%;      /* fills height, trims rollers */
+  background-position: center;
+  background-size: contain;
 
   z-index: 0;
   pointer-events: none;
@@ -254,9 +253,11 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: #1d44b8 !important;
 }
 
-mobile-menu {
-   display: none;
+#mobileMenu,
+.mobile-menu {
+  display: none !important;
 }
+
 /* ===========================
    RESPONSIVE 
    =========================== */
