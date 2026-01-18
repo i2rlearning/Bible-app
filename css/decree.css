@@ -131,8 +131,9 @@ h1 {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-left: clamp(10px, 4vw, 50px);
-  padding-right: clamp(14px, 8vw, 90px);
+  padding-left: clamp(26px, 6vw, 80px);
+  padding-right: clamp(20px, 8vw, 90px);
+
   background: transparent !important;
 
   -webkit-mask-image: linear-gradient(
@@ -142,7 +143,8 @@ h1 {
     black 90%,
     transparent
   );
-  mask-image: linear-gradient(
+
+   mask-image: linear-gradient(
     to bottom,
     transparent,
     black 10%,
