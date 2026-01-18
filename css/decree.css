@@ -12,7 +12,7 @@ html, body, main, .contentDecree, .decree {
 }
 
 /* Set a solid backup color ONLY on the html level so we don't have a white screen */
-html { background: #000 !important; }
+html { outline: 8px solid lime !important; }
 
 body{
   margin: 0;
