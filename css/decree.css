@@ -6,7 +6,7 @@
 }
 
 /* 1. Force everything to be see-through */
-html, body, main, .content, .decree {
+html, body, main, .contentDecree, .decree {
     background-color: transparent !important;
     background: transparent !important;
 }
@@ -100,7 +100,7 @@ h1 {
 /* ===========================
    SCROLL VIEWPORT
    =========================== */
-.content {
+.contentDecree {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -113,7 +113,7 @@ h1 {
   background: transparent !important;
 }
 
-.content a {
+.contentDecree a {
   color: #000;
 }
 
