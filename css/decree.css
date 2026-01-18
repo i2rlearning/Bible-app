@@ -28,8 +28,8 @@ body {
 body::before {
   content: "";
   position: fixed;
-  top: 48px;        /* navbar height */
-  bottom: 70px;     /* bottom control bar height */
+  top: 57px;        /* navbar height */
+  bottom: 80px;     /* bottom control bar height */
   left: 0;
   right: 0;
 
