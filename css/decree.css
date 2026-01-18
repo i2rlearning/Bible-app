@@ -14,6 +14,15 @@ html, body, main, .contentDecree, .decree {
 /* Set a solid backup color ONLY on the html level so we don't have a white screen */
 html { outline: 8px solid green !important; }
 
+nav.w3-top,
+#scrollBar,
+.contentDecree,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+
 body {
   margin: 0;
   background: transparent !important;
