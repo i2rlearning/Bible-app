@@ -254,6 +254,9 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: #1d44b8 !important;
 }
 
+mobile-menu {
+   display: none;
+}
 /* ===========================
    RESPONSIVE 
    =========================== */
