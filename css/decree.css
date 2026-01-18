@@ -103,20 +103,24 @@ h1 {
 /* ===========================
    SCROLL VIEWPORT
    =========================== */
-.content {
+.contentDecree {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 140px; 
-  /* This keeps the text window 60px above the black bar consistently */
-  bottom: calc(var(--bar-height) + 70px); 
-  width: clamp(280px, 62vw, 900px);
+
+  /* Vertical alignment inside the parchment */
+  top: 190px;
+  bottom: 160px;
+
+  /* Width that matches the parchment body */
+  width: clamp(320px, 48vw, 620px);
+
   z-index: 2;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.content a{
+.contentDecree a{
   color: #000;
 }
 
