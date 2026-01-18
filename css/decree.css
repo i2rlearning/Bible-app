@@ -230,6 +230,7 @@ input[type="range"]::-webkit-slider-thumb {
 /* ===========================
    BUTTONS
    =========================== */
+/* Shared button styling */
 #incrementSpeed,
 #decrementSpeed,
 #scrollToggle {
@@ -241,6 +242,20 @@ input[type="range"]::-webkit-slider-thumb {
   transition: background-color 0.3s ease;
 }
 
+/* Fixed square buttons for + and - */
+#incrementSpeed,
+#decrementSpeed {
+  min-width: 34px;
+  height: 34px;
+  padding: 0;
+  line-height: 34px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* Start/Continue button */
 #scrollToggle {
   height: 30px;
   padding: 0 12px;
@@ -249,12 +264,10 @@ input[type="range"]::-webkit-slider-thumb {
   justify-content: center;
 }
 
+/* Hover + flashing state */
 #scrollToggle:hover,
 #incrementSpeed:hover,
-#decrementSpeed:hover {
-  background-color: #1d44b8;
-}
-
+#decrementSpeed:hover,
 .flashing {
   background-color: #1d44b8 !important;
 }
