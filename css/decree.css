@@ -250,8 +250,8 @@ input[type="range"]::-webkit-slider-thumb {
   padding: 0;
   line-height: 34px;
   text-align: center;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;  
   flex-shrink: 0;
 }
 
