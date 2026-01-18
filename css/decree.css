@@ -209,25 +209,26 @@ h1 {
 /* ===========================
    RANGE SLIDER
    =========================== */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 8px;
+  border-radius: 5px;
+  outline: none;
+  background: #666;
+}
+
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 18px;
   height: 18px;
   background: #fff;
+  border: 2px solid var(--accent-blue);
   border-radius: 50%;
   cursor: pointer;
 }
 
-input[type="range"]::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-}
-
-/* Firefox*/
 input[type="range"]::-moz-range-track {
   height: 8px;
   background: #666;
@@ -238,6 +239,15 @@ input[type="range"]::-moz-range-progress {
   height: 8px;
   background: var(--accent-blue);
   border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 2px solid var(--accent-blue);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 /* ===========================
