@@ -1,215 +1,94 @@
-/* ===========================
-   GLOBAL
-   =========================== */
-:root {
-  --bar-height: 70px; /* Default height for the black bar */
-  --accent-blue: #1d44b8;
-}
+:root { --accent-blue: #1d44b8; }
 
-/* Force everything to be see-through */
-html, body, main, .contentDecree, .decree {
-    background-color: transparent !important;
-    background: transparent !important;
-}
+/* Transparent layers */
+html, body, main, .contentDecree, .decree { background: transparent !important; }
+body { background: transparent !important; }
+html { background: #fff !important; } /* optional */
 
-nav.w3-top,
-#scrollBar,
-.contentDecree,
-main {
-  position: relative;
-  z-index: 1;
-}
-
-html {
-  background: #fff !important;
-}
-
-body {
-  background: transparent !important;
-}
-
-body::before {
-  content: "";
+/* Background scroll image */
+body::before{
+  content:"";
   position: fixed;
   inset: 0;
-
-  background-image: url("/img/scroll-nobg.webp");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: auto 90vh;
-
+  background: url("/img/scroll-nobg.webp") no-repeat center / auto 90vh;
   z-index: 0;
   pointer-events: none;
 }
 
-/* keep your real content above the background */
+/* Keep content above background */
 nav.w3-top, #scrollBar, main, .contentDecree { position: relative; z-index: 1; }
 
-/* ===========================
-   HEADER / NAV
-   =========================== */
-header {
+/* Header / nav */
+header{
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
   background: #005eb8;
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
+.nav-inner{ max-width: 1140px; margin: 0 auto; padding: 10px 14px; }
+nav ul{ list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+nav a{ color: #fff; text-decoration: none; font-size: 15px; }
+nav a:hover{ color: #94d4ef; }
 
-.nav-inner {
+/* Main */
+main{
   max-width: 1140px;
   margin: 0 auto;
-  padding: 10px 14px;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-nav a:hover {
-  color: #94d4ef;
-}
-
-/* ===========================
-   MAIN CONTENT
-   =========================== */
-main {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 18px 14px 110px; 
-  position: relative;
+  padding: 18px 14px 110px;
   z-index: 1;
-  /* Remove any background color inherited from main.css */
-  background-color: transparent !important;
 }
+h1{ margin: 0 0 10px; font-size: 23px; }
 
-h1 {
-  margin: 0 0 10px;
-  font-size: 23px;
-}
-
-/* ===========================
-   SCROLL VIEWPORT
-   =========================== */
-.contentDecree {
+/* Scroll viewport */
+.contentDecree{
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-
-  /* Vertical alignment inside the parchment */
   top: 145px;
   bottom: 125px;
-
-  /* Width that matches the parchment body */
   width: clamp(280px, 44vw, 560px);
-
   z-index: 2;
   overflow: hidden;
-  box-sizing: border-box;
 }
+.contentDecree a{ color: #000; }
 
-.contentDecree a{
-  color: #000;
-}
-
-/* ===========================
-   DECREE TEXT (SCROLLING)
-   =========================== */
-.decree {
+/* Scrolling text */
+.decree{
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto hidden;
   padding-left: clamp(26px, 6vw, 80px);
   padding-right: clamp(20px, 8vw, 90px);
-
-  background: transparent !important;
-
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-
-   mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-  
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+.decree::-webkit-scrollbar{ width: 0; height: 0; }
+.decree p{ margin: 0 0 24px; }
 
-.decree::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.decree p {
-  margin: 0 0 24px;
-}
-
-/* ===========================
-   FIXED BOTTOM SCROLL BAR
-   =========================== */
-#scrollBar {
+/* Bottom bar */
+#scrollBar{
   position: fixed;
-  left: 0;
-  bottom: 0;
+  left: 0; bottom: 0;
   width: 100%;
   padding: 12px 10px;
-  box-sizing: border-box;
   background: #000;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap; 
+  flex-wrap: nowrap;
   gap: 40px;
   z-index: 1001;
 }
 
-/* ===========================
-   SLIDER + LABEL
-   =========================== */
-.slider-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+/* Slider layout */
+.slider-container{ display: flex; align-items: center; justify-content: center; gap: 10px; }
+.font-resizer label, #speedValue{ white-space: nowrap; }
 
-#speedValue {
-  display: inline;
-}
-
-.font-resizer label, 
-#speedValue {
-  white-space: nowrap; 
-}
-
-/* ===========================
-   RANGE SLIDER
-   =========================== */
-input[type="range"] {
+/* Range sliders */
+input[type="range"]{
   -webkit-appearance: none;
   appearance: none;
   width: 120px;
@@ -218,45 +97,26 @@ input[type="range"] {
   outline: none;
   background: #666;
 }
-
-input[type="range"]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 18px; height: 18px;
+  background: #fff;
+  border: 2px solid var(--accent-blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-track{ height: 8px; background: #666; border-radius: 5px; }
+input[type="range"]::-moz-range-progress{ height: 8px; background: var(--accent-blue); border-radius: 5px; }
+input[type="range"]::-moz-range-thumb{
+  width: 18px; height: 18px;
   background: #fff;
   border: 2px solid var(--accent-blue);
   border-radius: 50%;
   cursor: pointer;
 }
 
-input[type="range"]::-moz-range-track {
-  height: 8px;
-  background: #666;
-  border-radius: 5px;
-}
-
-input[type="range"]::-moz-range-progress {
-  height: 8px;
-  background: var(--accent-blue);
-  border-radius: 5px;
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border: 2px solid var(--accent-blue);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* ===========================
-   BUTTONS
-   =========================== */
-/* Shared button styling */
-#incrementSpeed,
-#decrementSpeed,
-#scrollToggle {
+/* Buttons */
+#incrementSpeed, #decrementSpeed, #scrollToggle{
   background: #3f3f3f;
   border: 1px solid #666;
   border-radius: 2px;
@@ -264,85 +124,47 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-#incrementSpeed,
-#decrementSpeed {
-  width: 30px;
-  height: 30px;
+#incrementSpeed, #decrementSpeed{
+  width: 30px; height: 30px;
   padding: 0;
   position: relative;
   flex: 0 0 auto;
   color: transparent;
   font-size: 0;
 }
-
-#incrementSpeed::before,
-#decrementSpeed::before{
-  content: "";
+#incrementSpeed::before, #decrementSpeed::before{
+  content:"";
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%,-50%);
-  width: 0;
-  height: 0;
+  width: 0; height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
 }
+#incrementSpeed::before{ border-bottom: 10px solid #fff; }
+#decrementSpeed::before{ border-top: 10px solid #fff; }
 
-#incrementSpeed::before { border-bottom: 10px solid #fff; }
-#decrementSpeed::before { border-top: 10px solid #fff; }
-
-#scrollToggle {
+#scrollToggle{
   height: 30px;
   padding: 0 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-
-#scrollToggle:hover,
-#incrementSpeed:hover,
-#decrementSpeed:hover,
-.flashing {
-  background-color: #1d44b8 !important;
+#scrollToggle:hover, #incrementSpeed:hover, #decrementSpeed:hover, .flashing{
+  background-color: var(--accent-blue) !important;
 }
 
-#mobileMenu,
-.mobile-menu {
-  display: none !important;
+/* Hide mobile menu */
+#mobileMenu, .mobile-menu{ display: none !important; }
+
+/* Responsive */
+@media (max-width: 800px){
+  #scrollBar{ flex-wrap: wrap; padding: 15px 10px; gap: 8px; }
+  .control-group, .font-resizer{ justify-content: center; width: 100%; }
 }
 
-/* ===========================
-   RESPONSIVE 
-   =========================== */
-@media (max-width: 800px) {
-  :root {
-    --bar-height: 100px;
-  }
-  #scrollBar {
-    flex-wrap: wrap;
-    padding: 15px 10px;
-    gap: 8px; 
-  }
-  .control-group, 
-  .font-resizer {
-    justify-content: center;
-    width: 100%; 
-  }
-}
-
-/* ===========================
-   MISCELLANEOUS
-   =========================== */
-.extraSpace {
-  padding-top: 200px; 
-}
-
-.colorChange a {
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-
-.colorChange a:hover {
-  color: #1d44b8;
-}
+/* Misc */
+.extraSpace{ padding-top: 200px; }
+.colorChange a{ text-decoration: none; margin-bottom: 10px; }
+.colorChange a:hover{ color: var(--accent-blue); }
