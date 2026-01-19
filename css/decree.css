@@ -6,14 +6,22 @@ body { background: transparent !important; }
 html { background: #fff !important; } /* optional */
 
 /* Background scroll image */
-body::before{
-  content:"";
+body::before {
+  content: "";
   position: fixed;
   inset: 0;
-  background: url("/img/scroll-nobg.webp") no-repeat center / auto 90vh;
+
+  background-image: url("/img/scroll-nobg.webp");
+  background-repeat: no-repeat;
+  background-size: auto 90vh;
+
+  /* visual centering correction */
+  background-position: calc(50% + 18px) center;
+
   z-index: 0;
   pointer-events: none;
 }
+
 
 /* Keep content above background */
 nav.w3-top, #scrollBar, main, .contentDecree { position: relative; z-index: 1; }
