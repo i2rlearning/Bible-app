@@ -16,7 +16,7 @@ body::before {
   background-size: auto 90vh;
 
   /* visual centering correction */
-  background-position: calc(50% + -18px) calc(50% + -6px);  /* background-position: calc(50% + -18px) center; */
+  background-position: calc(50% + -18px) calc(50% + -2px);  /* background-position: calc(50% + -18px) center; */
 
   z-index: 0;
   pointer-events: none;
