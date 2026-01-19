@@ -68,7 +68,7 @@ h1{ margin: 0 0 10px; font-size: 23px; }
   overflow-x: hidden;
 
   box-sizing: border-box;           /* important */
-  padding-left: clamp(34px, 7vw, 100px);
+  padding-left: clamp(44px, 8vw, 120px);
   padding-right: clamp(20px, 8vw, 90px);
 
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
