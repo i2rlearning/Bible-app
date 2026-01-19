@@ -44,7 +44,7 @@ h1{ margin: 0 0 10px; font-size: 23px; }
 .contentDecree{
   position: fixed;
   left: 50%;
-  transform: translateX(-52%);
+  transform: translateX(-54%);
   top: 145px;
   bottom: 125px;
   width: clamp(320px, 48vw, 680px);
