@@ -47,23 +47,25 @@ h1{ margin: 0 0 10px; font-size: 23px; }
   transform: translateX(-50%);
   top: 145px;
   bottom: 125px;
-  width: clamp(280px, 44vw, 560px);
+  width: clamp(320px, 48vw, 680px);
   z-index: 2;
   overflow: hidden;
 }
+
 .contentDecree a{ color: #000; }
 
 /* Scrolling text */
 .decree{
   height: 100%;
   overflow: auto hidden;
-  padding-left: clamp(26px, 6vw, 80px);
+  padding-left:  clamp(26px, 6vw, 80px);
   padding-right: clamp(20px, 8vw, 90px);
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
   mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .decree::-webkit-scrollbar{ width: 0; height: 0; }
 .decree p{ margin: 0 0 24px; }
 
