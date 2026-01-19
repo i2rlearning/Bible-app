@@ -16,12 +16,11 @@ body::before {
   background-size: auto 90vh;
 
   /* visual centering correction */
-  background-position: calc(50% + 18px) center;
+  background-position: calc(50% + -18px) center;
 
   z-index: 0;
   pointer-events: none;
 }
-
 
 /* Keep content above background */
 nav.w3-top, #scrollBar, main, .contentDecree { position: relative; z-index: 1; }
