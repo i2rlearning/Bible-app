@@ -1,6 +1,7 @@
 :root{
+  --accent-blue: #1d44b8;
   --nav-h: 48px;
-  --footer-h: 54px; /* start here */
+  --footer-h: 54px;
   --gap: 3px;
 }
 
