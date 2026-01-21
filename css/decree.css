@@ -48,6 +48,9 @@ nav.w3-top .w3-bar {
   padding-right: 16px;
   background-color: #000; /* black bar */
   color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 nav.w3-top .w3-bar .w3-bar-item,
