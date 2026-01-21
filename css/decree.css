@@ -1,5 +1,8 @@
 :root {
+  --accent-blue: #1d44b8;
   --nav-h: 48px;
+  --footer-h: 60px; /* scroll controls bar height */
+  --gap: 5px;
 }
 
 /* --------------------------------------------------
@@ -99,8 +102,8 @@ main {
   position: fixed;
   left: 50%;
   transform: translateX(-54%);
-  top: calc(var(--nav-h) + 16px);
-  bottom: 125px;
+  top: calc(var(--nav-h) + var(--gap));
+  bottom: calc(var(--footer-h) + var(--gap));
   width: clamp(320px, 48vw, 680px);
   z-index: 2;
   overflow: hidden;
