@@ -138,32 +138,26 @@ main {
    Scrolling text
 -------------------------------------------------- */
 
+/* --------------------------------------------------
+   Scrolling text
+-------------------------------------------------- */
 .decree {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
+
+  /* your new tighter side padding */
   padding-left: 12px;
   padding-right: 12px;
-}
 
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
+  /* fade top/bottom */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  /* hide scrollbar */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* old Edge/IE */
 }
 
 .decree::-webkit-scrollbar {
