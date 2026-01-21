@@ -26,10 +26,11 @@ body::before {
   inset: 0;
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
-  background-size: auto 90vh;
+  background-size: auto calc(100vh - var(--nav-h) - var(--footer-h) - (2 * var(--gap)));
 
-  /* move the scroll DOWN */
-  background-position: calc(50% - 18px) calc(50% + 60px);
+  background-position:
+    center
+    calc(50% + (var(--nav-h) - var(--footer-h)) / 2);
 
   z-index: 0;
   pointer-events: none;
