@@ -1,7 +1,8 @@
 :root{
+  --accent-blue: #1d44b8;
+
   --nav-h: 48px;
   --footer-h: 54px;
-  --gap: 3px;
 
   --scroll-top-gap: 10px;
   --scroll-bottom-gap: 10px;
@@ -22,16 +23,21 @@ main,
   background: transparent !important;
 }
 
+/* Scroll image */
 body::before{
   content: "";
   position: fixed;
   inset: 0;
+
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
 
   background-size: auto calc(
-    100vh - var(--nav-h) - var(--footer-h)
-    - var(--scroll-top-gap) - var(--scroll-bottom-gap)
+    100vh
+    - var(--nav-h)
+    - var(--footer-h)
+    - var(--scroll-top-gap)
+    - var(--scroll-bottom-gap)
   );
 
   background-position:
@@ -47,7 +53,10 @@ body::before{
   pointer-events: none;
 }
 
-/* NAVBAR */
+/* --------------------------------------------------
+   NAVBAR
+-------------------------------------------------- */
+
 nav.w3-top {
   position: fixed;
   top: 0;
@@ -58,26 +67,20 @@ nav.w3-top {
 }
 
 nav.w3-top .w3-bar {
-  display: block !important;
-  width: 100% !important;
   height: var(--nav-h);
-  padding-left: 16px;
-  padding-right: 16px;
-  background-color: #000; /* black bar */
+  padding: 0 16px;
+  background-color: #000;
   color: #fff;
   font-family: Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
 }
 
-nav.w3-top .w3-bar .w3-bar-item,
-nav.w3-top .w3-bar .w3-button,
-nav.w3-top .w3-bar a {
+nav.w3-top .w3-bar a,
+nav.w3-top .w3-bar .w3-bar-item {
   height: var(--nav-h);
   line-height: var(--nav-h);
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  vertical-align: middle;
+  padding: 0 12px;
 }
 
 /* Donate button */
@@ -88,12 +91,9 @@ nav.w3-top .donate-button {
 }
 
 nav.w3-top .donate-button:hover {
-  background-color: #b71c1c !important;   /* crimson */
+  background-color: #b71c1c !important;
   color: #fff !important;
-  transition: background-color 0.25s ease;  
 }
-
-
 
 /* --------------------------------------------------
    Main layout
@@ -102,7 +102,7 @@ nav.w3-top .donate-button:hover {
 main {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 18px 14px 110px;
+  padding: 0;
   z-index: 1;
 }
 
@@ -113,68 +113,54 @@ main {
 .contentDecree {
   position: fixed;
   left: 50%;
-  transform: translateX(calc(-45% - 6px)); /* move left a bit or calc(-50% + 6px) to move right */
+  transform: translateX(-50%);
   top: calc(var(--nav-h) + var(--scroll-top-gap));
   bottom: calc(var(--footer-h) + var(--scroll-bottom-gap));
+
   width: clamp(320px, 64vw, 880px);
   z-index: 2;
   overflow: hidden;
 }
 
-/* Force decree text to remain black */
+/* Force text color */
 .contentDecree,
 .contentDecree .decree,
 .contentDecree .decree p {
   color: #000 !important;
 }
 
-/* Links inside decree */
-.contentDecree a {
-  color: #000;
-}
-
-.contentDecree a:hover {
-  color: var(--accent-blue);
-}
-
-.contentDecree {
-  overflow: hidden;
-}
-
-.decree{
-  width: 100%;
-}
-
-.decree p{
-  width: 100%;
-  max-width: none;
-  text-align: left;
-}
-
 /* --------------------------------------------------
    Scrolling text
 -------------------------------------------------- */
 
-/* --------------------------------------------------
-   Scrolling text
--------------------------------------------------- */
 .decree {
   height: 100%;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
 
-  /* your new tighter side padding */
   padding-left: 12px;
   padding-right: 12px;
 
-  /* fade top/bottom */
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  /* Realistic parchment fade */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
 
-  /* hide scrollbar */
-  scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* old Edge/IE */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .decree::-webkit-scrollbar {
@@ -183,11 +169,14 @@ main {
 }
 
 .decree p {
+  width: 100%;
+  max-width: none;
+  text-align: left;
   margin: 0 0 24px;
 }
 
 /* --------------------------------------------------
-   Footer scroll bar
+   Footer scroll controls
 -------------------------------------------------- */
 
 #scrollBar {
@@ -195,13 +184,16 @@ main {
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 12px 10px;
+  height: var(--footer-h);
+
   background: #000;
   color: #fff;
+
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
+
   z-index: 1001;
 }
 
@@ -220,40 +212,17 @@ main {
   white-space: nowrap;
 }
 
-/* Range sliders */
-
 input[type="range"] {
   appearance: none;
   width: 120px;
   height: 8px;
   border-radius: 5px;
-  outline: none;
   background: #666;
+  outline: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border: 2px solid var(--accent-blue);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-input[type="range"]::-moz-range-track {
-  height: 8px;
-  background: #666;
-  border-radius: 5px;
-}
-
-input[type="range"]::-moz-range-progress {
-  height: 8px;
-  background: var(--accent-blue);
-  border-radius: 5px;
-}
-
-input[type="range"]::-moz-range-thumb {
   width: 18px;
   height: 18px;
   background: #fff;
@@ -271,60 +240,24 @@ input[type="range"]::-moz-range-thumb {
 #scrollToggle {
   background: #3f3f3f;
   border: 1px solid #666;
-  border-radius: 2px;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-#incrementSpeed,
-#decrementSpeed {
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  position: relative;
-  color: transparent;
-  font-size: 0;
-}
-
-#incrementSpeed::before,
-#decrementSpeed::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-}
-
-#incrementSpeed::before {
-  border-bottom: 10px solid #fff;
-}
-
-#decrementSpeed::before {
-  border-top: 10px solid #fff;
-}
-
 #scrollToggle {
   height: 30px;
   padding: 0 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #scrollToggle:hover,
 #incrementSpeed:hover,
-#decrementSpeed:hover,
-.flashing {
+#decrementSpeed:hover {
   background-color: var(--accent-blue) !important;
 }
 
 /* --------------------------------------------------
-   Mobile and misc
+   Mobile
 -------------------------------------------------- */
 
 #mobileMenu,
@@ -333,27 +266,11 @@ input[type="range"]::-moz-range-thumb {
 }
 
 @media (max-width: 800px) {
+  .contentDecree {
+    width: 90vw;
+  }
+
   #scrollBar {
-    flex-wrap: wrap;
-    padding: 15px 10px;
-    gap: 8px;
+    gap: 10px;
   }
-
-  .control-group,
-  .font-resizer {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-.extraSpace {
-  padding-top: 200px;
-}
-
-.colorChange a {
-  text-decoration: none;
-}
-
-.colorChange a:hover {
-  color: var(--accent-blue);
 }
