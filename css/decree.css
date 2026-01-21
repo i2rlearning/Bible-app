@@ -102,13 +102,14 @@ main {
 .contentDecree {
   position: fixed;
   left: 50%;
-  transform: translateX(-54%);
+  transform: translateX(-50%); /* was -54% */
   top: calc(var(--nav-h) + var(--gap));
   bottom: calc(var(--footer-h) + var(--gap));
   width: clamp(320px, 48vw, 680px);
   z-index: 2;
   overflow: hidden;
 }
+
 
 /* Force decree text to remain black */
 .contentDecree,
