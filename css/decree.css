@@ -23,7 +23,8 @@ body::before {
 }
 
 /* Keep content above background */
-nav.w3-top, #scrollBar, main, .contentDecree { position: relative; z-index: 1; background-color: #000; color:white;}
+nav.w3-top, #scrollBar, main, .contentDecree { position: relative; z-index: 1;}
+
 
 /* Header / nav */
 header{
