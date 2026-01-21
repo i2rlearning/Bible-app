@@ -1,7 +1,6 @@
-:root {
-  --accent-blue: #1d44b8;
+:root{
   --nav-h: 48px;
-  --footer-h: 60px; /* scroll controls bar height */
+  --footer-h: 54px; /* start here */
   --gap: 3px;
 }
 
