@@ -125,6 +125,15 @@ main {
   color: var(--accent-blue);
 }
 
+.contentDecree {
+  overflow: hidden;
+}
+
+.decree {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 /* --------------------------------------------------
    Scrolling text
 -------------------------------------------------- */
