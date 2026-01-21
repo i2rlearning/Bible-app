@@ -105,11 +105,10 @@ main {
   transform: translateX(calc(-45% - 6px)); /* move left a bit or calc(-50% + 6px) to move right */
   top: calc(var(--nav-h) + var(--gap));
   bottom: calc(var(--footer-h) + var(--gap));
-  width: clamp(320px, 48vw, 680px);
+  width: clamp(320px, 78vw, 1100px);
   z-index: 2;
   overflow: hidden;
 }
-
 
 /* Force decree text to remain black */
 .contentDecree,
@@ -131,9 +130,14 @@ main {
   overflow: hidden;
 }
 
-.decree {
-  overflow-y: auto;
-  overflow-x: hidden;
+.decree{
+  width: 100%;
+}
+
+.decree p{
+  width: 100%;
+  max-width: none;
+  text-align: left;
 }
 
 /* --------------------------------------------------
