@@ -1,5 +1,4 @@
 :root {
-  --accent-blue: #1d44b8;
   --nav-h: 48px;
 }
 
@@ -97,7 +96,7 @@ main {
   position: fixed;
   left: 50%;
   transform: translateX(-54%);
-  top: 145px;
+  top: calc(var(--nav-h) + 16px);
   bottom: 125px;
   width: clamp(320px, 48vw, 680px);
   z-index: 2;
