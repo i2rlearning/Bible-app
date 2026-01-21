@@ -77,6 +77,20 @@ nav.w3-top .w3-dropdown-content .w3-bar-item:hover {
   background-color: #f2f2f2;
 }
 
+/* Donate button - normal state */
+nav.w3-top .donate-button {
+  background-color: #f57c00;   /* warm orang */
+  color: #fff;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Donate button - hover state */
+nav.w3-top .donate-button:hover {
+  background-color: #c62828;   /* deep red */
+  color: #fff;
+}
+
+
 /* --------------------------------------------------
    Main layout
 -------------------------------------------------- */
