@@ -1,11 +1,10 @@
 :root{
   --accent-blue: #1d44b8;
-
   --nav-h: 48px;
   --footer-h: 54px;
 
-  --scroll-top-gap: 40px;
-  --scroll-bottom-gap: 40px;
+  --scroll-top-gap: 10px;
+  --scroll-bottom-gap: 10px;
 
   --fade-top: 90px;
   --fade-bottom: 90px;
