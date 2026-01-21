@@ -47,7 +47,7 @@ nav.w3-top {
 }
 
 nav.w3-top .w3-bar {
-  background-color: var(--accent-blue);
+  background-color: #000;
   color: #fff;
 }
 
