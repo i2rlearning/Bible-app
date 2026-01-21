@@ -22,21 +22,23 @@ main,
   background: transparent !important;
 }
 
-body::before {
+body::before{
   content: "";
   position: fixed;
   inset: 0;
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
 
-  /* match the visible window height exactly */
-  background-size: auto calc(
-    100vh
-    - var(--nav-h)
-    - var(--footer-h)
-    - var(--scroll-top-gap)
-    - var(--scroll-bottom-gap)
-  );
+  /* match the viewport top and bottom */
+  background-size: auto calc(100vh - var(--nav-h) - var(--footer-h) - var(--scroll-top-gap) - var(--scroll-bottom-gap));
+
+  background-position:
+    center
+    calc(50% + (var(--nav-h) + var(--scroll-top-gap) - (var(--footer-h) + var(--scroll-bottom-gap))) / 2);
+
+  z-index: 0;
+  pointer-events: none;
+}
 
   /* keep it centered between the navbar and footer using the same gaps */
   background-position:
