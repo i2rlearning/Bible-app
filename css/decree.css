@@ -79,13 +79,15 @@ nav.w3-top .w3-dropdown-content .w3-bar-item:hover {
 
 /* Donate button */
 nav.w3-top .donate-button {
-  background-color: #e65100;   /* burnt orange */
+  background-color: red;
   color: #fff;
   transition: background-color 0.25s ease;
 }
 
 nav.w3-top .donate-button:hover {
   background-color: #b71c1c !important;   /* crimson */
+  color: #fff;
+  transition: background-color 0.25s ease;  
 }
 
 
