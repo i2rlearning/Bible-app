@@ -24,7 +24,10 @@ body::before {
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
   background-size: auto 90vh;
-  background-position: calc(50% - 18px) calc(50% - 2px);
+
+  /* move the scroll DOWN */
+  background-position: calc(50% - 18px) calc(50% + 60px);
+
   z-index: 0;
   pointer-events: none;
 }
