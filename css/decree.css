@@ -1,8 +1,10 @@
 :root{
-  --accent-blue: #1d44b8;
   --nav-h: 48px;
   --footer-h: 54px;
   --gap: 3px;
+
+  --scroll-top-gap: 10px;
+  --scroll-bottom-gap: 10px;
 }
 
 /* --------------------------------------------------
@@ -103,8 +105,8 @@ main {
   position: fixed;
   left: 50%;
   transform: translateX(calc(-45% - 6px)); /* move left a bit or calc(-50% + 6px) to move right */
-  top: calc(var(--nav-h) + var(--gap));
-  bottom: calc(var(--footer-h) + var(--gap));
+  top: calc(var(--nav-h) + var(--scroll-top-gap));
+  bottom: calc(var(--footer-h) + var(--scroll-bottom-gap));
   width: clamp(320px, 64vw, 880px);
   z-index: 2;
   overflow: hidden;
