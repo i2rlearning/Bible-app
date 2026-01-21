@@ -1,55 +1,98 @@
-:root { --accent-blue: #1d44b8; }
+:root {
+  --accent-blue: #1d44b8;
+}
 
-/* Transparent layers */
-html, body, main, .contentDecree, .decree { background: transparent !important; }
-body { background: transparent !important; }
-html { background: #fff !important; } /* optional */
+/* --------------------------------------------------
+   Base transparency and background
+-------------------------------------------------- */
 
-/* Background scroll image */
+html {
+  background: #fff !important;
+}
+
+body,
+main,
+.contentDecree,
+.decree {
+  background: transparent !important;
+}
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
   background-size: auto 90vh;
-
-  /* visual centering correction */
-  background-position: calc(50% + -18px) calc(50% + -2px);  /* background-position: calc(50% + -18px) center; */
-
+  background-position: calc(50% - 18px) calc(50% - 2px);
   z-index: 0;
   pointer-events: none;
 }
 
 /* Keep content above background */
-nav.w3-top, #scrollBar, main, .contentDecree { position: relative; z-index: 1;}
-
-
-/* Header / nav */
-header{
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: #005eb8;
-  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+nav.w3-top,
+#scrollBar,
+main,
+.contentDecree {
+  position: relative;
+  z-index: 1;
 }
-.nav-inner{ max-width: 1140px; margin: 0 auto; padding: 10px 14px; }
-nav ul{ list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
-nav a{ color: #fff; text-decoration: none; font-size: 15px; }
-nav a:hover{ color: #94d4ef; }
 
-/* Main */
-main{
+/* --------------------------------------------------
+   Navbar styling (no W3 theme dependency)
+-------------------------------------------------- */
+
+nav.w3-top {
+  z-index: 1000;
+}
+
+nav.w3-top .w3-bar {
+  background-color: var(--accent-blue);
+  color: #fff;
+}
+
+nav.w3-top .w3-bar .w3-bar-item,
+nav.w3-top .w3-bar .w3-button {
+  color: #fff;
+  font-size: 15px;
+}
+
+nav.w3-top .w3-bar .w3-bar-item:hover,
+nav.w3-top .w3-bar .w3-button:hover {
+  color: #94d4ef;
+  background-color: transparent;
+}
+
+/* Dropdown menu */
+nav.w3-top .w3-dropdown-content {
+  background: #fff;
+  color: #000;
+}
+
+nav.w3-top .w3-dropdown-content .w3-bar-item {
+  color: #000;
+}
+
+nav.w3-top .w3-dropdown-content .w3-bar-item:hover {
+  background-color: #f2f2f2;
+}
+
+/* --------------------------------------------------
+   Main layout
+-------------------------------------------------- */
+
+main {
   max-width: 1140px;
   margin: 0 auto;
   padding: 18px 14px 110px;
   z-index: 1;
 }
-h1{ margin: 0 0 10px; font-size: 23px; }
 
-/* Scroll viewport */
-.contentDecree{
+/* --------------------------------------------------
+   Decree viewport
+-------------------------------------------------- */
+
+.contentDecree {
   position: fixed;
   left: 50%;
   transform: translateX(-54%);
@@ -60,33 +103,70 @@ h1{ margin: 0 0 10px; font-size: 23px; }
   overflow: hidden;
 }
 
-.contentDecree a{ color: #000; }
+/* Force decree text to remain black */
+.contentDecree,
+.contentDecree .decree,
+.contentDecree .decree p {
+  color: #000 !important;
+}
 
-/* Scrolling text */
-.decree{
+/* Links inside decree */
+.contentDecree a {
+  color: #000;
+}
+
+.contentDecree a:hover {
+  color: var(--accent-blue);
+}
+
+/* --------------------------------------------------
+   Scrolling text
+-------------------------------------------------- */
+
+.decree {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-
-  box-sizing: border-box;           /* important */
+  box-sizing: border-box;
   padding-left: clamp(44px, 8vw, 120px);
   padding-right: clamp(20px, 8vw, 90px);
 
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
+.decree::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 
-.decree::-webkit-scrollbar{ width: 0; height: 0; }
-.decree p{ margin: 0 0 24px; }
+.decree p {
+  margin: 0 0 24px;
+}
 
-/* Bottom bar */
-#scrollBar{
+/* --------------------------------------------------
+   Footer scroll bar
+-------------------------------------------------- */
+
+#scrollBar {
   position: fixed;
-  left: 0; bottom: 0;
+  left: 0;
+  bottom: 0;
   width: 100%;
   padding: 12px 10px;
   background: #000;
@@ -94,18 +174,28 @@ h1{ margin: 0 0 10px; font-size: 23px; }
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
   gap: 40px;
   z-index: 1001;
 }
 
-/* Slider layout */
-.slider-container{ display: flex; align-items: center; justify-content: center; gap: 10px; }
-.font-resizer label, #speedValue{ white-space: nowrap; }
+/* --------------------------------------------------
+   Controls
+-------------------------------------------------- */
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.font-resizer label,
+#speedValue {
+  white-space: nowrap;
+}
 
 /* Range sliders */
-input[type="range"]{
-  -webkit-appearance: none;
+
+input[type="range"] {
   appearance: none;
   width: 120px;
   height: 8px;
@@ -113,26 +203,45 @@ input[type="range"]{
   outline: none;
   background: #666;
 }
-input[type="range"]::-webkit-slider-thumb{
-  -webkit-appearance: none;
-  width: 18px; height: 18px;
-  background: #fff;
-  border: 2px solid var(--accent-blue);
-  border-radius: 50%;
-  cursor: pointer;
-}
-input[type="range"]::-moz-range-track{ height: 8px; background: #666; border-radius: 5px; }
-input[type="range"]::-moz-range-progress{ height: 8px; background: var(--accent-blue); border-radius: 5px; }
-input[type="range"]::-moz-range-thumb{
-  width: 18px; height: 18px;
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
   background: #fff;
   border: 2px solid var(--accent-blue);
   border-radius: 50%;
   cursor: pointer;
 }
 
-/* Buttons */
-#incrementSpeed, #decrementSpeed, #scrollToggle{
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  background: #666;
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-progress {
+  height: 8px;
+  background: var(--accent-blue);
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 2px solid var(--accent-blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------
+   Buttons
+-------------------------------------------------- */
+
+#incrementSpeed,
+#decrementSpeed,
+#scrollToggle {
   background: #3f3f3f;
   border: 1px solid #666;
   border-radius: 2px;
@@ -140,47 +249,84 @@ input[type="range"]::-moz-range-thumb{
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-#incrementSpeed, #decrementSpeed{
-  width: 30px; height: 30px;
+
+#incrementSpeed,
+#decrementSpeed {
+  width: 30px;
+  height: 30px;
   padding: 0;
   position: relative;
-  flex: 0 0 auto;
   color: transparent;
   font-size: 0;
 }
-#incrementSpeed::before, #decrementSpeed::before{
-  content:"";
+
+#incrementSpeed::before,
+#decrementSpeed::before {
+  content: "";
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 0; height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
 }
-#incrementSpeed::before{ border-bottom: 10px solid #fff; }
-#decrementSpeed::before{ border-top: 10px solid #fff; }
 
-#scrollToggle{
+#incrementSpeed::before {
+  border-bottom: 10px solid #fff;
+}
+
+#decrementSpeed::before {
+  border-top: 10px solid #fff;
+}
+
+#scrollToggle {
   height: 30px;
   padding: 0 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-#scrollToggle:hover, #incrementSpeed:hover, #decrementSpeed:hover, .flashing{
+
+#scrollToggle:hover,
+#incrementSpeed:hover,
+#decrementSpeed:hover,
+.flashing {
   background-color: var(--accent-blue) !important;
 }
 
-/* Hide mobile menu */
-#mobileMenu, .mobile-menu{ display: none !important; }
+/* --------------------------------------------------
+   Mobile and misc
+-------------------------------------------------- */
 
-/* Responsive */
-@media (max-width: 800px){
-  #scrollBar{ flex-wrap: wrap; padding: 15px 10px; gap: 8px; }
-  .control-group, .font-resizer{ justify-content: center; width: 100%; }
+#mobileMenu,
+.mobile-menu {
+  display: none !important;
 }
 
-/* Misc */
-.extraSpace{ padding-top: 200px; }
-.colorChange a{ text-decoration: none; margin-bottom: 10px; }
-.colorChange a:hover{ color: var(--accent-blue); }
+@media (max-width: 800px) {
+  #scrollBar {
+    flex-wrap: wrap;
+    padding: 15px 10px;
+    gap: 8px;
+  }
+
+  .control-group,
+  .font-resizer {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.extraSpace {
+  padding-top: 200px;
+}
+
+.colorChange a {
+  text-decoration: none;
+}
+
+.colorChange a:hover {
+  color: var(--accent-blue);
+}
