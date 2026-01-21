@@ -52,6 +52,9 @@ nav.w3-top .w3-bar {
   height: var(--nav-h);
   padding-left: 16px;
   padding-right: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* Keep navbar items aligned to your nav height */
