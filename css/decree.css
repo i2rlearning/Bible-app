@@ -134,8 +134,9 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
-  padding-left: clamp(44px, 8vw, 120px);
-  padding-right: clamp(20px, 8vw, 90px);
+  padding-left: 12px;
+  padding-right: 12px;
+}
 
   -webkit-mask-image: linear-gradient(
     to bottom,
