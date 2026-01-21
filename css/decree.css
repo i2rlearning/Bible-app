@@ -102,7 +102,7 @@ main {
 .contentDecree {
   position: fixed;
   left: 50%;
-  transform: translateX(-50%); /* was -54% */
+  transform: translateX(calc(-45% - 6px)); /* move left a bit or calc(-50% + 6px) to move right */
   top: calc(var(--nav-h) + var(--gap));
   bottom: calc(var(--footer-h) + var(--gap));
   width: clamp(320px, 48vw, 680px);
