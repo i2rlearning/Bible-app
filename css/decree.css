@@ -142,6 +142,8 @@ main {
 
   padding-left: 12px;
   padding-right: 12px;
+  padding-top: 90px;
+  padding-bottom: 90px;
 
   /* Realistic parchment fade */
   -webkit-mask-image: linear-gradient(
