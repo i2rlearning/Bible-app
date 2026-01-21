@@ -86,7 +86,7 @@ nav.w3-top .donate-button {
 
 nav.w3-top .donate-button:hover {
   background-color: #b71c1c !important;   /* crimson */
-  color: #fff;
+  color: #fff !important;
   transition: background-color 0.25s ease;  
 }
 
