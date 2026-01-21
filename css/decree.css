@@ -1,5 +1,6 @@
 :root {
   --accent-blue: #1d44b8;
+  --nav-h: 48px;
 }
 
 /* --------------------------------------------------
@@ -29,52 +30,33 @@ body::before {
   pointer-events: none;
 }
 
-/* Keep content above background */
-nav.w3-top,
-#scrollBar,
-main,
-.contentDecree {
-  position: relative;
-  z-index: 1;
-}
-
-/* --------------------------------------------------
-   Navbar styling (no W3 theme dependency)
--------------------------------------------------- */
-
+/* NAVBAR */
 nav.w3-top {
-  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
 }
 
 nav.w3-top .w3-bar {
-  background-color: #000;
-  color: #fff;
+  display: block !important;
+  width: 100% !important;
+  height: var(--nav-h);
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #000; /* black bar */
 }
 
 nav.w3-top .w3-bar .w3-bar-item,
-nav.w3-top .w3-bar .w3-button {
-  color: #fff;
-  font-size: 15px;
-}
-
-nav.w3-top .w3-bar .w3-bar-item:hover,
-nav.w3-top .w3-bar .w3-button:hover {
-  color: #94d4ef;
-  background-color: transparent;
-}
-
-/* Dropdown menu */
-nav.w3-top .w3-dropdown-content {
-  background: #fff;
-  color: #000;
-}
-
-nav.w3-top .w3-dropdown-content .w3-bar-item {
-  color: #000;
-}
-
-nav.w3-top .w3-dropdown-content .w3-bar-item:hover {
-  background-color: #f2f2f2;
+nav.w3-top .w3-bar .w3-button,
+nav.w3-top .w3-bar a {
+  height: var(--nav-h);
+  line-height: var(--nav-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  vertical-align: middle;
 }
 
 /* Donate button */
