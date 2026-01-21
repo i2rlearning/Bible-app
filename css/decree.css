@@ -47,6 +47,7 @@ nav.w3-top .w3-bar {
   padding-left: 16px;
   padding-right: 16px;
   background-color: #000; /* black bar */
+  color: #fff;
 }
 
 nav.w3-top .w3-bar .w3-bar-item,
