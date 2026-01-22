@@ -97,7 +97,7 @@ nav.w3-top .donate-button:hover {
   color: #fff !important;
 }
 
-mobileMenu {
+#mobileMenu {
   display: none;
 }
 
