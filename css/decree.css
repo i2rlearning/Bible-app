@@ -40,34 +40,46 @@ header{
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
 
-.nav-inner{
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 10px 14px;
+nav.w3-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
 }
 
-nav ul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-nav a{
+nav.w3-top .w3-bar {
+  height: var(--nav-h);
+  padding: 0 16px;
+  background-color: #000;
   color: #fff;
-  text-decoration: none;
-  font-size: 15px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-nav a:hover{
-  color: #94d4ef;
+nav.w3-top .w3-bar a,
+nav.w3-top .w3-bar .w3-bar-item {
+  height: var(--nav-h);
+  line-height: var(--nav-h);
+  padding: 0 12px;
+}
+
+/* Donate button */
+nav.w3-top .donate-button {
+  background-color: red;
+  color: #fff;
+  transition: background-color 0.25s ease;
+}
+
+nav.w3-top .donate-button:hover {
+  background-color: #b71c1c !important;
+  color: #fff !important;
 }
 
 #mobileMenu {
   display: none;
-}
 
 /* ===========================
    MAIN CONTENT
