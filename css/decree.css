@@ -229,7 +229,7 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 18px;
   height: 18px;
-  background: #fff;
+  background: transparent;
   border: 2px solid var(--accent-blue);
   border-radius: 50%;
   cursor: pointer;
@@ -252,7 +252,7 @@ input[type="range"]::-moz-range-progress {
 }
 
 input[type="range"]::-moz-range-thumb {
-  background: #fff;
+  background: transparent;
   border: 2px solid var(--accent-blue);
   width: 18px;
   height: 18px;
