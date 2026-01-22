@@ -293,3 +293,19 @@ input[type="range"]::-webkit-slider-thumb {
     width: 100px;
   }
 }
+
+/* ===========================
+   MISCELLANEOUS
+   =========================== */
+.extraSpace{
+  padding-top: 200px;  /* Extra padding for the starting point of the text */
+}
+
+.colorChange a {
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.colorChange a:hover{
+  color: #1d44b8;
+}
