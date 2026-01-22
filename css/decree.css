@@ -292,12 +292,6 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 
-@media (max-width: 800px) {
-  body::before {
-    background-size: contain;
-  }
-}
-
 @media (max-width: 600px) {
 /*  #scrollBar {
     gap: 8px; 
