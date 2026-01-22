@@ -1,8 +1,5 @@
-/* ===========================
-   GLOBAL
-   =========================== */
-:root {
-  --bar-height: 70px; /* Default height for the black bar */
+:root{
+  --accent-blue: #1d44b8;
   --nav-h: 48px;
   --footer-h: 54px;
 
@@ -14,40 +11,46 @@
   --fade-bottom: 90px;
 }
 
+/* --------------------------------------------------
+   Base transparency and background
+-------------------------------------------------- */
+
+html {
+  background: #fff !important;
+}
+
+body,
+main,
+.contentDecree,
+.decree {
+  background: transparent !important;
+}
+
+/* Scroll image */ 
 body::before {
   content: "";
   position: fixed;
-  top: 45px;
-  left: 0;
-  right: 0;
-  /* This ensures the scroll always stops exactly at the top of the bar */
-  bottom: var(--bar-height); 
-  background: url("/img/scroll-nobg.webp") no-repeat center top;
-  background-size: 100% 100%;
+  inset: 0;
+  background-image: url("/img/scroll-nobg.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  background-position:
+    center
+    calc(
+      50% + (
+        (var(--nav-h) + var(--scroll-top-gap))
+        - (var(--footer-h) + var(--scroll-bottom-gap))
+      ) / 2
+    );
+
   z-index: 0;
   pointer-events: none;
-}
+}  
 
-body{
-  margin: 0;
-  font-family: "Arima Madurai", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  line-height: 1.8;
-  color: #000;
-}
-
-/* ===========================
-   HEADER / NAV
-   =========================== */
-
-header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: #005eb8;
-  box-shadow: 0 2px 8px rgba(0,0,0,.2);
-}
+/* --------------------------------------------------
+   NAVBAR
+-------------------------------------------------- */
 
 nav.w3-top {
   position: fixed;
@@ -89,293 +92,203 @@ nav.w3-top .donate-button:hover {
 
 #mobileMenu {
   display: none;
+}
 
-/* ===========================
-   MAIN CONTENT
-   =========================== */
+/* --------------------------------------------------
+   Main layout
+-------------------------------------------------- */
+
 main {
   max-width: 1140px;
   margin: 0 auto;
-  /* The 110px ensures the scroll image doesn't hit the bottom of the screen */
-  padding: 18px 14px 110px; 
-  position: relative;
+  padding: 0;
   z-index: 1;
 }
 
-h1{
-  margin: 0 0 10px;
-  font-size: 23px;
-}
+/* --------------------------------------------------
+   Decree viewport
+-------------------------------------------------- */
 
-/* ===========================
-   SCROLL VIEWPORT
-   =========================== */
-.content {
+.contentDecree {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 140px; 
-  /* This keeps the text window 60px above the black bar consistently */
-  bottom: calc(var(--bar-height) + 70px); 
-  width: clamp(280px, 62vw, 900px);
+  top: 150px;      /* top of text inside of scroll - from before (did not work)   calc(var(--nav-h) + var(--scroll-top-gap)); */
+  bottom: 140px;  /* bottom of text inside of scroll - from before (did not work)   calc(var(--footer-h) + var(--scroll-bottom-gap)); */
+
+  width: clamp(320px, 64vw, 880px);
   z-index: 2;
   overflow: hidden;
-  box-sizing: border-box;
 }
 
-.content a{
-  color: #000;
+/* Force text color */
+.contentDecree,
+.contentDecree .decree,
+.contentDecree .decree p {
+  color: #000 !important;
 }
 
-/* ===========================
-   DECREE TEXT (SCROLLING)
-   =========================== */
-.decree{
+/* --------------------------------------------------
+   Scrolling text
+-------------------------------------------------- */
+
+.decree {
   height: 100%;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-left: 50px;  /* clamp(10px, 4vw, 50px); */
-  padding-right: clamp(14px, 8vw, 90px);
+  box-sizing: border-box;
 
+  padding-left: 50px;  /* left margin */
+  padding-right: 3px;  /* right margin */
+  padding-top: var(--fade-top);
+  padding-bottom: var(--fade-bottom);
+
+  /* Realistic parchment fade */
   -webkit-mask-image: linear-gradient(
     to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
+    transparent 0,
+    black var(--fade-top),
+    black calc(100% - var(--fade-bottom)),
+    transparent 100%
   );
+  
   mask-image: linear-gradient(
     to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
+    transparent 0,
+    black var(--fade-top),
+    black calc(100% - var(--fade-bottom)),
+    transparent 100%
   );
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-
+  
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-.decree::-webkit-scrollbar{
+.decree::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
 
-.decree p{
+.decree p {
+  width: 100%;
+  max-width: none;
+  text-align: left;
   margin: 0 0 24px;
 }
 
-/* ===========================
-   FIXED BOTTOM SCROLL BAR
-   =========================== */
+/* --------------------------------------------------
+   Footer scroll controls
+-------------------------------------------------- */
+
 #scrollBar {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 12px 10px; /* Vertical and horizontal padding */
-  box-sizing: border-box;
+  height: var(--footer-h);
+
   background: #000;
   color: #fff;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap; 
-  gap: 40px; /* Space between the two main control groups */
+  gap: 40px;
+
   z-index: 1001;
-  /* min-height: 50px; 
-  height: auto;      Allows it to grow if items stack */
 }
 
-/* ===========================
-   SLIDER + LABEL
-   =========================== */
-.slider-container{
+/* --------------------------------------------------
+   Controls
+-------------------------------------------------- */
+
+.slider-container {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-#speedValue{
-  position: inline;
-  margin: 0; 
-  padding: 0;
-}
-
-.font-resizer label, 
+.font-resizer label,
 #speedValue {
-  margin-right: 0;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
-.font-resizer label {
-  margin-right: 8px; 
-}
-
-.slider-container label {
-  margin-right: 8px;  
-}
-
-/* ===========================
-   SLIDER CONTROLS
-   =========================== */
-.slider-controls{
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 36px;
-}
-
-.font-resizer{
-  display: flex;
-  align-items: center;
-  height: 36px;
-}
-
-.slider-controls,
-.font-resizer {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 36px;
-}
-
-/* ===========================
-   RANGE SLIDER
-   =========================== */
-
-input[type="range"]{
-  -webkit-appearance: none;
+input[type="range"] {
   appearance: none;
   width: 120px;
   height: 8px;
-  background: #666;
   border-radius: 5px;
+  background: #666;
   outline: none;
 }
 
-input[type="range"]::-webkit-slider-thumb{
-  -webkit-appearance: none;
+input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 18px;
   height: 18px;
   background: #fff;
+  border: 2px solid var(--accent-blue);
   border-radius: 50%;
   cursor: pointer;
 }
 
-input[type="range"]::-moz-range-thumb{
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-}
+/* --------------------------------------------------
+   Buttons
+-------------------------------------------------- */
 
-/* ===========================
-   ARROW/START BUTTONS
-   =========================== */
 #incrementSpeed,
-#decrementSpeed{
-  width: 30px;
-  height: 30px;
+#decrementSpeed,
+#scrollToggle {
   background: #3f3f3f;
   border: 1px solid #666;
-  border-radius: 2px;
-  cursor: pointer;
-  position: relative;
-  padding: 0;
-}
-
-#incrementSpeed::before,
-#decrementSpeed::before{
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-}
-
-#incrementSpeed::before{
-  border-bottom: 10px solid #fff;
-}
-
-#decrementSpeed::before{
-  border-top: 10px solid #fff;
-}
-
-/* ===========================
-   START
-   =========================== */
-#scrollToggle{
-  height: 30px;
-  min-height: 30px;
-  line-height: 30px;
-  padding: 0 12px;
-  background: #3f3f3f;
-  border: 1px solid #666;
-  border-radius: 2px;
   color: #fff;
   cursor: pointer;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  margin: 0;
-  align-self: center;
+  transition: background-color 0.3s ease;
 }
 
-.flashing {
-  background-color: #1d44b8; /* Flashing color */
+#scrollToggle {
+  height: 30px;
+  padding: 0 12px;
 }
 
 #scrollToggle:hover,
 #incrementSpeed:hover,
 #decrementSpeed:hover {
-  background-color: #1d44b8; /* Hover color */
-}
-
-#incrementSpeed,
-#decrementSpeed,
-#scrollToggle {
-  transition: background-color 0.3s ease; /* Smooth transition for background color changes */
-}
-
-/* Keeps Start button close to arrows */
-.control-group {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Tight gap between Speed and Start */
+  background-color: var(--accent-blue) !important;
 }
 
 /* ===========================
    RESPSONSIVE 
    =========================== */
 @media (max-width: 800px) {
-  :root {
-    --bar-height: 100px; /* Adjusting for the double-stack height */
+  #scrollBar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px;
+    height: auto;
   }
 
-  #scrollBar {
-    flex-wrap: wrap; /* Allow wrapping at this breakpoint */
-    padding: 15px 10px;
-     gap: 8px; 
-  }
-  
-  /* Forcing each group to take a full row creates the Shot #1 look */
-  .control-group, 
+  .control-group,
   .font-resizer {
+    display: flex;
     justify-content: center;
-    width: 100%; 
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  input[type="range"] {
+    width: 140px;
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --bar-height: 100px; /* Adjusting for the double-stack height */
   }
 }
 
