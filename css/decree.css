@@ -141,13 +141,14 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
-
+  
   padding-left: 12px;
   padding-right: 12px;
+
+  /* Only apply fade effect if needed */
   padding-top: var(--fade-top);
   padding-bottom: var(--fade-bottom);
 
-  /* Realistic parchment fade */
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0,
@@ -155,7 +156,6 @@ main {
     black calc(100% - var(--fade-bottom)),
     transparent 100%
   );
-  
   mask-image: linear-gradient(
     to bottom,
     transparent 0,
@@ -163,9 +163,9 @@ main {
     black calc(100% - var(--fade-bottom)),
     transparent 100%
   );
-  
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+
+  /* Prevent content from overflowing beyond scroll visually */
+  max-height: 100%;
 }
 
 .decree::-webkit-scrollbar {
