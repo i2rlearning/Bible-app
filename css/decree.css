@@ -117,7 +117,7 @@ main {
   left: 50%;
   transform: translateX(-50%);
   top: 150px; /*calc(var(--nav-h) + var(--scroll-top-gap)); */
-  bottom: calc(var(--footer-h) + var(--scroll-bottom-gap));
+  bottom: 120px;  /* calc(var(--footer-h) + var(--scroll-bottom-gap)); */
 
   width: clamp(320px, 64vw, 880px);
   z-index: 2;
