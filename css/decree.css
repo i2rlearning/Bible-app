@@ -116,8 +116,8 @@ main {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 150px; /*calc(var(--nav-h) + var(--scroll-top-gap)); */
-  bottom: 140px;  /* calc(var(--footer-h) + var(--scroll-bottom-gap)); */
+  top: 150px;      /* top of text inside of scroll - from before (did not work)   calc(var(--nav-h) + var(--scroll-top-gap)); */
+  bottom: 140px;  /* bottom of text inside of scroll - from before (did not work)   calc(var(--footer-h) + var(--scroll-bottom-gap)); */
 
   width: clamp(320px, 64vw, 880px);
   z-index: 2;
@@ -142,8 +142,8 @@ main {
   overflow-x: hidden;
   box-sizing: border-box;
 
-  padding-left: 40px;
-  padding-right: 10px;
+  padding-left: 40px;  /* left margin */
+  padding-right: 3px;  /* right margin */
   padding-top: var(--fade-top);
   padding-bottom: var(--fade-bottom);
 
