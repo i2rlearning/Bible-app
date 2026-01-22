@@ -252,9 +252,6 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: var(--accent-blue) !important;
 }
 
-<button id="decrementSpeed">&#9660;</button> <!-- Down arrow (▼) -->
-<button id="incrementSpeed">&#9650;</button> <!-- Up arrow (▲) -->
-
 /* ===========================
    RESPSONSIVE 
    =========================== */
