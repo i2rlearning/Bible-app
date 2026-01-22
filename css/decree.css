@@ -27,25 +27,25 @@ main,
   background: transparent !important;
 }
 
-body::before {
+/* body::before {
   content: "";
   position: fixed;
   top: 45px;
   left: 0;
   right: 0;
-  /* This ensures the scroll always stops exactly at the top of the bar */
   bottom: var(--bar-height); 
   background-image: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
   z-index: 0;
   pointer-events: none;
-}
+}  */
 
-/* Scroll image 
+/* Scroll image */ 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+  bottom: var(--bar-height); 
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
   background-size: contain;
@@ -61,7 +61,7 @@ body::before {
 
   z-index: 0;
   pointer-events: none;
-}  */
+}  
 
 /* --------------------------------------------------
    NAVBAR
