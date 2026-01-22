@@ -116,7 +116,7 @@ main {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: calc(var(--nav-h) + var(--scroll-top-gap));
+  top: 150px; /*calc(var(--nav-h) + var(--scroll-top-gap)); */
   bottom: calc(var(--footer-h) + var(--scroll-bottom-gap));
 
   width: clamp(320px, 64vw, 880px);
@@ -141,14 +141,13 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
-  
+
   padding-left: 12px;
   padding-right: 12px;
-
-  /* Only apply fade effect if needed */
   padding-top: var(--fade-top);
   padding-bottom: var(--fade-bottom);
 
+  /* Realistic parchment fade */
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0,
@@ -156,6 +155,7 @@ main {
     black calc(100% - var(--fade-bottom)),
     transparent 100%
   );
+  
   mask-image: linear-gradient(
     to bottom,
     transparent 0,
@@ -163,9 +163,9 @@ main {
     black calc(100% - var(--fade-bottom)),
     transparent 100%
   );
-
-  /* Prevent content from overflowing beyond scroll visually */
-  max-height: 100%;
+  
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .decree::-webkit-scrollbar {
