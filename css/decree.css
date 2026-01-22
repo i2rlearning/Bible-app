@@ -1,5 +1,4 @@
 :root{
-  --bar-height: 70px; /* Default height for the black bar */
   --accent-blue: #1d44b8;
   --nav-h: 48px;
   --footer-h: 54px;
@@ -27,25 +26,11 @@ main,
   background: transparent !important;
 }
 
-/* body::before {
-  content: "";
-  position: fixed;
-  top: 45px;
-  left: 0;
-  right: 0;
-  bottom: var(--bar-height); 
-  background-image: url("/img/scroll-nobg.webp") no-repeat center top;
-  background-size: 100% 100%;
-  z-index: 0;
-  pointer-events: none;
-}  */
-
 /* Scroll image */ 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  bottom: var(--bar-height); 
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
   background-size: contain;
