@@ -27,20 +27,13 @@ main,
 }
 
 /* Scroll image */
-body::before{
+body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
-
-  background-size: auto calc(
-    100vh
-    - var(--nav-h)
-    - var(--footer-h)
-    - var(--scroll-top-gap)
-    - var(--scroll-bottom-gap)
-  );
+  background-size: contain;
 
   background-position:
     center
@@ -296,6 +289,12 @@ input[type="range"]::-webkit-slider-thumb {
 @media (max-width: 800px) {
   :root {
     --bar-height: 100px; /* Adjusting for the double-stack height */
+  }
+}
+
+@media (max-width: 800px) {
+  body::before {
+    background-size: contain;
   }
 }
 
