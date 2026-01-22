@@ -1,4 +1,5 @@
 :root{
+  --bar-height: 70px; /* Default height for the black bar */
   --accent-blue: #1d44b8;
   --nav-h: 48px;
   --footer-h: 54px;
