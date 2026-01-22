@@ -3,7 +3,7 @@
   --nav-h: 48px;
   --footer-h: 54px;
 
-  /* changes the top and bottonm gap for the scroll image*/
+  /* changes the top and bottom gap for the scroll image*/
   --scroll-top-gap: 10px;
   --scroll-bottom-gap: 10px;
 
@@ -265,21 +265,33 @@ input[type="range"]::-webkit-slider-thumb {
    RESPSONSIVE 
    =========================== */
 @media (max-width: 800px) {
-  :root {
-    --bar-height: 100px; /* Adjusting for the double-stack height */
+  #scrollBar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px;
+    height: auto;
   }
 
-  #scrollBar {
-    flex-wrap: wrap; /* Allow wrapping at this breakpoint */
-    padding: 15px 10px;
-     gap: 8px; 
-  }
-  
-  /* Forcing each group to take a full row creates the Shot #1 look */
-  .control-group, 
+  .control-group,
   .font-resizer {
+    display: flex;
     justify-content: center;
-    width: 100%; 
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  input[type="range"] {
+    width: 140px;
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --bar-height: 100px; /* Adjusting for the double-stack height */
   }
 }
 
