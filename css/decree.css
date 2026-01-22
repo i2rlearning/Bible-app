@@ -208,15 +208,23 @@ main {
   white-space: nowrap;
 }
 
-input[type="range"] {
+iinput[type="range"] {
   appearance: none;
   width: 120px;
   height: 8px;
   border-radius: 5px;
-  background: #666;
+  background: transparent;
   outline: none;
 }
 
+/* Track (unfilled part) */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  background: #666; /* unfilled */
+  border-radius: 5px;
+}
+
+/* Filled track (before thumb) — WebKit browsers (Chrome, Safari, Edge) */
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 18px;
@@ -225,7 +233,33 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2px solid var(--accent-blue);
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin-top: -5px; /* aligns thumb with track */
 }
+
+/* Firefox filled portion */
+input[type="range"]::-moz-range-track {
+  background: #666;
+  height: 8px;
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-progress {
+  background-color: var(--accent-blue); /* filled part */
+  height: 8px;
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #fff;
+  border: 2px solid var(--accent-blue);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 
 /* --------------------------------------------------
    Buttons
