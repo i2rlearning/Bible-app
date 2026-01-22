@@ -208,49 +208,57 @@ main {
   white-space: nowrap;
 }
 
-iinput[type="range"] {
+/* ===== Common styles for all sliders ===== */
+input[type="range"] {
   appearance: none;
   width: 120px;
   height: 8px;
-  border-radius: 5px;
   background: transparent;
   outline: none;
+  cursor: pointer;
 }
 
-/* Track (unfilled part) */
+/* ===== WebKit Browsers (Chrome, Safari, Edge) ===== */
+
+/* Track (the entire slider line) */
 input[type="range"]::-webkit-slider-runnable-track {
   height: 8px;
-  background: #666; /* unfilled */
+  background: #666;
   border-radius: 5px;
 }
 
-/* Filled track (before thumb) — WebKit browsers (Chrome, Safari, Edge) */
+/* Thumb (the draggable circle) */
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
+  -webkit-appearance: none;
   width: 18px;
   height: 18px;
   background: transparent;
   border: 2px solid var(--accent-blue);
   border-radius: 50%;
-  cursor: pointer;
+  margin-top: -5px; /* centers thumb on track */
+  box-shadow: none;
   position: relative;
   z-index: 1;
-  margin-top: -5px; /* aligns thumb with track */
 }
 
-/* Firefox filled portion */
+/* ===== Firefox ===== */
+
+/* Track */
 input[type="range"]::-moz-range-track {
   background: #666;
   height: 8px;
   border-radius: 5px;
 }
 
+/* Filled part before the thumb */
 input[type="range"]::-moz-range-progress {
-  background-color: var(--accent-blue); /* filled part */
+  background-color: var(--accent-blue);
   height: 8px;
   border-radius: 5px;
 }
 
+/* Thumb */
 input[type="range"]::-moz-range-thumb {
   background: transparent;
   border: 2px solid var(--accent-blue);
@@ -258,8 +266,8 @@ input[type="range"]::-moz-range-thumb {
   height: 18px;
   border-radius: 50%;
   cursor: pointer;
+  box-shadow: none;
 }
-
 
 /* --------------------------------------------------
    Buttons
