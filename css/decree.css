@@ -36,7 +36,7 @@ body::before {
   right: 0;
   background-image: url("/img/scroll-nobg.webp");
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: contain;
   background-position: center;
   z-index: 0;
   pointer-events: none;
