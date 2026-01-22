@@ -97,6 +97,10 @@ nav.w3-top .donate-button:hover {
   color: #fff !important;
 }
 
+mobileMenu {
+  display: none;
+}
+
 /* --------------------------------------------------
    Main layout
 -------------------------------------------------- */
