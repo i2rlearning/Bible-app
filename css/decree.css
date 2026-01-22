@@ -142,7 +142,7 @@ main {
   overflow-x: hidden;
   box-sizing: border-box;
 
-  padding-left: 40px;  /* left margin */
+  padding-left: 50px;  /* left margin */
   padding-right: 3px;  /* right margin */
   padding-top: var(--fade-top);
   padding-bottom: var(--fade-bottom);
