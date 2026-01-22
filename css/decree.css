@@ -30,14 +30,14 @@ main,
 body::before {
   content: "";
   position: fixed;
-  top: var(--nav-h);
-  bottom: var(--footer-h);
+  top: calc(var(--nav-h) + var(--scroll-top-gap));
+  bottom: calc(var(--footer-h) + var(--scroll-bottom-gap));
   left: 0;
   right: 0;
-  background-image: url("/img/scroll-nobg.webp");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+
+  background: url("/img/scroll-nobg.webp") no-repeat center top;
+  background-size: 100% 100%;
+
   z-index: 0;
   pointer-events: none;
 }
