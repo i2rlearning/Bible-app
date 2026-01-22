@@ -90,8 +90,8 @@ nav.w3-top .w3-dropdown-hover .w3-button {
 
 /* Newsletter hover match */
 nav.w3-top .w3-dropdown-hover .w3-button:hover {
-  background-color: #000 !important;
-  color: var(--accent-blue) !important;
+  background-color: #fff !important;
+  color: black !important;
 }
 
 /* ▼ Down arrow size inside button */
