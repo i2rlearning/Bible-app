@@ -72,42 +72,48 @@ nav.w3-top .w3-bar .w3-bar-item {
   padding: 0 12px;
 }
 
-/* Newsletter */
+/* Newsletter dropdown button - match rest of navbar */
 nav.w3-top .w3-dropdown-hover .w3-button {
+  background: none !important; /* remove gray background */
+  color: white !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 500;
   height: var(--nav-h);
   line-height: var(--nav-h);
   padding: 0 12px;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  background: none;
   border: none;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 5px;
   cursor: pointer;
 }
 
-/* Hover style to match nav links */
+/* Newsletter hover match */
 nav.w3-top .w3-dropdown-hover .w3-button:hover {
-  background-color: #000; /* same as navbar background */
-  color: var(--accent-blue);
+  background-color: #000 !important;
+  color: var(--accent-blue) !important;
 }
 
-/* Dropdown content styles */
+/* ▼ Down arrow size inside button */
+nav.w3-top .w3-dropdown-hover .w3-button .dropdown-arrow {
+  font-size: 12px; /* Increase size here */
+  line-height: 1;
+  transform: translateY(1px); /* Tweak vertical alignment */
+}
+
+/* Dropdown menu items */
 .w3-dropdown-content {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #ccc;
+  background-color: #fff !important;
+  color: #000 !important;
   min-width: 160px;
-  z-index: 10001; /* ensure it's above the scroll */
+  border: 1px solid #ccc;
+  z-index: 10001;
 }
 
-/* Dropdown item hover */
+/* Dropdown hover */
 .w3-dropdown-content a:hover {
-  background-color: #f0f0f0;
-  color: var(--accent-blue);
+  background-color: #f0f0f0 !important;
+  color: var(--accent-blue) !important;
 }
 
 /* Donate button */
