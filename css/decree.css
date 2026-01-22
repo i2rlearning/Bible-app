@@ -83,6 +83,31 @@ nav.w3-top .w3-dropdown-hover .w3-button {
   background: none;
   border: none;
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Hover style to match nav links */
+nav.w3-top .w3-dropdown-hover .w3-button:hover {
+  background-color: #000; /* same as navbar background */
+  color: var(--accent-blue);
+}
+
+/* Dropdown content styles */
+.w3-dropdown-content {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  min-width: 160px;
+  z-index: 10001; /* ensure it's above the scroll */
+}
+
+/* Dropdown item hover */
+.w3-dropdown-content a:hover {
+  background-color: #f0f0f0;
+  color: var(--accent-blue);
 }
 
 /* Donate button */
