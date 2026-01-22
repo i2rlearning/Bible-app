@@ -261,21 +261,35 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: var(--accent-blue) !important;
 }
 
-/* --------------------------------------------------
-   Mobile
--------------------------------------------------- */
-
-#mobileMenu,
-.mobile-menu {
-  display: none !important;
-}
-
+/* ===========================
+   RESPSONSIVE 
+   =========================== */
 @media (max-width: 800px) {
-  .contentDecree {
-    width: 90vw;
+  :root {
+    --bar-height: 100px; /* Adjusting for the double-stack height */
   }
 
   #scrollBar {
-    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping at this breakpoint */
+    padding: 15px 10px;
+     gap: 8px; 
+  }
+  
+  /* Forcing each group to take a full row creates the Shot #1 look */
+  .control-group, 
+  .font-resizer {
+    justify-content: center;
+    width: 100%; 
+  }
+}
+
+@media (max-width: 600px) {
+/*  #scrollBar {
+    gap: 8px; 
+  } */
+  
+  /* Optional: make the sliders slightly shorter for very narrow phones */
+  input[type="range"] {
+    width: 100px;
   }
 }
