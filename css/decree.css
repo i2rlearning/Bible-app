@@ -3,7 +3,6 @@
   --nav-h: 48px;
   --footer-h: 54px;
 
-  /* changes the top and bottom gap for the scroll image*/
   --scroll-top-gap: 10px;
   --scroll-bottom-gap: 10px;
 
@@ -34,10 +33,8 @@ body::before {
   bottom: calc(var(--footer-h) + var(--scroll-bottom-gap));
   left: 0;
   right: 0;
-
   background: url("/img/scroll-nobg.webp") no-repeat center top;
   background-size: 100% 100%;
-
   z-index: 0;
   pointer-events: none;
 }
@@ -48,17 +45,14 @@ body::before {
 
 nav.w3-top {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
+  inset: 0 0 auto 0;
   z-index: 10000;
 }
 
 nav.w3-top .w3-bar {
   height: var(--nav-h);
   padding: 0 16px;
-  background-color: #000;
+  background: #000;
   color: #fff;
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -72,64 +66,24 @@ nav.w3-top .w3-bar .w3-bar-item {
   padding: 0 12px;
 }
 
-/* Newsletter dropdown button - match rest of navbar */
 nav.w3-top .w3-dropdown-hover .w3-button {
-  background: none !important; /* remove gray background */
-  color: white !important;
+  background: none !important;
+  color: #fff !important;
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 16px;
-  font-weight: 500;
-  height: var(--nav-h);
-  line-height: var(--nav-h);
-  padding: 0 12px;
   border: none;
-  cursor: pointer;
 }
 
-/* Newsletter hover match */
 nav.w3-top .w3-dropdown-hover .w3-button:hover {
-  background-color: #fff !important;
-  color: black !important;
-}
-
-/* ▼ Down arrow size inside button */
-nav.w3-top .w3-dropdown-hover .w3-button .dropdown-arrow {
-  font-size: 12px; /* Increase size here */
-  line-height: 1;
-  transform: translateY(1px); /* Tweak vertical alignment */
-}
-
-/* Dropdown menu items */
-.w3-dropdown-content {
-  background-color: #fff !important;
+  background: #fff !important;
   color: #000 !important;
-  min-width: 160px;
+}
+
+.w3-dropdown-content {
+  background: #fff !important;
   border: 1px solid #ccc;
   z-index: 10001;
-}
-
-/* Dropdown hover */
-.w3-dropdown-content a:hover {
-  background-color: #f0f0f0 !important;
-  color: var(--accent-blue) !important;
-}
-
-/* Donate button */
-nav.w3-top .donate-button {
-  background-color: red;
-  color: #fff;
-  transition: background-color 0.25s ease;
-}
-
-nav.w3-top .donate-button:hover {
-  background-color: #b71c1c !important;
-  color: #fff !important;
-}
-
-#mobileMenu {
-  display: none;
 }
 
 /* --------------------------------------------------
@@ -139,7 +93,6 @@ nav.w3-top .donate-button:hover {
 main {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0;
   z-index: 1;
 }
 
@@ -151,18 +104,15 @@ main {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 150px;      /* top of text inside of scroll - from before (did not work)   calc(var(--nav-h) + var(--scroll-top-gap)); */
-  bottom: 140px;  /* bottom of text inside of scroll - from before (did not work)   calc(var(--footer-h) + var(--scroll-bottom-gap)); */
-
+  top: 150px;
+  bottom: 140px;
   width: clamp(320px, 64vw, 880px);
   z-index: 2;
   overflow: hidden;
 }
 
-/* Force text color */
 .contentDecree,
-.contentDecree .decree,
-.contentDecree .decree p {
+.contentDecree * {
   color: #000 !important;
 }
 
@@ -172,17 +122,10 @@ main {
 
 .decree {
   height: 100%;
-  width: 100%;
   overflow-y: auto;
-  overflow-x: hidden;
-  box-sizing: border-box;
-
-  padding-left: 50px;  /* left margin */
-  padding-right: 3px;  /* right margin */
-  padding-top: var(--fade-top);
-  padding-bottom: var(--fade-bottom);
-
-  /* Realistic parchment fade */
+  padding: var(--fade-top) 3px var(--fade-bottom) 50px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0,
@@ -190,7 +133,6 @@ main {
     black calc(100% - var(--fade-bottom)),
     transparent 100%
   );
-  
   mask-image: linear-gradient(
     to bottom,
     transparent 0,
@@ -198,21 +140,14 @@ main {
     black calc(100% - var(--fade-bottom)),
     transparent 100%
   );
-  
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
 
 .decree::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  display: none;
 }
 
 .decree p {
-  width: 100%;
-  max-width: none;
-  text-align: left;
-  margin: 0 0 24px;
+  margin-bottom: 24px;
 }
 
 /* --------------------------------------------------
@@ -221,19 +156,14 @@ main {
 
 #scrollBar {
   position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  inset: auto 0 0 0;
   height: var(--footer-h);
-
   background: #000;
   color: #fff;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-
   z-index: 1001;
 }
 
@@ -252,166 +182,137 @@ main {
   white-space: nowrap;
 }
 
-/* ===== Common styles for all sliders ===== */
-input[type="range"] {
+/* --------------------------------------------------
+   SLIDERS
+-------------------------------------------------- */
+
+#scrollBar input[type="range"] {
   appearance: none;
   width: 120px;
   height: 8px;
-  background: transparent;
-  outline: none;
   cursor: pointer;
-}
-
-/* ===== WebKit Browsers (Chrome, Safari, Edge) ===== */
-
-/* Track (the entire slider line) */
-input[type="range"]::-webkit-slider-runnable-track {
-  height: 8px;
-  background: #666;
+  --fill: 0%;
+  background: linear-gradient(
+    to right,
+    #fff 0%,
+    #fff var(--fill),
+    #666 var(--fill),
+    #666 100%
+  );
   border-radius: 5px;
 }
 
-/* Thumb (the draggable circle) */
-input[type="range"]::-webkit-slider-thumb {
+#scrollBar input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  background: transparent;
+}
+
+#scrollBar input[type="range"]::-webkit-slider-thumb {
   appearance: none;
-  -webkit-appearance: none;
   width: 18px;
   height: 18px;
-  background: transparent;
+  background: #fff;
   border: 2px solid var(--accent-blue);
   border-radius: 50%;
-  margin-top: -5px; /* centers thumb on track */
-  box-shadow: none;
-  position: relative;
-  z-index: 1;
+  margin-top: -5px;
 }
 
-/* ===== Firefox ===== */
-
-/* Track */
-input[type="range"]::-moz-range-track {
+#scrollBar input[type="range"]::-moz-range-track {
+  height: 8px;
   background: #666;
-  height: 8px;
   border-radius: 5px;
 }
 
-/* Filled part before the thumb */
-input[type="range"]::-moz-range-progress {
-  background-color: var(--accent-blue);
+#scrollBar input[type="range"]::-moz-range-progress {
   height: 8px;
+  background: #fff;
   border-radius: 5px;
 }
 
-/* Thumb */
-input[type="range"]::-moz-range-thumb {
-  background: transparent;
-  border: 2px solid var(--accent-blue);
+#scrollBar input[type="range"]::-moz-range-thumb {
   width: 18px;
   height: 18px;
+  background: #fff;
+  border: 2px solid var(--accent-blue);
   border-radius: 50%;
-  cursor: pointer;
-  box-shadow: none;
 }
 
 /* --------------------------------------------------
-   Buttons
+   BUTTONS
 -------------------------------------------------- */
 
-#incrementSpeed,
-#decrementSpeed,
-#scrollToggle {
-  background: #3f3f3f;
+#scrollBar #incrementSpeed,
+#scrollBar #decrementSpeed {
+  width: 34px;
+  height: 30px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
   border: 1px solid #666;
-  color: #fff;
+  border-radius: 3px;
+  color: var(--accent-blue);
+  font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#scrollBar #incrementSpeed:hover,
+#scrollBar #decrementSpeed:hover {
+  background: var(--accent-blue);
+  color: #fff;
 }
 
 #scrollToggle {
   height: 30px;
   padding: 0 12px;
-}
-
-#scrollToggle:hover,
-#incrementSpeed:hover,
-#decrementSpeed:hover {
-  background-color: var(--accent-blue) !important;
-}
-
-#incrementSpeed,
-#decrementSpeed {
-  font-size: 24px; /* Adjust this to your desired arrow size */
-  padding: 4px 10px; /* Keeps button small */
-  line-height: 1;
   background: #3f3f3f;
   border: 1px solid #666;
+  border-radius: 3px;
   color: #fff;
-  border-radius: 4px;
   cursor: pointer;
 }
 
-#incrementSpeed:hover,
-#decrementSpeed:hover {
-  background-color: var(--accent-blue);
+#scrollToggle:hover {
+  background: var(--accent-blue);
 }
 
-/* ===========================
-   RESPSONSIVE 
-   =========================== */
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
 @media (max-width: 800px) {
   #scrollBar {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 15px;
     height: auto;
-  }
-
-  .control-group,
-  .font-resizer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    flex-wrap: wrap;
+    padding: 10px;
     gap: 10px;
   }
 
-  input[type="range"] {
+  #scrollBar input[type="range"] {
     width: 140px;
   }
 }
 
-@media (max-width: 800px) {
-  :root {
-    --bar-height: 100px; /* Adjusting for the double-stack height */
-  }
-}
-
 @media (max-width: 600px) {
-/*  #scrollBar {
-    gap: 8px; 
-  } */
-  
-  /* Optional: make the sliders slightly shorter for very narrow phones */
-  input[type="range"] {
+  #scrollBar input[type="range"] {
     width: 100px;
   }
 }
 
-/* ===========================
-   MISCELLANEOUS
-   =========================== */
-.extraSpace{
-  padding-top: 200px;  /* Extra padding for the starting point of the text */
+/* --------------------------------------------------
+   Misc
+-------------------------------------------------- */
+
+.extraSpace {
+  padding-top: 200px;
 }
 
 .colorChange a {
   text-decoration: none;
-  margin-bottom: 10px;
 }
 
-.colorChange a:hover{
-  color: #1d44b8;
+.colorChange a:hover {
+  color: var(--accent-blue);
 }
