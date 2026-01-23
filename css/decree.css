@@ -86,6 +86,9 @@ nav.w3-top .w3-dropdown-hover .w3-button:hover {
   z-index: 10001;
 }
 
+.mobileMenu {
+  display: none;
+}
 /* --------------------------------------------------
    Main layout
 -------------------------------------------------- */
